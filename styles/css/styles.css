@@ -1,0 +1,23 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html{
+	background: #eee;
+}
+
+#reddit-content {
+	width: 50%;
+	margin: auto;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.reddit-card {
+	width: 30%;
+	background: white;
+	margin: 10px;
+	padding: 1em;
+}
