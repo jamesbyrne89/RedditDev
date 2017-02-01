@@ -9,15 +9,57 @@ html{
 }
 
 #reddit-content {
-	width: 50%;
+	margin-top: 40px;
+	width: 60%;
 	margin: auto;
-	display: flex;
-	flex-wrap: wrap;
+	column-count: 4;
+	column-gap: 0px;
 }
 
 .reddit-card {
-	width: 30%;
+	width: 100%;
 	background: white;
-	margin: 10px;
+	margin: 20px;
 	padding: 1em;
+	break-inside: avoid;
+}
+
+.post-type--reddit {
+	font-family: 'open sans';
+	text-transform: uppercase;
+	color: gray;
+	font-size: 0.875rem;
+	margin-bottom: 2em;
+}
+
+.post-title {
+	padding-top: 2.5em;
+	max-width: 100%;
+	a {
+	font-family: 'crimson text', sans-serif;
+	font-size: 1.25rem;
+	letter-spacing: -0.5px;
+	font-weight: 700;
+	color: darkslategrey;
+	text-decoration: none;
+	line-height: 1;
+}
+}
+
+.post-thumb-wrapper {
+	margin: auto;
+	text-align: center;
+	width: 100%;
+}
+
+.post-comm-num {
+		font-family: 'open sans';
+	font-size: 0.875rem;
+	font-weight: 600;
+	padding: 1em 0;
+	a{
+
+	text-decoration: none;
+	color: gray;
+}
 }
