@@ -9,40 +9,40 @@ html{
 }
 
 #reddit-content {
-	margin-top: 40px;
-	width: 60%;
-	margin: auto;
-	column-count: 4;
-	column-gap: 0px;
+	width: 90%;
+	margin: 40px auto;
+	column-count: 5;
+	column-gap: 20px;
 }
 
 .reddit-card {
+	margin: 20px 0;
 	width: 100%;
 	background: white;
-	margin: 20px;
-	padding: 1em;
 	break-inside: avoid;
+	overflow: auto;
+	padding: 0;
 }
 
 .post-type--reddit {
 	font-family: 'open sans';
 	text-transform: uppercase;
-	color: gray;
 	font-size: 0.875rem;
-	margin-bottom: 2em;
+	padding: 1em 1em 0.5em 1em;
+
 }
 
 .post-title {
-	padding-top: 2.5em;
-	max-width: 100%;
+	padding: 1em 1em 2em 1em;
+	width: 100%;
 	a {
 	font-family: 'crimson text', sans-serif;
-	font-size: 1.25rem;
-	letter-spacing: -0.5px;
+	font-size: 1.5rem;
+	letter-spacing: -1px;
 	font-weight: 700;
-	color: darkslategrey;
+	color: black;
 	text-decoration: none;
-	line-height: 1;
+	line-height: 1.125;
 }
 }
 
@@ -56,10 +56,30 @@ html{
 		font-family: 'open sans';
 	font-size: 0.875rem;
 	font-weight: 600;
-	padding: 1em 0;
+	padding: 1em;
 	a{
 
 	text-decoration: none;
 	color: gray;
 }
+}
+
+.css {
+	color:  #FC1902;
+}
+
+.webdev {
+	color: #4941F7;
+}
+
+.web_design {
+	color: #07FEFA;
+}
+
+.jquery {
+	color: #FECD47;
+}
+
+.javascript {
+	color: lime;
 }
