@@ -1,26 +1,96 @@
+/* Reset */
+
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+
+/* Fonts */
+
+
+@font-face {
+  font-family: 'Tiempos Headline';
+  src: url('webfont.eot'); /* IE9 Compat Modes */
+  src: url('../../fonts/Tiempos-Headline-Medium.ttf') format('truetype'), /* IE6-IE8 */
+       url('webfont.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../../fonts/Tiempos-Headline-Medium.woff') format('woff') /* Pretty Modern Browsers */
+}
+
+
 html{
 	background: #eee;
 }
 
-#reddit-content {
-	width: 90%;
-	margin: 40px auto;
-	-webkit-column-count: 5;
-	   -moz-column-count: 5;
-	        column-count: 5;
-	-webkit-column-gap: 20px;
-	   -moz-column-gap: 20px;
-	        column-gap: 20px;
+
+body {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: wrap;
+	    flex-wrap: wrap;
+
 }
 
+
+#left-bar {
+	position: static;
+	width: 10%;
+	display: inline-block;
+	margin: 50px 0px 0px 0px;
+	padding: 20px 0;
+	text-align: right;
+}
+
+
+#left-bar h1 {
+  letter-spacing: -1px;
+  font-family: 'Tiempos Headline';
+  font-size: 2.5rem;
+  padding-bottom: 0.25em;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 400px;
+  flex: 0 0 400px;
+}
+
+
+.line {
+	width: 40%;
+	height: 2px;
+	background: black;
+	position: relative;
+	margin-left: 60%;
+}
+
+
+.description {
+	font-size: 1rem;
+	padding-top: 1em;
+	text-align: right;
+	width: 80%;
+	margin-left: 20%;
+}
+
+
+#reddit-content {
+	width: 85%;
+	margin: 40px auto;
+	-webkit-column-count: 4;
+	   -moz-column-count: 4;
+	        column-count: 4;
+	-webkit-column-gap: 40px;
+	   -moz-column-gap: 40px;
+	        column-gap: 40px;
+	-webkit-box-flex: 0;
+	    -ms-flex: 0 1 1600px;
+	        flex: 0 1 1600px;
+}
+
+
 .reddit-card {
-	margin: 20px 0;
+	margin: 30px 0;
 	width: 100%;
 	background: white;
 	-webkit-column-break-inside: avoid;
@@ -30,6 +100,7 @@ html{
 	padding: 0;
 }
 
+
 .post-type--reddit {
 	font-family: 'open sans';
 	text-transform: uppercase;
@@ -38,54 +109,89 @@ html{
 
 }
 
+
 .post-title {
-	padding: 1em 1em 2em 1em;
+	padding: 1em;
 	width: 100%;
 }
 
+
 .post-title a {
-  font-family: 'crimson text', sans-serif;
+  font-family: 'Tiempos Headline', sans-serif;
   font-size: 1.5rem;
-  letter-spacing: -1px;
   font-weight: 700;
   color: black;
   text-decoration: none;
-  line-height: 1.125;
+  line-height: 1.25;
 }
+
 
 .post-thumb-wrapper {
 	margin: auto;
 	text-align: center;
-	width: 100%;
+	max-width: 100%;
 }
+
+
+.post-thumb {
+	width: 100%;
+
+}
+
+
+.bottom-info-wrapper {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: justify;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
+	color: gray;
+	font-size: 0.75rem;
+	text-transform: uppercase;
+}
+
 
 .post-comm-num {
 		font-family: 'open sans';
-	font-size: 0.875rem;
+	
 	font-weight: 600;
 	padding: 1em;
 }
 
+
 .post-comm-num a{
-  text-decoration: none;
   color: gray;
+  text-decoration: none;
 }
+
+
+.timestamp {
+		font-family: 'open sans';
+	font-weight: 600;
+	padding: 1em;
+	}
+
 
 .css {
 	color:  #FC1902;
 }
 
+
 .webdev {
 	color: #4941F7;
 }
+
 
 .web_design {
 	color: #07FEFA;
 }
 
+
 .jquery {
 	color: #FECD47;
 }
+
 
 .javascript {
 	color: lime;
