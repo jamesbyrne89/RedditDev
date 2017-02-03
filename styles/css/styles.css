@@ -27,7 +27,7 @@ body {
 
 }
 
-#left-bar {
+.left-bar {
 	position: static;
 	width: 10%;
 	display: inline-block;
@@ -43,7 +43,7 @@ body {
 }
 }
 
-.line {
+.left-bar__line {
 	width: 40%;
 	height: 2px;
 	background: black;

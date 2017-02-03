@@ -35,7 +35,7 @@ body {
 }
 
 
-#left-bar {
+.left-bar {
 	position: static;
 	width: 10%;
 	display: inline-block;
@@ -45,7 +45,7 @@ body {
 }
 
 
-#left-bar h1 {
+.left-bar h1 {
   letter-spacing: -1px;
   font-family: 'Tiempos Headline';
   font-size: 2.5rem;
@@ -56,7 +56,7 @@ body {
 }
 
 
-.line {
+.left-bar__line {
 	width: 40%;
 	height: 2px;
 	background: black;
