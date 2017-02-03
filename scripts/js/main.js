@@ -2,6 +2,7 @@
     let unix;
     let html;
     let redditCards = [];
+    let completed = 0;
 
 function grabJsonData (){
       $.getJSON(
@@ -11,16 +12,7 @@ function grabJsonData (){
 
          for (i=0; i<data.data.children.length; i++){
 
-          postsArr.push(data.data.children[i].data);  
-          unix = convertTimestamp(data.data.children[i].data.created);
-      if (typeof data.data.children[i].data.preview !== 'undefined' &&
-                    typeof data.data.children[i].data.preview.images[0].resolutions[2] !== 'undefined') {
-          unix = convertTimestamp(data.data.children[i].data.created);
-          thumbnail = `<img class="post-thumb" src="${data.data.children[i].data.preview.images[0].resolutions[2].url}">`;
-        }
-else {
-  thumbnail = "";
-}
+          postsArr.push(data.data.children[i].data); 
 
          }
     }
@@ -29,15 +21,12 @@ else {
       .success(function() {  })
       .error(function() { alert("error"); })
       .complete(function() { console.log('Got r/WebDev data'); 
+      completed++;
+      if (completed ==5){
+        checkCompleted();
+      
+      }
       });
-
-
-$('.reddit-card').sort(function (a, b) {
-console.log('sorting');
-      var contentA =parseInt( $(a).attr('data-timestamp'));
-      var contentB =parseInt( $(b).attr('data-timestamp'));
-      return (contentA < contentB) ? -1 : (contentA > contentB) ? 1 : 0;
-   });
 
    
 // Grab r/web_design data
@@ -46,23 +35,17 @@ console.log('sorting');
         function foo(data)
         {
        for (i=0; i<data.data.children.length; i++){
-        
-        if (typeof data.data.children[i].data.preview !== 'undefined' &&
-                    typeof data.data.children[i].data.preview.images[0].resolutions[2] !== 'undefined') {
-          unix = convertTimestamp(data.data.children[i].data.created);
-          thumbnail = `<img class="post-thumb" src="${data.data.children[i].data.preview.images[0].resolutions[2].url}">`;
-        }
-        else {
-          thumbnail = "";
-        }
-
- 
+        postsArr.push(data.data.children[i].data); 
          }
         }
       )
       .success(function() { })
       .error(function() { alert("error"); })
-      .complete(function() { console.log("Got r/web_design data"); });
+      .complete(function() { console.log("Got r/web_design data");
+    completed++;
+        if (completed ==5){
+        checkCompleted();
+      }});
 
 
 // Grab r/CSS data
@@ -73,14 +56,6 @@ console.log('sorting');
         {
        for (i=0; i<data.data.children.length; i++){
         postsArr.push(data.data.children[i].data);  
-        if (typeof data.data.children[i].data.preview !== 'undefined' &&
-                    typeof data.data.children[i].data.preview.images[0].resolutions[2] !== 'undefined') {
-          unix = convertTimestamp(data.data.children[i].data.created);
-          thumbnail = `<img class="post-thumb" src="${data.data.children[i].data.preview.images[0].resolutions[2].url}">`;
-}
-else {
-  thumbnail = "";
-}
 
 
          }
@@ -88,7 +63,11 @@ else {
       )
       .success(function() { })
       .error(function() { alert("error"); })
-      .complete(function() { console.log("Got r/CSS data"); });
+      .complete(function() { console.log("Got r/CSS data"); 
+        completed++;
+          if (completed == 5){
+        checkCompleted();
+      }});
 
 
 
@@ -100,15 +79,6 @@ else {
         {
        for (i=0; i<data.data.children.length; i++){
         postsArr.push(data.data.children[i].data);  
-        unix = convertTimestamp(data.data.children[i].data.created);
-              if (typeof data.data.children[i].data.preview !== 'undefined' &&
-                    typeof data.data.children[i].data.preview.images[0].resolutions[2] !== 'undefined') {
-          
-          thumbnail = `<img class="post-thumb" src="${data.data.children[i].data.preview.images[0].resolutions[2].url}">`;
-}
-else {
-  thumbnail = "";
-}
 
 
          }
@@ -116,7 +86,11 @@ else {
       )
       .success(function() { })
       .error(function() { alert("error"); })
-      .complete(function() { console.log("Got r/javascript data"); });
+      .complete(function() { console.log("Got r/javascript data"); 
+    completed++;
+        if (completed == 5){
+        checkCompleted();
+      }});
 
 
 
@@ -127,22 +101,16 @@ else {
         {
        for (i=0; i<data.data.children.length; i++){
         postsArr.push(data.data.children[i].data);  
-    if (typeof data.data.children[i].data.preview !== 'undefined' &&
-                    typeof data.data.children[i].data.preview.images[0].resolutions[2] !== 'undefined') {
-          unix = convertTimestamp(data.data.children[i].data.created);
-          thumbnail = `<img class="post-thumb" src="${data.data.children[i].data.preview.images[0].resolutions[2].url}">`;
-        }
-        else {
-          thumbnail = "";
-        }
-
- 
          }
         }
       )
       .success(function() { })
       .error(function() { alert("error"); })
-      .complete(function() { console.log("Got r/jQuery data"); });
+      .complete(function() { console.log("Got r/jQuery data");
+        completed++; 
+        if (completed == 5){
+        checkCompleted();
+      }});
 
 
 // Convert UNIX timestamp into regular format
@@ -173,19 +141,48 @@ else {
   return time;
 
 }
-placeIntoHtml(postsArr);
+
 
 };
+
+//   unix = convertTimestamp(postsArr[i].created);
 
 grabJsonData();
 
 
-function placeIntoHtml(arr) {
-  $.each(arr,function(i, value){
-    console.log(arr);
-  console.log('index: ' + i + ',value: ' + value);
-});
-};
+
+
+function checkCompleted(){
+postsArr.sort(function (a, b) {
+return a.created - b.created;
+   });
+  for (i=0; i<postsArr.length;i++){
+          if (
+            typeof postsArr[i].preview !== 'undefined' &&
+              typeof postsArr[i].preview.images[0].resolutions !== 'undefined' &&
+                    typeof postsArr[i].preview.images[0].resolutions[2] !== 'undefined') {
+         
+          thumbnail = `<img class="post-thumb" src="${postsArr[i].preview.images[0].resolutions[2].url}">`;
+        }
+else {
+  thumbnail = "";
+}
+           html = `<div class="reddit-card" data-timestamp="${postsArr[i].created}">
+        <div class="post-type--reddit ${postsArr[i].subreddit}">r/${postsArr[i].subreddit}</div>
+      <div class="post-thumb-wrapper"><a href="${postsArr[i].url}" target="blank">${thumbnail}</a></div>
+    <div class="post-title"><a href="${postsArr[i].url}" target="blank">
+    ${postsArr[i].title}</a></div>
+    <div class="bottom-info-wrapper">        
+    <div class="post-comm-num"><a href="http://reddit.com/${postsArr[i].permalink}" target="blank">
+    ${postsArr[i].num_comments} comments</a></div>
+    <div class="timestamp"></div>
+    </div>
+    </div>`
+console.log
+       $('#reddit-content').append(html);
+
+  }
+}
 
 
 
