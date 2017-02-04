@@ -126,6 +126,7 @@ body {
 }
 
 .filters__list {
+	font-family: 'Tiempos Headline';
 	padding-top: 1em;
 	position: relative;
 	z-index: 5;
@@ -246,8 +247,13 @@ body {
 }
 
 .Frontend {
-	color: #e67e22;
+	color: #0021a5;
 }
+
+.WebdevTutorials {
+	color: #fc00c1;
+}
+
 
 /* Loading animation */
 
@@ -255,5 +261,39 @@ body {
 	position: absolute;
 	left: 45vw;
 	top: 40vh;
+	height: 60px;
+	width: 60px;
 	font-size: 3rem;
+	border-radius: 50%;
+	&:before, &:after {
+		position: absolute;
+		content: "";
+		display: block;
+		margin-top: 0px;
+		margin-left: 0px;
+		height: 60px;
+	width: 60px;
+	border-radius: 50%;
+		border: solid 4px black;
+	animation: pulse 1s linear infinite;
+	opacity: 0;
+}
+&:after {
+	animation: pulse 1s linear .3s infinite;
+}
+}
+
+@keyframes pulse
+{
+	0% {
+		transform: scale(0);
+		opacity: 1;
+	}
+
+	100% {
+	transform: scale(1.3);
+		opacity: 0;
+	}
+
+
 }

@@ -24,7 +24,7 @@
       .error(function() { alert("error"); })
       .complete(function() { console.log('Got r/WebDev data'); 
       completed++;
-      if (completed ==6){
+      if (completed ==7){
         checkCompleted();
       
       }
@@ -45,7 +45,7 @@
       .error(function() { alert("error"); })
       .complete(function() { console.log("Got r/web_design data");
     completed++;
-        if (completed ==6){
+        if (completed ==7){
         checkCompleted();
       }});
 
@@ -63,7 +63,7 @@
       .error(function() { alert("error"); })
       .complete(function() { console.log("Got r/web_design data");
     completed++;
-        if (completed ==6){
+        if (completed ==7){
         checkCompleted();
       }});
 
@@ -86,7 +86,7 @@
       .error(function() { alert("error"); })
       .complete(function() { console.log("Got r/CSS data"); 
         completed++;
-          if (completed == 6){
+          if (completed == 7){
         checkCompleted();
       }});
 
@@ -109,7 +109,7 @@
       .error(function() { alert("error"); })
       .complete(function() { console.log("Got r/javascript data"); 
     completed++;
-        if (completed == 6){
+        if (completed == 7){
         checkCompleted();
       }});
 
@@ -129,9 +129,27 @@
       .error(function() { alert("error"); })
       .complete(function() { console.log("Got r/jQuery data");
         completed++; 
-        if (completed == 6){
+        if (completed == 7){
         checkCompleted();
       }});
+
+// Grab r/WebdevTutorials data
+                       $.getJSON(
+        "http://www.reddit.com/r/WebdevTutorials.json?jsonp=?",
+        function foo(data)
+        {
+       for (i=0; i<data.data.children.length; i++){
+        postsArr.push(data.data.children[i].data);  
+         }
+        }
+      )
+      .success(function() { })
+      .error(function() { alert("error"); })
+      .complete(function() { console.log("Got r/jQuery data");
+        completed++; 
+        if (completed == 7){
+        checkCompleted();
+      }});      
 
 
 // Convert UNIX timestamp into regular format
@@ -199,8 +217,8 @@ else {
     </div>
     </div>`
 
-       $('#reddit-content').hide().append(html).fadeIn(500);
-       $('#loading').hide();
+       $('#reddit-content').append(html).fadeIn(500);
+     $('#loading').hide();
 
   }
 }
@@ -262,6 +280,15 @@ $('.jquery-box').change(function() {
   }
   else {
     $('.jquery').fadeOut('fast');
+  }
+});
+
+$('.webdevtutorials-box').change(function() {
+  if ($(this).is(':checked')) {
+    $('.WebdevTutorials').fadeIn('fast');
+  }
+  else {
+    $('.WebdevTutorials').fadeOut('fast');
   }
 });
 
