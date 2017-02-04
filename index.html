@@ -22,9 +22,57 @@
         <h1>RedditDev</h1>
         <div class="left-bar__line"></div>
         <div class="description">Combining web development resources on Reddit.</div>
+        <div class="filters">
+        <div class="filters__top-bar">
+        
+            <h3 class="filters__title">Filter</h3>
+            <span class="expand">+</span>
+        </div>    
+            <ul class="filters__list">
+                    <li class="list__item">
+      <label class="label--checkbox">  
+          r/webdev
+          <input type="checkbox" class="checkbox webdev-box" checked>
+      </label>
+    </li>
+    <li class="list__item">
+      <label class="label--checkbox">
+          r/web_design
+          <input type="checkbox" class="checkbox web_design-box" checked>
+      </label>
+      </li>
+          <li class="list__item">
+      <label class="label--checkbox">
+          r/frontend
+          <input type="checkbox" class="checkbox frontend-box" checked>
+      </label>
+      </li>
+      <li class="list__item">
+      <label class="label--checkbox">
+       r/css
+        <input type="checkbox" class="checkbox css-box" checked>
+      </label>
+    </li>
+    <li class="list__item">
+      <label class="label--checkbox">
+          r/javascript
+          <input type="checkbox" class="checkbox javascript-box" checked>
+      </label>
+      </li>
+      <li class="list__item">
+      <label class="label--checkbox">
+          r/jquery
+        <input type="checkbox" class="checkbox jquery-box" checked>  
+      </label>
+    </li>
+            </ul>
+        
+        </div>
         </header>
+         <div id="loading">Loading...</div>
         <div id="reddit-content">
         </div>
+
 
         <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>

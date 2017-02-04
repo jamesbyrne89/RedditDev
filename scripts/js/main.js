@@ -4,7 +4,9 @@
     let redditCards = [];
     let completed = 0;
 
-function grabJsonData (){
+
+
+
       $.getJSON(
         "http://www.reddit.com/r/webdev.json?jsonp=?",
         function foo(data)
@@ -22,7 +24,7 @@ function grabJsonData (){
       .error(function() { alert("error"); })
       .complete(function() { console.log('Got r/WebDev data'); 
       completed++;
-      if (completed ==5){
+      if (completed ==6){
         checkCompleted();
       
       }
@@ -43,9 +45,28 @@ function grabJsonData (){
       .error(function() { alert("error"); })
       .complete(function() { console.log("Got r/web_design data");
     completed++;
-        if (completed ==5){
+        if (completed ==6){
         checkCompleted();
       }});
+
+// Grab r/Frontend data
+            $.getJSON(
+        "http://www.reddit.com/r/frontend.json?jsonp=?",
+        function foo(data)
+        {
+       for (i=0; i<data.data.children.length; i++){
+        postsArr.push(data.data.children[i].data); 
+         }
+        }
+      )
+      .success(function() { })
+      .error(function() { alert("error"); })
+      .complete(function() { console.log("Got r/web_design data");
+    completed++;
+        if (completed ==6){
+        checkCompleted();
+      }});
+
 
 
 // Grab r/CSS data
@@ -65,7 +86,7 @@ function grabJsonData (){
       .error(function() { alert("error"); })
       .complete(function() { console.log("Got r/CSS data"); 
         completed++;
-          if (completed == 5){
+          if (completed == 6){
         checkCompleted();
       }});
 
@@ -88,7 +109,7 @@ function grabJsonData (){
       .error(function() { alert("error"); })
       .complete(function() { console.log("Got r/javascript data"); 
     completed++;
-        if (completed == 5){
+        if (completed == 6){
         checkCompleted();
       }});
 
@@ -108,7 +129,7 @@ function grabJsonData (){
       .error(function() { alert("error"); })
       .complete(function() { console.log("Got r/jQuery data");
         completed++; 
-        if (completed == 5){
+        if (completed == 6){
         checkCompleted();
       }});
 
@@ -143,20 +164,19 @@ function grabJsonData (){
 }
 
 
-};
-
 //   unix = convertTimestamp(postsArr[i].created);
 
-grabJsonData();
 
 
 
 
 function checkCompleted(){
+  console.log(postsArr)
 postsArr.sort(function (a, b) {
-return a.created - b.created;
+return b.created - a.created;
    });
   for (i=0; i<postsArr.length;i++){
+time = convertTimestamp(postsArr[i].created);
           if (
             typeof postsArr[i].preview !== 'undefined' &&
               typeof postsArr[i].preview.images[0].resolutions !== 'undefined' &&
@@ -167,22 +187,85 @@ return a.created - b.created;
 else {
   thumbnail = "";
 }
-           html = `<div class="reddit-card" data-timestamp="${postsArr[i].created}">
+           html = `<div class="reddit-card ${postsArr[i].subreddit}" data-timestamp="${postsArr[i].created}">
         <div class="post-type--reddit ${postsArr[i].subreddit}">r/${postsArr[i].subreddit}</div>
-      <div class="post-thumb-wrapper"><a href="${postsArr[i].url}" target="blank">${thumbnail}</a></div>
+      <div class="post-thumb-wrapper"><a href="${postsArr[i].url}" target="_blank">${thumbnail}</a></div>
     <div class="post-title"><a href="${postsArr[i].url}" target="blank">
     ${postsArr[i].title}</a></div>
     <div class="bottom-info-wrapper">        
     <div class="post-comm-num"><a href="http://reddit.com/${postsArr[i].permalink}" target="blank">
     ${postsArr[i].num_comments} comments</a></div>
-    <div class="timestamp"></div>
+    <time class="timestamp">${time}</time>
     </div>
     </div>`
-console.log
-       $('#reddit-content').append(html);
+
+       $('#reddit-content').hide().append(html).fadeIn(500);
+       $('#loading').hide();
 
   }
 }
+
+$('.expand').on('click', function(){
+  $(this).toggleClass('expand--opened');
+  $('.filters__list').toggleClass('filters__list--opened');
+});
+
+
+$('.web_design-box').change(function() {
+  if ($(this).is(':checked')) {
+    $('.web_design').fadeIn('fast');
+  }
+  else {
+    $('.web_design').fadeOut('fast');
+  }
+});
+
+$('.frontend-box').change(function() {
+  if ($(this).is(':checked')) {
+    $('.Frontend').fadeIn('fast');
+  }
+  else {
+    $('.Frontend').fadeOut('fast');
+  }
+});
+
+$('.webdev-box').change(function() {
+  if ($(this).is(':checked')) {
+    $('.webdev').fadeIn('fast');
+  }
+  else {
+    $('.webdev').fadeOut('fast');
+  }
+});
+
+$('.css-box').change(function() {
+  if ($(this).is(':checked')) {
+    $('.css').fadeIn('fast');
+  }
+  else {
+    $('.css').fadeOut('fast');
+  }
+});
+
+$('.javascript-box').change(function() {
+  if ($(this).is(':checked')) {
+    $('.javascript').fadeIn('fast');
+  }
+  else {
+    $('.javascript').fadeOut('fast');
+  }
+});
+
+$('.jquery-box').change(function() {
+  if ($(this).is(':checked')) {
+    $('.jquery').fadeIn('fast');
+  }
+  else {
+    $('.jquery').fadeOut('fast');
+  }
+});
+
+
 
 
 
