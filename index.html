@@ -1,16 +1,19 @@
 <!doctype html>
-<html class="no-js" lang="">
+<html class="no-js" lang="en">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Web Dev Feed</title>
+        <title>RedditDev</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        
+        <link href="images/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png" />
+        <link href="images/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png" />
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
         <!-- Place favicon.ico in the root directory -->
         <link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,700|Open+Sans:600" rel="stylesheet">
         <link rel="stylesheet" href="styles/css/build/styles.css">
+        <script src="https://use.fontawesome.com/a697955832.js"></script>
+        <script src="scripts/js/vendor.js"></script>
     </head>
     <body>
         <!--[if lt IE 8]>
@@ -18,64 +21,65 @@
         <![endif]-->
 
         <!-- Add your site or application content here -->
+        <span class="scrolledBar"></span>
         <header class="left-bar">
         <h1>RedditDev</h1>
         <div class="left-bar__line"></div>
-        <div class="description">Combining web development resources on Reddit.</div>
+        <div class="left-bar__description">A place for frontend web development resources on Reddit.</div>
         <div class="filters">
         <div class="filters__top-bar">
         
-            <h3 class="filters__title">Filter</h3>
+            <h3 class="filters__title">Filter by topic
             <span class="expand">+</span>
+            </h3>
         </div>    
             <ul class="filters__list">
 
-    <li class="list__item">
- 
 
-      <li class="list__item">
-      <label class="label--checkbox">
-       r/css
-        <input type="checkbox" class="checkbox css-box" checked>
-      </label>
-    </li>
-             <li class="list__item">
-      <label class="label--checkbox">
-          r/frontend
-          <input type="checkbox" class="checkbox frontend-box" checked>
-      </label>
-      </li> 
     <li class="list__item">
-      <label class="label--checkbox">
-          r/javascript
-          <input type="checkbox" class="checkbox javascript-box" checked>
-      </label>
-      </li>
-      <li class="list__item">
-      <label class="label--checkbox">
-          r/jquery
-        <input type="checkbox" class="checkbox jquery-box" checked>  
+      <label>
+        <input type="checkbox" class="checkbox css-box" checked>
+        <span class="label--checkbox">r/css</span>     
       </label>
     </li>
-         <label class="label--checkbox">
-          r/web_design
-          <input type="checkbox" class="checkbox web_design-box" checked>
+    <li class="list__item">
+      <label>
+        <input type="checkbox" class="checkbox frontend-box" checked>
+        <span class="label--checkbox">r/frontend</span>
       </label>
-      </li>
-                        <li class="list__item">
-      <label class="label--checkbox">  
-          r/webdev
-          <input type="checkbox" class="checkbox webdev-box" checked>
-      </label>
-    </li>
-                        <li class="list__item">
-      <label class="label--checkbox">  
-          r/webdevtutorials
-          <input type="checkbox" class="checkbox webdevtutorials-box" checked>
+    </li> 
+    <li class="list__item">
+      <label>
+        <input type="checkbox" class="checkbox javascript-box" checked>
+        <span class="label--checkbox">r/javascript</span>
       </label>
     </li>
-            </ul>
-        
+    <li class="list__item">
+      <label>
+        <input type="checkbox" class="checkbox jquery-box" checked>
+        <span class="label--checkbox">r/jquery</span>   
+      </label>
+    </li>
+    <li class="list__item">
+      <label>
+        <input type="checkbox" class="checkbox web_design-box" checked>
+        <span class="label--checkbox">r/web_design</span>
+      </label>
+    </li>
+    <li class="list__item">
+      <label>
+        <input type="checkbox" class="checkbox webdev-box" checked>
+         <span class="label--checkbox">r/webdev</span>
+      </label>
+    </li>
+    <li class="list__item">
+       <label>
+        <input type="checkbox" class="checkbox webdevtutorials-box" checked>
+        <span>r/webdevtutorials</span>    
+      </label>
+    </li>
+</ul>
+        <a data-scroll id="back-to-top" href="#">Back to top</a>
         </div>
         </header>
          <div id="loading"></div>

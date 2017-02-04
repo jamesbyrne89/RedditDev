@@ -27,13 +27,39 @@ body {
 
 }
 
+a:link {
+	text-decoration: none;
+}
+
+a:visited {
+	color: black;
+}
+
+
+::-moz-selection { 
+	background-color: eee;
+	color: black;
+}
+::selection { 
+
+	background-color: #eee;
+color: black; }
+
+.scrolledBar {
+	height: 4px;
+	background: black;
+	position: fixed;
+	top: 0;
+z-index: 20;
+}
+
 /* Left bar */
 
 .left-bar {
-	position: static;
-	width: 10%;
+	position: fixed;
+	width: 13vw;
 	display: inline-block;
-	margin: 50px 0px 0px 0px;
+	margin: 50px 20px 0px 0px;
 	padding: 20px 0;
 	text-align: right;
 	h1 {
@@ -53,12 +79,12 @@ body {
 	margin-left: 60%;
 }
 
-.description {
+.left-bar__description {
 	font-size: 1rem;
 	padding-top: 1em;
 	text-align: right;
 	width: 100%;
-	padding-left: 40%;
+	padding-left: 30%;
 	background: #eee;
 	position: relative;
 	z-index: 15;
@@ -84,15 +110,20 @@ body {
 }
 
 .filters__title {
-	line-height: 2.5;
+	line-height: 2;
 	font-size: 1rem;
 	text-transform: uppercase;
+}
+
+.filters__title:hover{
+	cursor: pointer;
 }
 
 .expand {
 	display: inline-block;
 	margin-left: 30px;
 	font-size: 1.75em;
+	line-height: 0.5;
 	font-weight: bold;
 	transform: rotate(0deg);
 	transition: transform 0.5s;
@@ -116,25 +147,22 @@ body {
      -khtml-user-select: none; /* Konqueror HTML */
        -moz-user-select: none; /* Firefox */
         -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none; /* Non-prefixed version, currently
+         user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome and Opera */
-
 }
 
-.expand:hover, .expand--opened:hover {
-	cursor: pointer;
-}
+
 
 .filters__list {
 	font-family: 'Tiempos Headline';
-	padding-top: 1em;
+	padding: 0.5em 0;
 	position: relative;
 	z-index: 5;
-	transform: translateY(-200px);
+	transform: translateY(-210px);
 	transition: transform 0.5s;
 	li {
 		display: block;
-		padding: 0.25em 0;
+		margin-top: 0.5em;
 	}
 }
 
@@ -143,19 +171,72 @@ body {
 	transition: transform 0.5s;
 }
 
+
 .checkbox {
-	margin-left: 16px;
+	display: none;
 }
 
+
+
+input[type=checkbox] + span::after {
+		content: "";
+		font-size: 1.5em;
+		transform: rotate(45deg);
+		display: inline-block;
+		position: relative;
+		left: 0.875em;
+		height: 8px;
+		width: 8px;
+		border: solid 2px black;
+
+}
+
+input[type=checkbox]:checked + span::after {
+		content: "";
+		transform: rotate(45deg);
+		font-size: 1.5em;
+		display: inline-block;
+		position: relative;
+		right: 1em;
+		border: solid 2px black;
+		background: black;
+		transition: all 0.3s;
+}
+
+label {
+	margin-right: 1.5em;
+	padding: 0.5em 0;
+&:hover {
+	cursor: pointer;
+}
+}
+
+/* Back To Top Button */
+
+#back-to-top {
+	font-family: 'Tiempos Headline';
+	position: relative;
+	top: 300px;
+	display: none;
+	font-size: 1rem;
+}
+
+#back-to-top:after {
+	font-family: FontAwesome;
+	content: "\f176";
+	margin-left: 1em;
+	color: black;
+}
 
 /* Content */
 
 #reddit-content {
-	width: 85%;
-	margin: 40px auto;
+	width: 82vw;
+	margin: 40px 40px 40px calc(18vw - 40px);
+	position: relative;
 	column-count: 4;
 	column-gap: 40px;
-	flex: 0 1 1600px;
+	flex: 0 1 auto;
 }
 
 /* Cards */
@@ -165,7 +246,7 @@ body {
 	width: 100%;
 	background: white;
 	break-inside: avoid;
-	overflow: auto;
+	overflow: hidden;
 }
 
 .post-type--reddit {
@@ -179,6 +260,7 @@ body {
 .post-title {
 	padding: 1em;
 	width: 100%;
+	transition: all 0.2s;
 	a {
 	font-family: 'Tiempos Headline', sans-serif;
 	font-size: 1.5rem;
@@ -187,17 +269,45 @@ body {
 	text-decoration: none;
 	line-height: 1.25;
 }
+	&:hover {
+	margin-left: 0.5em;
+	box-decoration-break: clone;
+	}
 }
 
 .post-thumb-wrapper {
+	position: relative;
 	margin: auto;
 	text-align: center;
 	max-width: 100%;
+transition: all 0.2s;
 }
+
+.post-thumb-wrapper:hover {
+		background-color: #00ff36;
+			&::after{
+			content: ' ';
+			position: absolute;
+			display: block;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			transition: all ease-in-out .5s;
+			background-color: #23278a;
+			mix-blend-mode: lighten;
+
+		}
+	}
+.post-thumb-wrapper:hover .post-thumb {
+filter: grayscale(100%) contrast(0.5);
+mix-blend-mode: multiply;
+	}
 
 .post-thumb {
 	width: 100%;
-
+	margin-bottom: -4px;
+	transition: all 0.2s;	
 }
 
 .bottom-info-wrapper {
@@ -216,7 +326,10 @@ body {
 	a{
 	color: gray;
 	text-decoration: none;
-	
+	transition: color 0.2s;
+	&:hover {
+		color: black;
+	}
 }
 }
 
@@ -243,7 +356,7 @@ body {
 }
 
 .javascript {
-	color: lime;
+	color: #00ff36;
 }
 
 .Frontend {
@@ -259,10 +372,8 @@ body {
 
 #loading {
 	position: absolute;
-	left: 45vw;
+	left: 50vw;
 	top: 40vh;
-	height: 60px;
-	width: 60px;
 	font-size: 3rem;
 	border-radius: 50%;
 	&:before, &:after {
@@ -274,7 +385,7 @@ body {
 		height: 60px;
 	width: 60px;
 	border-radius: 50%;
-		border: solid 4px black;
+		border: solid 4px #00ff36;
 	animation: pulse 1s linear infinite;
 	opacity: 0;
 }
