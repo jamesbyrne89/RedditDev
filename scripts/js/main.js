@@ -216,7 +216,7 @@
             }
             html = `<div class="reddit-card ${postsArr[i].subreddit}" data-timestamp="${postsArr[i].created}">
                       <div class="post-type--reddit ${postsArr[i].subreddit}">r/${postsArr[i].subreddit}</div>
-                      
+                      <div class="thumb-title-wrapper">
                         <a href="${postsArr[i].url}" target="_blank">
                         <div class="post-thumb-wrapper">${thumbnail}
                         </div>
@@ -224,6 +224,7 @@
 
                       <div class="post-title"><a href="${postsArr[i].url}" target="blank">
                       ${postsArr[i].title}</a></div>
+                      </div>
                       <div class="bottom-info-wrapper">        
                         <div class="post-comm-num">
                           <a href="http://reddit.com/${postsArr[i].permalink}" target="blank">
