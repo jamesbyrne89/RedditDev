@@ -1,0 +1,129 @@
+/* Filter list */
+
+.filters {
+	
+	font-family: 'open sans';
+	position: relative;
+	height: auto;
+	z-index: 4;
+}
+
+.filters__topBar {
+	padding-top: 100px;
+	display: flex;
+	justify-content: flex-end;
+	padding-bottom: 0.5em;
+	z-index: 10;
+	position: relative;
+	background: #eee;
+	box-shadow: 0 2px 10px 2px #eee;
+
+}
+
+.filters__title {
+	line-height: 2;
+	font-size: 1rem;
+	text-transform: uppercase;
+	position: relative;
+	z-index: 40;
+	display: flex;
+	align-items: center;
+}
+
+.filters__title:hover{
+	cursor: pointer;
+}
+
+.expandIcon {
+	display: inline-block;
+	margin-left: 30px;
+	font-size: 1.75em;
+	line-height: 0.5;
+	font-weight: bold;
+	transform: rotate(0deg);
+	transition: transform 0.5s;
+	  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+
+}
+
+.expandIcon--opened {
+	transform: rotate(-90deg) !important;
+	transition: transform 0.5s;
+	margin-top: 30px;
+	margin-top: 0;
+	  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+         user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+
+
+.filters__list {
+	background: #eee;
+	font-family: 'Tiempos Headline';
+	padding: 0.5em 0;
+	position: relative;
+	z-index: 5;
+	transform: translateY(-210px);
+	transition: transform 0.5s;
+	li {
+		display: block;
+		margin-top: 0.5em;
+		z-index: 9;
+	}
+}
+
+.filters__list--opened {
+	position: relative;
+	transform: translateY(0px);	
+	transition: transform 0.5s;
+	z-index: 7;
+}
+
+label {
+	position: relative;
+	z-index: 26;
+}
+
+input[type=checkbox] + span::after {
+		content: "";
+		font-size: 1.5em;
+		transform: rotate(45deg);
+		display: inline-block;
+		position: relative;
+		left: 0.875em;
+		height: 6px;
+		width: 6px;
+		border: solid 2px black;
+
+}
+
+input[type=checkbox]:checked + span::after {
+		content: "";
+		transform: rotate(45deg);
+		font-size: 1.5em;
+		display: inline-block;
+		position: relative;
+		right: 1em;
+		border: solid 2px black;
+		background: black;
+		transition: all 0.3s;
+}
+
+label {
+	margin-right: 1.5em;
+	padding: 0.5em 0;
+&:hover {
+	cursor: pointer;
+}
+}

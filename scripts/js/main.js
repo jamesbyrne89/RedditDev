@@ -210,31 +210,31 @@
                 typeof postsArr[i].preview.images[0].resolutions !== 'undefined' &&
                 typeof postsArr[i].preview.images[0].resolutions[2] !== 'undefined') {
 
-                thumbnail = `<img class="lazyload post-thumb" src="${postsArr[i].preview.images[0].resolutions[2].url}">`;
+                thumbnail = `<img class="lazyload reddit-card__thumbnail" src="${postsArr[i].preview.images[0].resolutions[2].url}">`;
             } else {
                 thumbnail = "";
             }
             html = `<div class="reddit-card ${postsArr[i].subreddit}" data-timestamp="${postsArr[i].created}">
-                      <div class="post-type--reddit ${postsArr[i].subreddit}">r/${postsArr[i].subreddit}</div>
-                      <div class="thumb-title-wrapper">
+                      <div class="reddit-card__subreddit ${postsArr[i].subreddit}">r/${postsArr[i].subreddit}</div>
+                      <div class="reddit-card__thumbnail-title-wrapper">
                         <a href="${postsArr[i].url}" target="_blank">
-                        <div class="post-thumb-wrapper">${thumbnail}
+                        <div class="reddit-card__thumbnail-wrapper">${thumbnail}
                         </div>
                         </a>
 
-                      <div class="post-title"><a href="${postsArr[i].url}" target="blank">
+                      <div class="reddit-card__post-title"><a href="${postsArr[i].url}" target="blank">
                       ${postsArr[i].title}</a></div>
                       </div>
-                      <div class="bottom-info-wrapper">        
-                        <div class="post-comm-num">
+                      <div class="card-footer">        
+                        <span class="post-comments">
                           <a href="http://reddit.com/${postsArr[i].permalink}" target="blank">
                           ${postsArr[i].num_comments} comments</a>
-                        </div>
+                        </span>
                         <time class="timestamp">${time}</time>
                       </div>
                     </div>`
 
-            $('#reddit-content').hide().append(html).fadeIn(500);
+            $('.reddit-content').hide().append(html).fadeIn(500);
             $('#loading').hide();
 
         }
@@ -243,7 +243,7 @@
     // Filter by subreddit
 
     $('.filters__title').on('click', function() {
-        $('.expand').toggleClass('expand--opened');
+        $('.expand-icon').toggleClass('expand-icon--opened');
         $('.filters__list').toggleClass('filters__list--opened');
     });
 
