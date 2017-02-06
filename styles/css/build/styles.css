@@ -75,9 +75,11 @@ z-index: 20;
 	margin-right: 20px;
 	padding: 20px 0;
 	text-align: right;
-	-webkit-box-flex: 0;
-	    -ms-flex: 0 0 200px;
-	        flex: 0 0 200px;
+	-webkit-box-flex: 1;
+	    -ms-flex: 1 0 200px;
+	        flex: 1 0 200px;
+	position: relative;
+	z-index: 11;
 }
 
 
@@ -90,6 +92,9 @@ z-index: 20;
   -webkit-box-flex: 0;
   -ms-flex: 0 0 200px;
   flex: 0 0 200px;
+  background: #eee;
+  z-index: 20;
+  position: relative;
 }
 
 
@@ -99,6 +104,7 @@ z-index: 20;
 	background: black;
 	position: relative;
 	margin-left: 60%;
+	z-index: 35;
 }
 
 
@@ -120,8 +126,9 @@ z-index: 20;
 .filters {
 	
 	font-family: 'open sans';
-	background: #eee;
 	position: relative;
+	height: auto;
+	z-index: 4;
 }
 
 
@@ -146,6 +153,8 @@ z-index: 20;
 	line-height: 2;
 	font-size: 1rem;
 	text-transform: uppercase;
+	position: relative;
+	z-index: 40;
 }
 
 
@@ -212,21 +221,30 @@ z-index: 20;
 .filters__list li {
   display: block;
   margin-top: 0.5em;
+  z-index: 9;
 }
 
 
 .filters__list--opened {
+	position: relative;
 	-webkit-transform: translateY(0px);
 	        transform: translateY(0px);	
 	-webkit-transition: -webkit-transform 0.5s;	
 	transition: -webkit-transform 0.5s;	
 	transition: transform 0.5s;	
 	transition: transform 0.5s, -webkit-transform 0.5s;
+	z-index: 7;
 }
 
 
 .checkbox {
 	display: none;
+}
+
+
+label {
+	position: relative;
+	z-index: 26;
 }
 
 
@@ -303,8 +321,11 @@ label:hover {
 	   -moz-column-gap: 40px;
 	        column-gap: 40px;
 	-webkit-box-flex: 0;
-	    -ms-flex: 0 1  1000px;
-	        flex: 0 1  1000px;
+	    -ms-flex: 0 1  1600px;
+	        flex: 0 1  1600px;
+	position: relative;
+	z-index: -25;
+	position: relative;
 }
 
 
@@ -319,6 +340,8 @@ label:hover {
 	   page-break-inside: avoid;
 	        break-inside: avoid;
 	overflow: hidden;
+	position: relative;
+	z-index: -20;
 }
 
 
@@ -596,13 +619,14 @@ mix-blend-mode: multiply;
  	   -moz-column-gap: 15px;
  	        column-gap: 15px;
  	position: relative;
- 	top: 10px;
+ 	margin-top: 10px;
  }
  .filters__top-bar {
 		padding: 10px 0;
  }
- .filters__list--opened {
+ .filters__list--opened,  .filters__list {
 		display: block;
+		position: static;
  }
 
 	}
@@ -612,26 +636,89 @@ mix-blend-mode: multiply;
 
 
 body {
-	-webkit-box-orient: vertical;
-	-webkit-box-direction: normal;
-	    -ms-flex-direction: column;
-	        flex-direction: column;
+	position: relative;
+	z-index: -30;
 }
 #reddit-content {
- 	-webkit-column-count: 1;
- 	   -moz-column-count: 1;
- 	        column-count: 1;
+ 	-webkit-column-count: 2;
+ 	   -moz-column-count: 2;
+ 	        column-count: 2;
  	-webkit-column-gap: 15px;
  	   -moz-column-gap: 15px;
  	        column-gap: 15px;
+ 	max-width: 100vw;
+ 	margin: 5px;
  }
 
 .left-bar {
-	height: 100px;
+	height: 150px;
+	width: 100%;
+	position: fixed;
+	padding-top: 0;
+	top: 0;
+	background: #eee;
 }
 
 .left-bar h1 {
     margin-top: 0;
+    padding-top: 20px;
+    padding-right: 15px;
+    padding-left: 15px;
+    padding-bottom: 0;
+  }
+.left-bar__description{
+	padding-right: 15px;
+	padding-left: 30px;
+	padding-top: 20px;
+	text-align: left;
+	width: 50%;
+}
+.left-bar__line  {
+	width: calc(40% - 15px);
+	margin-right: 15px;
+}
+.filters__title {
+	margin-top: 1em;
+	padding-right: 15px;
+}
+.filters__list {
+padding-right: 15px;
+padding-bottom: 1em;
+-webkit-column-count: 2;
+   -moz-column-count: 2;
+        column-count: 2;
+-webkit-column-gap: 10px;
+   -moz-column-gap: 10px;
+        column-gap: 10px;
+}
+.reddit-card {
+	position:relative;
+}
+
+
+.title-desc-wrapper {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: justify;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
+	z-index: 26;
+	background: #eee;
+	position: relative;
+}
+#back-to-top {
+	background: black;
+	padding: 0.5em;
+	color: white;
+	z-index: 30;
+	position: fixed;
+	bottom: 15px;
+	right: 0px;
+	text-align: center;
+}
+#back-to-top::after {
+    color: white;
   }
 	}
 
@@ -640,19 +727,10 @@ body {
 
 
 body {
-	-webkit-box-orient: vertical;
-	-webkit-box-direction: normal;
-	    -ms-flex-direction: column;
-	        flex-direction: column;
+	display: block;
 }
 
-.left-bar {
-	width: calc(100% - 15px);
-}
-
-.left-bar__description {
-    padding-left: 0;
-  }
+.left-bar__description {}
 
 #reddit-content {
  	-webkit-column-count: 1;
@@ -664,8 +742,9 @@ body {
  	width: 100%;
  	max-width: 100%;
  	margin: 15px;
- 	-webkit-column-gap: 0px;
- 	   -moz-column-gap: 0px;
+ 	margin-top: 140px; 	
+ 	-webkit-column-gap: 0px; 	
+ 	   -moz-column-gap: 0px; 	
  	        column-gap: 0px;
  }
 
