@@ -52,7 +52,7 @@
 	position: static;
 }
 
-.header__titleWrapper {
+.header__title-wrapper {
 	background: #eee;
 	z-index: 70;
 }

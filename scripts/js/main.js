@@ -15,7 +15,7 @@
         )
         .success(function() {})
         .error(function() {
-            alert("error");
+            alert("Error fetching JSON data");
         })
         .complete(function() {
             console.log('Got r/WebDev data');
@@ -38,7 +38,7 @@
         )
         .success(function() {})
         .error(function() {
-            alert("error");
+            alert("Error fetching JSON data");
         })
         .complete(function() {
             console.log("Got r/web_design data");
@@ -59,7 +59,7 @@
         )
         .success(function() {})
         .error(function() {
-            alert("error");
+            alert("Error fetching JSON data");
         })
         .complete(function() {
             console.log("Got r/web_design data");
@@ -84,7 +84,7 @@
         )
         .success(function() {})
         .error(function() {
-            alert("error");
+            alert("Error fetching JSON data");
         })
         .complete(function() {
             console.log("Got r/CSS data");
@@ -109,7 +109,7 @@
         )
         .success(function() {})
         .error(function() {
-            alert("error");
+            alert("Error fetching JSON data");
         })
         .complete(function() {
             console.log("Got r/javascript data");
@@ -132,7 +132,7 @@
         )
         .success(function() {})
         .error(function() {
-            alert("error");
+            alert("Error fetching JSON data");
         })
         .complete(function() {
             console.log("Got r/jQuery data");
@@ -153,7 +153,7 @@
         )
         .success(function() {})
         .error(function() {
-            alert("error");
+            alert("Error fetching JSON data");
         })
         .complete(function() {
             console.log("Got r/jQuery data");

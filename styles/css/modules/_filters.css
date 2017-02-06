@@ -8,7 +8,7 @@
 	z-index: 4;
 }
 
-.filters__topBar {
+.filters__top-bar {
 	padding-top: 100px;
 	display: flex;
 	justify-content: flex-end;
@@ -34,7 +34,7 @@
 	cursor: pointer;
 }
 
-.expandIcon {
+.expand-icon {
 	display: inline-block;
 	margin-left: 30px;
 	font-size: 1.75em;
@@ -52,7 +52,7 @@
 
 }
 
-.expandIcon--opened {
+.expand-icon--opened {
 	transform: rotate(-90deg) !important;
 	transition: transform 0.5s;
 	margin-top: 30px;
@@ -88,6 +88,10 @@
 	transform: translateY(0px);	
 	transition: transform 0.5s;
 	z-index: 7;
+}
+
+.checkbox {
+	display: none;
 }
 
 label {

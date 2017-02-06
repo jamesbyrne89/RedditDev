@@ -1,0 +1,17 @@
+/* Back To Top Button */
+
+#back-to-top {
+	font-family: 'Tiempos Headline';
+	margin-top: 20px;
+	display: none;
+	font-size: 1rem;
+	position: absolute;
+	right: 5px;
+	bottom: -80px;
+}
+#back-to-top:after {
+	font-family: FontAwesome;
+	content: "\f176";
+	margin-left: 1em;
+	color: black;
+}
