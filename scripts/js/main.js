@@ -310,8 +310,6 @@
        let scrolled = $(document).height() - $(window).height();
 
         let scrolledTotal = ($(window).scrollTop() / scrolled * 100).toFixed(0);
-                console.log(scrolledTotal);
-                console.log("'"+scrolledTotal+"%'");
         $('.scrolledBar').css('width', `${scrolledTotal}%`);
         if (scrolledTotal > 2) {
             $('#back-to-top').fadeIn('fast');
