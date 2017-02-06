@@ -4,9 +4,9 @@
     let redditCards = [];
     let completed = 0;
 
-
+    // Grab r/web_design data
     $.getJSON(
-            "http://www.reddit.com/r/webdev.json?jsonp=?",
+            "https://www.reddit.com/r/webdev.json?jsonp=?",
             function foo(data) {
                 for (i = 0; i < data.data.children.length; i++) {
                     postsArr.push(data.data.children[i].data);
@@ -29,7 +29,7 @@
 
     // Grab r/web_design data
     $.getJSON(
-            "http://www.reddit.com/r/web_design.json?jsonp=?",
+            "https://www.reddit.com/r/web_design.json?jsonp=?",
             function foo(data) {
                 for (i = 0; i < data.data.children.length; i++) {
                     postsArr.push(data.data.children[i].data);
@@ -50,7 +50,7 @@
 
     // Grab r/Frontend data
     $.getJSON(
-            "http://www.reddit.com/r/frontend.json?jsonp=?",
+            "https://www.reddit.com/r/frontend.json?jsonp=?",
             function foo(data) {
                 for (i = 0; i < data.data.children.length; i++) {
                     postsArr.push(data.data.children[i].data);
@@ -73,7 +73,7 @@
 
     // Grab r/CSS data
     $.getJSON(
-            "http://www.reddit.com/r/css.json?jsonp=?",
+            "https://www.reddit.com/r/css.json?jsonp=?",
             function foo(data) {
                 for (i = 0; i < data.data.children.length; i++) {
                     postsArr.push(data.data.children[i].data);
@@ -98,7 +98,7 @@
 
     // Grab r/Javascript data
     $.getJSON(
-            "http://www.reddit.com/r/javascript.json?raw_json=1",
+            "https://www.reddit.com/r/javascript.json?raw_json=1",
             function foo(data) {
                 for (i = 0; i < data.data.children.length; i++) {
                     postsArr.push(data.data.children[i].data);
@@ -123,7 +123,7 @@
 
     // Grab r/jQuery data
     $.getJSON(
-            "http://www.reddit.com/r/jquery.json?jsonp=?",
+            "https://www.reddit.com/r/jquery.json?jsonp=?",
             function foo(data) {
                 for (i = 0; i < data.data.children.length; i++) {
                     postsArr.push(data.data.children[i].data);
@@ -144,7 +144,7 @@
 
     // Grab r/WebdevTutorials data
     $.getJSON(
-            "http://www.reddit.com/r/WebdevTutorials.json?jsonp=?",
+            "https://www.reddit.com/r/WebdevTutorials.json?jsonp=?",
             function foo(data) {
                 for (i = 0; i < data.data.children.length; i++) {
                     postsArr.push(data.data.children[i].data);
