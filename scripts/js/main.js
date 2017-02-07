@@ -234,7 +234,7 @@
                       </div>
                     </div>`
 
-            $('.reddit-content').hide().append(html).fadeIn(500);
+            $('#reddit-content').hide().append(html).fadeIn(500);
             $('#loading').hide();
 
         }
@@ -310,7 +310,7 @@
        let scrolled = $(document).height() - $(window).height();
 
         let scrolledTotal = ($(window).scrollTop() / scrolled * 100).toFixed(0);
-        $('.scrolledBar').css('width', `${scrolledTotal}%`);
+        $('#scrolled-bar').css('width', `${scrolledTotal}%`);
         if (scrolledTotal > 2) {
             $('#back-to-top').fadeIn('fast');
         }
