@@ -4,8 +4,8 @@
 	
 	font-family: 'open sans';
 	position: relative;
-	height: auto;
-	z-index: 4;
+	height: 0;
+	z-index: -40;
 }
 
 .filters__top-bar {
