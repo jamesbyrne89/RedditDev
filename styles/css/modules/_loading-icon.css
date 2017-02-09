@@ -2,10 +2,13 @@
 
 #loading {
 	position: absolute;
-	left: 50vw;
-	top: 40vh;
+	left: calc(50% - 30px);
+	top: calc(50% - 70px);
+	right: 0;
+	bottom: 0;
 	font-size: 3rem;
 	border-radius: 50%;
+	margin: auto;
 	&:before, &:after {
 		position: absolute;
 		content: "";

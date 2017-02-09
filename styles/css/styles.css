@@ -4,7 +4,7 @@
 @import 'modules/_filters';
 @import 'modules/_reddit-content';
 @import 'modules/_buttons';
-
+@import 'modules/_loading-icon';
 
 html {
 	background: #eee;
@@ -85,7 +85,7 @@ a:visited {
 		margin-top: 140px;
 	}
 	.sidebar {
-		height: 150px;
+		height: 140px;
 		width: 100%;
 		position: fixed;
 		padding-top: 0;
