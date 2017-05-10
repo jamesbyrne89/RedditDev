@@ -273,7 +273,7 @@ label:hover {
 .reddit-content {
 	max-width: 82vw;
 	margin: 40px ;
-	margin-left: 300px;
+	margin-left: calc(13vw + 20px);
 	-webkit-column-count: 4;
 	   -moz-column-count: 4;
 	        column-count: 4;
