@@ -3,7 +3,7 @@
 .reddit-content {
 	max-width: 82vw;
 	margin: 40px ;
-	margin-left: 300px;
+	margin-left: calc(13vw + 20px);
 	column-count: 4;
 	column-gap: 40px;
 	flex: 0 1  1600px;
