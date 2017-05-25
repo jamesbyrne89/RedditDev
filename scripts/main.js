@@ -1,7 +1,10 @@
     const postsArr = [];
-    let unix;
-    let html;
-    let redditCards = [];
+    
+    /*
+    Fetch all data from the Reddit server
+     */
+    (function fetchData() {
+
     let completed = 0;
 
     // Grab r/web_design data
@@ -15,10 +18,9 @@
         )
         .success(function() {})
         .error(function() {
-            alert("Error fetching JSON data");
+            alert("There was a problem fetching JSON data");
         })
         .complete(function() {
-            console.log('Got r/WebDev data');
             completed++;
             if (completed == 7) {
                 checkCompleted();
@@ -38,15 +40,15 @@
         )
         .success(function() {})
         .error(function() {
-            alert("Error fetching JSON data");
+            alert("There was a problem fetching JSON data");
         })
         .complete(function() {
-            console.log("Got r/web_design data");
             completed++;
-            if (completed == 7) {
+            if (completed === 7) {
                 checkCompleted();
             }
         });
+
 
     // Grab r/Frontend data
     $.getJSON(
@@ -59,16 +61,14 @@
         )
         .success(function() {})
         .error(function() {
-            alert("Error fetching JSON data");
+            alert("There was a problem fetching JSON data");
         })
         .complete(function() {
-            console.log("Got r/web_design data");
             completed++;
-            if (completed == 7) {
+            if (completed === 7) {
                 checkCompleted();
             }
         });
-
 
 
     // Grab r/CSS data
@@ -84,16 +84,14 @@
         )
         .success(function() {})
         .error(function() {
-            alert("Error fetching JSON data");
+            alert("There was a problem fetching JSON data");
         })
         .complete(function() {
-            console.log("Got r/CSS data");
             completed++;
-            if (completed == 7) {
+            if (completed === 7) {
                 checkCompleted();
             }
         });
-
 
 
     // Grab r/Javascript data
@@ -109,12 +107,11 @@
         )
         .success(function() {})
         .error(function() {
-            alert("Error fetching JSON data");
+            alert("There was a problem fetching JSON data");
         })
         .complete(function() {
-            console.log("Got r/javascript data");
             completed++;
-            if (completed == 7) {
+            if (completed === 7) {
                 checkCompleted();
             }
         });
@@ -132,12 +129,11 @@
         )
         .success(function() {})
         .error(function() {
-            alert("Error fetching JSON data");
+            alert("There was a problem fetching JSON data");
         })
         .complete(function() {
-            console.log("Got r/jQuery data");
             completed++;
-            if (completed == 7) {
+            if (completed === 7) {
                 checkCompleted();
             }
         });
@@ -153,19 +149,19 @@
         )
         .success(function() {})
         .error(function() {
-            alert("Error fetching JSON data");
+            alert("There was a problem fetching JSON data");
         })
         .complete(function() {
-            console.log("Got r/jQuery data");
             completed++;
-            if (completed == 7) {
+            if (completed === 7) {
                 checkCompleted();
             }
         });
 
 
-    // Convert UNIX timestamp into regular format
-
+    /*
+    Convert UNIX timestamp into regular format
+     */
     function convertTimestamp(timestamp) {
         var d = new Date(timestamp * 1000), // Convert the passed timestamp to milliseconds
             yyyy = (d.getFullYear().toString().substr(2, 2)),
@@ -191,15 +187,14 @@
         time = h + ':' + min + ampm + " " + dd + "/" + mm + '/' + yyyy;
         return time;
 
-    }
+    };
+})();
 
 
-
-
-    // Place into HTML
-
+    /*
+    Place into HTML
+     */
     function checkCompleted() {
-        console.log(postsArr)
         postsArr.sort(function(a, b) {
             return b.created - a.created;
         });
@@ -214,7 +209,7 @@
             } else {
                 thumbnail = "";
             }
-            html = `<div class="reddit-card ${postsArr[i].subreddit}" data-timestamp="${postsArr[i].created}">
+            let html = `<div class="reddit-card ${postsArr[i].subreddit}" data-timestamp="${postsArr[i].created}">
                       <div class="reddit-card__subreddit ${postsArr[i].subreddit}">r/${postsArr[i].subreddit}</div>
                       <div class="reddit-card__thumbnail-title-wrapper">
                         <a href="${postsArr[i].url}" target="_blank">
@@ -238,7 +233,7 @@
             $('#loading').hide();
 
         }
-    }
+    };
 
     // Filter by subreddit
 
