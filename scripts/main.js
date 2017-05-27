@@ -158,7 +158,7 @@
             }
         });
 
-
+})();
     /*
     Convert UNIX timestamp into regular format
      */
@@ -188,7 +188,7 @@
         return time;
 
     };
-})();
+
 
 
     /*
