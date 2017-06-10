@@ -3,7 +3,7 @@
 #loading {
 	position: absolute;
 	left: calc(50% - 30px);
-	top: calc(50% - 70px);
+	top: calc(50vh - 70px);
 	right: 0;
 	bottom: 0;
 	font-size: 3rem;
