@@ -140,6 +140,9 @@ a:visited {
 		width: 50%;
 		padding-right: 30px;
 	}
+	#loading {
+		top: 30vh;
+	}
 }
 @media (max-width: 500px) {
 	body {

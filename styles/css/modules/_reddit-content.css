@@ -18,6 +18,7 @@
 	break-inside: avoid;
 	overflow: hidden;
 	position: relative;
+	overflow-wrap: break-word;
 }
 
 .reddit-card__subreddit {
