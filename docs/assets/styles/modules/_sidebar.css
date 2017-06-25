@@ -1,0 +1,58 @@
+/* Sidebar */
+
+.sidebar {
+	height: 80vh;
+	width: 13vw;
+	min-width: 200px;
+	margin-right: 20px;
+	padding: 20px 0;
+	text-align: right;
+	flex: 1 0 200px;
+	position: fixed;
+	z-index: 50;
+}
+.header__title {
+	letter-spacing: -1px;
+	padding-top: 50px;
+	font-family: 'Tiempos Headline';
+	font-size: 2.5rem;
+	padding-bottom: 0.25em;
+	flex: 0 0 200px;
+	background: #eee;
+	z-index: 200;
+	position: relative;
+}
+
+
+.header__line {
+	width: 40%;
+	height: 2px;
+	background: black;
+	position: relative;
+	margin-left: 60%;
+	z-index: 35;
+}
+
+.header__description {
+	font-size: 1rem;
+	padding-top: 1em;
+	text-align: right;
+	width: 100%;
+	padding-left: 30%;
+	background: #eee;
+	position: relative;
+	z-index: 15;
+}
+
+.header {
+	display: block;
+	justify-content: space-between;
+	z-index: 200;
+	background: #eee;
+	position: static;
+}
+
+.header__title-wrapper {
+	background: #eee;
+	z-index: 70;
+}

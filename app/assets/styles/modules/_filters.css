@@ -6,6 +6,7 @@
 	position: relative;
 	height: 0;
 	z-index: -40;
+	display: block;
 }
 
 .filters__top-bar {
@@ -74,7 +75,9 @@
 	padding: 0.5em 0;
 	position: relative;
 	z-index: 5;
-	transform: translateY(-210px);
+	position: relative;
+	bottom: 0;
+	transform: translateY(-240px);
 	transition: transform 0.5s;
 	li {
 		display: block;

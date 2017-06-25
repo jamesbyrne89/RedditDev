@@ -16,7 +16,7 @@
 		height: 60px;
 	width: 60px;
 	border-radius: 50%;
-		border: solid 4px #00ff36;
+		border: solid 4px #ff4500;
 	animation: pulse 1s linear infinite;
 	opacity: 0;
 }
