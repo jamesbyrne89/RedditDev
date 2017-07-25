@@ -274,9 +274,9 @@ label:hover {
 
 
 .reddit-content {
-	max-width: 82vw;
+	max-width: 85vw;
 	margin: 40px ;
-	margin-left: calc(13vw + 20px);
+	margin-left: calc(15vw + 10px);
 	-webkit-column-count: 4;
 	   -moz-column-count: 4;
 	        column-count: 4;
@@ -549,6 +549,7 @@ body {
 
 a:link {
 	text-decoration: none;
+	color: black;
 }
 
 
