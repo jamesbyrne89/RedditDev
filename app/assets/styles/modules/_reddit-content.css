@@ -34,7 +34,7 @@
 	width: 100%;
 	transition: all 0.2s;
 	a {
-	font-family: 'Tiempos Headline', sans-serif;
+	font-family: 'Tiempos Headline', georgia, serif;
 	font-size: 1.5rem;
 	font-weight: 700;
 	color: black;

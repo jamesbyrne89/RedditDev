@@ -2,8 +2,8 @@
 
 @font-face {
   font-family: 'Tiempos Headline';
-  src: url('webfont.eot'); /* IE9 Compat Modes */
-  src: url('../../fonts/Tiempos-Headline-Medium.ttf') format('truetype'), /* IE6-IE8 */
-       url('webfont.woff2') format('woff2'), /* Super Modern Browsers */
-       url('../../fonts/Tiempos-Headline-Medium.woff') format('woff') /* Pretty Modern Browsers */
+  src: url('../../fonts/Tiempos-Headline-Medium.eot'); /* IE9 Compat Modes */
+  src: url('../../fonts/Tiempos-Headline-Medium.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../../fonts/Tiempos-Headline-Medium.woff') format('woff'), /* Pretty Modern Browsers */
+       url('../../fonts/Tiempos-Headline-Medium.ttf')  format('truetype'), /* Safari, Android, iOS */
 }
