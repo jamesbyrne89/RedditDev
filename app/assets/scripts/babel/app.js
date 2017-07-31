@@ -67,6 +67,8 @@ var getData = function getData() {
             allPosts.push(post);
         });
 
+        console.log(allPosts);
+
         // Sort by date
 
         var sortedByDate = allPosts.sort(function (a, b) {
@@ -109,6 +111,19 @@ var convertTimestamp = function convertTimestamp(timestamp) {
     return time;
 };
 
+// Extracts hostname from URL
+var getHostname = function getHostname(href) {
+    var l = document.createElement("a");
+    var shortened;
+    l.href = href;
+    if (l.hostname.indexOf('www.') === 0) {
+        shortened = l.hostname.replace('www.', '');
+        return shortened;
+    } else {
+        return l.hostname;
+    }
+};
+
 /*
 Place into HTML
  */
@@ -118,6 +133,7 @@ function updateView(sortedByDate) {
 
         var time = convertTimestamp(sortedByDate[i].created);
         var thumbnail = void 0;
+        var numCommentsText = void 0;
 
         if (sortedByDate[i].preview && sortedByDate[i].preview.images[0].resolutions && sortedByDate[i].preview.images[0].resolutions[2]) {
             thumbnail = "<img class=\"lazyload reddit-card__thumbnail\" src=\"" + sortedByDate[i].preview.images[0].resolutions[2].url + "\">";
@@ -128,7 +144,14 @@ function updateView(sortedByDate) {
         card.className = 'reddit-card';
         card.classList.add(sortedByDate[i].subreddit);
 
-        var html = "<div class=\"reddit-card__subreddit " + sortedByDate[i].subreddit + "\">r/" + sortedByDate[i].subreddit + "</div>\n                      <div class=\"reddit-card__thumbnail-title-wrapper\">\n                        <a href=\"" + sortedByDate[i].url + "\" target=\"_blank\">\n                        <div class=\"reddit-card__thumbnail-wrapper\">" + thumbnail + "\n                        </div>\n                        </a>\n\n                      <div class=\"reddit-card__post-title\"><a href=\"" + sortedByDate[i].url + "\" target=\"blank\">\n                      " + sortedByDate[i].title + "</a></div>\n                      </div>\n                      <div class=\"card-footer\">        \n                        <span class=\"post-comments\">\n                          <a href=\"http://reddit.com/" + sortedByDate[i].permalink + "\" target=\"blank\">\n                          " + sortedByDate[i].num_comments + " comments</a>\n                        </span>\n                        <time class=\"timestamp\">" + time + "</time>\n                      </div>";
+        // Remove the 's' if comment number is one
+        if (sortedByDate[i].num_comments === 1) {
+            numCommentsText = sortedByDate[i].num_comments + " comment";
+        } else {
+            numCommentsText = sortedByDate[i].num_comments + " comments";
+        }
+
+        var html = "<div class=\"reddit-card__subreddit " + sortedByDate[i].subreddit + "\">r/" + sortedByDate[i].subreddit + "</div>\n                      <figure class=\"reddit-card__thumbnail-title-wrapper\">\n                        <a href=\"" + sortedByDate[i].url + "\" target=\"_blank\">\n                        <div class=\"reddit-card__thumbnail-wrapper\">" + thumbnail + "\n                        </div>\n                        </a>\n\n                      <div class=\"reddit-card__post-title\"><a href=\"" + sortedByDate[i].url + "\" target=\"blank\">\n                      " + sortedByDate[i].title + "</a></div>\n                      </div>\n                      <div class=\"card-footer\">\n                      <span class=\"short-url\">" + getHostname(sortedByDate[i].url) + "</span> \n                      <span class='bar'>|</span>       \n                        <span class=\"post-comments\">\n                          <a href=\"http://reddit.com/" + sortedByDate[i].permalink + "\" target=\"blank\">\n                          " + numCommentsText + "</a>\n                        </span><span class='bar'>|</span>\n                        <time class=\"timestamp\">" + time + "</time>\n                      </figure>";
         card.innerHTML = html;
         $('#reddit-content').hide().append(card).fadeIn(500);
         $('#loading').hide();

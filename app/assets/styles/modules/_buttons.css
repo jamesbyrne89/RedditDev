@@ -1,6 +1,6 @@
 /* Back To Top Button */
 
-#back-to-top {
+.back-to-top {
 	font-family: $sansSerif;
 	margin-top: 20px;
 	display: none;
@@ -8,9 +8,12 @@
 	position: absolute;
 	right: 5px;
 	bottom: -80px;
+	color: #000;
+	cursor: pointer;
 }
 
-#back-to-top::after {
+
+.back-to-top::after {
 	font-family: FontAwesome;
 	content: "\f176";
 	margin-left: -0.5em;
@@ -18,11 +21,11 @@
 	transition: all 0.2s;
 }
 
-#back-to-top:hover::after {
+.back-to-top:hover::after {
 	font-family: FontAwesome;
 	content: "\f176";
-	margin-left: 1em;
-	color: #fff;
+	margin-left: 0.5em;
+	color: inherit;
 	opacity: 1;
 	display: inline-block;
 }

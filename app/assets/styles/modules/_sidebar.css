@@ -3,7 +3,6 @@
 .sidebar {
 	height: 80vh;
 	width: 13vw;
-	min-width: 200px;
 	margin-right: 20px;
 	padding: 20px 0;
 	text-align: right;
@@ -12,10 +11,9 @@
 	z-index: 50;
 }
 .header__title {
-	letter-spacing: -1px;
 	padding-top: 50px;
 	font-family: 'Tiempos Headline';
-	font-size: 2.5rem;
+	font-size: 3.375rem;
 	font-weight: 700;
 	padding-bottom: 0.25em;
 	flex: 0 0 200px;
@@ -24,29 +22,18 @@
 	position: relative;
 }
 
-.header__title::after {
-	content: '';
-	height: 2px;
-	width: 2em;
-	background: #000;
-	display: block;
-	position: relative;
-	top: 0.2em;
-	left: calc(100% - 2em);
-	right: 0;
-}
 
 
 .header__description {
 	font-family: $sansSerif;
 	font-size: 1rem;
-	padding-top: 1em;
-	text-align: right;
+	padding: 0em 0em 0em 1.25em;
+	text-align: left;
 	width: 100%;
-	padding-left: 30%;
 	background: #eee;
 	position: relative;
 	z-index: 15;
+	color: #495456;
 }
 
 .header {
