@@ -16,6 +16,7 @@
 	padding-top: 50px;
 	font-family: 'Tiempos Headline';
 	font-size: 2.5rem;
+	font-weight: 700;
 	padding-bottom: 0.25em;
 	flex: 0 0 200px;
 	background: #eee;
@@ -23,17 +24,21 @@
 	position: relative;
 }
 
-
-.header__line {
-	width: 40%;
+.header__title::after {
+	content: '';
 	height: 2px;
-	background: black;
+	width: 2em;
+	background: #000;
+	display: block;
 	position: relative;
-	margin-left: 60%;
-	z-index: 35;
+	top: 0.2em;
+	left: calc(100% - 2em);
+	right: 0;
 }
 
+
 .header__description {
+	font-family: $sansSerif;
 	font-size: 1rem;
 	padding-top: 1em;
 	text-align: right;

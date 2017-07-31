@@ -2,7 +2,7 @@
 
 .filters {
 	
-	font-family: 'open sans';
+	font-family: $sansSerif;
 	position: relative;
 	height: 0;
 	z-index: -40;
@@ -71,7 +71,7 @@
 
 .filters__list {
 	background: #eee;
-	font-family: 'Tiempos Headline';
+	font-family: $sansSerif;
 	padding: 0.5em 0;
 	position: relative;
 	z-index: 5;
@@ -105,26 +105,34 @@ label {
 input[type=checkbox] + span::after {
 		content: "";
 		font-size: 1.5em;
-		transform: rotate(45deg);
 		display: inline-block;
 		position: relative;
 		left: 0.875em;
 		height: 6px;
 		width: 6px;
-		border: solid 2px black;
+		border: solid 2px #495456;
+		border-radius: 2px;
 
 }
 
 input[type=checkbox]:checked + span::after {
 		content: "";
-		transform: rotate(45deg);
 		font-size: 1.5em;
 		display: inline-block;
 		position: relative;
 		right: 1em;
+		border-radius: 2px;
 		border: solid 2px black;
 		background: black;
 		transition: all 0.3s;
+}
+
+input[type=checkbox] ~ span {
+	color: #495456;
+}
+
+input[type=checkbox]:checked ~ span {
+	color: #000;
 }
 
 label {
