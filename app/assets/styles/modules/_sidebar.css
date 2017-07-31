@@ -4,8 +4,7 @@
 	height: 80vh;
 	width: 13vw;
 	margin-right: 20px;
-	padding: 20px 0;
-	text-align: right;
+	padding: 0.75em 0 0.75em 0.75em;
 	flex: 1 0 200px;
 	position: fixed;
 	z-index: 50;
@@ -13,7 +12,7 @@
 .header__title {
 	padding-top: 50px;
 	font-family: 'Tiempos Headline';
-	font-size: 3.375rem;
+	font-size: 2.5vw;
 	font-weight: 700;
 	padding-bottom: 0.25em;
 	flex: 0 0 200px;
@@ -27,7 +26,6 @@
 .header__description {
 	font-family: $sansSerif;
 	font-size: 1rem;
-	padding: 0em 0em 0em 1.25em;
 	text-align: left;
 	width: 100%;
 	background: #eee;

@@ -10,7 +10,7 @@
 }
 
 .filters__top-bar {
-	padding-top: 100px;
+	padding-top: 5rem;
 	display: flex;
 	justify-content: flex-end;
 	padding-bottom: 0.5em;
@@ -37,7 +37,7 @@
 
 .expand-icon {
 	display: inline-block;
-	margin-left: 30px;
+	margin-left: 1em;
 	font-size: 1.75em;
 	line-height: 0.5;
 	font-weight: bold;
@@ -75,6 +75,7 @@
 	padding: 0.5em 0;
 	display: block;
 	position: relative;
+	text-align: right;
 	z-index: 5;
 	position: relative;
 	bottom: 0;

@@ -152,16 +152,17 @@ else {
 
                       <div class="reddit-card__post-title"><a href="${sortedByDate[i].url}" target="blank">
                       ${sortedByDate[i].title}</a></div>
-                      </div>
+                      </figure>
                       <div class="card-footer">
-                      <span class="short-url">${getHostname(sortedByDate[i].url)}</span> 
-                      <span class='bar'>|</span>       
+                      <span class="short-url">${getHostname(sortedByDate[i].url)}</span>      
+                      <div> 
                         <span class="post-comments">
                           <a href="http://reddit.com/${sortedByDate[i].permalink}" target="blank">
                           ${numCommentsText}</a>
-                        </span><span class='bar'>|</span>
+                        </span>
                         <time class="timestamp">${time}</time>
-                      </figure>`
+                        </div>
+                      </div>`
         card.innerHTML = html;
         $('#reddit-content').hide().append(card).fadeIn(500);
         $('#loading').hide();

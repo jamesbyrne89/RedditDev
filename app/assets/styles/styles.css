@@ -11,6 +11,7 @@
 html {
 	background: #eee;
 	overflow-x: hidden;
+	font-size: 100%;
 }
 
 body {
@@ -45,6 +46,7 @@ body {
 	z-index: 200;
 }
 
+
 @media (max-width:1440px) {
 	.reddit-content {
 		column-count: 3;
@@ -63,7 +65,7 @@ body {
 	}
 
 	.header__title {
-		font-size: 2.5rem;
+		font-size: 3.5vw;
 	}
 
 
@@ -75,20 +77,13 @@ body {
 		display: none;
 	}
 
-	.timestamp {
-		padding-top: 0.5em;
-		width: 100%;
-		text-align: right;
-	}
-
 	.post-comments {
-		padding: 0;
-		text-align: right;
+		text-align: left;
 	}
 
 }
 
-@media (max-width:1000px) {
+@media (max-width:1100px) {
 	.reddit-content {
 		column-count: 2;
 		width: 76vw;
@@ -100,10 +95,6 @@ body {
 		display: inline-block;
 	}
 
-		.timestamp {
-		padding-top: 0;
-	}
-
 	.filters__title {
 		font-size: 1rem;
 	}
@@ -112,24 +103,14 @@ body {
 		width: 22vw;
 	}
 		.filters__title {
-		margin-top: 1em;
 		font-size: 0.875rem;
 		padding-bottom: 0;
 		border-bottom: 0;
 	}
 
 	.back-to-top {
-		background: #000;
-		padding: 0.75em;
-		color: #fff;
-		position: fixed;
 		bottom: 15px;
 		right: 15px;
-		width: 130px;
-		text-align: center;
-		border-radius: 4px;
-		padding: 1em 0.25em;
-		text-decoration: none;
 	}
 
 	.back-to-top:hover {
@@ -167,7 +148,6 @@ body {
 	}
 
 		.filters__list {
-		padding-right: 15px;
 		padding-bottom: 1em;
 		column-count: 2;
 		column-gap: 5px;
@@ -185,7 +165,6 @@ body {
 		padding-bottom: 0;
 		display: flex;
 		align-items: flex-end;
-		line-height: 1;
 	}
 
 	.header__description {
@@ -193,6 +172,7 @@ body {
 		align-items: flex-end;
 		padding-left: 4px;
 		padding-top: 0;
+		padding-bottom: 0.5em;
 		text-align: left;
 		width: 50%;
 	}
@@ -206,13 +186,13 @@ body {
 		background: #eee;
 	}
 	.header__title {
-		font-size: 3.75rem;
+		font-size: 8vw;
 	}
-
 
 }
 
 @media (max-width:700px) {
+
 
 
 	.header__description {
@@ -267,13 +247,10 @@ body {
 		order: 2;
 	}
 
-	.header__title {
-		font-size: 2.75rem;
-	}
 
 		.header__description {
 		font-size: 0.75rem;
-		width: 65%;
+		width: 50%;
 	}
 
 
@@ -291,9 +268,17 @@ body {
 
 }
 
-@media (max-width:420px) {
-	.header__title {
-		font-size: 2.25rem;
+
+@media (max-width:425px) {
+	.header {
+		flex-direction: column;
+	}.header__description {
+		width: 100%;
+		padding: 0;
 	}
+
+}
+
+@media (max-width:375px) {
 
 }
