@@ -1,17 +1,33 @@
 /* Back To Top Button */
-
-#back-to-top {
-	font-family: 'Tiempos Headline';
-	margin-top: 20px;
+.back-to-top {
+	font-family: $sansSerif;
 	display: none;
-	font-size: 1rem;
-	position: absolute;
-	right: 5px;
-	bottom: -80px;
+	background: #000;
+	padding: 0.75em;
+	color: #fff;
+	position: fixed;
+	bottom: 15px;
+	left: 95px;
+	width: 130px;
+	text-align: center;
+	border-radius: 4px;
+	padding: 1em 0.25em;
+	text-decoration: none;
 }
-#back-to-top:after {
+
+.back-to-top::after {
 	font-family: FontAwesome;
 	content: "\f176";
-	margin-left: 1em;
-	color: black;
+	margin-left: -0.5em;
+	opacity: 0;
+	transition: all 0.2s;
+}
+
+.back-to-top:hover::after {
+	font-family: FontAwesome;
+	content: "\f176";
+	margin-left: 0.5em;
+	color: inherit;
+	opacity: 1;
+	display: inline-block;
 }
