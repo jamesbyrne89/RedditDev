@@ -503,71 +503,51 @@ label:hover {
 /* Loading animation */
 
 
-#loading {
-	position: absolute;
-	left: calc(50% - 30px);
-	top: calc(50vh - 70px);
-	font-size: 3rem;
-	border-radius: 50%;
-	margin: auto;
-}
-
-
-#loading:before, #loading:after {
+.spinner {
+  width: 36px;
+  height: 36px;
+  clear: both;
+  margin: auto;
   position: absolute;
-  content: "";
-  display: block;
-  margin-top: 0px;
-  margin-left: 0px;
-  height: 60px;
-  width: 60px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+}
+
+
+/* Spinner Circle Rotation */
+
+
+.spinner-circle {
+  border: 4px #d1d4d5 solid;
+  border-top: 4px #fdf522 solid;
   border-radius: 50%;
-  border: solid 4px #ff4500;
-  -webkit-animation: pulse 1s linear infinite;
-  animation: pulse 1s linear infinite;
-  opacity: 0;
+  -webkit-animation: spCircRot .6s infinite linear;
+  animation: spCircRot .6s infinite linear;
 }
 
 
-#loading:after {
-  -webkit-animation: pulse 1s linear .3s infinite;
-  animation: pulse 1s linear .3s infinite;
+@-webkit-keyframes spCircRot {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(359deg);
+  }
 }
 
 
-@-webkit-keyframes pulse
-{
-	0% {
-		-webkit-transform: scale(0);
-		        transform: scale(0);
-		opacity: 1;
-	}
-
-	100% {
-	-webkit-transform: scale(1.3);
-	        transform: scale(1.3);
-		opacity: 0;
-	}
-
-
-}
-
-
-@keyframes pulse
-{
-	0% {
-		-webkit-transform: scale(0);
-		        transform: scale(0);
-		opacity: 1;
-	}
-
-	100% {
-	-webkit-transform: scale(1.3);
-	        transform: scale(1.3);
-		opacity: 0;
-	}
-
-
+@keyframes spCircRot {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(359deg);
+            transform: rotate(359deg);
+  }
 }
 
 
