@@ -86,8 +86,8 @@
 	}
 }
 
-.checkbox {
-	display: none;
+.filters__list__item {
+	padding: ;
 }
 
 input[type=checkbox] + span::after {
