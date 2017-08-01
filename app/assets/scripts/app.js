@@ -39,32 +39,32 @@ const getData = function getData() {
 
 
     Promise.all([fetchWebDev, fetchWebDesign, fetchFrontEnd, fetchCSS, fetchJavascript, fetchJQuery, fetchWebDevTutorials])
-    .then((values) => {
+        .then((values) => {
 
-        let combined = [];
-        let allPosts = [];
+            let combined = [];
+            let allPosts = [];
 
-        values.forEach(item => {
-            combined.push(...item.data.children)
+            values.forEach(item => {
+                combined.push(...item.data.children)
 
+            });
+            combined.forEach(item => {
+                let post = item.data;
+                allPosts.push(post)
+            });
+
+            console.log(allPosts)
+
+            // Sort by date
+
+            const sortedByDate = allPosts.sort(function(a, b) {
+                return b.created - a.created;
+            });
+
+
+
+            updateView(sortedByDate)
         });
-        combined.forEach(item => {
-            let post = item.data;
-           allPosts.push(post)
-        });
-
-        console.log(allPosts)
-
-        // Sort by date
-        
-     const sortedByDate = allPosts.sort(function(a, b) {
-        return b.created - a.created;
-    });
-
-
-
-        updateView(sortedByDate)
-    });
 
 };
 
@@ -104,14 +104,13 @@ const getHostname = function(href) {
     var l = document.createElement("a");
     var shortened;
     l.href = href;
-    if(l.hostname.indexOf('www.') === 0){
-    shortened = l.hostname.replace('www.','');
-    return shortened;
-}
-else {
-    return l.hostname;
-}
-    
+    if (l.hostname.indexOf('www.') === 0) {
+        shortened = l.hostname.replace('www.', '');
+        return shortened;
+    } else {
+        return l.hostname;
+    }
+
 };
 
 
@@ -120,28 +119,27 @@ Place into HTML
  */
 function updateView(sortedByDate) {
 
-for (let i=0; i<sortedByDate.length; i++) {
+    for (let i = 0; i < sortedByDate.length; i++) {
 
-    let time = convertTimestamp(sortedByDate[i].created);
-    let thumbnail;
-    let numCommentsText;
-    
-if (sortedByDate[i].preview && sortedByDate[i].preview.images[0].resolutions && sortedByDate[i].preview.images[0].resolutions[2]) {
-          thumbnail = `<img class="lazyload reddit-card__thumbnail" src="${sortedByDate[i].preview.images[0].resolutions[2].url}">`;
+        let time = convertTimestamp(sortedByDate[i].created);
+        let thumbnail;
+        let numCommentsText;
+
+        if (sortedByDate[i].preview && sortedByDate[i].preview.images[0].resolutions && sortedByDate[i].preview.images[0].resolutions[2]) {
+            thumbnail = `<img class="lazyload reddit-card__thumbnail" src="${sortedByDate[i].preview.images[0].resolutions[2].url}">`;
         } else {
-          thumbnail = "";
+            thumbnail = "";
         }
         let card = document.createElement('div');
         card.className = 'reddit-card';
         card.classList.add(sortedByDate[i].subreddit);
 
-// Remove the 's' if comment number is one
-if (sortedByDate[i].num_comments === 1)  {
-    numCommentsText = `${sortedByDate[i].num_comments} comment`;
-}
-else {
-   numCommentsText = `${sortedByDate[i].num_comments} comments` 
-}       
+        // Remove the 's' if comment number is one
+        if (sortedByDate[i].num_comments === 1) {
+            numCommentsText = `${sortedByDate[i].num_comments} comment`;
+        } else {
+            numCommentsText = `${sortedByDate[i].num_comments} comments`
+        }
 
         let html = `<div class="reddit-card__subreddit ${sortedByDate[i].subreddit}">r/${sortedByDate[i].subreddit}</div>
                       <figure class="reddit-card__thumbnail-title-wrapper">
@@ -154,14 +152,15 @@ else {
                       ${sortedByDate[i].title}</a></div>
                       </figure>
                       <div class="card-footer">
-                      <span class="short-url">${getHostname(sortedByDate[i].url)}</span>      
                       <div> 
+                      <span class="short-url">${getHostname(sortedByDate[i].url)}</span> 
                         <span class="post-comments">
                           <a href="http://reddit.com/${sortedByDate[i].permalink}" target="blank">
                           ${numCommentsText}</a>
-                        </span>
+                        </span>     
+                      </div>
                         <time class="timestamp">${time}</time>
-                        </div>
+
                       </div>`
         card.innerHTML = html;
         $('#reddit-content').hide().append(card).fadeIn(500);
@@ -186,8 +185,7 @@ $('.select-all').on('click', function() {
         $('.javascript-box').trigger('change')
         $('.jquery-box').trigger('change')
         $('.webdevtutorials-box').trigger('change')
-    }
-    else {
+    } else {
         $('.checkbox').prop('checked', false)
         $('.web_design-box').trigger('change')
         $('.frontend-box').trigger('change')

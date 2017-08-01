@@ -99,17 +99,12 @@
 	display: none;
 }
 
-label {
-	position: relative;
-	z-index: 26;
-}
-
 input[type=checkbox] + span::after {
 		content: "";
 		font-size: 1.5em;
 		display: inline-block;
 		position: relative;
-		left: 0.875em;
+		left: 0.5em;
 		height: 6px;
 		width: 6px;
 		border: solid 2px #495456;
@@ -138,7 +133,9 @@ input[type=checkbox]:checked ~ span {
 }
 
 label {
-	margin-right: 1.5em;
+	position: relative;
+	z-index: 26;	
+	margin-right: 0.75em;
 	padding: 0.5em 0;
 &:hover {
 	cursor: pointer;
