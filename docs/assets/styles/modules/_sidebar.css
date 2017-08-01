@@ -3,7 +3,6 @@
 .sidebar {
 	height: 80vh;
 	width: 13vw;
-	margin-right: 20px;
 	padding: 0.75em 0 0.75em 0.75em;
 	flex: 1 0 200px;
 	position: fixed;

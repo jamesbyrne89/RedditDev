@@ -7,27 +7,9 @@
 	color: #fff;
 	position: fixed;
 	bottom: 15px;
-	left: 95px;
-	width: 130px;
+	right: 15px;
 	text-align: center;
 	border-radius: 4px;
-	padding: 1em 0.25em;
+	padding: 0.75em;
 	text-decoration: none;
-}
-
-.back-to-top::after {
-	font-family: FontAwesome;
-	content: "\f176";
-	margin-left: -0.5em;
-	opacity: 0;
-	transition: all 0.2s;
-}
-
-.back-to-top:hover::after {
-	font-family: FontAwesome;
-	content: "\f176";
-	margin-left: 0.5em;
-	color: inherit;
-	opacity: 1;
-	display: inline-block;
 }
