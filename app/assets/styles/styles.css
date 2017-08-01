@@ -64,9 +64,10 @@ body {
 }
 
 .primary {
-	width: 85vw;
+	width: 85%;
 	margin-top: 4px;
 	margin-bottom: 2rem;
+	transition: all ease 0.3s;	
 }
 
 @media (max-width:1440px) {

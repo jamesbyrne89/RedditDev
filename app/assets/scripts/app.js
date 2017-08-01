@@ -170,9 +170,8 @@ function updateView(sortedByDate) {
 }
 
 // Filter by subreddit
-$('.filters__title').on('click', function() {
-    $('.expand-icon').toggleClass('expand-icon--opened');
-    $('.filters__list').toggleClass('filters__list--opened');
+$('.filter-btn').on('click', function() {
+    $('.modal').toggleClass('modal--opened');
 });
 
 $('.select-all').on('click', function() {

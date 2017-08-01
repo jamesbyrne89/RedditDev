@@ -34,8 +34,15 @@
 	margin-bottom: 2.5em;
 	padding-top: 3.2em;
 	padding-bottom: 1em;
-	width: 85vw;
+	width: 85%;
 	height: 15vh;
+	left: 7.5%;
+	transition: all ease 0.3s;	
+}
+
+.header-sidebar--active {
+	width: 65%;
+	transition: all ease 0.3s;	
 }
 
 .header::after {
@@ -43,7 +50,7 @@
 	display: block;
 	height: 1px;
 	background: #d1d4d5;
-	width: 85vw;
+	width: 100%;
 	position: absolute;
 	bottom: 0.75em;
 	left: 0;
@@ -64,16 +71,7 @@
 	background: #eee;
 }
 
-.filters__title {
-	line-height: 2;
-	font-size: 1rem;
-	text-transform: uppercase;
-	position: relative;
-	z-index: 40;
-	display: flex;
-	align-items: center;
-	padding-bottom: 0.25em;
-}
+
 
 .filters__title:hover{
 	cursor: pointer;

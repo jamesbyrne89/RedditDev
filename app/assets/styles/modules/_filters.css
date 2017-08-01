@@ -1,14 +1,37 @@
 /* Filter list */
 
-.filters {
-	
+.modal {
+	border: solid 1px #d1d4d5;	
 	font-family: $sansSerif;
-	position: relative;
-	height: 0;
-	z-index: -40;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 250;
+	display: none;
+	width: 50vw;
+	height: 30vh;
+	margin: auto;
+	background: #f9f9f9;
+	padding: 1em;
+}
+
+.modal--opened {
 	display: block;
 }
 
+.filters {
+
+	width: 100%;
+	height: 100%;
+	margin: auto;
+	padding: 1em;
+}
+
+.filters__title {
+	font-family: $serif;
+}
 
 
 .expand-icon {
@@ -46,29 +69,21 @@
 
 
 .filters__list {
-	background: #eee;
 	font-family: $sansSerif;
 	padding: 0.5em 0;
 	display: block;
 	position: relative;
 	text-align: right;
 	z-index: 5;
+	color: #fff;
+	font-weight: 400;
 	position: relative;
 	bottom: 0;
-	transform: translateY(-250px);
-	transition: transform 0.5s;
 	li {
 		display: block;
 		margin-top: 0.5em;
 		z-index: 9;
 	}
-}
-
-.filters__list--opened {
-	position: relative;
-	transform: translateY(0px);	
-	transition: transform 0.5s;
-	z-index: 7;
 }
 
 .checkbox {
@@ -116,4 +131,32 @@ label {
 &:hover {
 	cursor: pointer;
 }
+}
+
+.filters__list__item > .css {
+	background: #fc3d39;
+}
+
+.filters__list__item > .webdev {
+	background: #53d769;
+}
+
+.filters__list__item > .web_design {
+	background: #147efb;
+}
+
+.filters__list__item > .jquery {
+	background: #833ab4;
+}
+
+.filters__list__item > .javascript {
+	background: #5fc9f8;
+}
+
+.filters__list__item > .frontend {
+	background: #fd9426;
+}
+
+.filters__list__item > .webdevtutorials {
+	background: #833ab4;
 }

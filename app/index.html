@@ -27,7 +27,7 @@
                 <h1 class="header__title">RedditDev</h1>
                 <h2 class="header__description">Frontend web development resources from Reddit in one place.</h2>
             </div>
-            <h2 class="filters__title">Filter by topic <span class="expand-icon">+</span></h2>
+            <button class="filter-btn">Filter by topic<i class="icon-filter"></i></button>
         </header>
         <!-- Main content -->  
         <main id="reddit-content" class="reddit-content">
@@ -36,11 +36,10 @@
 
     </section>
         <!-- Filters menu -->  
-        <aside class="sidebar">
+        <div class="modal">
         <div class="filters">
-            <div class="filters__top-bar">
-                
-            </div>
+
+            <h2 class="filters__title">Filter by category</h2>
             <ul class="filters__list">
                 <li class="filters__list__item" id="select-all">
                     <label>
@@ -49,51 +48,30 @@
                     </label>
                 </li>            
                 <li class="filters__list__item">
-                    <label>
-                        <input checked class="checkbox css-box" type="checkbox">
-                        <span class="label--checkbox">r/css</span>
-                    </label>
+                        <span class="css">r/css</span>
                 </li>
                 <li class="filters__list__item">
-                    <label>
-                        <input checked class="checkbox frontend-box" type="checkbox">
-                        <span class="label--checkbox">r/frontend</span>
-                    </label>
+                        <span class="frontend">r/frontend</span>
                 </li>
                 <li class="filters__list__item">
-                    <label>
-                        <input checked class="checkbox javascript-box" type="checkbox">
-                        <span class="label--checkbox">r/javascript</span>
-                    </label>
+                        <span class="javascript">r/javascript</span>
                 </li>
                 <li class="filters__list__item">
-                    <label>
-                        <input checked class="checkbox jquery-box" type="checkbox">
-                        <span class="label--checkbox">r/jquery</span>
-                    </label>
+                        <span class="jquery">r/jquery</span>
                 </li>
                 <li class="filters__list__item">
-                    <label>
-                        <input checked class="checkbox web_design-box" type="checkbox">
-                        <span class="label--checkbox">r/web_design</span>
-                    </label>
+                        <span class="web_design">r/web_design</span>
                 </li>
                 <li class="filters__list__item">
-                    <label>
-                        <input checked class="checkbox webdev-box" type="checkbox">
-                        <span class="label--checkbox">r/webdev</span>
-                    </label>
+                        <span class="webdev">r/webdev</span>
                 </li>
                 <li class="filters__list__item">
-                    <label>
-                        <input checked class="checkbox webdevtutorials-box" type="checkbox">
-                        <span>r/webdevtutorials</span>
-                    </label>
+                        <span class="webdevtutorials">r/webdevtutorials</span>
                 </li>
             </ul>
         </div> 
-        </aside> 
-        <a href="#" id="back-to-top" class="back-to-top">Back to top</a>   
+        </div> 
+        <a href="#" id="back-to-top" class="back-to-top"><i class="icon-up-open"></i></a>   
     </aside>
     </div>
     <script src="https://code.jquery.com/jquery-1.12.0.min.js">

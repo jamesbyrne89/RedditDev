@@ -3,6 +3,7 @@
 	column-count: 4;
 	column-gap: 40px;
 	margin-top: 16vh;
+	transition: all ease 0.3s;	
 }
 
 /* Cards */
