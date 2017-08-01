@@ -234,14 +234,12 @@
 .modal {
 	border: solid 1px #d1d4d5;	
 	font-family: 'Work Sans', helvetica, arial, sans-serif;
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	z-index: 250;
+	position: fixed;
+	top: 16vh;
+	right: 7.5vw;
+	z-index: 300;
 	display: none;
-	width: 50vw;
+	width: 500px;
 	height: 30vh;
 	margin: auto;
 	background: #f9f9f9;
@@ -251,6 +249,18 @@
 
 .modal--opened {
 	display: block;
+}
+
+
+.modal__close-btn {
+	position: absolute;
+	top: 1em;
+	right: 1em;
+	font-size: 1em;
+	border: 0;
+	background: transparent;
+	font-weight: 300;
+	cursor: pointer;
 }
 
 
@@ -306,12 +316,26 @@
 }
 
 
+.filter-overlay {
+	position: fixed;
+	display: none;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: black;
+	opacity: 0.7;
+	mix-blend-mode: darken;
+	z-index: 250;
+}
+
+
 .filters__list {
 	font-family: 'Work Sans', helvetica, arial, sans-serif;
 	padding: 0.5em 0;
 	display: block;
 	position: relative;
-	text-align: right;
+	text-align: center;
 	z-index: 5;
 	color: #fff;
 	font-weight: 400;
@@ -324,11 +348,6 @@
   display: block;
   margin-top: 0.5em;
   z-index: 9;
-}
-
-
-.checkbox {
-	display: none;
 }
 
 
@@ -382,38 +401,56 @@ label:hover {
 }
 
 
-.filters__list__item > .css {
+.filters__list-item {
+	padding: 0.5em 0.75em;
+	border: solid 1px transparent;
+	border-radius: 3px;
+	margin: 0.75em;
+	color: #fff;
+	font-size: 1rem;
+}
+
+
+.subreddit--deselected {
+	background: transparent !important;
+	border: solid 1px rgb(141, 148, 149);
+	color: rgb(141, 148, 149) !important;
+	transition: all 0.1s;
+}
+
+
+.filters__list > .css {
 	background: #fc3d39;
 }
 
 
-.filters__list__item > .webdev {
+.filters__list > .webdev {
 	background: #53d769;
 }
 
 
-.filters__list__item > .web_design {
+.filters__list > .web_design {
 	background: #147efb;
 }
 
 
-.filters__list__item > .jquery {
+.filters__list > .jquery {
 	background: #833ab4;
 }
 
 
-.filters__list__item > .javascript {
+.filters__list > .javascript {
 	background: #5fc9f8;
 }
 
 
-.filters__list__item > .frontend {
+.filters__list > .frontend {
 	background: #fd9426;
 }
 
 
-.filters__list__item > .webdevtutorials {
-	background: #833ab4;
+.filters__list > .webdevtutorials {
+	background: #a086d3;
 }
 
 
@@ -579,38 +616,38 @@ label:hover {
 }
 
 
-.reddit-card__subreddit.css {
+.subreddit-css {
 	background: #fc3d39;
 }
 
 
-.reddit-card__subreddit.webdev {
+.subreddit-webdev {
 	background: #53d769;
 }
 
 
-.reddit-card__subreddit.web_design {
+.subreddit-web_design {
 	background: #147efb;
 }
 
 
-.reddit-card__subreddit.jquery {
+.subreddit-jquery {
 	background: #833ab4;
 }
 
 
-.reddit-card__subreddit.javascript {
+.subreddit-javascript {
 	background: #5fc9f8;
 }
 
 
-.reddit-card__subreddit.Frontend {
+.subreddit-frontend {
 	background: #fd9426;
 }
 
 
-.reddit-card__subreddit.WebdevTutorials {
-	background: #833ab4;
+.subreddit-webdevtutorials {
+	background: #004851;
 }
 
 
@@ -649,16 +686,16 @@ label:hover {
 	border: solid 1px #495456;
 	border-radius: 3px;
 	color: #495456;
-	transition: all 0.15s;
+	transition: all 0.1s;
 	cursor: pointer;
 	margin-bottom: 0.5em;
 }
 
 
 .filter-btn:hover {
-	background: #fdf522;
-	color: black;
-	border: solid 1px black;
+	background: #fc7e84;
+	color: #fff;
+	border: solid 1px #F75B58;
 }
 
 
@@ -772,6 +809,7 @@ body {
 	display: block;
 	background: #d1d4d5;
 	width: 100vw;
+	padding-top: 1px;
 }
 
 
@@ -779,7 +817,7 @@ body {
 	display: block;
 	height: 4px;
 	position: fixed;
-	top: 0;
+	top: 1;
 	z-index: 90;
 	width: 0;
 	background: #fdf522;	

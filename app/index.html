@@ -16,7 +16,7 @@
 </head>
 <body>
     <!-- Scroll progress bar -->
-    <div  class="scrolled-bar">
+    <div class="scrolled-bar">
         <div id="scrolled-bar" class="scrolled-bar__progress"></div>
     </div>
     <div class='container'>
@@ -35,40 +35,28 @@
         </main>
 
     </section>
-        <!-- Filters menu -->  
+        <!-- Filters menu --> 
+        <div class='filter-overlay'></div> 
         <div class="modal">
-        <div class="filters">
 
+        <div class="filters">
             <h2 class="filters__title">Filter by category</h2>
-            <ul class="filters__list">
+            <button class='modal__close-btn'><i class="icon-cancel"></i></button>
+            <div class="filters__list">
                 <li class="filters__list__item" id="select-all">
                     <label>
                         <input checked class="checkbox select-all" type="checkbox">
                         <span>All</span>
                     </label>
                 </li>            
-                <li class="filters__list__item">
-                        <span class="css">r/css</span>
-                </li>
-                <li class="filters__list__item">
-                        <span class="frontend">r/frontend</span>
-                </li>
-                <li class="filters__list__item">
-                        <span class="javascript">r/javascript</span>
-                </li>
-                <li class="filters__list__item">
-                        <span class="jquery">r/jquery</span>
-                </li>
-                <li class="filters__list__item">
-                        <span class="web_design">r/web_design</span>
-                </li>
-                <li class="filters__list__item">
-                        <span class="webdev">r/webdev</span>
-                </li>
-                <li class="filters__list__item">
-                        <span class="webdevtutorials">r/webdevtutorials</span>
-                </li>
-            </ul>
+                <button class="filters__list-item css-box css">r/css</button>
+                <button class="filters__list-item frontend-box frontend">r/frontend </button>
+                <button class="filters__list-item javascript-box javascript">r/javascript</button>
+                <button class="filters__list-item jquery-box jquery">r/jquery</button>
+                <button class="filters__list-item web_design-box web_design">r/web_design</button>
+                <button class="filters__list-item webdev-box webdev">r/webdev</button>
+                <button class="filters__list-item webdevtutorials-box webdevtutorials">r/webdevtutorials</button>
+            </div>
         </div> 
         </div> 
         <a href="#" id="back-to-top" class="back-to-top"><i class="icon-up-open"></i></a>   

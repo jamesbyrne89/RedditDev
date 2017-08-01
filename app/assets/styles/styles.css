@@ -51,13 +51,14 @@ body {
 	display: block;
 	background: #d1d4d5;
 	width: 100vw;
+	padding-top: 1px;
 }
 
 .scrolled-bar__progress {
 	display: block;
 	height: 4px;
 	position: fixed;
-	top: 0;
+	top: 1;
 	z-index: 90;
 	width: 0;
 	background: #fdf522;	

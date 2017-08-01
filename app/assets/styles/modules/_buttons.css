@@ -16,6 +16,8 @@
 
 
 
+
+
 .filter-btn {
 	font-size: 0.875rem;
 	position: relative;
@@ -28,15 +30,15 @@
 	border: solid 1px #495456;
 	border-radius: 3px;
 	color: #495456;
-	transition: all 0.15s;
+	transition: all 0.1s;
 	cursor: pointer;
 	margin-bottom: 0.5em;
 }
 
 .filter-btn:hover {
-	background: #fdf522;
-	color: black;
-	border: solid 1px black;
+	background: #fc7e84;
+	color: #fff;
+	border: solid 1px #F75B58;
 }
 
 .icon-filter {

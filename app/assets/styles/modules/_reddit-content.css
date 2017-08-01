@@ -122,30 +122,30 @@
 	text-align: left;
 }
 
-.reddit-card__subreddit.css {
+.subreddit-css {
 	background: #fc3d39;
 }
 
-.reddit-card__subreddit.webdev {
+.subreddit-webdev {
 	background: #53d769;
 }
 
-.reddit-card__subreddit.web_design {
+.subreddit-web_design {
 	background: #147efb;
 }
 
-.reddit-card__subreddit.jquery {
+.subreddit-jquery {
 	background: #833ab4;
 }
 
-.reddit-card__subreddit.javascript {
+.subreddit-javascript {
 	background: #5fc9f8;
 }
 
-.reddit-card__subreddit.Frontend {
+.subreddit-frontend {
 	background: #fd9426;
 }
 
-.reddit-card__subreddit.WebdevTutorials {
-	background: #833ab4;
+.subreddit-webdevtutorials {
+	background: #004851;
 }

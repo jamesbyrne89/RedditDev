@@ -3,14 +3,12 @@
 .modal {
 	border: solid 1px #d1d4d5;	
 	font-family: $sansSerif;
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	z-index: 250;
+	position: fixed;
+	top: 16vh;
+	right: 7.5vw;
+	z-index: 300;
 	display: none;
-	width: 50vw;
+	width: 500px;
 	height: 30vh;
 	margin: auto;
 	background: #f9f9f9;
@@ -19,6 +17,17 @@
 
 .modal--opened {
 	display: block;
+}
+
+.modal__close-btn {
+	position: absolute;
+	top: 1em;
+	right: 1em;
+	font-size: 1em;
+	border: 0;
+	background: transparent;
+	font-weight: 300;
+	cursor: pointer;
 }
 
 .filters {
@@ -66,6 +75,19 @@
                                   supported by Chrome and Opera */
 }
 
+.filter-overlay {
+	position: fixed;
+	display: none;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: black;
+	opacity: 0.7;
+	mix-blend-mode: darken;
+	z-index: 250;
+}
+
 
 
 .filters__list {
@@ -73,7 +95,7 @@
 	padding: 0.5em 0;
 	display: block;
 	position: relative;
-	text-align: right;
+	text-align: center;
 	z-index: 5;
 	color: #fff;
 	font-weight: 400;
@@ -86,9 +108,6 @@
 	}
 }
 
-.filters__list__item {
-	padding: ;
-}
 
 input[type=checkbox] + span::after {
 		content: "";
@@ -133,30 +152,46 @@ label {
 }
 }
 
-.filters__list__item > .css {
+.filters__list-item {
+	padding: 0.5em 0.75em;
+	border: solid 1px transparent;
+	border-radius: 3px;
+	margin: 0.75em;
+	color: #fff;
+	font-size: 1rem;
+}
+
+.subreddit--deselected {
+	background: transparent !important;
+	border: solid 1px rgb(141, 148, 149);
+	color: rgb(141, 148, 149) !important;
+	transition: all 0.1s;
+}
+
+.filters__list > .css {
 	background: #fc3d39;
 }
 
-.filters__list__item > .webdev {
+.filters__list > .webdev {
 	background: #53d769;
 }
 
-.filters__list__item > .web_design {
+.filters__list > .web_design {
 	background: #147efb;
 }
 
-.filters__list__item > .jquery {
+.filters__list > .jquery {
 	background: #833ab4;
 }
 
-.filters__list__item > .javascript {
+.filters__list > .javascript {
 	background: #5fc9f8;
 }
 
-.filters__list__item > .frontend {
+.filters__list > .frontend {
 	background: #fd9426;
 }
 
-.filters__list__item > .webdevtutorials {
-	background: #833ab4;
+.filters__list > .webdevtutorials {
+	background: #a086d3;
 }

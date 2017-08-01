@@ -32,6 +32,8 @@
   }
 }
 */
+
+
  
  [class^="icon-"]:before, [class*=" icon-"]:before {
   font-family: "fontello";
@@ -65,3 +67,5 @@
 }
 .icon-up-open:before { content: '\e800'; } /* '' */
 .icon-filter:before { content: '\f0b0'; } /* '' */
+
+
