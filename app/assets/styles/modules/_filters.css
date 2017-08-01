@@ -9,31 +9,7 @@
 	display: block;
 }
 
-.filters__top-bar {
-	padding-top: 5rem;
-	display: flex;
-	justify-content: flex-end;
-	padding-bottom: 0.5em;
-	z-index: 10;
-	position: relative;
-	background: #eee;
-}
 
-.filters__title {
-	line-height: 2;
-	font-size: 1rem;
-	text-transform: uppercase;
-	position: relative;
-	z-index: 40;
-	display: flex;
-	align-items: center;
-	padding-bottom: 0.25em;
-	border-bottom: 1px solid #d1d4d5;
-}
-
-.filters__title:hover{
-	cursor: pointer;
-}
 
 .expand-icon {
 	display: inline-block;

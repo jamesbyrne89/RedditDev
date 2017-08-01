@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta content="ie=edge" http-equiv="x-ua-compatible">
-    <title>RedditDev</title>
+    <title>RedditDev - frontend web development resources from Reddit in one place</title>
     <meta content="A place for frontend web development resources on Reddit." name="description">
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <link href="assets/images/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
@@ -15,24 +15,31 @@
     <script src="https://use.fontawesome.com/a697955832.js"></script>
 </head>
 <body>
-    <!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-    <!-- Add your site or application content here -->
-    <div id="scrolled-bar" class="scrolled-bar"></div>
-    <aside class="sidebar">
+    <!-- Scroll progress bar -->
+    <div  class="scrolled-bar">
+        <div id="scrolled-bar" class="scrolled-bar__progress"></div>
+    </div>
+    <div class='container'>
+    <section class='primary'>
+        <!-- Header -->  
         <header class="header">
             <div class="header__title-wrapper">
                 <h1 class="header__title">RedditDev</h1>
-                <div class="header__line"></div>
+                <h2 class="header__description">Frontend web development resources from Reddit in one place.</h2>
             </div>
-            <div class="header__description">
-                A place for frontend web development resources on Reddit.
-            </div>
+            <h2 class="filters__title">Filter by topic <span class="expand-icon">+</span></h2>
         </header>
+        <!-- Main content -->  
+        <main id="reddit-content" class="reddit-content">
+            <div id='loading' class="spinner spinner-circle"></div>
+        </main>
+
+    </section>
+        <!-- Filters menu -->  
+        <aside class="sidebar">
         <div class="filters">
             <div class="filters__top-bar">
-                <h2 class="filters__title">Filter by topic <span class="expand-icon">+</span></h2>
+                
             </div>
             <ul class="filters__list">
                 <li class="filters__list__item" id="select-all">
@@ -84,12 +91,11 @@
                     </label>
                 </li>
             </ul>
-        </div>  
+        </div> 
+        </aside> 
         <a href="#" id="back-to-top" class="back-to-top">Back to top</a>   
     </aside>
-    <main id="reddit-content" class="reddit-content">
-        <div id='loading' class="spinner spinner-circle"></div>
-    </main>
+    </div>
     <script src="https://code.jquery.com/jquery-1.12.0.min.js">
     </script> 
      <!-- build:js assets/scripts/app.js -->

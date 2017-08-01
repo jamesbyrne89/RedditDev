@@ -1,11 +1,8 @@
 /* Content */
 .reddit-content {
-	max-width: 83vw;
-	margin: 40px;
-	margin-left: 15vw;
 	column-count: 4;
 	column-gap: 40px;
-	flex: 0 1  1600px;
+	margin-top: 16vh;
 }
 
 /* Cards */
@@ -49,6 +46,7 @@
 
 	&:hover {
 		box-decoration-break: clone;
+		opacity: 0.7;
 	}
 
 }
@@ -76,10 +74,11 @@
 	display: flex;
 	justify-content: space-between;
 	flex-wrap: wrap;
-	color: gray;
+	color: rgb(141, 148, 149);
 	font-size: 0.875rem;
 	max-width: 100%;
-	padding: 1em 0 0 0;
+	padding: 0.5em 0 0 0;
+	margin-top: 0.75em;
 }
 
 .short-url {
@@ -95,9 +94,10 @@
 	white-space: nowrap;
 	padding-top: 0.5em;
 	a {
-		color: rgb(141, 148, 149) !important;
+		color: #495456 !important;
 		text-decoration: none;
 		transition: color 0.2s;
+		cursor: pointer;
 	}
 
 	a:hover {
