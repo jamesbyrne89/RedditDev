@@ -1,5 +1,7 @@
-@import 'modules/_reset';
+@import 'base/_reset';
 @import 'base/_variables';
+@import 'base/_animations';
+
 @import 'modules/_header';
 @import 'modules/_fonts';
 @import 'modules/_sidebar';

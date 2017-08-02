@@ -189,11 +189,17 @@ function debounce(func) {
 
 function checkVisible(e) {
     $('.reddit-card').each(function () {
-        var scrollInAt = window.scrollY + window.innerHeight - window.innerHeight * 0.25;
+
+        var scrollInAt = void 0;
+        if (window.scrollY < 10) {
+            scrollInAt = window.innerHeight;
+        } else {
+            scrollInAt = window.scrollY + window.innerHeight - window.innerHeight * 0.25;
+        }
         var isShowing = scrollInAt > this.offsetTop;
         var isNotShowing = window.scrollY < scrollInAt;
         var scrolled = window.scrollY > 10;
-        console.log(this.getBoundingClientRect());
+
         if (scrolled && isShowing && isNotShowing) {
             this.classList.add('animate');
         } else if (!scrolled && isShowing && isNotShowing) {
