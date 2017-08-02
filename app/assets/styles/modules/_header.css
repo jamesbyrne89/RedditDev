@@ -31,13 +31,13 @@
 	z-index: 200;
 	background: #eee;
 	position: fixed;
+	left: 0;
 	margin-bottom: 2.5em;
-	padding-top: 3.2em;
-	padding-bottom: 1em;
-	width: 85%;
+	padding: 3.2em 7.5vw 1em 7.5vw;
+	width: 100%;
 	height: 15vh;
-	left: 7.5%;
-	transition: all ease 0.3s;	
+	transition: all ease 0.3s;
+
 }
 
 .header-sidebar--active {
@@ -50,10 +50,10 @@
 	display: block;
 	height: 1px;
 	background: #d1d4d5;
-	width: 100%;
+	width: 85%;
 	position: absolute;
 	bottom: 0.75em;
-	left: 0;
+	left: 7.5vw;
 }
 
 .header__title-wrapper {
@@ -76,3 +76,4 @@
 .filters__title:hover{
 	cursor: pointer;
 }
+

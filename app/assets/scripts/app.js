@@ -172,7 +172,9 @@ function updateView(sortedByDate) {
 // Filter by subreddit
 function toggleModal() {
      $('.modal').fadeToggle('fast');
-    $('.filter-overlay').fadeToggle('fast');   
+     $('.filter-overlay').fadeToggle('fast');
+    $('.reddit-content').toggleClass('shift-down');   
+    $('.header').toggleClass('shift-up');   
 }
 
 

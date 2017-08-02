@@ -39,7 +39,7 @@ body {
 }
 
 ::selection {
-	background-color: #fdf522;
+	background-color: $highlightColourOne;
 	color: black;
 }
 
@@ -58,10 +58,10 @@ body {
 	display: block;
 	height: 4px;
 	position: fixed;
-	top: 1;
+	top: 0;
 	z-index: 90;
 	width: 0;
-	background: #fdf522;	
+	background:#000;	
 }
 
 .primary {

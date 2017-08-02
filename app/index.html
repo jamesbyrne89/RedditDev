@@ -9,7 +9,7 @@
     <link href="assets/images/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
     <link href="assets/images/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
     <link href="assets/images/favicon.png" rel="apple-touch-icon"><!-- Place favicon.ico in the root directory -->
-    <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,600" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600" rel="stylesheet">
     <!-- build:css assets/styles/styles.css -->
     <link href="temp/assets/styles/styles.css" rel="stylesheet"><!-- endBuild -->
     <script src="https://use.fontawesome.com/a697955832.js"></script>
@@ -24,10 +24,10 @@
         <!-- Header -->  
         <header class="header">
             <div class="header__title-wrapper">
-                <h1 class="header__title">RedditDev</h1>
+                <h1 class="header__title">RedditDev.</h1>
                 <h2 class="header__description">Frontend web development resources from Reddit in one place.</h2>
             </div>
-            <button class="filter-btn">Filter by topic<i class="icon-filter"></i></button>
+            <button class="filter-btn">Filter<i class="icon-filter"></i></button>
         </header>
         <!-- Main content -->  
         <main id="reddit-content" class="reddit-content">
@@ -40,27 +40,34 @@
         <div class="modal">
 
         <div class="filters">
-            <h2 class="filters__title">Filter by category</h2>
+            <h2 class="filters__title">Filter by category:</h2>
             <button class='modal__close-btn'><i class="icon-cancel"></i></button>
-            <div class="filters__list">
-                <li class="filters__list__item" id="select-all">
-                    <label>
-                        <input checked class="checkbox select-all" type="checkbox">
-                        <span>All</span>
-                    </label>
-                </li>            
-                <button class="filters__list-item css-box css">r/css</button>
-                <button class="filters__list-item frontend-box frontend">r/frontend </button>
-                <button class="filters__list-item javascript-box javascript">r/javascript</button>
-                <button class="filters__list-item jquery-box jquery">r/jquery</button>
-                <button class="filters__list-item web_design-box web_design">r/web_design</button>
-                <button class="filters__list-item webdev-box webdev">r/webdev</button>
-                <button class="filters__list-item webdevtutorials-box webdevtutorials">r/webdevtutorials</button>
+            <div class="filters__list">   
+            <li class="filters__list-item">   
+                <button class="css-box subreddit--selected css">r/css</button>
+            </li>
+            <li class="filters__list-item">      
+                <button class="frontend-box subreddit--selected frontend">r/frontend </button>
+            </li>
+            <li class="filters__list-item">      
+                <button class="javascript-box subreddit--selected javascript">r/javascript</button>
+            </li>
+            <li class="filters__list-item">      
+                <button class="jquery-box subreddit--selected jquery">r/jquery</button>
+            </li>
+            <li class="filters__list-item">      
+                <button class="web_design-box subreddit--selected web_design">r/web_design</button>
+            </li>
+            <li class="filters__list-item">      
+                <button class="webdev-box subreddit--selected webdev">r/webdev</button>
+            </li>
+            <li class="filters__list-item">      
+                <button class="webdevtutorials-box subreddit--selected webdevtutorials">r/webdevtutorials</button>
+            </li>    
             </div>
         </div> 
         </div> 
         <a href="#" id="back-to-top" class="back-to-top"><i class="icon-up-open"></i></a>   
-    </aside>
     </div>
     <script src="https://code.jquery.com/jquery-1.12.0.min.js">
     </script> 

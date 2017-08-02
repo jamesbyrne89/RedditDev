@@ -162,6 +162,8 @@ function updateView(sortedByDate) {
 function toggleModal() {
     $('.modal').fadeToggle('fast');
     $('.filter-overlay').fadeToggle('fast');
+    $('.reddit-content').toggleClass('shift-down');
+    $('.header').toggleClass('shift-up');
 }
 
 $('.filter-btn').on('click', toggleModal);

@@ -22,12 +22,14 @@
 	font-family: $sansSerif;
 	text-transform: uppercase;
 	font-size: 0.75rem;
+	letter-spacing: 0.05em;
 	padding: 0.5em 0.75em;
 	display: inline-block !important;
-	border-radius: 3px;
-	color: #fff;
-	font-weight: 300;
+	border-radius: 0px;
+	color: #000;
+	font-weight: 600;
 	margin-bottom: 0.75em;
+	background: $highlightColourOne !important;
 }
 
 .reddit-card__post-title {
@@ -76,10 +78,12 @@
 	justify-content: space-between;
 	flex-wrap: wrap;
 	color: rgb(141, 148, 149);
-	font-size: 0.875rem;
+	font-size: 0.75rem;
+	letter-spacing: 0.02em;
 	max-width: 100%;
 	padding: 0.5em 0 0 0;
 	margin-top: 0.75em;
+	text-transform: uppercase;
 }
 
 .short-url {
@@ -95,7 +99,7 @@
 	white-space: nowrap;
 	padding-top: 0.5em;
 	a {
-		color: #495456 !important;
+		color: #000 !important;
 		text-decoration: none;
 		transition: color 0.2s;
 		cursor: pointer;
@@ -117,7 +121,6 @@
 .timestamp {
 	display: block;
 	font-family: $sansSerif;
-	font-weight: 500;
 	flex: 0 0 auto;
 	text-align: left;
 }
@@ -148,4 +151,8 @@
 
 .subreddit-webdevtutorials {
 	background: #004851;
+}
+
+.shift-down {
+	transform: translateY(10vh);
 }

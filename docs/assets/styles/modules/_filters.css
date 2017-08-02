@@ -1,15 +1,14 @@
 /* Filter list */
 
 .modal {
-	border: solid 1px #d1d4d5;	
 	font-family: $sansSerif;
+	display: none;
 	position: fixed;
-	top: 16vh;
+	top: 15vh;
 	right: 7.5vw;
 	z-index: 300;
-	display: none;
-	width: 500px;
-	height: 30vh;
+	width: 85%;
+	height: auto;
 	margin: auto;
 	background: #f9f9f9;
 	padding: 1em;
@@ -31,49 +30,17 @@
 }
 
 .filters {
-
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 	width: 100%;
-	height: 100%;
 	margin: auto;
-	padding: 1em;
 }
 
 .filters__title {
 	font-family: $serif;
 }
 
-
-.expand-icon {
-	display: inline-block;
-	margin-left: 1em;
-	font-size: 1.75em;
-	line-height: 0.5;
-	font-weight: bold;
-	transform: rotate(0deg);
-	transition: transform 0.3s;
-	  -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-     -khtml-user-select: none; /* Konqueror HTML */
-       -moz-user-select: none; /* Firefox */
-        -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome and Opera */
-
-}
-
-.expand-icon--opened {
-	transform: rotate(-90deg) !important;
-	transition: transform 0.3s;
-	margin-top: 30px;
-	margin-top: 0;
-	  -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-     -khtml-user-select: none; /* Konqueror HTML */
-       -moz-user-select: none; /* Firefox */
-        -ms-user-select: none; /* Internet Explorer/Edge */
-         user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome and Opera */
-}
 
 .filter-overlay {
 	position: fixed;
@@ -93,73 +60,35 @@
 .filters__list {
 	font-family: $sansSerif;
 	padding: 0.5em 0;
-	display: block;
+	display: flex;
 	position: relative;
 	text-align: center;
-	z-index: 5;
 	color: #fff;
 	font-weight: 400;
-	position: relative;
-	bottom: 0;
-	li {
-		display: block;
-		margin-top: 0.5em;
-		z-index: 9;
+}
+
+
+.filters__list-item {
+	font-size: 1rem;
+	button {
+	padding: 1em 2em;
+		cursor: pointer;
+	color: #fff;
+	text-transform: uppercase;
+	border: 0;
+	font-weight: 600;
+	letter-spacing: 0.05em;
 	}
 }
 
-
-input[type=checkbox] + span::after {
-		content: "";
-		font-size: 1.5em;
-		display: inline-block;
-		position: relative;
-		left: 0.5em;
-		height: 6px;
-		width: 6px;
-		border: solid 2px #495456;
-		border-radius: 2px;
-
+.subreddit--selected {
+		background: #000;
+		transition: all 0.15s;
 }
 
-input[type=checkbox]:checked + span::after {
-		content: "";
-		font-size: 1.5em;
-		display: inline-block;
-		position: relative;
-		right: 1em;
-		border-radius: 2px;
-		border: solid 2px black;
-		background: black;
-		transition: all 0.3s;
-}
-
-input[type=checkbox] ~ span {
-	color: #495456;
-}
-
-input[type=checkbox]:checked ~ span {
-	color: #000;
-}
-
-label {
-	position: relative;
-	z-index: 26;	
-	margin-right: 0.75em;
-	padding: 0.5em 0;
-&:hover {
-	cursor: pointer;
-}
-}
-
-.filters__list-item {
-	padding: 0.5em 0.75em;
-	border: solid 1px transparent;
-	border-radius: 3px;
-	margin: 0.75em;
-	color: #fff;
-	font-size: 1rem;
-}
+.subreddit--selected:hover {
+	background: rgb(221, 221, 221);
+	}
 
 .subreddit--deselected {
 	background: transparent !important;

@@ -1,2 +1,15 @@
-$sansSerif: 'Work Sans', helvetica, arial, sans-serif;
+/* Typography */
+
+$sansSerif: 'Montserrat', helvetica, arial, sans-serif;
 $serif: 'Tiempos Headline', georgia, serif;
+
+/* Colours */
+
+$highlightColourOne: #fdf522;
+
+$subreddit_colour_one: ;
+$subreddit_colour_two: ;
+$subreddit_colour_three: ;
+$subreddit_colour_four: ;
+$subreddit_colour_five: ;
+$subreddit_colour_six: ;
