@@ -164,7 +164,6 @@ body {
 		display: block;
 		position: static;
 		padding: 0;
-		flex: 1 0 75%;
 	}
 
 	.header__title {
