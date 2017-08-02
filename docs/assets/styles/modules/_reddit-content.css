@@ -1,10 +1,17 @@
 /* Content */
 .reddit-content {
 	column-count: 4;
-	column-gap: 40px;
-	margin-top: 16vh;
-	transition: all ease 0.3s;	
+	column-gap: 2.5em;
+	margin-top: 160px;
+	transition: all ease 0.3s;
+	padding-bottom: 5em;	
 }
+
+.animate {
+	-webkit-animation: moveUp 0.65s ease forwards;
+	animation: moveUp 0.65s ease forwards;
+}
+
 
 /* Cards */
 .reddit-card {
@@ -16,6 +23,8 @@
 	position: relative;
 	overflow-wrap: break-word;
 	padding: 0.75em;
+	transform: translateY(200px);
+	opacity: 0;
 }
 
 .reddit-card__subreddit {
@@ -26,7 +35,7 @@
 	padding: 0.5em 0.75em;
 	display: inline-block !important;
 	border-radius: 0px;
-	color: #000;
+	color: #000 !important;
 	font-weight: 600;
 	margin-bottom: 0.75em;
 	background: $highlightColourOne !important;
@@ -125,34 +134,61 @@
 	text-align: left;
 }
 
+.content-end-mark {
+	display: none;
+	position: relative;
+	top: -1.5em;
+	left: calc(50% - 30px);
+	padding: 1em 0;
+	width: 32px;
+	text-align: center;
+}
+
 .subreddit-css {
-	background: #fc3d39;
+	color: #fff;
+	background: $subreddit_colour_one;
 }
 
 .subreddit-webdev {
-	background: #53d769;
+	color: #fff;
+	background: $subreddit_colour_two;
 }
 
 .subreddit-web_design {
-	background: #147efb;
+	color: #fff;
+	background: $subreddit_colour_three;
 }
 
 .subreddit-jquery {
-	background: #833ab4;
+	color: #fff;
+	background: $subreddit_colour_four;
 }
 
 .subreddit-javascript {
-	background: #5fc9f8;
+	color: #fff;
+	background: $subreddit_colour_five;
 }
 
 .subreddit-frontend {
-	background: #fd9426;
+	color: #fff;
+	background: $subreddit_colour_six;
 }
 
 .subreddit-webdevtutorials {
-	background: #004851;
+	color: #fff;
+	background: $subreddit_colour_seven;
 }
 
-.shift-down {
-	transform: translateY(10vh);
+
+
+
+
+@-webkit-keyframes moveUp {
+	0% { opacity: 0; }
+	100% { -webkit-transform: translateY(0); opacity: 1; }
+}
+
+@keyframes moveUp {
+	0% { opacity: 0;}
+	100% { -webkit-transform: translateY(0); transform: translateY(0); opacity: 1; }
 }

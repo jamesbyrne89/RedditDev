@@ -121,6 +121,7 @@ function updateView(sortedByDate) {
 
     for (let i = 0; i < sortedByDate.length; i++) {
 
+        const endMark = document.getElementById('content-end-mark');
         let time = convertTimestamp(sortedByDate[i].created);
         let thumbnail;
         let numCommentsText;
@@ -166,7 +167,7 @@ function updateView(sortedByDate) {
         card.innerHTML = html;
         $('#loading').hide();
         $('.reddit-content').hide().append(card).fadeIn(500);
-
+        endMark.style.display = 'block';
     }
 
     checkVisible();
@@ -204,7 +205,6 @@ function checkVisible(e) {
         let isShowing = scrollInAt > this.offsetTop;
         let isNotShowing = window.scrollY < scrollInAt;
         let scrolled = window.scrollY > 10;
-        console.log(scrollInAt)
         console.log(this.getBoundingClientRect())
         if (scrolled && isShowing && isNotShowing) {
             this.classList.add('animate')

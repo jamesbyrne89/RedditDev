@@ -7,21 +7,17 @@
 	flex: 0 0 200px;
 	background: #eee;
 	z-index: 100;
-	position: relative;
 }
 
 .header__description {
 	font-family: $sansSerif;
 	font-size: 1rem;
-	text-align: left;
 	width: 100%;
-	background: #eee;
-	position: relative;
 	z-index: 15;
 	color: #495456;
 	font-weight: 400;
-	padding-bottom: 0.5em;
 	line-height: 1.5;
+	padding-bottom: 0.2em;
 }
 
 .header {
@@ -33,10 +29,11 @@
 	position: fixed;
 	left: 0;
 	margin-bottom: 2.5em;
-	padding: 3.2em 7.5vw 1em 7.5vw;
+	padding: 3.2em 7.5vw 2em 7.5vw;
 	width: 100%;
-	height: 15vh;
+	height: 150px;
 	transition: all ease 0.3s;
+	overflow: hidden;
 
 }
 
@@ -52,13 +49,14 @@
 	background: #d1d4d5;
 	width: 85%;
 	position: absolute;
-	bottom: 0.75em;
+	bottom: 0.5em;
 	left: 7.5vw;
 }
 
 .header__title-wrapper {
 	background: #eee;
 	z-index: 70;
+	margin-right: 2.5em;
 }
 
 .filters__top-bar {

@@ -29,7 +29,7 @@
 	position: fixed;
 	left: 0;
 	margin-bottom: 2.5em;
-	padding: 3.2em 7.5vw 1em 7.5vw;
+	padding: 3.2em 7.5vw 2em 7.5vw;
 	width: 100%;
 	height: 150px;
 	transition: all ease 0.3s;
@@ -49,7 +49,7 @@
 	background: #d1d4d5;
 	width: 85%;
 	position: absolute;
-	bottom: 0.75em;
+	bottom: 0.5em;
 	left: 7.5vw;
 }
 

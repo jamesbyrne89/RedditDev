@@ -56,7 +56,7 @@
 	position: fixed;
 	left: 0;
 	margin-bottom: 2.5em;
-	padding: 3.2em 7.5vw 1em 7.5vw;
+	padding: 3.2em 7.5vw 2em 7.5vw;
 	width: 100%;
 	height: 150px;
 	transition: all ease 0.3s;
@@ -78,7 +78,7 @@
 	background: #d1d4d5;
 	width: 85%;
 	position: absolute;
-	bottom: 0.75em;
+	bottom: 0.5em;
 	left: 7.5vw;
 }
 
@@ -247,7 +247,7 @@
 	height: auto;
 	margin: auto;
 	background: #f9f9f9;
-	padding: 1em;
+	padding: 0.75em 2em;
 	transition: top 0.3s;
 }
 
@@ -445,7 +445,7 @@
 	padding: 0.5em 0.75em;
 	display: inline-block !important;
 	border-radius: 0px;
-	color: #000;
+	color: #000 !important;
 	font-weight: 600;
 	margin-bottom: 0.75em;
 	background: #fdf522 !important;
@@ -574,7 +574,7 @@
 
 
 .content-end-mark {
-	display: block;
+	display: none;
 	position: relative;
 	top: -1.5em;
 	left: calc(50% - 30px);
@@ -585,43 +585,44 @@
 
 
 .subreddit-css {
-	background: #fc3d39;
+	color: #fff;
+	background: #00c4ff;
 }
 
 
 .subreddit-webdev {
-	background: #53d769;
+	color: #fff;
+	background: #2dde98;
 }
 
 
 .subreddit-web_design {
-	background: #147efb;
+	color: #fff;
+	background: #ff7200;
 }
 
 
 .subreddit-jquery {
-	background: #833ab4;
+	color: #fff;
+	background: #ff6c5f;
 }
 
 
 .subreddit-javascript {
-	background: #5fc9f8;
+	color: #fff;
+	background: #ff4f81;
 }
 
 
 .subreddit-frontend {
-	background: #fd9426;
+	color: #fff;
+	background: #522d80;
 }
 
 
 .subreddit-webdevtutorials {
-	background: #004851;
-}
-
-
-.shift-down {
-	-webkit-transform: translateY(10vh);
-	        transform: translateY(10vh);
+	color: #fff;
+	background: #0064d2;
 }
 
 
@@ -957,9 +958,6 @@ body {
 		display: block;
 		position: static;
 		padding: 0;
-		-webkit-box-flex: 1;
-		    -ms-flex: 1 0 75%;
-		        flex: 1 0 75%;
 	}
 
 	.header__title {
