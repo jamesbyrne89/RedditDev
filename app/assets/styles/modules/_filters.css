@@ -4,7 +4,8 @@
 	font-family: $sansSerif;
 	display: none;
 	position: fixed;
-	top: 15vh;
+	top: 170px;
+	margin-top: 160px;
 	right: 7.5vw;
 	z-index: 300;
 	width: 85%;
@@ -12,10 +13,13 @@
 	margin: auto;
 	background: #f9f9f9;
 	padding: 1em;
+	transition: top 0.3s;
 }
 
 .modal--opened {
 	display: block;
+	transform: translateY(-10px);
+	transition: transform 0.3s ease-out;
 }
 
 .modal__close-btn {
@@ -61,33 +65,38 @@
 	font-family: $sansSerif;
 	padding: 0.5em 0;
 	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
 	position: relative;
 	text-align: center;
 	color: #fff;
 	font-weight: 400;
+	list-style-type: none;
 }
 
 
 .filters__list-item {
-	font-size: 1rem;
-	button {
+	font-size: 0.75rem;
 	padding: 1em 2em;
+	margin: 0.5em;
 		cursor: pointer;
 	color: #fff;
 	text-transform: uppercase;
 	border: 0;
-	font-weight: 600;
+	font-weight: 400;
 	letter-spacing: 0.05em;
-	}
+	display: inline-block;
 }
 
 .subreddit--selected {
 		background: #000;
+		border: solid 1px #000;
 		transition: all 0.15s;
 }
 
 .subreddit--selected:hover {
-	background: rgb(221, 221, 221);
+	background: rgb(141, 148, 149);
+	border: solid 1px rgb(141, 148, 149);
 	}
 
 .subreddit--deselected {

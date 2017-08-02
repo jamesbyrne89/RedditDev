@@ -1,9 +1,10 @@
 /* Content */
 .reddit-content {
 	column-count: 4;
-	column-gap: 40px;
-	margin-top: 16vh;
-	transition: all ease 0.3s;	
+	column-gap: 2.5em;
+	margin-top: 160px;
+	transition: all ease 0.3s;
+	padding-bottom: 5em;	
 }
 
 /* Cards */
@@ -123,6 +124,17 @@
 	font-family: $sansSerif;
 	flex: 0 0 auto;
 	text-align: left;
+}
+
+.primary::after {
+	content: url('../../../assets/images/reddit-icon-32x32.png');
+	display: block;
+	position: relative;
+	top: -1.5em;
+	left: calc(50% - 30px);
+	padding: 1em 0;
+	width: 32px;
+	text-align: center;
 }
 
 .subreddit-css {

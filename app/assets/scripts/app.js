@@ -170,58 +170,56 @@ function updateView(sortedByDate) {
 }
 
 // Filter by subreddit
-function toggleModal() {
-     $('.modal').fadeToggle('fast');
-     $('.filter-overlay').fadeToggle('fast');
-    $('.reddit-content').toggleClass('shift-down');   
-    $('.header').toggleClass('shift-up');   
-}
+const toggleModal = function toggleModal() {
+    $('.modal').fadeToggle('fast');
+    $('.modal').toggleClass('modal--opened');
+    $('.filter-overlay').fadeToggle('fast');
+};
 
 
 $('.filter-btn').on('click', toggleModal);
 $('.modal__close-btn').on('click', toggleModal);
 $('.filter-overlay').on('click', toggleModal);
 
+// Check if no subreddits are selected then show a message
+const checkForEmpty = function checkForEmpty() {
+    let subreddits = document.getElementsByClassName('filters__list-item');
+    let selected = [];
 
-$('.filters__list-item').on('click', function(){
-    $(this).toggleClass('subreddit--deselected');
-});
-
-$('.select-all').on('click', function() {
-    if ($(this).prop('checked')) {
-        $('.checkbox').prop('checked', true)
-        $('.web_design-box').trigger('change')
-        $('.frontend-box').trigger('change')
-        $('.webdev-box').trigger('change')
-        $('.css-box').trigger('change')
-        $('.javascript-box').trigger('change')
-        $('.jquery-box').trigger('change')
-        $('.webdevtutorials-box').trigger('change')
-    } else {
-        $('.checkbox').prop('checked', false)
-        $('.web_design-box').trigger('change')
-        $('.frontend-box').trigger('change')
-        $('.webdev-box').trigger('change')
-        $('.css-box').trigger('change')
-        $('.javascript-box').trigger('change')
-        $('.jquery-box').trigger('change')
-        $('.webdevtutorials-box').trigger('change')
+    for (let i = 0; i < subreddits.length; i++) {
+        if (subreddits[i].classList.contains('subreddit--selected')) {
+            selected.push(subreddits[i])
+        }
     }
+    if (selected.length === 0) {
+        $('.empty-message').fadeIn('fast');
+    }
+    else {
+        $('.empty-message').fadeOut('fast');
+    }
+}
+
+// Unselect a subreddit
+$('.filters__list-item').on('click', function() {
+    $(this).toggleClass('subreddit--selected');
+    $(this).toggleClass('subreddit--deselected');
+    checkForEmpty()
 });
 
 
-$('.web_design-box').on('click', function() {
+
+$('.web_design-box').on('click', function(e) {
+
     if ($(this).hasClass('subreddit--deselected')) {
         $('.reddit-card-web_design').fadeOut('fast');
-        console.log('not selected')
     } else {
         $('.reddit-card-web_design').fadeIn('fast');
-        console.log('selected')
     }
 });
 
-$('.frontend-box').on('click', function() {
-    if ($(this).hasClass('subreddit--deselected')) {
+$('.frontend-box').on('click', function(e) {
+
+    if ($(e.target).hasClass('subreddit--deselected')) {
         $('.reddit-card-frontend').fadeOut('fast');
         console.log('not selected')
     } else {
@@ -231,6 +229,7 @@ $('.frontend-box').on('click', function() {
 });
 
 $('.webdev-box').on('click', function() {
+
     if ($(this).hasClass('subreddit--deselected')) {
         $('.reddit-card-webdev').fadeOut('fast');
         console.log('not selected')
@@ -241,6 +240,7 @@ $('.webdev-box').on('click', function() {
 });
 
 $('.css-box').on('click', function() {
+
     if ($(this).hasClass('subreddit--deselected')) {
         $('.reddit-card-css').fadeOut('fast');
         console.log('not selected')
@@ -251,6 +251,7 @@ $('.css-box').on('click', function() {
 });
 
 $('.javascript-box').on('click', function() {
+
     if ($(this).hasClass('subreddit--deselected')) {
         $('.reddit-card-javascript').fadeOut('fast');
         console.log('not selected')
@@ -261,6 +262,7 @@ $('.javascript-box').on('click', function() {
 });
 
 $('.jquery-box').on('click', function() {
+
     if ($(this).hasClass('subreddit--deselected')) {
         $('.reddit-card-jquery').fadeOut('fast');
         console.log('not selected')
@@ -271,6 +273,7 @@ $('.jquery-box').on('click', function() {
 });
 
 $('.webdevtutorials-box').on('click', function() {
+
     if ($(this).hasClass('subreddit--deselected')) {
         $('.reddit-card-webdevtutorials').fadeOut('fast');
         console.log('not selected')

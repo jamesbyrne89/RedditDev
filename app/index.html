@@ -32,6 +32,10 @@
         <!-- Main content -->  
         <main id="reddit-content" class="reddit-content">
             <div id='loading' class="spinner spinner-circle"></div>
+            <div id='empty-message' class='empty-message'>
+            <h3 class='empty-message__header'>Nothing to see here.</h3>
+            <span class='empty-message__body'>Please use the filter button to select which subreddits to show</span>
+            </div>
         </main>
 
     </section>
@@ -40,30 +44,16 @@
         <div class="modal">
 
         <div class="filters">
-            <h2 class="filters__title">Filter by category:</h2>
+            <h2 class="filters__title">Filter subreddits:</h2>
             <button class='modal__close-btn'><i class="icon-cancel"></i></button>
             <div class="filters__list">   
-            <li class="filters__list-item">   
-                <button class="css-box subreddit--selected css">r/css</button>
-            </li>
-            <li class="filters__list-item">      
-                <button class="frontend-box subreddit--selected frontend">r/frontend </button>
-            </li>
-            <li class="filters__list-item">      
-                <button class="javascript-box subreddit--selected javascript">r/javascript</button>
-            </li>
-            <li class="filters__list-item">      
-                <button class="jquery-box subreddit--selected jquery">r/jquery</button>
-            </li>
-            <li class="filters__list-item">      
-                <button class="web_design-box subreddit--selected web_design">r/web_design</button>
-            </li>
-            <li class="filters__list-item">      
-                <button class="webdev-box subreddit--selected webdev">r/webdev</button>
-            </li>
-            <li class="filters__list-item">      
-                <button class="webdevtutorials-box subreddit--selected webdevtutorials">r/webdevtutorials</button>
-            </li>    
+                <li class="filters__list-item css-box subreddit--selected">r/css</li>
+                <li class="filters__list-item frontend-box subreddit--selected">r/frontend </li>    
+                <li class="filters__list-item javascript-box subreddit--selected">r/javascript</li>
+                <li class="filters__list-item jquery-box subreddit--selected">r/jquery</li>
+                <li class="filters__list-item web_design-box subreddit--selected">r/web_design</li>  
+                <li class="filters__list-item webdev-box subreddit--selected">r/webdev</li> 
+                <li class="filters__list-item webdevtutorials-box subreddit--selected">r/webdevtutorials</li> 
             </div>
         </div> 
         </div> 
