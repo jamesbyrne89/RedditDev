@@ -134,6 +134,7 @@ function updateView(sortedByDate) {
         var time = convertTimestamp(sortedByDate[i].created);
         var thumbnail = void 0;
         var numCommentsText = void 0;
+        var cardsArr = void 0;
 
         if (sortedByDate[i].preview && sortedByDate[i].preview.images[0].resolutions && sortedByDate[i].preview.images[0].resolutions[2]) {
             thumbnail = "<img class=\"lazyload reddit-card__thumbnail\" src=\"" + sortedByDate[i].preview.images[0].resolutions[2].url + "\">";
@@ -153,10 +154,56 @@ function updateView(sortedByDate) {
 
         var html = "<div class=\"reddit-card__subreddit subreddit-" + sortedByDate[i].subreddit.toLowerCase() + "\">r/" + sortedByDate[i].subreddit + "</div>\n                      <figure class=\"reddit-card__thumbnail-title-wrapper\">\n                        <a href=\"" + sortedByDate[i].url + "\" target=\"_blank\">\n                        <div class=\"reddit-card__thumbnail-wrapper\">" + thumbnail + "\n                        </div>\n                        </a>\n\n                      <div class=\"reddit-card__post-title\"><a href=\"" + sortedByDate[i].url + "\" target=\"blank\">\n                      " + sortedByDate[i].title + "</a></div>\n                      </figure>\n                      <div class=\"card-footer\">\n                      <div> \n                      <span class=\"short-url\">" + getHostname(sortedByDate[i].url) + "</span> \n                        <span class=\"post-comments\">\n                          <a href=\"http://reddit.com/" + sortedByDate[i].permalink + "\" target=\"blank\">\n                          " + numCommentsText + "</a>\n                        </span>     \n                      </div>\n                        <time class=\"timestamp\">" + time + "</time>\n\n                      </div>";
         card.innerHTML = html;
-        $('#reddit-content').hide().append(card).fadeIn(500);
         $('#loading').hide();
+        $('.reddit-content').hide().append(card).fadeIn(500);
     }
+
+    checkVisible();
 }
+
+// Debounce
+
+function debounce(func) {
+    var wait = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 25;
+    var immediate = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+
+    var timeout;
+    return function () {
+        var context = this,
+            args = arguments;
+        var later = function later() {
+            timeout = null;
+            if (!immediate) {
+                func.apply(context, args);
+            }
+        };
+    };
+};
+
+// Check whether cards are visible on load and animate them in
+
+
+// Check which cards are visible on scroll
+
+function checkVisible(e) {
+    $('.reddit-card').each(function () {
+        var scrollInAt = window.scrollY + window.innerHeight - window.innerHeight * 0.25;
+        var isShowing = scrollInAt > this.offsetTop;
+        var isNotShowing = window.scrollY < scrollInAt;
+        var scrolled = window.scrollY > 10;
+        console.log(scrollInAt);
+        console.log(this.getBoundingClientRect());
+        if (scrolled && isShowing && isNotShowing) {
+            this.classList.add('animate');
+        } else if (!scrolled && isShowing && isNotShowing) {
+            this.classList.add('animate');
+        } else {
+            this.classList.remove('animate');
+        }
+    });
+}
+
+window.addEventListener('scroll', checkVisible);
 
 // Filter by subreddit
 var toggleModal = function toggleModal() {

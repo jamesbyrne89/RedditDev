@@ -281,9 +281,6 @@
 	-webkit-box-pack: justify;
 	    -ms-flex-pack: justify;
 	        justify-content: space-between;
-	-webkit-box-align: center;
-	    -ms-flex-align: center;
-	        align-items: center;
 	width: 100%;
 	margin: auto;
 }
@@ -291,6 +288,7 @@
 
 .filters__title {
 	font-family: 'Tiempos Headline', georgia, serif;
+	padding: 0.5em 0;
 }
 
 
@@ -319,6 +317,9 @@
 	        justify-content: center;
 	-ms-flex-wrap: wrap;
 	    flex-wrap: wrap;
+	-webkit-box-flex: 1;
+	    -ms-flex: 1 0 75%;
+	        flex: 1 0 75%;
 	position: relative;
 	text-align: center;
 	color: #fff;
@@ -411,6 +412,12 @@
 }
 
 
+.animate {
+	-webkit-animation: moveUp 0.65s ease forwards;
+	animation: moveUp 0.65s ease forwards;
+}
+
+
 /* Cards */
 
 
@@ -424,6 +431,9 @@
 	position: relative;
 	overflow-wrap: break-word;
 	padding: 0.75em;
+	-webkit-transform: translateY(200px);
+	        transform: translateY(200px);
+	opacity: 0;
 }
 
 
@@ -563,8 +573,7 @@
 }
 
 
-.primary::after {
-	content: url('../../../assets/images/reddit-icon-32x32.png');
+.content-end-mark {
 	display: block;
 	position: relative;
 	top: -1.5em;
@@ -613,6 +622,18 @@
 .shift-down {
 	-webkit-transform: translateY(10vh);
 	        transform: translateY(10vh);
+}
+
+
+@-webkit-keyframes moveUp {
+	0% { opacity: 0; }
+	100% { -webkit-transform: translateY(0); opacity: 1; }
+}
+
+
+@keyframes moveUp {
+	0% { opacity: 0;}
+	100% { -webkit-transform: translateY(0); transform: translateY(0); opacity: 1; }
 }
 
 

@@ -36,13 +36,13 @@
 .filters {
 	display: flex;
 	justify-content: space-between;
-	align-items: center;
 	width: 100%;
 	margin: auto;
 }
 
 .filters__title {
 	font-family: $serif;
+	padding: 0.5em 0;
 }
 
 
@@ -67,6 +67,7 @@
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
+	flex: 1 0 75%;
 	position: relative;
 	text-align: center;
 	color: #fff;

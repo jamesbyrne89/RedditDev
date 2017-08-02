@@ -124,6 +124,7 @@ function updateView(sortedByDate) {
         let time = convertTimestamp(sortedByDate[i].created);
         let thumbnail;
         let numCommentsText;
+        let cardsArr;
 
         if (sortedByDate[i].preview && sortedByDate[i].preview.images[0].resolutions && sortedByDate[i].preview.images[0].resolutions[2]) {
             thumbnail = `<img class="lazyload reddit-card__thumbnail" src="${sortedByDate[i].preview.images[0].resolutions[2].url}">`;
@@ -163,11 +164,65 @@ function updateView(sortedByDate) {
 
                       </div>`
         card.innerHTML = html;
-        $('#reddit-content').hide().append(card).fadeIn(500);
         $('#loading').hide();
+        $('.reddit-content').hide().append(card).fadeIn(500);
 
     }
+
+    checkVisible();
+
 }
+
+
+
+// Debounce
+
+function debounce(func, wait = 25, immediate = true) {
+    var timeout;
+    return function() {
+        var context = this,
+            args = arguments;
+        var later = function() {
+            timeout = null;
+            if (!immediate) {
+                func.apply(context, args);
+            }
+        }
+    };
+};
+
+
+// Check whether cards are visible on load and animate them in
+
+
+
+// Check which cards are visible on scroll
+
+function checkVisible(e) {
+    $('.reddit-card').each(function() {
+        let scrollInAt = window.scrollY + window.innerHeight - (window.innerHeight * 0.25);
+        let isShowing = scrollInAt > this.offsetTop;
+        let isNotShowing = window.scrollY < scrollInAt;
+        let scrolled = window.scrollY > 10;
+        console.log(scrollInAt)
+        console.log(this.getBoundingClientRect())
+        if (scrolled && isShowing && isNotShowing) {
+            this.classList.add('animate')
+        }
+        else if (!scrolled && isShowing && isNotShowing) {
+            this.classList.add('animate')
+        }
+        else {
+            this.classList.remove('animate')
+        }
+    })
+}
+
+
+
+window.addEventListener('scroll', checkVisible)
+
+
 
 // Filter by subreddit
 const toggleModal = function toggleModal() {
@@ -193,8 +248,7 @@ const checkForEmpty = function checkForEmpty() {
     }
     if (selected.length === 0) {
         $('.empty-message').fadeIn('fast');
-    }
-    else {
+    } else {
         $('.empty-message').fadeOut('fast');
     }
 }
