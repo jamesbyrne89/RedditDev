@@ -193,7 +193,7 @@ body {
 	}
 
 	.filters__list {
-		flex-direction: column;
+
 		text-align: left;
 		margin-top: 0.5em;
 	}
@@ -262,11 +262,8 @@ body {
 		font-size: 10vw;
 	}
 
-	.sidebar {
-		height: 35vw;
-		min-height: 140px;
-		max-height: 170px;
-		padding-right: 15px;
+	.modal {
+		top: 20vh;
 	}
 
 	.reddit-content {

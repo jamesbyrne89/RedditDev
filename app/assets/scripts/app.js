@@ -6,36 +6,37 @@ const getData = function getData() {
     // r/webdev
     const fetchWebDev = fetch("https://www.reddit.com/r/webdev.json?")
         .then(resp => resp.json())
-        .catch((err) => console.error('Error fetching data'))
+        .catch((err) => console.error('Error fetching data from r/webdev'))
 
     // r/web_design
     const fetchWebDesign = fetch("https://www.reddit.com/r/web_design.json?")
         .then(resp => resp.json())
-        .catch((err) => console.error('Error fetching data'))
+        .catch((err) => console.error('Error fetching data from r/web_design'))
 
     // r/frontend
     const fetchFrontEnd = fetch("https://www.reddit.com/r/frontend.json?")
         .then(resp => resp.json())
-        .catch((err) => console.error('Error fetching data'))
+        .catch((err) => console.error('Error fetching data from r/frontend'))
 
     // r/css
     const fetchCSS = fetch("https://www.reddit.com/r/css.json?")
         .then(resp => resp.json())
-        .catch((err) => console.error('Error fetching data'))
+        .catch((err) => console.error('Error fetching data from r/css'))
 
     // r/javascript
     const fetchJavascript = fetch("https://www.reddit.com/r/javascript.json?")
         .then(resp => resp.json())
-        .catch((err) => console.error('Error fetching data'))
+        .catch((err) => console.error('Error fetching data from r/javascript'))
 
     // r/jquery
     const fetchJQuery = fetch("https://www.reddit.com/r/jquery.json?")
         .then(resp => resp.json())
+        .catch((err) => console.error('Error fetching data from r/jquery'))
 
     // r/webdevtutorials
     const fetchWebDevTutorials = fetch("https://www.reddit.com/r/WebdevTutorials.json?")
         .then(resp => resp.json())
-        .catch((err) => console.error('Error fetching data'))
+        .catch((err) => console.error('Error fetching data from r/webdevtutorials'))
 
 
     Promise.all([fetchWebDev, fetchWebDesign, fetchFrontEnd, fetchCSS, fetchJavascript, fetchJQuery, fetchWebDevTutorials])
@@ -176,7 +177,7 @@ function updateView(sortedByDate) {
 
 
 
-// Debounce
+// Debounce scroll function to prevent too many triggers
 
 function debounce(func, wait = 25, immediate = true) {
     var timeout;
@@ -228,17 +229,20 @@ window.addEventListener('scroll', checkVisible)
 
 
 
-// Filter by subreddit
+
+
+// Close and open filters list modal
 const toggleModal = function toggleModal() {
     $('.modal').fadeToggle('fast');
     $('.modal').toggleClass('modal--opened');
     $('.filter-overlay').fadeToggle('fast');
 };
 
-
 $('.filter-btn').on('click', toggleModal);
 $('.modal__close-btn').on('click', toggleModal);
 $('.filter-overlay').on('click', toggleModal);
+
+
 
 // Check if no subreddits are selected then show a message
 const checkForEmpty = function checkForEmpty() {
@@ -355,5 +359,10 @@ $(window).scroll(function() {
         $('#back-to-top').fadeOut('fast');
     }
 });
+
+$('#back-to-top').on('click', function() {
+            console.log('back to top')
+           window.scrollTo(0, 0); 
+        });
 
 getData();

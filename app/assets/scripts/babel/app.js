@@ -11,47 +11,49 @@ var getData = function getData() {
     var fetchWebDev = fetch("https://www.reddit.com/r/webdev.json?").then(function (resp) {
         return resp.json();
     }).catch(function (err) {
-        return console.error('Error fetching data');
+        return console.error('Error fetching data from r/webdev');
     });
 
     // r/web_design
     var fetchWebDesign = fetch("https://www.reddit.com/r/web_design.json?").then(function (resp) {
         return resp.json();
     }).catch(function (err) {
-        return console.error('Error fetching data');
+        return console.error('Error fetching data from r/web_design');
     });
 
     // r/frontend
     var fetchFrontEnd = fetch("https://www.reddit.com/r/frontend.json?").then(function (resp) {
         return resp.json();
     }).catch(function (err) {
-        return console.error('Error fetching data');
+        return console.error('Error fetching data from r/frontend');
     });
 
     // r/css
     var fetchCSS = fetch("https://www.reddit.com/r/css.json?").then(function (resp) {
         return resp.json();
     }).catch(function (err) {
-        return console.error('Error fetching data');
+        return console.error('Error fetching data from r/css');
     });
 
     // r/javascript
     var fetchJavascript = fetch("https://www.reddit.com/r/javascript.json?").then(function (resp) {
         return resp.json();
     }).catch(function (err) {
-        return console.error('Error fetching data');
+        return console.error('Error fetching data from r/javascript');
     });
 
     // r/jquery
     var fetchJQuery = fetch("https://www.reddit.com/r/jquery.json?").then(function (resp) {
         return resp.json();
+    }).catch(function (err) {
+        return console.error('Error fetching data from r/jquery');
     });
 
     // r/webdevtutorials
     var fetchWebDevTutorials = fetch("https://www.reddit.com/r/WebdevTutorials.json?").then(function (resp) {
         return resp.json();
     }).catch(function (err) {
-        return console.error('Error fetching data');
+        return console.error('Error fetching data from r/webdevtutorials');
     });
 
     Promise.all([fetchWebDev, fetchWebDesign, fetchFrontEnd, fetchCSS, fetchJavascript, fetchJQuery, fetchWebDevTutorials]).then(function (values) {
@@ -163,7 +165,7 @@ function updateView(sortedByDate) {
     checkVisible();
 }
 
-// Debounce
+// Debounce scroll function to prevent too many triggers
 
 function debounce(func) {
     var wait = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 25;
@@ -212,7 +214,7 @@ function checkVisible(e) {
 
 window.addEventListener('scroll', checkVisible);
 
-// Filter by subreddit
+// Close and open filters list modal
 var toggleModal = function toggleModal() {
     $('.modal').fadeToggle('fast');
     $('.modal').toggleClass('modal--opened');
@@ -333,6 +335,11 @@ $(window).scroll(function () {
     } else {
         $('#back-to-top').fadeOut('fast');
     }
+});
+
+$('#back-to-top').on('click', function () {
+    console.log('back to top');
+    window.scrollTo(0, 0);
 });
 
 getData();
