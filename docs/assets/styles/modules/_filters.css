@@ -4,21 +4,23 @@
 	font-family: $sansSerif;
 	display: none;
 	position: fixed;
-	top: 170px;
+	top: 180px;
 	margin-top: 160px;
-	right: 7.5vw;
 	z-index: 300;
-	width: 85%;
+	width: auto;
+	max-width: 85%;
 	height: auto;
 	margin: auto;
 	background: #f9f9f9;
 	padding: 0.75em 2em;
-	transition: top 0.3s;
+	transform: translateY(0px);
+	border: 1px solid #d1d4d5;
+	transition: all 0.1s ease-out;
 }
 
 .modal--opened {
 	display: block;
-	transform: translateY(-10px);
+	transform: translateY(-15px);
 	transition: transform 0.3s ease-out;
 }
 
@@ -36,6 +38,7 @@
 .filters {
 	display: flex;
 	justify-content: space-between;
+	flex-direction: column;	
 	width: 100%;
 	margin: auto;
 }
@@ -43,6 +46,8 @@
 .filters__title {
 	font-family: $serif;
 	padding: 0.5em 0;
+	margin-right: 2em;
+	margin-bottom: 1em;
 }
 
 
