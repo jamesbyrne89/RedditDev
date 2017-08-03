@@ -147,7 +147,7 @@ function updateView(sortedByDate) {
         let html = `<div class="reddit-card__subreddit subreddit-${(sortedByDate[i].subreddit).toLowerCase()}">r/${sortedByDate[i].subreddit}</div>
                       <figure class="reddit-card__thumbnail-title-wrapper">
                         <a href="${sortedByDate[i].url}" target="_blank">
-                        <div class="reddit-card__thumbnail-wrapper">${thumbnail}
+                        <div class="reddit-card__thumbnail-wrapper ${(sortedByDate[i].subreddit).toLowerCase()}-overlay">${thumbnail}
                         </div>
                         </a>
 
@@ -207,7 +207,7 @@ function checkVisible(e) {
         if (window.scrollY < 10) {
             scrollInAt = window.innerHeight;
         } else {
-            scrollInAt = window.scrollY + window.innerHeight - (window.innerHeight * 0.25);
+            scrollInAt = window.scrollY + window.innerHeight - (window.innerHeight * 0.2);
         }
         let isShowing = scrollInAt > this.offsetTop;
         let isNotShowing = window.scrollY < scrollInAt;
@@ -236,6 +236,7 @@ const toggleModal = function toggleModal() {
     $('.modal').fadeToggle('fast');
     $('.modal').toggleClass('modal--opened');
     $('.filter-overlay').fadeToggle('fast');
+    $('.reddit-content').toggleClass('shift-down');
 };
 
 $('.filter-btn').on('click', toggleModal);

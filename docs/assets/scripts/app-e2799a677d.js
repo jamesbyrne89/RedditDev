@@ -155,7 +155,7 @@ function updateView(sortedByDate) {
             numCommentsText = sortedByDate[i].num_comments + " comments";
         }
 
-        var html = "<div class=\"reddit-card__subreddit subreddit-" + sortedByDate[i].subreddit.toLowerCase() + "\">r/" + sortedByDate[i].subreddit + "</div>\n                      <figure class=\"reddit-card__thumbnail-title-wrapper\">\n                        <a href=\"" + sortedByDate[i].url + "\" target=\"_blank\">\n                        <div class=\"reddit-card__thumbnail-wrapper\">" + thumbnail + "\n                        </div>\n                        </a>\n\n                      <div class=\"reddit-card__post-title\"><a href=\"" + sortedByDate[i].url + "\" target=\"blank\">\n                      " + sortedByDate[i].title + "</a></div>\n                      </figure>\n                      <div class=\"card-footer\">\n                      <div> \n                      <span class=\"short-url\">" + getHostname(sortedByDate[i].url) + "</span> \n                        <span class=\"post-comments\">\n                          <a href=\"http://reddit.com/" + sortedByDate[i].permalink + "\" target=\"blank\">\n                          " + numCommentsText + "</a>\n                        </span>     \n                      </div>\n                        <time class=\"timestamp\">" + time + "</time>\n\n                      </div>";
+        var html = "<div class=\"reddit-card__subreddit subreddit-" + sortedByDate[i].subreddit.toLowerCase() + "\">r/" + sortedByDate[i].subreddit + "</div>\n                      <figure class=\"reddit-card__thumbnail-title-wrapper\">\n                        <a href=\"" + sortedByDate[i].url + "\" target=\"_blank\">\n                        <div class=\"reddit-card__thumbnail-wrapper " + sortedByDate[i].subreddit.toLowerCase() + "-overlay\">" + thumbnail + "\n                        </div>\n                        </a>\n\n                      <div class=\"reddit-card__post-title\"><a href=\"" + sortedByDate[i].url + "\" target=\"blank\">\n                      " + sortedByDate[i].title + "</a></div>\n                      </figure>\n                      <div class=\"card-footer\">\n                      <div> \n                      <span class=\"short-url\">" + getHostname(sortedByDate[i].url) + "</span> \n                        <span class=\"post-comments\">\n                          <a href=\"http://reddit.com/" + sortedByDate[i].permalink + "\" target=\"blank\">\n                          " + numCommentsText + "</a>\n                        </span>     \n                      </div>\n                        <time class=\"timestamp\">" + time + "</time>\n\n                      </div>";
         card.innerHTML = html;
         $('#loading').hide();
         $('.reddit-content').hide().append(card).fadeIn(500);
@@ -196,7 +196,7 @@ function checkVisible(e) {
         if (window.scrollY < 10) {
             scrollInAt = window.innerHeight;
         } else {
-            scrollInAt = window.scrollY + window.innerHeight - window.innerHeight * 0.25;
+            scrollInAt = window.scrollY + window.innerHeight - window.innerHeight * 0.2;
         }
         var isShowing = scrollInAt > this.offsetTop;
         var isNotShowing = window.scrollY < scrollInAt;
@@ -219,6 +219,7 @@ var toggleModal = function toggleModal() {
     $('.modal').fadeToggle('fast');
     $('.modal').toggleClass('modal--opened');
     $('.filter-overlay').fadeToggle('fast');
+    $('.reddit-content').toggleClass('shift-down');
 };
 
 $('.filter-btn').on('click', toggleModal);

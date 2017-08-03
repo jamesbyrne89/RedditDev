@@ -1,16 +1,17 @@
 /* Typography */
 
-$sansSerif: 'Montserrat', helvetica, arial, sans-serif;
+$sansSerif: 'PT Sans', helvetica, arial, sans-serif;
 $serif: 'Tiempos Headline', georgia, serif;
 
 /* Colours */
 
 $highlightColourOne: #fdf522;
+$text_grey_dark: #333;
 
-$subreddit_colour_one: #00c4ff;
-$subreddit_colour_two: #2dde98;
-$subreddit_colour_three: #ff7200;
-$subreddit_colour_four: #ff6c5f;
+$subreddit_colour_one: #FF1B1C;
+$subreddit_colour_two: #58A4B0;
+$subreddit_colour_three: #FE9920;
+$subreddit_colour_four: #96F550;
 $subreddit_colour_five: #ff4f81;
 $subreddit_colour_six: #522d80;
-$subreddit_colour_seven: #0064d2;
+$subreddit_colour_seven: #2b00f7;

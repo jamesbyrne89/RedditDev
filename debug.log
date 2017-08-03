@@ -62,3 +62,11 @@
 [0802/225848:ERROR:persistent_memory_allocator.cc(658)] Corruption detected in shared-memory segment.
 [0802/225848:ERROR:persistent_memory_allocator.cc(658)] Corruption detected in shared-memory segment.
 [0802/225848:ERROR:persistent_memory_allocator.cc(658)] Corruption detected in shared-memory segment.
+[0803/204248:ERROR:persistent_memory_allocator.cc(658)] Corruption detected in shared-memory segment.
+[0803/204248:ERROR:persistent_memory_allocator.cc(658)] Corruption detected in shared-memory segment.
+[0803/204248:ERROR:persistent_memory_allocator.cc(658)] Corruption detected in shared-memory segment.
+[0803/204248:ERROR:persistent_memory_allocator.cc(658)] Corruption detected in shared-memory segment.
+[0803/223039:ERROR:persistent_memory_allocator.cc(658)] Corruption detected in shared-memory segment.
+[0803/223039:ERROR:persistent_memory_allocator.cc(658)] Corruption detected in shared-memory segment.
+[0803/223039:ERROR:persistent_memory_allocator.cc(658)] Corruption detected in shared-memory segment.
+[0803/223039:ERROR:persistent_memory_allocator.cc(658)] Corruption detected in shared-memory segment.

@@ -28,6 +28,7 @@
 
 .filter-btn {
 	font-size: 0.875rem;
+	font-family: inherit;
 	position: relative;
 	font-weight: 600;
 	z-index: 400;
