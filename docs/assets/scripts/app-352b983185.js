@@ -126,6 +126,29 @@ var getHostname = function getHostname(href) {
     }
 };
 
+function getTimeAgo(timestamp) {
+    var d = new Date(); // Convert the passed timestamp to milliseconds
+    var tNowS = Math.floor(d.getTime() / 1000);
+    var seconds = tNowS - timestamp;
+    var mins = Math.floor(seconds / 60);
+    var hours = Math.floor(mins / 60);
+    var days = Math.floor(seconds / 3600 / 24);
+
+    if (days >= 7) {
+        return 'A week ago';
+    } else if (seconds > 2 * 24 * 3600) {
+        return Math.floor(days) + 'd ago';
+    } else if (seconds > 24 * 3600) {
+        return 'Yesterday';
+    } else if (mins > 60) {
+        return hours + 'h ago';
+    } else if (2 < mins < 60) {
+        return mins + 'm ago';
+    } else if (mins < 2) {
+        return mins + 'Just now';
+    }
+}
+
 /*
 Place into HTML
  */
@@ -134,7 +157,7 @@ function updateView(sortedByDate) {
     for (var i = 0; i < sortedByDate.length; i++) {
 
         var endMark = document.getElementById('content-end-mark');
-        var time = convertTimestamp(sortedByDate[i].created);
+        var time = getTimeAgo(sortedByDate[i].created_utc);
         var thumbnail = void 0;
         var numCommentsText = void 0;
         var cardsArr = void 0;
@@ -155,7 +178,7 @@ function updateView(sortedByDate) {
             numCommentsText = sortedByDate[i].num_comments + " comments";
         }
 
-        var html = "<div class=\"reddit-card__subreddit subreddit-" + sortedByDate[i].subreddit.toLowerCase() + "\">r/" + sortedByDate[i].subreddit + "</div>\n                      <figure class=\"reddit-card__thumbnail-title-wrapper\">\n                        <a href=\"" + sortedByDate[i].url + "\" target=\"_blank\">\n                        <div class=\"reddit-card__thumbnail-wrapper " + sortedByDate[i].subreddit.toLowerCase() + "-overlay\">" + thumbnail + "\n                        </div>\n                        </a>\n\n                      <div class=\"reddit-card__post-title\"><a href=\"" + sortedByDate[i].url + "\" target=\"blank\">\n                      " + sortedByDate[i].title + "</a></div>\n                      </figure>\n                      <div class=\"card-footer\">\n                      <div> \n                      <span class=\"short-url\">" + getHostname(sortedByDate[i].url) + "</span> \n                        <span class=\"post-comments\">\n                          <a href=\"http://reddit.com/" + sortedByDate[i].permalink + "\" target=\"blank\">\n                          " + numCommentsText + "</a>\n                        </span>     \n                      </div>\n                        <time class=\"timestamp\">" + time + "</time>\n\n                      </div>";
+        var html = "<div class=\"reddit-card__subreddit subreddit-" + sortedByDate[i].subreddit.toLowerCase() + "\"><h3>r/" + sortedByDate[i].subreddit + "</h3></div>\n                      <figure class=\"reddit-card__thumbnail-title-wrapper\">\n                        <a href=\"" + sortedByDate[i].url + "\" target=\"_blank\">\n                        <div class=\"reddit-card__thumbnail-wrapper " + sortedByDate[i].subreddit.toLowerCase() + "-overlay\">" + thumbnail + "\n                        </div>\n                        </a>\n\n                      <div class=\"reddit-card__post-title\"><a href=\"" + sortedByDate[i].url + "\" target=\"blank\">\n                      " + sortedByDate[i].title + "</a></div>\n                      </figure>\n                      <div class=\"card-footer\">\n                      <div> \n                      <span class=\"short-url\">" + getHostname(sortedByDate[i].url) + "</span> \n                        <span class=\"post-comments\">\n                          <a href=\"http://reddit.com/" + sortedByDate[i].permalink + "\" target=\"blank\">\n                          " + numCommentsText + "</a>\n                        </span>     \n                      </div>\n                        <time class=\"timestamp\">" + time + "</time>\n\n                      </div>";
         card.innerHTML = html;
         $('#loading').hide();
         $('.reddit-content').hide().append(card).fadeIn(500);
@@ -196,7 +219,7 @@ function checkVisible(e) {
         if (window.scrollY < 10) {
             scrollInAt = window.innerHeight;
         } else {
-            scrollInAt = window.scrollY + window.innerHeight - window.innerHeight * 0.2;
+            scrollInAt = window.scrollY + window.innerHeight - window.innerHeight * 0.1;
         }
         var isShowing = scrollInAt > this.offsetTop;
         var isNotShowing = window.scrollY < scrollInAt;
@@ -212,7 +235,16 @@ function checkVisible(e) {
     });
 }
 
+function stickyHeader() {
+    if (scrollY > 180) {
+        $('.header').addClass('is-sticky');
+    } else {
+        $('.header').removeClass('is-sticky');
+    }
+};
+
 window.addEventListener('scroll', checkVisible);
+window.addEventListener('scroll', stickyHeader);
 
 // Close and open filters list modal
 var toggleModal = function toggleModal() {

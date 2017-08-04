@@ -3,28 +3,39 @@
 	font-family: $sansSerif;
 	font-size: 1rem;
 	display: none;
-	background: #000;
 	padding: 0.75em;
-	color: #fff;
+	color: #000;
 	cursor: pointer;
 	position: fixed;
+	background: none;
 	bottom: 2em;
 	right: 2.5vw;
 	text-align: center;
-	padding: 0.75em;
-	border: 0;
-	border-radius: 50%;
-	-webkit-box-shadow: 0px 0px 0px 2px #d1d4d5;
-	-moz-box-shadow: 0px 0px 0px 2px #d1d4d5;
-	box-shadow: 0px 0px 0px 2px #d1d4d5;
+	padding: 0.7em 0.75em;
+	border: solid 1px #000;
 	transition: all 0.15s;
 }
 
-.back-to-top:hover {
-	-webkit-box-shadow: 0px 0px 0.5em 4px #d1d4d5;
-	-moz-box-shadow: 0px 0px 0.5em 4px #d1d4d5;
-	box-shadow: 0px 0px 0.5em 4px #d1d4d5;
+.back-to-top:after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  background: #000;
+  transition: all 0.3s ease;
 }
+.back-to-top:hover {
+  color: #fff;
+}
+.back-to-top:hover:after {
+  top: 0;
+  height: 100%;
+}
+.back-to-top:active {top: 2px;}
+
 
 .filter-btn {
 	font-size: 0.875rem;
@@ -36,7 +47,7 @@
 	text-transform: uppercase;
 	letter-spacing: 0.05em;
 	align-items: center;
-	padding: 0.5em 0.75em 0.5em 0.875em;
+	padding: 0.5em 0.875em 0.5em 1em;
 	background: #eee;
 	border: solid 1px #000;
 	color: #000;

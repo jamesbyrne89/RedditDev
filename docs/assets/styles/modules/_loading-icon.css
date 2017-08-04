@@ -16,7 +16,7 @@
 /* Spinner Circle Rotation */
 .spinner-circle {
   border: 4px #d1d4d5 solid;
-  border-top: 4px #fdf522 solid;
+  border-top: 4px #000 solid;
   border-radius: 50%;
   -webkit-animation: spCircRot .6s infinite linear;
   animation: spCircRot .6s infinite linear;

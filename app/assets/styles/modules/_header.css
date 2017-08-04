@@ -26,7 +26,7 @@
 	align-items: flex-end;
 	z-index: 350;
 	background: #eee;
-	position: fixed;
+	position: absolute;
 	left: 0;
 	top: 0;
 	padding: 3.2em 7.5vw 2em 7.5vw;
@@ -37,9 +37,9 @@
 
 }
 
-.header-sidebar--active {
-	width: 65%;
-	transition: all ease 0.3s;	
+.is-sticky {
+	position: fixed;
+	top: 0px;
 }
 
 .header::after {
