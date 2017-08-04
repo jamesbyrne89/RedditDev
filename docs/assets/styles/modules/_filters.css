@@ -1,47 +1,64 @@
 /* Filter list */
-
 .modal {
 	font-family: $sansSerif;
 	display: none;
-	position: fixed;
-	top: 0px;
+	position: absolute;
+	top: 220px;
+	right: 7.5vw;
 	z-index: 300;
-	width: 85%;
+	width: 400px;
 	max-width: 85%;
 	height: auto;
 	margin: auto;
-	background: #f9f9f9;
-	padding: 0.75em 2em;
-	transform: translateY(0px);
+	background: #fff;
+	padding: 1.5em 0;
 	border: 1px solid #d1d4d5;
-	transition: all 0.1s ease-out;
+	transition: all 0.2s ease-out;
+&::after {
+	content: '';
+	display: block;
+	position: absolute;
+	bottom: 0px;
+	right: 0px;
+	width: 100%;
+	height: 100%;
+	background: #fff;
+	z-index: -1;
+}	
 }
+
 
 .modal--opened {
 	display: flex;
 	justify-content: flex-start;
-	transform: translateY(150px);
-	transition: transform 0.3s ease-out;
+	max-height: 80vh;
+	-webkit-animation: moveUp-no-ease 0.3s ease-out forwards;
+	animation: moveUp-no-ease 0.3s ease-out forwards;
+	background: $background_grey;
+	transform: translateY(30px);
 }
 
+.modal--opened-stuck {
+	position: fixed !important;
+	bottom: 0px;
+}
 
 
 .filters {
 	display: flex;
 	align-items: flex-start;
 	justify-content: space-between;
-	flex-direction: column;	
-	width: 70%;
+	flex-direction: column;
+	width: auto;
 	margin: auto;
 }
 
 .filters__title {
 	font-family: $serif;
-	padding: 0.5em 0;
 	margin-right: 2em;
 	width: 100%;
+	padding-left: 0.7em;
 }
-
 
 .filter-overlay {
 	position: fixed;
@@ -50,84 +67,305 @@
 	left: 0;
 	right: 0;
 	bottom: 0;
-	background: black;
-	opacity: 0;
-	mix-blend-mode: darken;
+	background: #000;
+	opacity: 0.5;
 	z-index: 250;
+	max-height: 100vh;
+	overflow: hidden;
 }
-
-
 
 .filters__list {
 	font-family: $sansSerif;
 	padding: 0.5em 0;
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	flex-wrap: wrap;
 	flex: 1 0 100%;
+	width: 100%;
 	position: relative;
 	text-align: center;
-	color: #fff;
 	font-weight: 400;
 	list-style-type: none;
+	margin-top: 1.5em;
 }
 
-
-.filters__list-item {
-	font-size: 0.75rem;
-	padding: 1em 2em;
-	margin: 0.5em;
-		cursor: pointer;
-	color: #fff;
+.filters__list-item, .all-filter {
+	font-size: 0.875rem;
+	padding: 1em 1.5em;
+	position: relative;
+	cursor: pointer;
+	display: flex;
+	justify-content: space-between;
 	text-transform: uppercase;
 	border: 0;
-	font-weight: 400;
-	letter-spacing: 0.05em;
-	display: inline-block;
+	text-align: left;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	z-index: 1;
+	transition: all 0.3s;
+	border-top: solid 1px $background_grey;
+	border-bottom: solid 1px transparent;	
+		i {
+		padding-right: 2em;
+	}
 }
+
+.all-filter {
+
+	transition: all 0.15s;
+	span {
+		padding: 0 0.3em;
+	}
+	&:hover {
+		transition: all 0.15s;
+		border-bottom: solid 1px $text_grey_dark;
+	}
+}
+
 
 .subreddit--selected {
-		background: #000;
-		border: solid 1px #000;
-		transition: all 0.15s;
-}
-
-.subreddit--selected:hover {
-	background: rgb(141, 148, 149);
-	border: solid 1px rgb(141, 148, 149);
+	display: flex;
+	justify-content: space-between;
+	transition: all 0.15s;
+	&:hover::before {
+		opacity: 1;
 	}
 
+}
+
+
+.subreddit--selected::before {
+	content: '';
+	display: block;
+	opacity: 0;
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	transition: all 0.15s;		
+}
+
 .subreddit--deselected {
-	background: transparent !important;
-	border: solid 1px rgb(141, 148, 149);
-	color: rgb(141, 148, 149) !important;
+	background: white !important;
+	
 	transition: all 0.1s;
+span {
+	color: rgb(141, 148, 149) !important;
+	padding-left: 1em !important;
+	transition: all 0.15s;
+}
+i {
+	display: none;
 }
 
-.filters__list > .css {
-	background: #fc3d39;
 }
 
-.filters__list > .webdev {
-	background: #53d769;
+/* Styling for individual subreddits */
+
+.filters__list > .css-filter {
+	color: $subreddit_colour_one;
+
+
+	&::before {
+		transition: all 0.3s;
+		border-bottom: solid 2px $subreddit_colour_one;		
+		background-image: -webkit-repeating-radial-gradient(center center, $subreddit_colour_one, $subreddit_colour_one 1px, transparent 1px, transparent 100%);
+		background-image: -moz-repeating-radial-gradient(center center, $subreddit_colour_one, $subreddit_colour_one 1px, transparent 1px, transparent 100%);
+		background-image: -ms-repeating-radial-gradient(center center, $subreddit_colour_one, $subreddit_colour_one 1px, transparent 1px, transparent 100%);
+		background-image: repeating-radial-gradient(center center, $subreddit_colour_one, $subreddit_colour_one 1px, transparent 1px, transparent 100%);
+		-webkit-background-size: 3px 3px;
+		-moz-background-size: 3px 3px;
+		background-size: 3px 3px;
+	}
+	span {
+		position: relative;
+		background: #fff;
+		color: $subreddit_colour_one;
+		padding: 0 0.3em;
+	}
+
 }
 
-.filters__list > .web_design {
-	background: #147efb;
+.filters__list > .webdev-filter {
+	color: $subreddit_colour_two;
+
+
+	&::before {
+		transition: all 0.3s;		
+		color: $subreddit_colour_two;
+		border-bottom: solid 2px $subreddit_colour_two;
+		background-image: -webkit-repeating-radial-gradient(center center, $subreddit_colour_two, $subreddit_colour_two 1px, transparent 1px, transparent 100%);
+		background-image: -moz-repeating-radial-gradient(center center, $subreddit_colour_two, $subreddit_colour_two 1px, transparent 1px, transparent 100%);
+		background-image: -ms-repeating-radial-gradient(center center, $subreddit_colour_two, $subreddit_colour_two 1px, transparent 1px, transparent 100%);
+		background-image: repeating-radial-gradient(center center, $subreddit_colour_two, $subreddit_colour_two 1px, transparent 1px, transparent 100%);
+		-webkit-background-size: 3px 3px;
+		-moz-background-size: 3px 3px;
+		background-size: 3px 3px;
+	}
+
+
+	span {
+		background: #fff;
+		color: $subreddit_colour_two;
+		padding: 0 0.3em;
+		position: relative;
+	}
+
+
 }
 
-.filters__list > .jquery {
-	background: #833ab4;
+.filters__list > .web_design-filter {
+	color: $subreddit_colour_three;
+
+
+	&::before {
+		transition: all 0.3s;			
+		border-bottom: solid 2px $subreddit_colour_three;		
+		color: $subreddit_colour_three;
+		background-image: -webkit-repeating-radial-gradient(center center, $subreddit_colour_three, $subreddit_colour_three 1px, transparent 1px, transparent 100%);
+		background-image: -moz-repeating-radial-gradient(center center, $subreddit_colour_three, $subreddit_colour_three 1px, transparent 1px, transparent 100%);
+		background-image: -ms-repeating-radial-gradient(center center, $subreddit_colour_three, $subreddit_colour_three 1px, transparent 1px, transparent 100%);
+		background-image: repeating-radial-gradient(center center, $subreddit_colour_three, $subreddit_colour_three 1px, transparent 1px, transparent 100%);
+		-webkit-background-size: 3px 3px;
+		-moz-background-size: 3px 3px;
+		background-size: 3px 3px;
+	}
+
+	span {
+		background: #fff;
+		color: $subreddit_colour_three;
+		padding: 0 0.3em;
+		position: relative;
+	}
+
+
+	&:hover span {
+		background: #fff;
+		color: $subreddit_colour_three;
+	}
+
 }
 
-.filters__list > .javascript {
-	background: #5fc9f8;
+.filters__list > .jquery-filter {
+	color: $subreddit_colour_four;
+
+	&::before {
+		transition: all 0.3s;			
+		color: $subreddit_colour_four;
+		border-bottom: solid 2px $subreddit_colour_four;
+		background-image: -webkit-repeating-radial-gradient(center center, $subreddit_colour_four, $subreddit_colour_four 1px, transparent 1px, transparent 100%);
+		background-image: -moz-repeating-radial-gradient(center center, $subreddit_colour_four, $subreddit_colour_four 1px, transparent 1px, transparent 100%);
+		background-image: -ms-repeating-radial-gradient(center center, $subreddit_colour_four, $subreddit_colour_four 1px, transparent 1px, transparent 100%);
+		background-image: repeating-radial-gradient(center center, $subreddit_colour_four, $subreddit_colour_four 1px, transparent 1px, transparent 100%);
+		-webkit-background-size: 3px 3px;
+		-moz-background-size: 3px 3px;
+		background-size: 3px 3px;
+	}
+
+
+	span {
+		background: #fff;
+		color: $subreddit_colour_four;
+		padding: 0 0.3em;
+		position: relative;
+	}
+
+	&:hover span {
+		background: #fff;
+		color: $subreddit_colour_four;
+	}
+
 }
 
-.filters__list > .frontend {
-	background: #fd9426;
+.filters__list > .javascript-filter {
+	color: $subreddit_colour_five;
+
+	&::before {
+		transition: all 0.3s;			
+		border-bottom: solid 2px $subreddit_colour_five;		
+		color: $subreddit_colour_five;
+		background-image: -webkit-repeating-radial-gradient(center center, $subreddit_colour_five, $subreddit_colour_five 1px, transparent 1px, transparent 100%);
+		background-image: -moz-repeating-radial-gradient(center center, $subreddit_colour_five, $subreddit_colour_five 1px, transparent 1px, transparent 100%);
+		background-image: -ms-repeating-radial-gradient(center center, $subreddit_colour_five, $subreddit_colour_five 1px, transparent 1px, transparent 100%);
+		background-image: repeating-radial-gradient(center center, $subreddit_colour_five, $subreddit_colour_five 1px, transparent 1px, transparent 100%);
+		-webkit-background-size: 3px 3px;
+		-moz-background-size: 3px 3px;
+		background-size: 3px 3px;
+	}
+
+		span {
+			background: #fff;
+			color: $subreddit_colour_five;
+			padding: 0 0.3em;
+			position: relative;
+		}
+
+	&:hover span {
+		background: #fff;
+		color: $subreddit_colour_five;
+	}
+
 }
 
-.filters__list > .webdevtutorials {
-	background: #a086d3;
+.filters__list > .frontend-filter {
+	color: $subreddit_colour_six;
+
+
+	&::before {
+		transition: all 0.3s;			
+		border-bottom: solid 2px $subreddit_colour_six;
+		background-image: -webkit-repeating-radial-gradient(center center, $subreddit_colour_six, $subreddit_colour_six 1px, transparent 1px, transparent 100%);
+		background-image: -moz-repeating-radial-gradient(center center, $subreddit_colour_six, $subreddit_colour_six 1px, transparent 1px, transparent 100%);
+		background-image: -ms-repeating-radial-gradient(center center, $subreddit_colour_six, $subreddit_colour_six 1px, transparent 1px, transparent 100%);
+		background-image: repeating-radial-gradient(center center, $subreddit_colour_six, $subreddit_colour_six 1px, transparent 1px, transparent 100%);
+		-webkit-background-size: 3px 3px;
+		-moz-background-size: 3px 3px;
+		background-size: 3px 3px;
+	}
+
+		span {
+			background: #fff;
+			color: $subreddit_colour_six;
+			padding: 0 0.3em;
+			position: relative;
+		}
+
+	&:hover span {
+		background: #fff;
+		color: $subreddit_colour_six;
+	}
+
+}
+
+.filters__list > .webdevtutorials-filter {
+	color: $subreddit_colour_seven;
+
+
+	&::before {
+		transition: all 0.3s;			
+	border-bottom: solid 2px $subreddit_colour_seven;
+		background-image: -webkit-repeating-radial-gradient(center center, $subreddit_colour_seven, $subreddit_colour_seven 1px, transparent 1px, transparent 100%);
+		background-image: -moz-repeating-radial-gradient(center center, $subreddit_colour_seven, $subreddit_colour_seven 1px, transparent 1px, transparent 100%);
+		background-image: -ms-repeating-radial-gradient(center center, $subreddit_colour_seven, $subreddit_colour_seven 1px, transparent 1px, transparent 100%);
+		background-image: repeating-radial-gradient(center center, $subreddit_colour_seven, $subreddit_colour_seven 1px, transparent 1px, transparent 100%);
+		-webkit-background-size: 3px 3px;
+		-moz-background-size: 3px 3px;
+		background-size: 3px 3px;
+	}
+
+		span {
+			background: #fff;
+			color: $subreddit_colour_seven;
+			padding: 0 0.3em;
+			position: relative;
+		}
+
+
+	&:hover span {
+		background: #fff;
+		color: $subreddit_colour_seven;
+	}
+
 }

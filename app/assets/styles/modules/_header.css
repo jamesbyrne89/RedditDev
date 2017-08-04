@@ -1,11 +1,39 @@
 /* Header */
 
+.header {
+	z-index: 350;
+	background: $background_grey;
+	position: fixed;
+	left: 0;
+	top: 4;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	width: 100%;
+	height: 160px;
+	margin-bottom: 1.25em;
+	transition: all ease 0.3s;
+
+}
+
+.nav-container {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+	border-bottom: solid 1px $text_grey_dark;
+	padding: 1.25em 0;	
+	height: 80%;
+	width: 85vw;
+	margin: auto;
+}
+
 .header__title {
 	font-family: 'Tiempos Headline';
 	font-size: 3.5rem;
 	font-weight: 700;
 	flex: 0 0 200px;
 	z-index: 100;
+transition: all 0.3s;	
 }
 
 .header__description {
@@ -17,64 +45,41 @@
 	font-weight: 400;
 	line-height: 1.5;
 	padding-bottom: 0.2em;
+	transition: all 0.3s;
 }
 
-.header {
-	display: flex;
-	justify-content: space-between;
-	align-items: flex-end;
-	z-index: 350;
-	background: $background_grey;
-	position: absolute;
-	left: 0;
-	top: 0;
-	padding: 3.2em 7.5vw 2em 7.5vw;
-	width: 100%;
-	height: 200px;
-	transition: all ease 0.3s;
-	overflow: hidden;
 
-}
 
 /* Sticky Header Styles */
 
 .is-sticky {
 	position: fixed;
-	padding: 0.75em 7.5vw;
 	top: 4px;
 	height: 80px;
 	border-bottom: solid 2px $text_grey_dark;
 	align-items: center;
+	transition: all ease 0.3s;
 }
 
-.is-sticky::after {
-	display: none !important;
+.is-sticky .nav-container {
+	border: 0;
+	padding: 0.5em 0;
 }
-
 
 .is-sticky .header__title {
 	padding: 0;
 	line-height: 0.8;
 	font-size: 2.75rem;
+	transition: all 0.3s;
 }
 
 .is-sticky .header__description {
 	display: none;
+	transition: all 0.3s;
 }
 
 .header__btn-wrapper {
 	display: flex;
-}
-
-.header::after {
-	content: '';
-	display: block;
-	height: 1px;
-	background: $text_grey_dark;
-	width: 85%;
-	position: absolute;
-	bottom: 0.5em;
-	left: 7.5vw;
 }
 
 .header__title-wrapper {

@@ -2,9 +2,12 @@
 .reddit-content {
 	column-count: 4;
 	column-gap: 2.5em;
-	margin-top: 210px;
+	position: relative;
+	top: calc(160px + 1.25em);
+	margin: auto;
+	width: 85vw;
 	transition: all ease 0.3s;
-	padding-bottom: 5em;	
+	padding-bottom: 12em;	
 }
 
 .animate {
@@ -33,8 +36,9 @@
 	font-family: $sansSerif;
 	text-transform: uppercase;
 	letter-spacing: 0.08em;
-	padding: 0.25em 0.5em;
-	display: block !important;
+	padding: 0.3em 0.5em;
+	display: flex;
+	align-items: center;
 	border-radius: 0px;
 	color: $text_grey_dark;
 	font-weight: 600;
@@ -43,8 +47,7 @@
 		display: inline-block;
 		background: #fff;
 		line-height: 1.1;
-		padding: 0.1em 0.2em;
-		margin-top: 0.25em;
+		padding: 0.05em 0.2em;
 	}
 }
 
@@ -55,7 +58,7 @@
 
 	a {
 		font-family: 'Tiempos Headline', georgia, serif;
-		font-size: 1.5rem;
+		font-size: 1.25rem;
 		font-weight: 700;
 		color: $text_grey_dark;
 		text-decoration: none;
@@ -74,18 +77,22 @@
 	position: relative;
 	text-align: center;
 	max-width: 100%;
+	line-height: 0;
 	transition: all 0.2s;
 	margin-top: 0.75em;
 	filter: grayscale();
+	overflow: hidden !important;
 }
 
 .reddit-card__thumbnail-wrapper:hover::before {
 	opacity: 1;
 } 
 .reddit-card__thumbnail-wrapper:hover::after {
-	opacity: 0.3;
+	opacity: 0;
 	mix-blend-mode: multiply;
-} 
+}
+
+
 
 .reddit-card__thumbnail-wrapper:hover {
 	filter: grayscale(0);
@@ -154,8 +161,8 @@
 
 .content-end-mark {
 	display: none;
-	position: relative;
-	top: -1.5em;
+	position: absolute;
+	bottom: 4.5em;
 	left: calc(50% - 30px);
 	padding: 1em 0;
 	width: 32px;

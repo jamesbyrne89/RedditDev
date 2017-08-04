@@ -217,7 +217,7 @@ function checkVisible(e) {
     $('.reddit-card').each(function () {
 
         var scrollInAt = void 0;
-        if (window.scrollY < 10) {
+        if (window.scrollY < 0) {
             scrollInAt = window.innerHeight;
         } else {
             scrollInAt = window.scrollY + window.innerHeight - window.innerHeight * 0.1;
@@ -237,7 +237,7 @@ function checkVisible(e) {
 }
 
 function stickyHeader() {
-    if (scrollY > 180) {
+    if (scrollY > 50) {
         $('.header').addClass('is-sticky');
     } else {
         $('.header').removeClass('is-sticky');
@@ -252,15 +252,31 @@ var toggleModal = function toggleModal() {
     $('.modal').fadeToggle('fast');
     $('.filter-overlay').fadeToggle('fast');
     if ($('header').hasClass('is-sticky')) {
-        $('.modal').toggleClass('modal--opened-stuck');
+        $('.modal').toggleClass('modal--opened');
+        $('.modal').addClass('modal--opened--stuck');
+        $('html').toggleClass('no-scroll');
     } else {
         $('.modal').toggleClass('modal--opened');
+        $('html').toggleClass('no-scroll');
+        $('.modal').removeClass('modal--opened--stuck');
     }
 };
 
 $('.filter-btn').on('click', toggleModal);
 $('.modal__close-btn').on('click', toggleModal);
 $('.filter-overlay').on('click', toggleModal);
+
+// (function view() {
+
+// const subreddits = function() {
+
+// }
+
+// return {
+//     currentSubReddits
+// }
+// })();
+
 
 // Check if no subreddits are selected then show a message
 var checkForEmpty = function checkForEmpty() {
@@ -281,6 +297,15 @@ var checkForEmpty = function checkForEmpty() {
     }
 };
 
+function removeSubreddit() {
+    var subReds = document.getElementsByClassName('filters__list-item');
+    for (var i = 0; i < subReds.length; i++) {
+        subReds[i].classList.remove('subreddit--selected');
+        subReds[i].classList.add('subreddit--deselected');
+        handleShow(subReds[i], subReds[i].getAttribute('data-sr'));
+    }
+}
+
 /**
  * Toggles the 'select all' button
  */
@@ -294,13 +319,7 @@ $('.all-filter').on('click', function (e) {
         this.classList.add('subreddit--selected');
         this.classList.remove('subreddit--deselected');
     }
-
-    var cats = document.getElementsByClassName('filters__list-item');
-    for (var i = 0; i < cats.length; i++) {
-        cats[i].classList.remove('subreddit--selected');
-        cats[i].classList.add('subreddit--deselected');
-        handleShow(cats[i], cats[i].getAttribute('data-sr'));
-    }
+    removeSubreddit();
 });
 
 /**

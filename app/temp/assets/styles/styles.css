@@ -33,6 +33,32 @@
 }
 
 
+@-webkit-keyframes menuUp {
+	0% { opacity: 0; }
+	70% { opacity: 1; }	
+	100% { -webkit-transform: translateY(0); opacity: 1; }
+}
+
+
+@keyframes menuUp {
+	0% { opacity: 0;}	
+	70% { opacity: 1; }		
+	100% { -webkit-transform: translateY(0); transform: translateY(0); opacity: 1; }
+}
+
+
+@-webkit-keyframes moveUp-no-ease {
+	0% { opacity: 0; }
+	100% { -webkit-transform: translateY(0); opacity: 1; }
+}
+
+
+@keyframes moveUp-no-ease {
+	0% { opacity: 0;}	
+	100% { -webkit-transform: translateY(0); transform: translateY(0); opacity: 1; }
+}
+
+
 .shift-down {
 	-webkit-transform: translateY(150px);
 	        transform: translateY(150px);
@@ -40,6 +66,48 @@
 
 
 /* Header */
+
+
+.header {
+	z-index: 350;
+	background: #eee;
+	position: fixed;
+	left: 0;
+	top: 4;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+	-webkit-box-pack: end;
+	    -ms-flex-pack: end;
+	        justify-content: flex-end;
+	width: 100%;
+	height: 160px;
+	margin-bottom: 1.25em;
+	transition: all ease 0.3s;
+
+}
+
+
+.nav-container {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: justify;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
+	-webkit-box-align: end;
+	    -ms-flex-align: end;
+	        align-items: flex-end;
+	border-bottom: solid 1px #333;
+	padding: 1.25em 0;	
+	height: 80%;
+	width: 85vw;
+	margin: auto;
+}
 
 
 .header__title {
@@ -50,6 +118,7 @@
 	    -ms-flex: 0 0 200px;
 	        flex: 0 0 200px;
 	z-index: 100;
+transition: all 0.3s;	
 }
 
 
@@ -62,30 +131,7 @@
 	font-weight: 400;
 	line-height: 1.5;
 	padding-bottom: 0.2em;
-}
-
-
-.header {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-pack: justify;
-	    -ms-flex-pack: justify;
-	        justify-content: space-between;
-	-webkit-box-align: end;
-	    -ms-flex-align: end;
-	        align-items: flex-end;
-	z-index: 350;
-	background: #eee;
-	position: absolute;
-	left: 0;
-	top: 0;
-	padding: 3.2em 7.5vw 2em 7.5vw;
-	width: 100%;
-	height: 200px;
-	transition: all ease 0.3s;
-	overflow: hidden;
-
+	transition: all 0.3s;
 }
 
 
@@ -94,18 +140,19 @@
 
 .is-sticky {
 	position: fixed;
-	padding: 0.75em 7.5vw;
 	top: 4px;
 	height: 80px;
 	border-bottom: solid 2px #333;
 	-webkit-box-align: center;
 	    -ms-flex-align: center;
 	        align-items: center;
+	transition: all ease 0.3s;
 }
 
 
-.is-sticky::after {
-	display: none !important;
+.is-sticky .nav-container {
+	border: 0;
+	padding: 0.5em 0;
 }
 
 
@@ -113,11 +160,13 @@
 	padding: 0;
 	line-height: 0.8;
 	font-size: 2.75rem;
+	transition: all 0.3s;
 }
 
 
 .is-sticky .header__description {
 	display: none;
+	transition: all 0.3s;
 }
 
 
@@ -125,18 +174,6 @@
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
-}
-
-
-.header::after {
-	content: '';
-	display: block;
-	height: 1px;
-	background: #333;
-	width: 85%;
-	position: absolute;
-	bottom: 0.5em;
-	left: 7.5vw;
 }
 
 
@@ -261,18 +298,16 @@
 .modal {
 	font-family: 'Open Sans', helvetica, arial, sans-serif;
 	display: none;
-	position: fixed;
-	top: 200px;
+	position: absolute;
+	top: 220px;
+	right: 7.5vw;
 	z-index: 300;
 	width: 400px;
-	max-height: 0;
 	max-width: 85%;
 	height: auto;
 	margin: auto;
 	background: #fff;
-	padding: 0.75em;
-	-webkit-transform: translateY(0px);
-	        transform: translateY(0px);
+	padding: 1.5em 0;
 	border: 1px solid #d1d4d5;
 	transition: all 0.2s ease-out;	
 }
@@ -299,24 +334,17 @@
 	    -ms-flex-pack: start;
 	        justify-content: flex-start;
 	max-height: 80vh;
-	transition: -webkit-transform 0.3s ease-out;
-	transition: transform 0.3s ease-out;
-	transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out;
+	-webkit-animation: moveUp-no-ease 0.3s ease-out forwards;
+	animation: moveUp-no-ease 0.3s ease-out forwards;
 	background: #eee;
+	-webkit-transform: translateY(30px);
+	        transform: translateY(30px);
 }
 
 
 .modal--opened-stuck {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-pack: start;
-	    -ms-flex-pack: start;
-	        justify-content: flex-start;
-	max-height: 80vh;
-	transition: -webkit-transform 0.3s ease-out;
-	transition: transform 0.3s ease-out;
-	transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out;
+	position: fixed !important;
+	bottom: 0px;
 }
 
 
@@ -343,6 +371,7 @@
 	font-family: 'Tiempos Headline', georgia, serif;
 	margin-right: 2em;
 	width: 100%;
+	padding-left: 0.7em;
 }
 
 
@@ -356,6 +385,8 @@
 	background: #000;
 	opacity: 0.5;
 	z-index: 250;
+	max-height: 100vh;
+	overflow: hidden;
 }
 
 
@@ -382,13 +413,13 @@
 	text-align: center;
 	font-weight: 400;
 	list-style-type: none;
-	margin-top: 1em;
+	margin-top: 1.5em;
 }
 
 
 .filters__list-item, .all-filter {
 	font-size: 0.875rem;
-	padding: 1em;
+	padding: 1em 1.5em;
 	position: relative;
 	cursor: pointer;
 	display: -webkit-box;
@@ -405,11 +436,29 @@
 	z-index: 1;
 	transition: all 0.3s;
 	border-top: solid 1px #eee;
+	border-bottom: solid 1px transparent;
 }
 
 
 .filters__list-item i, .all-filter i {
   padding-right: 2em;
+}
+
+
+.all-filter {
+
+	transition: all 0.15s;
+}
+
+
+.all-filter span {
+  padding: 0 0.3em;
+}
+
+
+.all-filter:hover {
+  transition: all 0.15s;
+  border-bottom: solid 1px #333;
 }
 
 
@@ -439,6 +488,7 @@
 	position: absolute;
 	top: 0;
 	left: 0;
+	transition: all 0.15s;		
 }
 
 
@@ -452,6 +502,8 @@
 
 .subreddit--deselected span {
   color: rgb(141, 148, 149) !important;
+  padding-left: 1em !important;
+  transition: all 0.15s;
 }
 
 
@@ -487,7 +539,7 @@
 
 
 .filters__list > .webdev-filter {
-	color: #04D1E1;
+	color: #00D9FF;
 
 
 }
@@ -495,17 +547,17 @@
 
 .filters__list > .webdev-filter::before {
   transition: all 0.3s;
-  color: #04D1E1;
-  border-bottom: solid 2px #04D1E1;
-  background-image: -webkit-repeating-radial-gradient(center center, #04D1E1, #04D1E1 1px, transparent 1px, transparent 100%);
-  background-image: repeating-radial-gradient(center center, #04D1E1, #04D1E1 1px, transparent 1px, transparent 100%);
+  color: #00D9FF;
+  border-bottom: solid 2px #00D9FF;
+  background-image: -webkit-repeating-radial-gradient(center center, #00D9FF, #00D9FF 1px, transparent 1px, transparent 100%);
+  background-image: repeating-radial-gradient(center center, #00D9FF, #00D9FF 1px, transparent 1px, transparent 100%);
   background-size: 3px 3px;
 }
 
 
 .filters__list > .webdev-filter span {
   background: #fff;
-  color: #04D1E1;
+  color: #00D9FF;
   padding: 0 0.3em;
   position: relative;
 }
@@ -667,9 +719,12 @@
 	        column-count: 4;
 	-webkit-column-gap: 2.5em;
 	        column-gap: 2.5em;
-	margin-top: 210px;
+	position: relative;
+	top: calc(160px + 1.25em);
+	margin: auto;
+	width: 85vw;
 	transition: all ease 0.3s;
-	padding-bottom: 5em;	
+	padding-bottom: 12em;	
 }
 
 
@@ -704,8 +759,13 @@
 	font-family: 'Open Sans', helvetica, arial, sans-serif;
 	text-transform: uppercase;
 	letter-spacing: 0.08em;
-	padding: 0.25em 0.5em;
-	display: block !important;
+	padding: 0.3em 0.5em;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
 	border-radius: 0px;
 	color: #333;
 	font-weight: 600;
@@ -717,8 +777,7 @@
   display: inline-block;
   background: #fff;
   line-height: 1.1;
-  padding: 0.1em 0.2em;
-  margin-top: 0.25em;
+  padding: 0.05em 0.2em;
 }
 
 
@@ -732,7 +791,7 @@
 
 .reddit-card__post-title a {
   font-family: 'Tiempos Headline', georgia, serif;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 700;
   color: #333;
   text-decoration: none;
@@ -752,10 +811,12 @@
 	position: relative;
 	text-align: center;
 	max-width: 100%;
+	line-height: 0;
 	transition: all 0.2s;
 	margin-top: 0.75em;
 	-webkit-filter: grayscale();
 	        filter: grayscale();
+	overflow: hidden !important;
 }
 
 
@@ -765,7 +826,7 @@
 
 
 .reddit-card__thumbnail-wrapper:hover::after {
-	opacity: 0.3;
+	opacity: 0;
 	mix-blend-mode: multiply;
 }
 
@@ -854,8 +915,8 @@
 
 .content-end-mark {
 	display: none;
-	position: relative;
-	top: -1.5em;
+	position: absolute;
+	bottom: 4.5em;
 	left: calc(50% - 30px);
 	padding: 1em 0;
 	width: 32px;
@@ -916,14 +977,14 @@
 
 
 .reddit-card-webdev {
-	border-bottom: solid 2px #04D1E1;
+	border-bottom: solid 2px #00D9FF;
 }
 
 
 .subreddit-webdev {
-	color: #04D1E1;
-	  background-image: -webkit-repeating-radial-gradient(center center, #04D1E1, #04D1E1 1px, transparent 1px, transparent 100%);
-  background-image: repeating-radial-gradient(center center, #04D1E1, #04D1E1 1px, transparent 1px, transparent 100%);
+	color: #00D9FF;
+	  background-image: -webkit-repeating-radial-gradient(center center, #00D9FF, #00D9FF 1px, transparent 1px, transparent 100%);
+  background-image: repeating-radial-gradient(center center, #00D9FF, #00D9FF 1px, transparent 1px, transparent 100%);
   background-size: 3px 3px;
 }
 
@@ -937,7 +998,7 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background: #04D1E1;
+  background: #00D9FF;
   mix-blend-mode: screen;
   transition: opacity 0.15s;
 }
@@ -952,7 +1013,7 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background: #04D1E1;
+  background: #00D9FF;
   transition: opacity 0.15s;
 }
 
@@ -1213,6 +1274,7 @@
 	font-family: inherit;
 	position: relative;
 	font-weight: 600;
+	font-size: 0.75rem;
 	z-index: 400;
 	display: block;
 	-webkit-box-align: center;
@@ -1220,7 +1282,6 @@
 	        align-items: center;
 	padding: 0.5em 0.875em 0.5em 1em;	
 	border: solid 1px #333;	
-	font-size: 0.875rem;
 	background: #eee;	
 	margin: 0 2px;
 	width: 10em;
@@ -1284,10 +1345,22 @@
 }
 
 
-.back-to-top:active {top: 2px;}
+.back-to-top:active {-webkit-transform: translateY(4px);transform: translateY(4px);
+}
 
 
 .filter-btn {
+}
+
+
+.modal__close-btn {
+	position: absolute;
+	right: 1.5em;
+	padding-left: -0.5em;
+	background: none;
+	border: 0;
+	width: 5px;
+	display: inline-block;
 }
 
 
@@ -1379,19 +1452,13 @@ html {
 }
 
 
-body {
-	font-family: 'Open Sans', helvetica, arial, sans-serif;
+.no-scroll {
+	overflow: hidden;
 }
 
 
-.container {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-pack: center;
-	    -ms-flex-pack: center;
-	        justify-content: center;
-	width: 100%;
+body {
+	font-family: 'Open Sans', helvetica, arial, sans-serif;
 }
 
 
@@ -1427,7 +1494,7 @@ body {
 	top: 0px;
 	z-index: 400;
 	display: block;
-	background: #d1d4d5;
+	background: #fff;
 	width: 100vw;
 }
 

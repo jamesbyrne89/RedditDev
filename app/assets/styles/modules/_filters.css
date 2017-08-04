@@ -2,17 +2,16 @@
 .modal {
 	font-family: $sansSerif;
 	display: none;
-	position: fixed;
-	top: 200px;
+	position: absolute;
+	top: 220px;
+	right: 7.5vw;
 	z-index: 300;
 	width: 400px;
-	max-height: 0;
 	max-width: 85%;
 	height: auto;
 	margin: auto;
 	background: #fff;
-	padding: 0.75em;
-	transform: translateY(0px);
+	padding: 1.5em 0;
 	border: 1px solid #d1d4d5;
 	transition: all 0.2s ease-out;
 &::after {
@@ -28,20 +27,22 @@
 }	
 }
 
+
 .modal--opened {
 	display: flex;
 	justify-content: flex-start;
 	max-height: 80vh;
-	transition: transform 0.3s ease-out;
+	-webkit-animation: moveUp-no-ease 0.3s ease-out forwards;
+	animation: moveUp-no-ease 0.3s ease-out forwards;
 	background: $background_grey;
+	transform: translateY(30px);
 }
 
 .modal--opened-stuck {
-	display: flex;
-	justify-content: flex-start;
-	max-height: 80vh;
-	transition: transform 0.3s ease-out;
+	position: fixed !important;
+	bottom: 0px;
 }
+
 
 .filters {
 	display: flex;
@@ -56,6 +57,7 @@
 	font-family: $serif;
 	margin-right: 2em;
 	width: 100%;
+	padding-left: 0.7em;
 }
 
 .filter-overlay {
@@ -68,6 +70,8 @@
 	background: #000;
 	opacity: 0.5;
 	z-index: 250;
+	max-height: 100vh;
+	overflow: hidden;
 }
 
 .filters__list {
@@ -83,12 +87,12 @@
 	text-align: center;
 	font-weight: 400;
 	list-style-type: none;
-	margin-top: 1em;
+	margin-top: 1.5em;
 }
 
 .filters__list-item, .all-filter {
 	font-size: 0.875rem;
-	padding: 1em;
+	padding: 1em 1.5em;
 	position: relative;
 	cursor: pointer;
 	display: flex;
@@ -101,11 +105,23 @@
 	z-index: 1;
 	transition: all 0.3s;
 	border-top: solid 1px $background_grey;
+	border-bottom: solid 1px transparent;	
 		i {
 		padding-right: 2em;
 	}
 }
 
+.all-filter {
+
+	transition: all 0.15s;
+	span {
+		padding: 0 0.3em;
+	}
+	&:hover {
+		transition: all 0.15s;
+		border-bottom: solid 1px $text_grey_dark;
+	}
+}
 
 
 .subreddit--selected {
@@ -128,6 +144,7 @@
 	position: absolute;
 	top: 0;
 	left: 0;
+	transition: all 0.15s;		
 }
 
 .subreddit--deselected {
@@ -136,6 +153,8 @@
 	transition: all 0.1s;
 span {
 	color: rgb(141, 148, 149) !important;
+	padding-left: 1em !important;
+	transition: all 0.15s;
 }
 i {
 	display: none;

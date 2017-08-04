@@ -8,12 +8,12 @@
 	font-family: inherit;
 	position: relative;
 	font-weight: 600;
+	font-size: 0.75rem;
 	z-index: 400;
 	display: block;
 	align-items: center;
 	padding: 0.5em 0.875em 0.5em 1em;	
 	border: solid 1px $text_grey_dark;	
-	font-size: 0.875rem;
 	background: $background_grey;	
 	margin: 0 2px;
 	width: 10em;
@@ -67,10 +67,20 @@
   top: 0;
   height: 100%;
 }
-.back-to-top:active {top: 2px;}
+.back-to-top:active {transform: translateY(4px);
+}
 
 
 .filter-btn {
 }
 
+.modal__close-btn {
+	position: absolute;
+	right: 1.5em;
+	padding-left: -0.5em;
+	background: none;
+	border: 0;
+	width: 5px;
+	display: inline-block;
+}
 

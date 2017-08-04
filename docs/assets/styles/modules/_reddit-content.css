@@ -2,9 +2,12 @@
 .reddit-content {
 	column-count: 4;
 	column-gap: 2.5em;
-	margin-top: 160px;
+	position: relative;
+	top: calc(160px + 1.25em);
+	margin: auto;
+	width: 85vw;
 	transition: all ease 0.3s;
-	padding-bottom: 5em;	
+	padding-bottom: 12em;	
 }
 
 .animate {
@@ -32,33 +35,32 @@
 .reddit-card__subreddit {
 	font-family: $sansSerif;
 	text-transform: uppercase;
-	font-size: 0.75rem;
-	letter-spacing: 0.05em;
-	padding: 0.5em 0.75em;
-	display: block !important;
+	letter-spacing: 0.08em;
+	padding: 0.3em 0.5em;
+	display: flex;
+	align-items: center;
 	border-radius: 0px;
-	color: #000;
+	color: $text_grey_dark;
 	font-weight: 600;
-	margin-bottom: 0.75em;
 	h3 {
+		font-size: 0.75rem;
 		display: inline-block;
 		background: #fff;
-		line-height: 1;
+		line-height: 1.1;
 		padding: 0.05em 0.2em;
-		margin-top: 0.1em;
 	}
 }
 
 .reddit-card__post-title {
-	padding: 0.75em 0;
+	padding: 1.5em 0;
 	width: 100%;
 	transition: all 0.2s;
 
 	a {
 		font-family: 'Tiempos Headline', georgia, serif;
-		font-size: 1.5rem;
+		font-size: 1.25rem;
 		font-weight: 700;
-		color: black;
+		color: $text_grey_dark;
 		text-decoration: none;
 		line-height: 1.25;
 		max-width: 100%;
@@ -66,27 +68,31 @@
 	}
 
 	&:hover {
-		color: $text_grey_dark;
+		color: #000;
 	}
 
 }
 
 .reddit-card__thumbnail-wrapper {
 	position: relative;
-	margin: auto;
 	text-align: center;
 	max-width: 100%;
+	line-height: 0;
 	transition: all 0.2s;
+	margin-top: 0.75em;
 	filter: grayscale();
+	overflow: hidden !important;
 }
 
 .reddit-card__thumbnail-wrapper:hover::before {
 	opacity: 1;
 } 
 .reddit-card__thumbnail-wrapper:hover::after {
-	opacity: 0.3;
+	opacity: 0;
 	mix-blend-mode: multiply;
-} 
+}
+
+
 
 .reddit-card__thumbnail-wrapper:hover {
 	filter: grayscale(0);
@@ -99,31 +105,38 @@
 }
 
 .card-footer {
+	font-weight: 400;
 	display: flex;
-	justify-content: space-between;
+	justify-content: flex-end;
 	flex-wrap: wrap;
 	color: rgb(141, 148, 149);
 	font-size: 0.75rem;
 	letter-spacing: 0.02em;
 	max-width: 100%;
-	padding: 0.5em 0 0 0;
-	margin-top: 0.75em;
+	padding: 2em 0 1em 0;
+	color: text_grey_dark;
+	border-top: solid 1px $background_grey;
+}
+
+.bar {
+
+	font-size: 0.875em;
 }
 
 .short-url {
 	flex: 0 0 auto;
 	text-align: center;
+	padding: 0 0.75em;
 }
+
 
 .post-comments {
 	font-family: $sansSerif;
-	font-weight: 700;
 	display: block;
 	text-align: left;
 	white-space: nowrap;
-	padding-top: 0.5em;
+	padding: 0 0.75em;
 	a {
-		color: #000 !important;
 		text-decoration: none;
 		transition: all 0.2s;
 		cursor: pointer;
@@ -136,23 +149,20 @@
 
 }
 
-.bar {
-	height: 1em;
-	flex: 0 0 auto;
-	margin: 0 0.5em;
-}
+
 
 .timestamp {
 	display: block;
 	font-family: $sansSerif;
 	flex: 0 0 auto;
 	text-align: left;
+	padding: 0 0.75em;
 }
 
 .content-end-mark {
 	display: none;
-	position: relative;
-	top: -1.5em;
+	position: absolute;
+	bottom: 4.5em;
 	left: calc(50% - 30px);
 	padding: 1em 0;
 	width: 32px;
@@ -473,7 +483,6 @@
 
 .webdevtutorials-overlay {
 	position: relative;
-	margin: auto;
 	text-align: center;
 	max-width: 100%;
 	transition: all 0.2s;
