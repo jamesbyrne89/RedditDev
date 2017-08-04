@@ -71,8 +71,6 @@ var getData = function getData() {
             allPosts.push(post);
         });
 
-        console.log(allPosts);
-
         // Sort by date
 
         var sortedByDate = allPosts.sort(function (a, b) {
@@ -172,6 +170,7 @@ function updateView(sortedByDate) {
         var card = document.createElement('div');
         card.className = 'reddit-card';
         card.classList.add("reddit-card-" + sortedByDate[i].subreddit.toLowerCase());
+        card.setAttribute('data-sr', sortedByDate[i].subreddit.toLowerCase());
 
         // Remove the 's' if comment number is one
         if (sortedByDate[i].num_comments === 1) {
@@ -274,80 +273,94 @@ var checkForEmpty = function checkForEmpty() {
         }
     }
     if (selected.length === 0) {
+        $('.all-filter').removeClass('subreddit--selected');
+        $('.all-filter').addClass('subreddit--deselected');
         $('.empty-message').fadeIn('fast');
     } else {
         $('.empty-message').fadeOut('fast');
     }
 };
 
-// Unselect a subreddit
-$('.filters__list-item').on('click', function () {
-    $(this).toggleClass('subreddit--selected');
-    $(this).toggleClass('subreddit--deselected');
-    checkForEmpty();
+/**
+ * Toggles the 'select all' button
+ */
+
+$('.all-filter').on('click', function (e) {
+
+    if (this.classList.contains('subreddit--selected')) {
+        this.classList.remove('subreddit--selected');
+        this.classList.add('subreddit--deselected');
+    } else {
+        this.classList.add('subreddit--selected');
+        this.classList.remove('subreddit--deselected');
+    }
+
+    var cats = document.getElementsByClassName('filters__list-item');
+    for (var i = 0; i < cats.length; i++) {
+        cats[i].classList.remove('subreddit--selected');
+        cats[i].classList.add('subreddit--deselected');
+        handleShow(cats[i], cats[i].getAttribute('data-sr'));
+    }
 });
 
-$('.web_design-filter').on('click', function (e) {
+/**
+ *  Handles showing and hiding the selected category.
+ *  Takes in the chosen category and the subreddit of the element on the page to be shown/hidden. The function targets the data attribute of the cards to select which to hide or show
+ */
+function handleShow(target, sr) {
     checkVisible();
-    if ($(this).hasClass('subreddit--deselected')) {
-        $('.reddit-card-web_design').fadeOut('fast');
+    checkForEmpty();
+    if (target.classList.contains('subreddit--deselected')) {
+        $(".reddit-card-" + sr).hide();
     } else {
-        $('.reddit-card-web_design').fadeIn('fast');
+        $(".reddit-card-" + sr).fadeIn('fast');
     }
+}
+
+/**
+ *  Add event handlers to all subreddits in list to handle hiding and showing
+ */
+
+$('.web_design-filter').on('click', function (e) {
+    $(this).toggleClass('subreddit--selected');
+    $(this).toggleClass('subreddit--deselected');
+    handleShow(this, 'web_design');
 });
 
 $('.frontend-filter').on('click', function (e) {
-    checkVisible();
-    if ($(e.target).hasClass('subreddit--deselected')) {
-        $('.reddit-card-frontend').fadeOut('fast');
-    } else {
-        $('.reddit-card-frontend').fadeIn('fast');
-    }
+    $(this).toggleClass('subreddit--selected');
+    $(this).toggleClass('subreddit--deselected');
+    handleShow(this, 'frontend');
 });
 
-$('.webdev-filter').on('click', function () {
-    checkVisible();
-    if ($(this).hasClass('subreddit--deselected')) {
-        $('.reddit-card-webdev').fadeOut('fast');
-    } else {
-        $('.reddit-card-webdev').fadeIn('fast');
-    }
+$('.webdev-filter').on('click', function (e) {
+    $(this).toggleClass('subreddit--selected');
+    $(this).toggleClass('subreddit--deselected');
+    handleShow(this, 'webdev');
 });
 
-$('.css-filter').on('click', function () {
-    checkVisible();
-    if ($(this).hasClass('subreddit--deselected')) {
-        $('.reddit-card-css').fadeOut('fast');
-    } else {
-        $('.reddit-card-css').fadeIn('fast');
-    }
+$('.css-filter').on('click', function (e) {
+    $(this).toggleClass('subreddit--selected');
+    $(this).toggleClass('subreddit--deselected');
+    handleShow(this, 'css');
 });
 
-$('.javascript-filter').on('click', function () {
-    checkVisible();
-    if ($(this).hasClass('subreddit--deselected')) {
-        $('.reddit-card-javascript').fadeOut('fast');
-    } else {
-        $('.reddit-card-javascript').fadeIn('fast');
-    }
+$('.javascript-filter').on('click', function (e) {
+    $(this).toggleClass('subreddit--selected');
+    $(this).toggleClass('subreddit--deselected');
+    handleShow(this, 'javascript');
 });
 
-$('.jquery-filter').on('click', function () {
-    checkVisible();
-    if ($(this).hasClass('subreddit--deselected')) {
-        $('.reddit-card-jquery').fadeOut('fast');
-    } else {
-        $('.reddit-card-jquery').fadeIn('fast');
-    }
+$('.jquery-filter').on('click', function (e) {
+    $(this).toggleClass('subreddit--selected');
+    $(this).toggleClass('subreddit--deselected');
+    handleShow(this, 'jquery');
 });
 
-$('.webdevtutorials-filter').on('click', function () {
-    checkVisible();
-    if ($(this).hasClass('subreddit--deselected')) {
-        $('.reddit-card-webdevtutorials').fadeOut('fast');
-    } else {
-        $('.reddit-card-webdevtutorials').fadeIn('fast');
-    }
+$('.webdevtutorials-filter').on('click', function (e) {
+    $(this).toggleClass('subreddit--selected');
+    $(this).toggleClass('subreddit--deselected');
+    handleShow(this, 'webdevtutorials');
 });
 
 // Scroll progress bar
@@ -364,7 +377,6 @@ $(window).scroll(function () {
 });
 
 $('#back-to-top').on('click', function () {
-    console.log('back to top');
     window.scrollTo(0, 0);
 });
 

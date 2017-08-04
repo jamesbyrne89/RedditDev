@@ -32,19 +32,19 @@
 .reddit-card__subreddit {
 	font-family: $sansSerif;
 	text-transform: uppercase;
-	font-size: 0.75rem;
 	letter-spacing: 0.08em;
-	padding: 0.5em 0.75em;
+	padding: 0.25em 0.5em;
 	display: block !important;
 	border-radius: 0px;
-	color: #000;
+	color: $text_grey_dark;
 	font-weight: 600;
 	h3 {
+		font-size: 0.75rem;
 		display: inline-block;
 		background: #fff;
-		line-height: 1;
-		padding: 0.05em 0.2em;
-		margin-top: 0.1em;
+		line-height: 1.1;
+		padding: 0.1em 0.2em;
+		margin-top: 0.25em;
 	}
 }
 
@@ -57,7 +57,7 @@
 		font-family: 'Tiempos Headline', georgia, serif;
 		font-size: 1.5rem;
 		font-weight: 700;
-		color: black;
+		color: $text_grey_dark;
 		text-decoration: none;
 		line-height: 1.25;
 		max-width: 100%;
@@ -65,7 +65,7 @@
 	}
 
 	&:hover {
-		color: $text_grey_dark;
+		color: #000;
 	}
 
 }
