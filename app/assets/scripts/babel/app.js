@@ -65,7 +65,9 @@ var getData = function getData() {
             combined.push.apply(combined, _toConsumableArray(item.data.children));
         });
         combined.forEach(function (item) {
+
             var post = item.data;
+
             allPosts.push(post);
         });
 
@@ -144,7 +146,7 @@ function getTimeAgo(timestamp) {
         return hours + 'h ago';
     } else if (2 < mins < 60) {
         return mins + 'm ago';
-    } else if (mins < 2) {
+    } else {
         return mins + 'Just now';
     }
 }
@@ -178,7 +180,7 @@ function updateView(sortedByDate) {
             numCommentsText = sortedByDate[i].num_comments + " comments";
         }
 
-        var html = "<div class=\"reddit-card__subreddit subreddit-" + sortedByDate[i].subreddit.toLowerCase() + "\"><h3>r/" + sortedByDate[i].subreddit + "</h3></div>\n                      <figure class=\"reddit-card__thumbnail-title-wrapper\">\n                        <a href=\"" + sortedByDate[i].url + "\" target=\"_blank\">\n                        <div class=\"reddit-card__thumbnail-wrapper " + sortedByDate[i].subreddit.toLowerCase() + "-overlay\">" + thumbnail + "\n                        </div>\n                        </a>\n\n                      <div class=\"reddit-card__post-title\"><a href=\"" + sortedByDate[i].url + "\" target=\"blank\">\n                      " + sortedByDate[i].title + "</a></div>\n                      </figure>\n                      <div class=\"card-footer\">\n                      <div> \n                      <span class=\"short-url\">" + getHostname(sortedByDate[i].url) + "</span> \n                        <span class=\"post-comments\">\n                          <a href=\"http://reddit.com/" + sortedByDate[i].permalink + "\" target=\"blank\">\n                          " + numCommentsText + "</a>\n                        </span>     \n                      </div>\n                        <time class=\"timestamp\">" + time + "</time>\n\n                      </div>";
+        var html = "<div class=\"reddit-card__subreddit subreddit-" + sortedByDate[i].subreddit.toLowerCase() + "\"><h3>r/" + sortedByDate[i].subreddit + "</h3></div>\n                      <figure class=\"reddit-card__thumbnail-title-wrapper\">\n                        <a href=\"" + sortedByDate[i].url + "\" target=\"_blank\">\n                        <div class=\"reddit-card__thumbnail-wrapper " + sortedByDate[i].subreddit.toLowerCase() + "-overlay\">" + thumbnail + "\n                        </div>\n                        </a>\n\n                      <div class=\"reddit-card__post-title\"><a href=\"" + sortedByDate[i].url + "\" target=\"blank\">\n                      " + sortedByDate[i].title + "</a></div>\n                      </figure>\n                      <div class=\"card-footer\">\n                      <span class=\"short-url\">" + getHostname(sortedByDate[i].url) + "</span><span class='bar'>|</span> \n                      <time class=\"timestamp\">" + time + "</time></span><span class='bar'>|</span>\n                        <span class=\"post-comments\">\n                          <a href=\"http://reddit.com/" + sortedByDate[i].permalink + "\" target=\"blank\">\n                          " + numCommentsText + "</a>\n                        </span>     \n                        \n\n                      </div>";
         card.innerHTML = html;
         $('#loading').hide();
         $('.reddit-content').hide().append(card).fadeIn(500);
@@ -249,9 +251,12 @@ window.addEventListener('scroll', stickyHeader);
 // Close and open filters list modal
 var toggleModal = function toggleModal() {
     $('.modal').fadeToggle('fast');
-    $('.modal').toggleClass('modal--opened');
     $('.filter-overlay').fadeToggle('fast');
-    $('.reddit-content').toggleClass('shift-down');
+    if ($('header').hasClass('is-sticky')) {
+        $('.modal').toggleClass('modal--opened-stuck');
+    } else {
+        $('.modal').toggleClass('modal--opened');
+    }
 };
 
 $('.filter-btn').on('click', toggleModal);
@@ -282,8 +287,8 @@ $('.filters__list-item').on('click', function () {
     checkForEmpty();
 });
 
-$('.web_design-box').on('click', function (e) {
-
+$('.web_design-filter').on('click', function (e) {
+    checkVisible();
     if ($(this).hasClass('subreddit--deselected')) {
         $('.reddit-card-web_design').fadeOut('fast');
     } else {
@@ -291,69 +296,57 @@ $('.web_design-box').on('click', function (e) {
     }
 });
 
-$('.frontend-box').on('click', function (e) {
-
+$('.frontend-filter').on('click', function (e) {
+    checkVisible();
     if ($(e.target).hasClass('subreddit--deselected')) {
         $('.reddit-card-frontend').fadeOut('fast');
-        console.log('not selected');
     } else {
         $('.reddit-card-frontend').fadeIn('fast');
-        console.log('selected');
     }
 });
 
-$('.webdev-box').on('click', function () {
-
+$('.webdev-filter').on('click', function () {
+    checkVisible();
     if ($(this).hasClass('subreddit--deselected')) {
         $('.reddit-card-webdev').fadeOut('fast');
-        console.log('not selected');
     } else {
         $('.reddit-card-webdev').fadeIn('fast');
-        console.log('selected');
     }
 });
 
-$('.css-box').on('click', function () {
-
+$('.css-filter').on('click', function () {
+    checkVisible();
     if ($(this).hasClass('subreddit--deselected')) {
         $('.reddit-card-css').fadeOut('fast');
-        console.log('not selected');
     } else {
         $('.reddit-card-css').fadeIn('fast');
-        console.log('selected');
     }
 });
 
-$('.javascript-box').on('click', function () {
-
+$('.javascript-filter').on('click', function () {
+    checkVisible();
     if ($(this).hasClass('subreddit--deselected')) {
         $('.reddit-card-javascript').fadeOut('fast');
-        console.log('not selected');
     } else {
         $('.reddit-card-javascript').fadeIn('fast');
-        console.log('selected');
     }
 });
 
-$('.jquery-box').on('click', function () {
-
+$('.jquery-filter').on('click', function () {
+    checkVisible();
     if ($(this).hasClass('subreddit--deselected')) {
         $('.reddit-card-jquery').fadeOut('fast');
-        console.log('not selected');
     } else {
         $('.reddit-card-jquery').fadeIn('fast');
-        console.log('selected');
     }
 });
 
-$('.webdevtutorials-box').on('click', function () {
-
+$('.webdevtutorials-filter').on('click', function () {
+    checkVisible();
     if ($(this).hasClass('subreddit--deselected')) {
         $('.reddit-card-webdevtutorials').fadeOut('fast');
-        console.log('not selected');
     } else {
         $('.reddit-card-webdevtutorials').fadeIn('fast');
-        console.log('selected');
     }
 });
 

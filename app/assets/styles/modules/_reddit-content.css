@@ -2,7 +2,7 @@
 .reddit-content {
 	column-count: 4;
 	column-gap: 2.5em;
-	margin-top: 160px;
+	margin-top: 210px;
 	transition: all ease 0.3s;
 	padding-bottom: 5em;	
 }
@@ -33,13 +33,12 @@
 	font-family: $sansSerif;
 	text-transform: uppercase;
 	font-size: 0.75rem;
-	letter-spacing: 0.05em;
+	letter-spacing: 0.08em;
 	padding: 0.5em 0.75em;
 	display: block !important;
 	border-radius: 0px;
 	color: #000;
 	font-weight: 600;
-	margin-bottom: 0.75em;
 	h3 {
 		display: inline-block;
 		background: #fff;
@@ -50,7 +49,7 @@
 }
 
 .reddit-card__post-title {
-	padding: 0.75em 0;
+	padding: 1.5em 0;
 	width: 100%;
 	transition: all 0.2s;
 
@@ -73,10 +72,10 @@
 
 .reddit-card__thumbnail-wrapper {
 	position: relative;
-	margin: auto;
 	text-align: center;
 	max-width: 100%;
 	transition: all 0.2s;
+	margin-top: 0.75em;
 	filter: grayscale();
 }
 
@@ -99,31 +98,38 @@
 }
 
 .card-footer {
+	font-weight: 400;
 	display: flex;
-	justify-content: space-between;
+	justify-content: flex-end;
 	flex-wrap: wrap;
 	color: rgb(141, 148, 149);
 	font-size: 0.75rem;
 	letter-spacing: 0.02em;
 	max-width: 100%;
-	padding: 0.5em 0 0 0;
-	margin-top: 0.75em;
+	padding: 2em 0 1em 0;
+	color: text_grey_dark;
+	border-top: solid 1px $background_grey;
+}
+
+.bar {
+
+	font-size: 0.875em;
 }
 
 .short-url {
 	flex: 0 0 auto;
 	text-align: center;
+	padding: 0 0.75em;
 }
+
 
 .post-comments {
 	font-family: $sansSerif;
-	font-weight: 700;
 	display: block;
 	text-align: left;
 	white-space: nowrap;
-	padding-top: 0.5em;
+	padding: 0 0.75em;
 	a {
-		color: #000 !important;
 		text-decoration: none;
 		transition: all 0.2s;
 		cursor: pointer;
@@ -136,17 +142,14 @@
 
 }
 
-.bar {
-	height: 1em;
-	flex: 0 0 auto;
-	margin: 0 0.5em;
-}
+
 
 .timestamp {
 	display: block;
 	font-family: $sansSerif;
 	flex: 0 0 auto;
 	text-align: left;
+	padding: 0 0.75em;
 }
 
 .content-end-mark {
@@ -473,7 +476,6 @@
 
 .webdevtutorials-overlay {
 	position: relative;
-	margin: auto;
 	text-align: center;
 	max-width: 100%;
 	transition: all 0.2s;

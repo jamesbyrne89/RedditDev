@@ -18,7 +18,8 @@ del = require('del'),
 debug = require('gulp-debug'),
 rev = require('gulp-rev'),
 beautify = require('gulp-jsbeautify'),
-webpack = require('webpack');
+webpack = require('webpack'),
+stylelint = require('gulp-stylelint');
 
 // Default task that runs on 'Gulp' command
 
@@ -40,19 +41,6 @@ watch('app/assets/styles/**/*.css', function(){
 gulp.start('cssInject');
 });
 
-// Watch JS for changes and beautify
-
-//watch('app/assets/scripts/*.js', function(){
-//gulp.start('beautify');
-//});
-
-// JS beautifer
-
-//gulp.task('beautify', function() {
-  //return gulp.src('app/assets/scripts/app.js')
-  //  .pipe(beautify({indentSize: 2}))
-   // .pipe(gulp.dest('app/assets/scripts/app.js'));
-//});
 
 // Live reload browserSync
 watch('app/index.html', function(){
@@ -68,6 +56,11 @@ gulp.task('compilecss', function(){
   .pipe(gulp.dest('app/temp/assets/styles'))
 
 });
+
+// Lint CSS
+
+
+
 
 // Injects compiled CSS into page
 gulp.task('cssInject', ['compilecss'], function(){

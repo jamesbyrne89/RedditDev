@@ -4,7 +4,6 @@
 
 @import 'modules/_header';
 @import 'modules/_fonts';
-@import 'modules/_sidebar';
 @import 'modules/_filters';
 @import 'modules/_reddit-content';
 @import 'modules/_buttons';
@@ -12,7 +11,7 @@
 @import 'modules/_empty-message';
 
 html {
-	background: #eee;
+	background: $background_grey;
 	overflow-x: hidden;
 	font-size: 100%;
 }
@@ -37,14 +36,14 @@ body {
 }
 
 ::-moz-selection {
-	background-color: $highlightColourOne;
-	color: black;
+	background-color: $text_grey_dark;
+	color: #fff;
 	background-size: 50% 50%;
 }
 
 ::selection {
-	background-color: $highlightColourOne;
-	color: black;
+	background-color: $text_grey_dark;
+	color: #fff;
 	background-position: left bottom;
 	background-size: 50% 50%;
 }
@@ -88,7 +87,6 @@ body {
 
 	.filters__list-item {
 		font-size: 0.675rem;
-		padding: 1em 1.5em;
 	}
 
 	.reddit-card {
@@ -103,12 +101,8 @@ body {
 		font-size: 3.5rem;
 	}
 
-	.card-footer .bar {
-		display: none;
-	}
-
-	.post-comments {
-		text-align: left;
+	.post-comments, .short-url, .timestamp {
+		padding: 0 0.25em;
 	}
 
 }
@@ -120,9 +114,7 @@ body {
 		column-gap: 1em;
 	}
 
-	.card-footer .bar {
-		display: inline-block;
-	}
+
 
 	.sidebar {
 		width: 22vw;

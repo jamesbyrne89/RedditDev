@@ -6,10 +6,11 @@ $serif: 'Tiempos Headline', georgia, serif;
 /* Colours */
 
 $highlightColourOne: #fdf522;
+$background_grey: #eee;
 $text_grey_dark: #333;
 
 $subreddit_colour_one: #FF1B1C;
-$subreddit_colour_two: #58A4B0;
+$subreddit_colour_two: #1cc7d0;
 $subreddit_colour_three: #FE9920;
 $subreddit_colour_four: #96F550;
 $subreddit_colour_five: #ff4f81;
