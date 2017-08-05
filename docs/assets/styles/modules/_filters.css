@@ -36,6 +36,7 @@
 	flex-direction: column;
 	width: auto;
 	margin: auto;
+	position: relative;
 }
 
 .filters__title {
@@ -126,8 +127,8 @@
 	&:hover::before {
 		transition: all 0.15s;
 		opacity: 1;
-		top: 10px;
-		left: 10px;
+		top: 0.675em;
+		left: 0.675em;
 	}
 
 	&:hover i {

@@ -304,6 +304,7 @@ a:visited {
 	        flex-direction: column;
 	width: auto;
 	margin: auto;
+	position: relative;
 }
 
 .filters__title {
@@ -416,8 +417,8 @@ a:visited {
 .subreddit--selected:hover::before {
   transition: all 0.15s;
   opacity: 1;
-  top: 10px;
-  left: 10px;
+  top: 0.675em;
+  left: 0.675em;
 }
 
 .subreddit--selected:hover i {
@@ -469,22 +470,22 @@ a:visited {
 /* Styling for individual subreddits */
 
 .filters__list > .css-filter {
-	color: #ba0c2f;
-	background: #ba0c2f;
-	border-left: solid 4px #ba0c2f;
+	color: #de0f17;
+	background: #de0f17;
+	border-left: solid 4px #de0f17;
 
 
 }
 
 .filters__list > .css-filter::before {
   transition: all 0.15s;
-  background-image: -webkit-repeating-radial-gradient(center center, #ba0c2f, #ba0c2f 1px, transparent 1px, transparent 100%);
-  background-image: repeating-radial-gradient(center center, #ba0c2f, #ba0c2f 1px, transparent 1px, transparent 100%);
+  background-image: -webkit-repeating-radial-gradient(center center, #de0f17, #de0f17 1px, transparent 1px, transparent 100%);
+  background-image: repeating-radial-gradient(center center, #de0f17, #de0f17 1px, transparent 1px, transparent 100%);
   background-size: 3px 3px;
 }
 
 .filters__list > .css-filter:hover {
-  background: #ba0c2f !important;
+  background: #de0f17 !important;
 }
 
 .filters__list > .css-filter:hover i {
@@ -493,14 +494,14 @@ a:visited {
 
 .filters__list > .css-filter span {
   background: #fff;
-  color: #ba0c2f;
+  color: #de0f17;
   padding: 0 0.3em;
   position: relative;
 }
 
 .filters__list > .css-filter:hover span {
   color: #fff;
-  background: #ba0c2f;
+  background: #de0f17;
   padding: 0 0.3em;
   position: relative;
 }
@@ -791,7 +792,7 @@ a:visited {
 .reddit-card__post-title {
 	padding: 1.5em 0;
 	width: 100%;
-	transition: all 0.2s;
+	transition: all 0.15s;
 
 }
 
@@ -808,7 +809,8 @@ a:visited {
 }
 
 .reddit-card__post-title:hover {
-  color: #000;
+  color: #ccc;
+  opacity: 0.85;
 }
 
 .reddit-card__thumbnail-wrapper {
@@ -918,13 +920,13 @@ a:visited {
 -------------------------------*/
 
 .reddit-card-css {
-	border-bottom: solid 2px #ba0c2f;
+	border-bottom: solid 2px #de0f17;
 }
 
 .subreddit-css {
-	color: #ba0c2f;
-	  background-image: -webkit-repeating-radial-gradient(center center, #ba0c2f, #ba0c2f 1px, transparent 1px, transparent 100%);
-  background-image: repeating-radial-gradient(center center, #ba0c2f, #ba0c2f 1px, transparent 1px, transparent 100%);
+	color: #de0f17;
+	  background-image: -webkit-repeating-radial-gradient(center center, #de0f17, #de0f17 1px, transparent 1px, transparent 100%);
+  background-image: repeating-radial-gradient(center center, #de0f17, #de0f17 1px, transparent 1px, transparent 100%);
   background-size: 3px 3px;
 }
 
@@ -937,7 +939,7 @@ a:visited {
   bottom: 0;
   left: 0;
   right: 0;
-  background: #ba0c2f;
+  background: #de0f17;
   mix-blend-mode: screen;
   transition: opacity 0.15s;
 }
@@ -951,7 +953,7 @@ a:visited {
   bottom: 0;
   left: 0;
   right: 0;
-  background: #ba0c2f;
+  background: #de0f17;
   transition: opacity 0.15s;
 }
 
@@ -1299,6 +1301,7 @@ a:visited {
 	border: 0;
 	overflow: hidden;
 	cursor: pointer;
+	z-index: 20;
 }
 
 .fa-times:before {
@@ -1568,7 +1571,6 @@ body {
 	}
 
 	.filters__list-item {
-		display: inline-block;
 		margin: 1em 0.25em;
 	}
 
@@ -1617,11 +1619,14 @@ body {
 	.nav-container, .is-sticky .nav-container {
 		width: 90%;
 		padding: 0;
+		-webkit-box-align: end;
+		    -ms-flex-align: end;
+		        align-items: flex-end;
 	}
 
 	.header, .is-sticky {
 		height: 10vh;
-		min-height: 80px;
+		min-height: 60px;
 		padding: 0;
 	}
 
@@ -1633,16 +1638,30 @@ body {
 		padding-bottom: 0.05em;
 	}
 
+	.btn {
+		margin: 0.125em 0;
+	}
+
 	.header__description {
 		display: none;
 	}
 
-	.header__title, .is-sticky {
+	.header__title, .is-sticky .header__title {
 		font-size: 10vw;
+		line-height: 0.9;
 	}
 
 	.modal {
-		top: 20vh;
+		top: 8vh;
+		right: 5vw;
+		max-width: 85vw;
+		padding: 1em 0.5em;
+		max-height: 85vh;
+	}
+
+	.modal__close-btn {
+		right: 0.5em;
+		top: 0.5em;
 	}
 
 	.reddit-content {
@@ -1653,12 +1672,13 @@ body {
 		width: 90%;
 		-webkit-column-gap: 0px;
 		        column-gap: 0px;
-		margin-top: 75px;
+		top: 100px;
+		margin-top: 5px;
 	}
 
-	.filters__top-bar {
-		margin-right: 0;
-		padding-top: 0;
+	.filters__list-item, .all-filter {
+		font-size: 0.75rem;
+		margin: 0.5em 0;
 	}
 
 	.reddit-card__post-title a {
@@ -1688,7 +1708,12 @@ body {
 
 	.btn {
 		font-size: 0.675rem;
-		padding: 0.5em;
+		padding: 0.5em 0.25em;
+		width: 9em;
+	}
+
+	.view-btn {
+		display: none;
 	}
 
 }

@@ -59,7 +59,7 @@
 .reddit-card__post-title {
 	padding: 1.5em 0;
 	width: 100%;
-	transition: all 0.2s;
+	transition: all 0.15s;
 
 	a {
 		font-family: 'Tiempos Headline', georgia, serif;
@@ -73,7 +73,8 @@
 	}
 
 	&:hover {
-		color: #000;
+		color: $text_grey_mid_two;
+		opacity: 0.85;
 	}
 
 }

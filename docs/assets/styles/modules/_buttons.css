@@ -85,6 +85,7 @@
 	border: 0;
 	overflow: hidden;
 	cursor: pointer;
+	z-index: 20;
 }
 
 .fa-times:before {

@@ -268,8 +268,8 @@ const toggleModal = function toggleModal() {
         $('html').toggleClass('no-scroll');
     } else {
         $('.modal').toggleClass('modal--opened');
-       $('html').toggleClass('no-scroll');
-       $('.modal').removeClass('modal--opened--stuck');
+        $('html').toggleClass('no-scroll');
+        $('.modal').removeClass('modal--opened--stuck');
     }
 };
 
@@ -289,30 +289,45 @@ $('.filter-overlay').on('click', toggleModal);
 // }
 // })();
 
-let visibleSubreddits = true;
 
 // Check if no subreddits are selected then show a message
-const checkForEmpty = function checkForEmpty() {
-    let subreddits = document.getElementsByClassName('filters__list-item');
-    let selected = [];
-    visibleSubreddits = true;
-    for (let i = 0; i < subreddits.length; i++) {
-        if (subreddits[i].classList.contains('subreddit--selected')) {
-            selected.push(subreddits[i])
+const visibleSubreddits = (function visibleSubreddits() {
+
+    const _checkVisible = function _checkVisible() {
+        let subreddits = document.getElementsByClassName('filters__list-item');
+        let selected = [];
+        for (let i = 0; i < subreddits.length; i++) {
+            if (subreddits[i].classList.contains('subreddit--selected')) {
+                selected.push(subreddits[i])
+            }
         }
+        return selected.length
     }
-    if (selected.length === 0) {
+
+const _updateVisible = function _updateVisible() {
+    if (_checkVisible() === 0) {
         $('.all-filter').removeClass('subreddit--selected')
         $('.all-filter').addClass('subreddit--deselected')
-        $('.empty-message').fadeIn('fast');
-        visibleSubreddits = false;
-    } else {
+
+    } else if (0 > _checkVisible() < 7) {
+        $('.all-filter').removeClass('subreddit--selected')
+        $('.all-filter').addClass('subreddit--deselected')
         $('.empty-message').fadeOut('fast');
+    } else {
+        $('.all-filter').removeClass('subreddit--deselected')
+        $('.all-filter').addClass('subreddit--selected')
     }
+    return _checkVisible();
 }
 
+        return {
+        checkVisible: _checkVisible,
+        updateVisible: _updateVisible
+    }
+})();
+
 function removeSubreddit() {
-        let subReds = document.getElementsByClassName('filters__list-item')
+    let subReds = document.getElementsByClassName('filters__list-item')
     for (let i = 0; i < subReds.length; i++) {
         subReds[i].classList.remove('subreddit--selected');
         subReds[i].classList.add('subreddit--deselected');
@@ -321,7 +336,7 @@ function removeSubreddit() {
 }
 
 function addSubreddit() {
-        let subReds = document.getElementsByClassName('filters__list-item')
+    let subReds = document.getElementsByClassName('filters__list-item')
     for (let i = 0; i < subReds.length; i++) {
         subReds[i].classList.add('subreddit--selected');
         subReds[i].classList.remove('subreddit--deselected');
@@ -337,28 +352,22 @@ function addSubreddit() {
 
 $('.all-filter').on('click', function(e) {
 
-   if(!visibleSubreddits) {
-    this.classList.remove('subreddit--deselected');
+    if (visibleSubreddits.updateVisible() === 0) {
+
+        this.classList.remove('subreddit--deselected');
         this.classList.add('subreddit--selected');
-    console.log(visibleSubreddits)
-     addSubreddit();
-     checkForEmpty();
-    }
-    else {
-    if (this.classList.contains('subreddit--selected')) {
-        this.classList.remove('subreddit--selected');
+        addSubreddit();
+    } else if (visibleSubreddits.updateVisible() === 7) {
         this.classList.add('subreddit--deselected');
+        this.classList.remove('subreddit--selected');
+        removeSubreddit();
     } else {
         this.classList.add('subreddit--selected');
         this.classList.remove('subreddit--deselected');
-    }
-    removeSubreddit();
-};
- 
+        addSubreddit();
+    };
+
 });
-
-
-
 
 
 
@@ -368,12 +377,13 @@ $('.all-filter').on('click', function(e) {
  */
 function handleShow(target, sr) {
     checkVisible();
-    checkForEmpty();
+
     if (target.classList.contains('subreddit--deselected')) {
         $(`.reddit-card-${sr}`).hide();
     } else {
         $(`.reddit-card-${sr}`).fadeIn('fast');
     }
+
 }
 
 
