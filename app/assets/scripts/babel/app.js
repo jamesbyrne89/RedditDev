@@ -162,8 +162,9 @@ function updateView(sortedByDate) {
         var numCommentsText = void 0;
         var cardsArr = void 0;
 
+        // Check whether a thumbnail is available
         if (sortedByDate[i].preview && sortedByDate[i].preview.images[0].resolutions && sortedByDate[i].preview.images[0].resolutions[2]) {
-            thumbnail = "<img class=\"lazyload reddit-card__thumbnail\" src=\"" + sortedByDate[i].preview.images[0].resolutions[2].url + "\">";
+            thumbnail = "<a href=\"" + sortedByDate[i].url + "\" target=\"_blank\">\n                        <div class=\"reddit-card__thumbnail-wrapper " + sortedByDate[i].subreddit.toLowerCase() + "-overlay\"><img class=\"lazyload reddit-card__thumbnail\" src=\"" + sortedByDate[i].preview.images[0].resolutions[2].url + "\">\n                        </div>\n                        </a>";
         } else {
             thumbnail = "";
         }
@@ -179,7 +180,7 @@ function updateView(sortedByDate) {
             numCommentsText = sortedByDate[i].num_comments + " comments";
         }
 
-        var html = "<div class=\"reddit-card__subreddit subreddit-" + sortedByDate[i].subreddit.toLowerCase() + "\"><h3>r/" + sortedByDate[i].subreddit + "</h3></div>\n                      <figure class=\"reddit-card__thumbnail-title-wrapper\">\n                        <a href=\"" + sortedByDate[i].url + "\" target=\"_blank\">\n                        <div class=\"reddit-card__thumbnail-wrapper " + sortedByDate[i].subreddit.toLowerCase() + "-overlay\">" + thumbnail + "\n                        </div>\n                        </a>\n\n                      <div class=\"reddit-card__post-title\"><a href=\"" + sortedByDate[i].url + "\" target=\"blank\">\n                      " + sortedByDate[i].title + "</a></div>\n                      </figure>\n                      <div class=\"card-footer\">\n                      <span class=\"short-url\">" + getHostname(sortedByDate[i].url) + "</span><span class='bar'>|</span> \n                      <time class=\"timestamp\">" + time + "</time></span><span class='bar'>|</span>\n                        <span class=\"post-comments\">\n                          <a href=\"http://reddit.com/" + sortedByDate[i].permalink + "\" target=\"blank\">\n                          " + numCommentsText + "</a>\n                        </span>     \n                        \n\n                      </div>";
+        var html = "<div class=\"reddit-card__subreddit subreddit-" + sortedByDate[i].subreddit.toLowerCase() + "\"><h3>r/" + sortedByDate[i].subreddit + "</h3></div>\n                        " + thumbnail + "\n                      <div class=\"reddit-card__post-title\"><a href=\"" + sortedByDate[i].url + "\" target=\"blank\">\n                      " + sortedByDate[i].title + "</a></div>\n                      <div class=\"card-footer\">\n                      <span class=\"short-url\">" + getHostname(sortedByDate[i].url) + "</span><span class='bar'>|</span> \n                      <time class=\"timestamp\">" + time + "</time></span><span class='bar'>|</span>\n                        <span class=\"post-comments\">\n                          <a href=\"http://reddit.com/" + sortedByDate[i].permalink + "\" target=\"blank\">\n                          " + numCommentsText + "</a>\n                        </span>     \n                      </div>";
         card.innerHTML = html;
         $('#loading').hide();
         $('.reddit-content').hide().append(card).fadeIn(500);
@@ -237,7 +238,7 @@ function checkVisible(e) {
 }
 
 function stickyHeader() {
-    if (scrollY > 50) {
+    if (window.scrollY > 180) {
         $('.header').addClass('is-sticky');
     } else {
         $('.header').removeClass('is-sticky');
@@ -250,7 +251,7 @@ window.addEventListener('scroll', stickyHeader);
 // Close and open filters list modal
 var toggleModal = function toggleModal() {
     $('.modal').fadeToggle('fast');
-    $('.filter-overlay').fadeToggle('fast');
+    $('.filter-overlay').fadeToggle(100);
     if ($('header').hasClass('is-sticky')) {
         $('.modal').toggleClass('modal--opened');
         $('.modal').addClass('modal--opened--stuck');
@@ -277,12 +278,13 @@ $('.filter-overlay').on('click', toggleModal);
 // }
 // })();
 
+var visibleSubreddits = true;
 
 // Check if no subreddits are selected then show a message
 var checkForEmpty = function checkForEmpty() {
     var subreddits = document.getElementsByClassName('filters__list-item');
     var selected = [];
-
+    visibleSubreddits = true;
     for (var i = 0; i < subreddits.length; i++) {
         if (subreddits[i].classList.contains('subreddit--selected')) {
             selected.push(subreddits[i]);
@@ -292,6 +294,7 @@ var checkForEmpty = function checkForEmpty() {
         $('.all-filter').removeClass('subreddit--selected');
         $('.all-filter').addClass('subreddit--deselected');
         $('.empty-message').fadeIn('fast');
+        visibleSubreddits = false;
     } else {
         $('.empty-message').fadeOut('fast');
     }
@@ -306,20 +309,37 @@ function removeSubreddit() {
     }
 }
 
+function addSubreddit() {
+    var subReds = document.getElementsByClassName('filters__list-item');
+    for (var i = 0; i < subReds.length; i++) {
+        subReds[i].classList.add('subreddit--selected');
+        subReds[i].classList.remove('subreddit--deselected');
+        handleShow(subReds[i], subReds[i].getAttribute('data-sr'));
+    }
+}
+
 /**
  * Toggles the 'select all' button
  */
 
 $('.all-filter').on('click', function (e) {
 
-    if (this.classList.contains('subreddit--selected')) {
-        this.classList.remove('subreddit--selected');
-        this.classList.add('subreddit--deselected');
-    } else {
-        this.classList.add('subreddit--selected');
+    if (!visibleSubreddits) {
         this.classList.remove('subreddit--deselected');
-    }
-    removeSubreddit();
+        this.classList.add('subreddit--selected');
+        console.log(visibleSubreddits);
+        addSubreddit();
+        checkForEmpty();
+    } else {
+        if (this.classList.contains('subreddit--selected')) {
+            this.classList.remove('subreddit--selected');
+            this.classList.add('subreddit--deselected');
+        } else {
+            this.classList.add('subreddit--selected');
+            this.classList.remove('subreddit--deselected');
+        }
+        removeSubreddit();
+    };
 });
 
 /**

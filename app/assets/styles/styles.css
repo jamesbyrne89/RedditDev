@@ -1,5 +1,6 @@
-@import 'base/_reset';
+
 @import 'base/_variables';
+@import 'base/_reset';
 @import 'base/_animations';
 
 @import 'modules/_header';
@@ -18,7 +19,7 @@ html {
 }
 
 .no-scroll {
-	overflow: hidden;
+
 }
 
 body {
@@ -26,14 +27,6 @@ body {
 }
 
 
-.reddit-content a:link {
-	text-decoration: none;
-	color: inherit;
-}
-
-.reddit-content a:visited {
-	color: rgb(141, 148, 149);
-}
 
 ::-moz-selection {
 	background-color: $text_grey_dark;
@@ -51,10 +44,11 @@ body {
 .scrolled-bar {
 	height: 4px;
 	position: fixed;
-	top: 0px;
+	top: 0;
+	left: 0;
 	z-index: 400;
 	display: block;
-	background: #fff;
+	background: $background_grey;
 	width: 100vw;
 }
 
@@ -63,9 +57,10 @@ body {
 	height: 4px;
 	position: fixed;
 	top: 0;
+	left: 0;
 	z-index: 410;
 	width: 0;
-	background: #000;
+	background: $text_grey_dark;
 }
 
 .primary {
@@ -196,8 +191,8 @@ body {
 		margin: 1em 0.25em;
 	}
 
-	.primary {
-		width: 90%;
+	.header__title-wrapper {
+		margin-right: 0;
 	}
 
 	.reddit-content {
@@ -237,16 +232,27 @@ body {
 		display: block;
 	}
 
-	.header {
+	.nav-container, .is-sticky .nav-container {
+		width: 90%;
+		padding: 0;
+	}
+
+	.header, .is-sticky {
 		height: 10vh;
 		min-height: 80px;
+		padding: 0;
+	}
+
+	.header__btn-wrapper, .is-sticky .header__btn-wrapper {
+		flex-direction: column;
+		padding-bottom: 0.05em;
 	}
 
 	.header__description {
 		display: none;
 	}
 
-	.header__title {
+	.header__title, .is-sticky {
 		font-size: 10vw;
 	}
 
@@ -257,7 +263,7 @@ body {
 	.reddit-content {
 		column-count: 1;
 		column-gap: 15px;
-		width: 100%;
+		width: 90%;
 		column-gap: 0px;
 		margin-top: 75px;
 	}
@@ -286,6 +292,11 @@ body {
 
 	.reddit-card__thumbnail-wrapper {
 		display: none;
+	}
+
+	.btn {
+		font-size: 0.675rem;
+		padding: 0.5em;
 	}
 
 }

@@ -15,18 +15,6 @@
 }
 
 
-@-webkit-keyframes menuUp {
-	0% { opacity: 0; }
-	70% { opacity: 1; }	
-	100% { -webkit-transform: translateY(0); opacity: 1; }
-}
-
-@keyframes menuUp {
-	0% { opacity: 0;}	
-	70% { opacity: 1; }		
-	100% { -webkit-transform: translateY(0); transform: translateY(0); opacity: 1; }
-}
-
 @-webkit-keyframes moveUp-no-ease {
 	0% { opacity: 0; }
 	100% { -webkit-transform: translateY(0); opacity: 1; }
@@ -36,6 +24,20 @@
 	0% { opacity: 0;}	
 	100% { -webkit-transform: translateY(0); transform: translateY(0); opacity: 1; }
 }
+
+
+/* Sticky header slides down */
+
+@-webkit-keyframes slideDown {
+	0% { top: -80px; }
+	100% { top: 0px; }
+}
+
+@keyframes slideDown {
+	0% { top: -80px; }	
+	100% { top: 0px; }
+}
+
 
 .shift-down {
 	transform: translateY(150px);

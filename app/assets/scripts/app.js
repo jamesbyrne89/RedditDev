@@ -153,8 +153,12 @@ function updateView(sortedByDate) {
         let numCommentsText;
         let cardsArr;
 
+        // Check whether a thumbnail is available
         if (sortedByDate[i].preview && sortedByDate[i].preview.images[0].resolutions && sortedByDate[i].preview.images[0].resolutions[2]) {
-            thumbnail = `<img class="lazyload reddit-card__thumbnail" src="${sortedByDate[i].preview.images[0].resolutions[2].url}">`;
+            thumbnail = `<a href="${sortedByDate[i].url}" target="_blank">
+                        <div class="reddit-card__thumbnail-wrapper ${(sortedByDate[i].subreddit).toLowerCase()}-overlay"><img class="lazyload reddit-card__thumbnail" src="${sortedByDate[i].preview.images[0].resolutions[2].url}">
+                        </div>
+                        </a>`;
         } else {
             thumbnail = "";
         }
@@ -171,15 +175,9 @@ function updateView(sortedByDate) {
         }
 
         let html = `<div class="reddit-card__subreddit subreddit-${(sortedByDate[i].subreddit).toLowerCase()}"><h3>r/${sortedByDate[i].subreddit}</h3></div>
-                      <figure class="reddit-card__thumbnail-title-wrapper">
-                        <a href="${sortedByDate[i].url}" target="_blank">
-                        <div class="reddit-card__thumbnail-wrapper ${(sortedByDate[i].subreddit).toLowerCase()}-overlay">${thumbnail}
-                        </div>
-                        </a>
-
+                        ${thumbnail}
                       <div class="reddit-card__post-title"><a href="${sortedByDate[i].url}" target="blank">
                       ${sortedByDate[i].title}</a></div>
-                      </figure>
                       <div class="card-footer">
                       <span class="short-url">${getHostname(sortedByDate[i].url)}</span><span class='bar'>|</span> 
                       <time class="timestamp">${time}</time></span><span class='bar'>|</span>
@@ -187,8 +185,6 @@ function updateView(sortedByDate) {
                           <a href="http://reddit.com/${sortedByDate[i].permalink}" target="blank">
                           ${numCommentsText}</a>
                         </span>     
-                        
-
                       </div>`
         card.innerHTML = html;
         $('#loading').hide();
@@ -250,7 +246,7 @@ function checkVisible(e) {
 
 
 function stickyHeader() {
-    if (scrollY > 50) {
+    if (window.scrollY > 180) {
         $('.header').addClass('is-sticky');
     } else {
         $('.header').removeClass('is-sticky');
@@ -265,7 +261,7 @@ window.addEventListener('scroll', stickyHeader);
 // Close and open filters list modal
 const toggleModal = function toggleModal() {
     $('.modal').fadeToggle('fast');
-    $('.filter-overlay').fadeToggle('fast');
+    $('.filter-overlay').fadeToggle(100);
     if ($('header').hasClass('is-sticky')) {
         $('.modal').toggleClass('modal--opened');
         $('.modal').addClass('modal--opened--stuck');
@@ -293,12 +289,13 @@ $('.filter-overlay').on('click', toggleModal);
 // }
 // })();
 
+let visibleSubreddits = true;
 
 // Check if no subreddits are selected then show a message
 const checkForEmpty = function checkForEmpty() {
     let subreddits = document.getElementsByClassName('filters__list-item');
     let selected = [];
-
+    visibleSubreddits = true;
     for (let i = 0; i < subreddits.length; i++) {
         if (subreddits[i].classList.contains('subreddit--selected')) {
             selected.push(subreddits[i])
@@ -308,6 +305,7 @@ const checkForEmpty = function checkForEmpty() {
         $('.all-filter').removeClass('subreddit--selected')
         $('.all-filter').addClass('subreddit--deselected')
         $('.empty-message').fadeIn('fast');
+        visibleSubreddits = false;
     } else {
         $('.empty-message').fadeOut('fast');
     }
@@ -322,12 +320,31 @@ function removeSubreddit() {
     }
 }
 
+function addSubreddit() {
+        let subReds = document.getElementsByClassName('filters__list-item')
+    for (let i = 0; i < subReds.length; i++) {
+        subReds[i].classList.add('subreddit--selected');
+        subReds[i].classList.remove('subreddit--deselected');
+        handleShow(subReds[i], subReds[i].getAttribute('data-sr'));
+    }
+}
+
+
+
 /**
  * Toggles the 'select all' button
  */
 
 $('.all-filter').on('click', function(e) {
 
+   if(!visibleSubreddits) {
+    this.classList.remove('subreddit--deselected');
+        this.classList.add('subreddit--selected');
+    console.log(visibleSubreddits)
+     addSubreddit();
+     checkForEmpty();
+    }
+    else {
     if (this.classList.contains('subreddit--selected')) {
         this.classList.remove('subreddit--selected');
         this.classList.add('subreddit--deselected');
@@ -336,6 +353,8 @@ $('.all-filter').on('click', function(e) {
         this.classList.remove('subreddit--deselected');
     }
     removeSubreddit();
+};
+ 
 });
 
 

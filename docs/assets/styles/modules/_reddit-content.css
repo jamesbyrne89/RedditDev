@@ -1,4 +1,7 @@
-/* Content */
+/* ---------------------------
+ # Reddit Content Section
+------------------------------ */
+
 .reddit-content {
 	column-count: 4;
 	column-gap: 2.5em;
@@ -7,7 +10,7 @@
 	margin: auto;
 	width: 85vw;
 	transition: all ease 0.3s;
-	padding-bottom: 12em;	
+	padding-bottom: 12em;
 }
 
 .animate {
@@ -16,9 +19,11 @@
 }
 
 
-/* Cards */
+/* ---------------------------
+ # Cards
+------------------------------ */
 .reddit-card {
-	margin: 1.5em 0;
+	margin: 0 0 1.5em 0;
 	width: 100%;
 	background: white;
 	break-inside: avoid;
@@ -79,23 +84,21 @@
 	max-width: 100%;
 	line-height: 0;
 	transition: all 0.2s;
-	margin-top: 0.75em;
-	filter: grayscale();
+	margin-top: 0.75em;	
+	filter: grayscale(0);
 	overflow: hidden !important;
 }
 
-.reddit-card__thumbnail-wrapper:hover::before {
-	opacity: 1;
-} 
+
 .reddit-card__thumbnail-wrapper:hover::after {
-	opacity: 0;
-	mix-blend-mode: multiply;
+
+	filter: multiply;
 }
 
 
 
 .reddit-card__thumbnail-wrapper:hover {
-	filter: grayscale(0);
+	filter: grayscale();
 }
 
 .reddit-card__thumbnail {
@@ -109,13 +112,12 @@
 	display: flex;
 	justify-content: flex-end;
 	flex-wrap: wrap;
-	color: rgb(141, 148, 149);
 	font-size: 0.75rem;
 	letter-spacing: 0.02em;
 	max-width: 100%;
 	padding: 2em 0 1em 0;
 	color: text_grey_dark;
-	border-top: solid 1px $background_grey;
+	border-top: solid 1px $text_grey_mid_two;
 }
 
 .bar {
@@ -137,19 +139,18 @@
 	white-space: nowrap;
 	padding: 0 0.75em;
 	a {
-		text-decoration: none;
-		transition: all 0.2s;
+		transition: all 0.15s;
 		cursor: pointer;
 	}
 
 	a:hover {
-			color: black !important;
-			text-decoration: underline !important;
+			color: $text_grey_dark !important;
+			border-bottom: solid 1px $text_grey_dark;
+			opacity: 0.5;
+			transition: all 0.15s;
 		}
 
 }
-
-
 
 .timestamp {
 	display: block;
@@ -242,7 +243,7 @@
 	&::before {
 		content: '';
 		display: block;
-		opacity: 0;
+		opacity: 1;
 		position: absolute;
 		top: 0;
 		bottom: 0;
@@ -290,7 +291,7 @@
 	&::before {
 		content: '';
 		display: block;
-		opacity: 0;
+		opacity: 1;
 		position: absolute;
 		top: 0;
 		bottom: 0;
@@ -338,7 +339,7 @@
 	&::before {
 		content: '';
 		display: block;
-		opacity: 0;
+		opacity: 1;
 		position: absolute;
 		top: 0;
 		bottom: 0;
@@ -387,7 +388,7 @@
 	&::before {
 		content: '';
 		display: block;
-		opacity: 0;
+		opacity: 1;
 		position: absolute;
 		top: 0;
 		bottom: 0;
@@ -435,7 +436,7 @@
 	&::before {
 		content: '';
 		display: block;
-		opacity: 0;
+		opacity: 1;
 		position: absolute;
 		top: 0;
 		bottom: 0;
@@ -480,17 +481,11 @@
   background-size: 3px 3px;
 }
 
-
 .webdevtutorials-overlay {
-	position: relative;
-	text-align: center;
-	max-width: 100%;
-	transition: all 0.2s;
-	filter: grayscale();
 	&::before {
 		content: '';
 		display: block;
-		opacity: 0;
+		opacity: 1;
 		position: absolute;
 		top: 0;
 		bottom: 0;
@@ -513,7 +508,6 @@
 		transition: opacity 0.15s;
 	}	
 }
-
 
 
 

@@ -1,10 +1,9 @@
 /* Back To Top Button */
 
 .btn {
-	color: #000;
+	color: #fff;
 	transition: all 0.15s;
 	cursor: pointer;
-	margin-bottom: 0.5em;	
 	font-family: inherit;
 	position: relative;
 	font-weight: 600;
@@ -14,8 +13,8 @@
 	align-items: center;
 	padding: 0.5em 0.875em 0.5em 1em;	
 	border: solid 1px $text_grey_dark;	
-	background: $background_grey;	
-	margin: 0 2px;
+	background: $text_grey_dark;	
+	margin: 0.5em 0.25em;
 	width: 10em;
 	text-transform: uppercase;
 	letter-spacing: 0.08em;	
@@ -24,23 +23,26 @@
 }
 }
 
+.btn:active {
+	outline: 0;
+}
 
 .btn:hover {
-	background: #000;
-	color: #fff;
-	border: solid 1px #000;
+	background: $background_grey;
+	color: $text_grey_dark;
+	border: solid 1px $text_grey_dark;
 }
 
 .back-to-top {
 	font-family: $sansSerif;
 	display: none;
 	padding: 0.75em;
-	color: #000;
+	color: #fff;
 	cursor: pointer;
 	position: fixed;
-	border: solid 1px #000;	
+	border: solid 1px $text_grey_dark;	
 	font-size: 0.875rem;
-	background: $background_grey;	
+	background: $text_grey_dark;	
 	margin: 1px;
 	bottom: 2em;
 	right: 2.5vw;
@@ -57,11 +59,11 @@
   bottom: 0;
   left: 0;
   z-index: -1;
-  background: #000;
+  background: $background_grey;
   transition: all 0.3s ease;
 }
 .back-to-top:hover {
-  color: #fff;
+  color: $text_grey_dark;
 }
 .back-to-top:hover:after {
   top: 0;
@@ -76,11 +78,16 @@
 
 .modal__close-btn {
 	position: absolute;
-	right: 1.5em;
-	padding-left: -0.5em;
+	right: 2.5em;
+	top: 2.5em;
+	font-size: 1rem;
 	background: none;
 	border: 0;
-	width: 5px;
-	display: inline-block;
+	overflow: hidden;
+	cursor: pointer;
+}
+
+.fa-times:before {
+	content: '\00d7' !important;
 }
 

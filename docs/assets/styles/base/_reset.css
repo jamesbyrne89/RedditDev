@@ -6,3 +6,13 @@
   margin: 0;
   padding: 0;
 }
+
+
+a:link {
+	text-decoration: none;
+	color: inherit;
+}
+
+a:visited {
+	color: $text_grey_mid_one;
+}
