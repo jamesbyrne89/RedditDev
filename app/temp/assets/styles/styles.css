@@ -1616,7 +1616,12 @@ body {
 		display: block;
 	}
 
-	.nav-container, .is-sticky .nav-container {
+	.nav-container {
+		width: 90%;
+		padding: 1em 0;
+	}
+
+	.is-sticky .nav-container {
 		width: 90%;
 		padding: 0;
 		-webkit-box-align: end;
@@ -1626,7 +1631,7 @@ body {
 
 	.header, .is-sticky {
 		height: 10vh;
-		min-height: 60px;
+		min-height: 55px;
 		padding: 0;
 	}
 
