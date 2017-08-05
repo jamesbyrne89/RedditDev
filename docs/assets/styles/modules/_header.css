@@ -52,7 +52,7 @@
 
 .is-sticky {
 	position: fixed;
-	background: $background_grey;
+	background: #fff;
 	top: -80px;
 	height: 80px;
 	border-bottom: solid 2px $text_grey_mid_two;

@@ -145,9 +145,8 @@
 	}
 
 	a:hover {
-			color: $text_grey_dark !important;
-			border-bottom: solid 1px $text_grey_dark;
-			opacity: 0.5;
+			color: #000 !important;
+			border-bottom: solid 1px #000;
 			transition: all 0.15s;
 		}
 

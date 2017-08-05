@@ -305,17 +305,22 @@ const visibleSubreddits = (function visibleSubreddits() {
     }
 
 const _updateVisible = function _updateVisible() {
+    console.log(_checkVisible())
     if (_checkVisible() === 0) {
+        console.log('none selected')
         $('.all-filter').removeClass('subreddit--selected')
         $('.all-filter').addClass('subreddit--deselected')
 
-    } else if (0 > _checkVisible() < 7) {
+    } else if (_checkVisible() > 0  && _checkVisible() < 7) {
+        console.log('some selected')
         $('.all-filter').removeClass('subreddit--selected')
         $('.all-filter').addClass('subreddit--deselected')
         $('.empty-message').fadeOut('fast');
     } else {
+        console.log('all selected')
         $('.all-filter').removeClass('subreddit--deselected')
         $('.all-filter').addClass('subreddit--selected')
+        $('.empty-message').fadeIn('fast');
     }
     return _checkVisible();
 }
@@ -396,42 +401,49 @@ $('.web_design-filter').on('click', function(e) {
     $(this).toggleClass('subreddit--selected');
     $(this).toggleClass('subreddit--deselected');
     handleShow(this, 'web_design');
+    visibleSubreddits.updateVisible();
 });
 
 $('.frontend-filter').on('click', function(e) {
     $(this).toggleClass('subreddit--selected');
     $(this).toggleClass('subreddit--deselected')
     handleShow(this, 'frontend');
+    visibleSubreddits.updateVisible();
 });
 
 $('.webdev-filter').on('click', function(e) {
     $(this).toggleClass('subreddit--selected');
     $(this).toggleClass('subreddit--deselected');
     handleShow(this, 'webdev');
+    visibleSubreddits.updateVisible();
 });
 
 $('.css-filter').on('click', function(e) {
     $(this).toggleClass('subreddit--selected');
     $(this).toggleClass('subreddit--deselected');
     handleShow(this, 'css');
+    visibleSubreddits.updateVisible();
 });
 
 $('.javascript-filter').on('click', function(e) {
     $(this).toggleClass('subreddit--selected');
     $(this).toggleClass('subreddit--deselected');
     handleShow(this, 'javascript');
+    visibleSubreddits.updateVisible();
 });
 
 $('.jquery-filter').on('click', function(e) {
     $(this).toggleClass('subreddit--selected');
     $(this).toggleClass('subreddit--deselected');
     handleShow(this, 'jquery');
+    visibleSubreddits.updateVisible();
 });
 
 $('.webdevtutorials-filter').on('click', function(e) {
     $(this).toggleClass('subreddit--selected');
     $(this).toggleClass('subreddit--deselected');
     handleShow(this, 'webdevtutorials');
+    visibleSubreddits.updateVisible();
 });
 
 

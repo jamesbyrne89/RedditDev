@@ -207,12 +207,12 @@ body {
 	}
 
 	.header {
-		height: 120px;
-		padding: 3.2em 5vw 1em 5vw;
+		height: 80px;
 	}
 
 	.reddit-content {
-		margin-top: 130px;
+		margin-top: 10px;
+		top: 100px;
 	}
 
 	.header::after {
@@ -232,18 +232,18 @@ body {
 	}
 
 	.nav-container {
-		width: 90%;
+		width: 95%;
 		padding: 1em 0;
 	}
 
 	.is-sticky .nav-container {
-		width: 90%;
+		width: 95%;
 		padding: 0;
 		align-items: flex-end;
 	}
 
 	.header, .is-sticky {
-		height: 10vh;
+		height: 15vw;
 		min-height: 55px;
 		padding: 0;
 	}
@@ -282,9 +282,9 @@ body {
 	.reddit-content {
 		column-count: 1;
 		column-gap: 15px;
-		width: 90%;
+		width: 95%;
 		column-gap: 0px;
-		top: 100px;
+		top: 70px;
 		margin-top: 5px;
 	}
 

@@ -114,7 +114,7 @@ a:visited {
 }
 
 .header__description {
-	font-family: 'Open Sans', helvetica, arial, sans-serif;
+	font-family: 'Karla', helvetica, arial, sans-serif;
 	font-size: 1rem;
 	width: 100%;
 	z-index: 15;
@@ -129,7 +129,7 @@ a:visited {
 
 .is-sticky {
 	position: fixed;
-	background: #ececec;
+	background: #fff;
 	top: -80px;
 	height: 80px;
 	border-bottom: solid 2px #ccc;
@@ -252,7 +252,7 @@ a:visited {
 /* Filter list */
 
 .modal {
-	font-family: 'Open Sans', helvetica, arial, sans-serif;
+	font-family: 'Karla', helvetica, arial, sans-serif;
 	display: none;
 	position: fixed;
 	top: 170px;
@@ -326,7 +326,7 @@ a:visited {
 }
 
 .filters__list {
-	font-family: 'Open Sans', helvetica, arial, sans-serif;
+	font-family: 'Karla', helvetica, arial, sans-serif;
 	padding: 0.5em 0 0 0;
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -766,7 +766,7 @@ a:visited {
 }
 
 .reddit-card__subreddit {
-	font-family: 'Open Sans', helvetica, arial, sans-serif;
+	font-family: 'Karla', helvetica, arial, sans-serif;
 	text-transform: uppercase;
 	letter-spacing: 0.08em;
 	padding: 0.3em 0.5em;
@@ -875,7 +875,7 @@ a:visited {
 }
 
 .post-comments {
-	font-family: 'Open Sans', helvetica, arial, sans-serif;
+	font-family: 'Karla', helvetica, arial, sans-serif;
 	display: block;
 	text-align: left;
 	white-space: nowrap;
@@ -889,15 +889,14 @@ a:visited {
 }
 
 .post-comments a:hover {
-  color: #302F2F !important;
-  border-bottom: solid 1px #302F2F;
-  opacity: 0.5;
+  color: #000 !important;
+  border-bottom: solid 1px #000;
   transition: all 0.15s;
 }
 
 .timestamp {
 	display: block;
-	font-family: 'Open Sans', helvetica, arial, sans-serif;
+	font-family: 'Karla', helvetica, arial, sans-serif;
 	-webkit-box-flex: 0;
 	    -ms-flex: 0 0 auto;
 	        flex: 0 0 auto;
@@ -1248,7 +1247,7 @@ a:visited {
 }
 
 .back-to-top {
-	font-family: 'Open Sans', helvetica, arial, sans-serif;
+	font-family: 'Karla', helvetica, arial, sans-serif;
 	display: none;
 	padding: 0.75em;
 	color: #fff;
@@ -1295,7 +1294,7 @@ a:visited {
 .modal__close-btn {
 	position: absolute;
 	right: 2.5em;
-	top: 2.5em;
+	top: 2.25em;
 	font-size: 1rem;
 	background: none;
 	border: 0;
@@ -1390,7 +1389,7 @@ html {
 }
 
 body {
-	font-family: 'Open Sans', helvetica, arial, sans-serif;
+	font-family: 'Karla', helvetica, arial, sans-serif;
 }
 
 ::-moz-selection {
@@ -1592,12 +1591,12 @@ body {
 	}
 
 	.header {
-		height: 120px;
-		padding: 3.2em 5vw 1em 5vw;
+		height: 80px;
 	}
 
 	.reddit-content {
-		margin-top: 130px;
+		margin-top: 10px;
+		top: 100px;
 	}
 
 	.header::after {
@@ -1617,12 +1616,12 @@ body {
 	}
 
 	.nav-container {
-		width: 90%;
+		width: 95%;
 		padding: 1em 0;
 	}
 
 	.is-sticky .nav-container {
-		width: 90%;
+		width: 95%;
 		padding: 0;
 		-webkit-box-align: end;
 		    -ms-flex-align: end;
@@ -1630,7 +1629,7 @@ body {
 	}
 
 	.header, .is-sticky {
-		height: 10vh;
+		height: 15vw;
 		min-height: 55px;
 		padding: 0;
 	}
@@ -1674,10 +1673,10 @@ body {
 		        column-count: 1;
 		-webkit-column-gap: 15px;
 		        column-gap: 15px;
-		width: 90%;
+		width: 95%;
 		-webkit-column-gap: 0px;
 		        column-gap: 0px;
-		top: 100px;
+		top: 70px;
 		margin-top: 5px;
 	}
 
