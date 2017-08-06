@@ -173,11 +173,14 @@ function updateView(sortedByDate) {
         } else {
             numCommentsText = `${sortedByDate[i].num_comments} comments`
         }
-
-        let html = `<div class="reddit-card__subreddit subreddit-${(sortedByDate[i].subreddit).toLowerCase()}"><h3>r/${sortedByDate[i].subreddit}</h3></div>
-                        ${thumbnail}
+//
+        let html = `<div class="reddit-card-inner">
+        <h3 class="reddit-card__subreddit subreddit-${(sortedByDate[i].subreddit).toLowerCase()}">r/${sortedByDate[i].subreddit}</h3>
+                    
                       <div class="reddit-card__post-title"><a href="${sortedByDate[i].url}" target="blank">
                       ${sortedByDate[i].title}</a></div>
+
+
                       <div class="card-footer">
                       <span class="short-url">${getHostname(sortedByDate[i].url)}</span><span class='bar'>|</span> 
                       <time class="timestamp">${time}</time></span><span class='bar'>|</span>
@@ -185,7 +188,7 @@ function updateView(sortedByDate) {
                           <a href="http://reddit.com/${sortedByDate[i].permalink}" target="blank">
                           ${numCommentsText}</a>
                         </span>     
-                      </div>`
+                      </div></div>`
         card.innerHTML = html;
         $('#loading').hide();
         $('.reddit-content').hide().append(card).fadeIn(500);

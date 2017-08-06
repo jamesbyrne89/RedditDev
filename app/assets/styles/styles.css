@@ -41,35 +41,7 @@ body {
 	background-size: 50% 50%;
 }
 
-.scrolled-bar {
-	height: 4px;
-	position: fixed;
-	top: 0;
-	left: 0;
-	z-index: 300;
-	display: block;
-	background: $background_grey;
-	width: 100vw;
-}
 
-.scrolled-bar__progress {
-	display: block;
-	height: 4px;
-	position: fixed;
-	top: 0;
-	left: 0;
-	z-index: 410;
-	width: 0;
-	background: $text_grey_dark;
-}
-
-.is-sticky .scrolled-bar__progress {
-	background: #fff;
-}
-
-.is-sticky .scrolled-bar {
-	background: $nearBlack;
-}
 
 .primary {
 	width: 85%;
@@ -80,10 +52,11 @@ body {
 
 .info {
 	position: fixed;
-	left: -1vw;
+	left: 1vw;
 	top: 50vh;
 	font-size: 0.75rem;
 	transform: rotate(-90deg);
+	transform-origin: 0 0;
 }
 
 .info::before {
@@ -234,7 +207,14 @@ body {
 	}
 
 	.header {
-		height: 80px;
+		height: 75px;
+	}
+
+	.info {
+		transform: rotate(0deg);
+		bottom: 1em;
+		top: auto;
+		position: relative;
 	}
 
 	.reddit-content {
@@ -260,7 +240,7 @@ body {
 
 	.nav-container {
 		width: 95%;
-		padding: 1em 0;
+		padding: 0;
 	}
 
 	.is-sticky .nav-container {
@@ -271,13 +251,14 @@ body {
 
 	.header, .is-sticky {
 		height: 15vw;
-		min-height: 55px;
+		min-height: 50px;
 		padding: 0;
 	}
 
 	.header__btn-wrapper, .is-sticky .header__btn-wrapper {
 		flex-direction: column;
 		padding-bottom: 0.05em;
+		display: none;
 	}
 
 	.btn {
@@ -290,7 +271,8 @@ body {
 
 	.header__title, .is-sticky .header__title {
 		font-size: 10vw;
-		padding: 0;
+		padding: 0.25em 0 0 0;
+		line-height: 1.5;
 	}
 
 	.modal {

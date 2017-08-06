@@ -91,9 +91,10 @@
 	background: transparent !important;
 	margin: 0.5em 0;
 	width: calc(100% - 6px);
+	height: 2.5em;
 
 	i {
-		padding: 1em 2em;
+		padding: 0.5em 2em;
 		position: relative;
 		border-left: solid 1px #fff;
 	}
@@ -103,6 +104,8 @@
 .all-filter {
 	border-bottom: solid 1px $text_grey_mid_two;
 	border-top: solid 1px $text_grey_mid_two;
+	border-left: solid 1px #fff;
+	border-right: solid 1px #fff;
 	transition: all 0.15s;
 
 	span {
@@ -111,8 +114,10 @@
 
 	&:hover {
 		transition: all 0.15s;
-		border-bottom: solid 1px $text_grey_mid_two;
-		background: $background_grey !important;
+		border: dotted 1px $text_grey_dark;
+	}
+	&:hover i {
+		border-left: dotted 1px $text_grey_dark !important;
 	}
 
 }

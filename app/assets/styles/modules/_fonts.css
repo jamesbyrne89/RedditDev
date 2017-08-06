@@ -8,6 +8,30 @@
        url('../../fonts/Tiempos-Headline-Medium.ttf')  format('truetype'), /* Safari, Android, iOS */
 }
 
+@font-face {
+  font-family: 'Tiempos Headline Bold';
+  src: url('../../fonts/TiemposHeadline-Bold.eot'); /* IE9 Compat Modes */
+  src: url('../../fonts/TiemposHeadline-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../../fonts/TiemposHeadline-Bold.woff') format('woff'), /* Pretty Modern Browsers */
+       url('../../fonts/TiemposHeadline-Bold.ttf')  format('truetype'), /* Safari, Android, iOS */
+}
+
+@font-face {
+  font-family: 'Tiempos Headline Semibold';
+  src: url('../../fonts/TiemposHeadline-Semibold.eot'); /* IE9 Compat Modes */
+  src: url('../../fonts/TiemposHeadline-Semibold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../../fonts/TiemposHeadline-Semibold.woff') format('woff'), /* Pretty Modern Browsers */
+       url('../../fonts/TiemposHeadline-Semibold.ttf')  format('truetype'), /* Safari, Android, iOS */
+}
+
+@font-face {
+  font-family: 'Tiempos Headline Black';
+  src: url('../../fonts/TiemposHeadline-Black.eot'); /* IE9 Compat Modes */
+  src: url('../../fonts/TiemposHeadline-Black.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../../fonts/TiemposHeadline-Black.woff') format('woff'), /* Pretty Modern Browsers */
+       url('../../fonts/TiemposHeadline-Black.ttf')  format('truetype'), /* Safari, Android, iOS */
+}
+
 
 @font-face {
   font-family: 'fontello';

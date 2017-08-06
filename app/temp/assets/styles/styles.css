@@ -81,15 +81,26 @@ a:visited {
 	        justify-content: center;
 	width: 100%;
 	height: 140px;
+	background: #fff;
+}
+
+.header::after {
+  content: '';
+  display: block;
+  height: 1em;
+  width: 100%;
+  background-image: -webkit-repeating-radial-gradient(center center, #1a1a1a, #1a1a1a 1px, transparent 1px, transparent 100%);
+  background-image: repeating-radial-gradient(center center, #1a1a1a, #1a1a1a 1px, transparent 1px, transparent 100%);
+  background-size: 3px 3px;
 }
 
 .nav-container {
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
-	-webkit-box-pack: center;
-	    -ms-flex-pack: center;
-	        justify-content: center;
+	-webkit-box-pack: justify;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
 	-webkit-box-align: center;
 	    -ms-flex-align: center;
 	        align-items: center;
@@ -97,11 +108,10 @@ a:visited {
 	width: 85vw;
 	height: 100%;
 	margin: 0 auto;
-	border-bottom: dotted 4px #1a1a1a;	
 }
 
 .header__title {
-	font-family: 'Tiempos Headline';
+	font-family: 'Tiempos Headline Black';
 	font-size: 3.75rem;
 	font-weight: 700;
 	-webkit-box-flex: 0;
@@ -113,7 +123,7 @@ a:visited {
 }
 
 .header__title-wrapper {
-	text-align: center;
+	text-align: left;
 }
 
 .header__description {
@@ -139,7 +149,19 @@ a:visited {
 	    -ms-flex-pack: center !important;
 	        justify-content: center !important;
 	-webkit-animation: slideDown 0.3s ease-out forwards;
-	animation: slideDown 0.3s ease-out forwards;	
+	animation: slideDown 0.3s ease-out forwards;
+}
+
+.is-sticky::after {
+  content: '';
+  display: block;
+  height: 0.75em;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  background-image: -webkit-repeating-radial-gradient(center center, #fff, #fff 1px, transparent 1px, transparent 100%);
+  background-image: repeating-radial-gradient(center center, #fff, #fff 1px, transparent 1px, transparent 100%);
+  background-size: 3px 3px;
 }
 
 .is-sticky .nav-container {
@@ -160,7 +182,9 @@ a:visited {
 }
 
 .is-sticky .btn {
-	border: solid 1px #ececec;
+	border: solid 1px #fff;
+	color: #fff;
+	background: #1a1a1a;
 }
 
 .header__btn-wrapper {
@@ -174,6 +198,36 @@ a:visited {
 	margin-right: 2.5em;
 }
 
+.scrolled-bar {
+	height: 4px;
+	position: relative;
+	top: 14px;
+	left: 0;
+	z-index: 300;
+	display: block;
+	background: transparent; 
+	width: 100vw;
+}
+
+.scrolled-bar__progress {
+	display: block;
+	height: 4px;
+	position: relative;
+	top: 0;
+	left: 0;
+	z-index: 410;
+	width: 0;
+	background: #1a1a1a;
+}
+
+.is-sticky .scrolled-bar__progress {
+	background:#fdf522;
+}
+
+.is-sticky .scrolled-bar {
+	background: transparent;
+}
+
 /* Fonts */
 
 @font-face {
@@ -182,6 +236,30 @@ a:visited {
   src: url('../../fonts/Tiempos-Headline-Medium.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
        url('../../fonts/Tiempos-Headline-Medium.woff') format('woff'), /* Pretty Modern Browsers */
        url('../../fonts/Tiempos-Headline-Medium.ttf')  format('truetype'), /* Safari, Android, iOS */
+}
+
+@font-face {
+  font-family: 'Tiempos Headline Bold';
+  src: url('../../fonts/TiemposHeadline-Bold.eot'); /* IE9 Compat Modes */
+  src: url('../../fonts/TiemposHeadline-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../../fonts/TiemposHeadline-Bold.woff') format('woff'), /* Pretty Modern Browsers */
+       url('../../fonts/TiemposHeadline-Bold.ttf')  format('truetype'), /* Safari, Android, iOS */
+}
+
+@font-face {
+  font-family: 'Tiempos Headline Semibold';
+  src: url('../../fonts/TiemposHeadline-Semibold.eot'); /* IE9 Compat Modes */
+  src: url('../../fonts/TiemposHeadline-Semibold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../../fonts/TiemposHeadline-Semibold.woff') format('woff'), /* Pretty Modern Browsers */
+       url('../../fonts/TiemposHeadline-Semibold.ttf')  format('truetype'), /* Safari, Android, iOS */
+}
+
+@font-face {
+  font-family: 'Tiempos Headline Black';
+  src: url('../../fonts/TiemposHeadline-Black.eot'); /* IE9 Compat Modes */
+  src: url('../../fonts/TiemposHeadline-Black.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../../fonts/TiemposHeadline-Black.woff') format('woff'), /* Pretty Modern Browsers */
+       url('../../fonts/TiemposHeadline-Black.ttf')  format('truetype'), /* Safari, Android, iOS */
 }
 
 @font-face {
@@ -375,11 +453,12 @@ a:visited {
 	background: transparent !important;
 	margin: 0.5em 0;
 	width: calc(100% - 6px);
+	height: 2.5em;
 
 }
 
 .filters__list-item i, .all-filter i {
-  padding: 1em 2em;
+  padding: 0.5em 2em;
   position: relative;
   border-left: solid 1px #fff;
 }
@@ -387,6 +466,8 @@ a:visited {
 .all-filter {
 	border-bottom: solid 1px #ccc;
 	border-top: solid 1px #ccc;
+	border-left: solid 1px #fff;
+	border-right: solid 1px #fff;
 	transition: all 0.15s;
 
 }
@@ -397,8 +478,11 @@ a:visited {
 
 .all-filter:hover {
   transition: all 0.15s;
-  border-bottom: solid 1px #ccc;
-  background: #ececec !important;
+  border: dotted 1px #302F2F;
+}
+
+.all-filter:hover i {
+  border-left: dotted 1px #302F2F !important;
 }
 
 .subreddit--selected {
@@ -472,22 +556,22 @@ a:visited {
 /* Styling for individual subreddits */
 
 .filters__list > .css-filter {
-	color: #de0f17;
-	background: #de0f17;
-	border-left: solid 4px #de0f17;
+	color: #ff4336;
+	background: #ff4336;
+	border-left: solid 4px #ff4336;
 
 
 }
 
 .filters__list > .css-filter::before {
   transition: all 0.15s;
-  background-image: -webkit-repeating-radial-gradient(center center, #de0f17, #de0f17 1px, transparent 1px, transparent 100%);
-  background-image: repeating-radial-gradient(center center, #de0f17, #de0f17 1px, transparent 1px, transparent 100%);
+  background-image: -webkit-repeating-radial-gradient(center center, #ff4336, #ff4336 1px, transparent 1px, transparent 100%);
+  background-image: repeating-radial-gradient(center center, #ff4336, #ff4336 1px, transparent 1px, transparent 100%);
   background-size: 3px 3px;
 }
 
 .filters__list > .css-filter:hover {
-  background: #de0f17 !important;
+  background: #ff4336 !important;
 }
 
 .filters__list > .css-filter:hover i {
@@ -496,34 +580,34 @@ a:visited {
 
 .filters__list > .css-filter span {
   background: #fff;
-  color: #de0f17;
+  color: #ff4336;
   padding: 0 0.3em;
   position: relative;
 }
 
 .filters__list > .css-filter:hover span {
   color: #fff;
-  background: #de0f17;
+  background: #ff4336;
   padding: 0 0.3em;
   position: relative;
 }
 
 .filters__list > .webdev-filter {
-	color: #00D9FF;
-	background: #00D9FF;
-	border-left: solid 4px #00D9FF;
+	color: #41afa5;
+	background: #41afa5;
+	border-left: solid 4px #41afa5;
 
 }
 
 .filters__list > .webdev-filter::before {
   transition: all 0.15s;
-  background-image: -webkit-repeating-radial-gradient(center center, #00D9FF, #00D9FF 1px, transparent 1px, transparent 100%);
-  background-image: repeating-radial-gradient(center center, #00D9FF, #00D9FF 1px, transparent 1px, transparent 100%);
+  background-image: -webkit-repeating-radial-gradient(center center, #41afa5, #41afa5 1px, transparent 1px, transparent 100%);
+  background-image: repeating-radial-gradient(center center, #41afa5, #41afa5 1px, transparent 1px, transparent 100%);
   background-size: 3px 3px;
 }
 
 .filters__list > .webdev-filter:hover {
-  background: #00D9FF !important;
+  background: #41afa5 !important;
 }
 
 .filters__list > .webdev-filter:hover i {
@@ -532,34 +616,34 @@ a:visited {
 
 .filters__list > .webdev-filter span {
   background: #fff;
-  color: #00D9FF;
+  color: #41afa5;
   padding: 0 0.3em;
   position: relative;
 }
 
 .filters__list > .webdev-filter:hover span {
   color: #fff;
-  background: #00D9FF;
+  background: #41afa5;
   padding: 0 0.3em;
   position: relative;
 }
 
 .filters__list > .web_design-filter {
-	color: #FD5F00;
-	background: #FD5F00;
-	border-left: solid 4px #FD5F00;
+	color: #00d8ff;
+	background: #00d8ff;
+	border-left: solid 4px #00d8ff;
 
 }
 
 .filters__list > .web_design-filter::before {
   transition: all 0.15s;
-  background-image: -webkit-repeating-radial-gradient(center center, #FD5F00, #FD5F00 1px, transparent 1px, transparent 100%);
-  background-image: repeating-radial-gradient(center center, #FD5F00, #FD5F00 1px, transparent 1px, transparent 100%);
+  background-image: -webkit-repeating-radial-gradient(center center, #00d8ff, #00d8ff 1px, transparent 1px, transparent 100%);
+  background-image: repeating-radial-gradient(center center, #00d8ff, #00d8ff 1px, transparent 1px, transparent 100%);
   background-size: 3px 3px;
 }
 
 .filters__list > .web_design-filter:hover {
-  background: #FD5F00 !important;
+  background: #00d8ff !important;
 }
 
 .filters__list > .web_design-filter:hover i {
@@ -568,34 +652,34 @@ a:visited {
 
 .filters__list > .web_design-filter span {
   background: #fff;
-  color: #FD5F00;
+  color: #00d8ff;
   padding: 0 0.3em;
   position: relative;
 }
 
 .filters__list > .web_design-filter:hover span {
   color: #fff;
-  background: #FD5F00;
+  background: #00d8ff;
   padding: 0 0.3em;
   position: relative;
 }
 
 .filters__list > .jquery-filter {
-	color: #1CF909;
-	background: #1CF909;
-	border-left: solid 4px #1CF909;
+	color: #15db95;
+	background: #15db95;
+	border-left: solid 4px #15db95;
 
 }
 
 .filters__list > .jquery-filter::before {
   transition: all 0.15s;
-  background-image: -webkit-repeating-radial-gradient(center center, #1CF909, #1CF909 1px, transparent 1px, transparent 100%);
-  background-image: repeating-radial-gradient(center center, #1CF909, #1CF909 1px, transparent 1px, transparent 100%);
+  background-image: -webkit-repeating-radial-gradient(center center, #15db95, #15db95 1px, transparent 1px, transparent 100%);
+  background-image: repeating-radial-gradient(center center, #15db95, #15db95 1px, transparent 1px, transparent 100%);
   background-size: 3px 3px;
 }
 
 .filters__list > .jquery-filter:hover {
-  background: #1CF909 !important;
+  background: #15db95 !important;
 }
 
 .filters__list > .jquery-filter:hover i {
@@ -604,34 +688,34 @@ a:visited {
 
 .filters__list > .jquery-filter span {
   background: #fff;
-  color: #1CF909;
+  color: #15db95;
   padding: 0 0.3em;
   position: relative;
 }
 
 .filters__list > .jquery-filter:hover span {
   color: #fff;
-  background: #1CF909;
+  background: #15db95;
   padding: 0 0.3em;
   position: relative;
 }
 
 .filters__list > .javascript-filter {
-	color: #ff4f81;
-	background: #ff4f81;
-	border-left: solid 4px #ff4f81;
+	color: #ff004e;
+	background: #ff004e;
+	border-left: solid 4px #ff004e;
 
 }
 
 .filters__list > .javascript-filter::before {
   transition: all 0.15s;
-  background-image: -webkit-repeating-radial-gradient(center center, #ff4f81, #ff4f81 1px, transparent 1px, transparent 100%);
-  background-image: repeating-radial-gradient(center center, #ff4f81, #ff4f81 1px, transparent 1px, transparent 100%);
+  background-image: -webkit-repeating-radial-gradient(center center, #ff004e, #ff004e 1px, transparent 1px, transparent 100%);
+  background-image: repeating-radial-gradient(center center, #ff004e, #ff004e 1px, transparent 1px, transparent 100%);
   background-size: 3px 3px;
 }
 
 .filters__list > .javascript-filter:hover {
-  background: #ff4f81 !important;
+  background: #ff004e !important;
 }
 
 .filters__list > .javascript-filter:hover i {
@@ -640,34 +724,34 @@ a:visited {
 
 .filters__list > .javascript-filter span {
   background: #fff;
-  color: #ff4f81;
+  color: #ff004e;
   padding: 0 0.3em;
   position: relative;
 }
 
 .filters__list > .javascript-filter:hover span {
   color: #fff;
-  background: #ff4f81;
+  background: #ff004e;
   padding: 0 0.3em;
   position: relative;
 }
 
 .filters__list > .frontend-filter {
-	color: #dbc65d;
-	background: #dbc65d;
-	border-left: solid 4px #dbc65d;
+	color: #c19d3f;
+	background: #c19d3f;
+	border-left: solid 4px #c19d3f;
 
 }
 
 .filters__list > .frontend-filter::before {
   transition: all 0.15s;
-  background-image: -webkit-repeating-radial-gradient(center center, #dbc65d, #dbc65d 1px, transparent 1px, transparent 100%);
-  background-image: repeating-radial-gradient(center center, #dbc65d, #dbc65d 1px, transparent 1px, transparent 100%);
+  background-image: -webkit-repeating-radial-gradient(center center, #c19d3f, #c19d3f 1px, transparent 1px, transparent 100%);
+  background-image: repeating-radial-gradient(center center, #c19d3f, #c19d3f 1px, transparent 1px, transparent 100%);
   background-size: 3px 3px;
 }
 
 .filters__list > .frontend-filter:hover {
-  background: #dbc65d !important;
+  background: #c19d3f !important;
 }
 
 .filters__list > .frontend-filter:hover i {
@@ -676,14 +760,14 @@ a:visited {
 
 .filters__list > .frontend-filter span {
   background: #fff;
-  color: #dbc65d;
+  color: #c19d3f;
   padding: 0 0.3em;
   position: relative;
 }
 
 .filters__list > .frontend-filter:hover span {
   color: #fff;
-  background: #dbc65d;
+  background: #c19d3f;
   padding: 0 0.3em;
   position: relative;
 }
@@ -760,38 +844,46 @@ a:visited {
 	position: relative;
 	top: 0;
 	overflow-wrap: break-word;
-	padding: 0.75em;
+	padding: 1em 0.75em;
 	-webkit-transform: translateY(200px);
 	        transform: translateY(200px);
 	opacity: 0;
 	
 }
 
-.reddit-card__subreddit {
-	font-family: 'Karla', helvetica, arial, sans-serif;
-	text-transform: uppercase;
-	letter-spacing: 0.08em;
-	padding: 0.3em 0.5em;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-align: center;
-	    -ms-flex-align: center;
-	        align-items: center;
-	font-weight: 600;
+.reddit-card-inner {
+		position: relative;
+		background: #fff;
 }
 
-.reddit-card__subreddit h3 {
-  font-size: 0.75rem;
-  display: inline-block;
-  background: #fff;
-  line-height: 1.1;
+.reddit-card::before {
+	content: '';
+	display: block;
+	height: 0px;
+	width: 100%;
+	position: relative;
+	top: -0.5em;
+	background: #1a1a1a;
+}
+
+.reddit-card__subreddit {
+	font-family: 'Karla', helvetica, arial, sans-serif;
+	padding: 0.15em 0.5em;
+	margin-left: 0em;
+	display: inline-block;
+	font-weight: 700;
+	text-transform: uppercase;
+	font-size: 0.75rem;
+	background: #fff;
 }
 
 .reddit-card__post-title {
-	padding: 1.5em 0;
+	padding: 2em 0 2em 0;
 	width: 100%;
 	transition: all 0.15s;
+	background: #fff;
+	text-align: left;
+	margin-bottom: 1rem;
 
 }
 
@@ -809,7 +901,6 @@ a:visited {
 
 .reddit-card__post-title:hover {
   color: #ccc;
-  opacity: 0.85;
 }
 
 .reddit-card__thumbnail-wrapper {
@@ -818,17 +909,14 @@ a:visited {
 	max-width: 100%;
 	line-height: 0;
 	transition: all 0.2s;
-	margin-top: 0.75em;	
-	-webkit-filter: grayscale(0);	
+	-webkit-filter: grayscale(0);
 	        filter: grayscale(0);
 	overflow: hidden !important;
 }
 
 .reddit-card__thumbnail-wrapper:hover::after {
-
-	-webkit-filter: multiply;
-
-	        filter: multiply;
+-webkit-filter: screen;
+        filter: screen;
 }
 
 .reddit-card__thumbnail-wrapper:hover {
@@ -850,14 +938,17 @@ a:visited {
 	-webkit-box-pack: end;
 	    -ms-flex-pack: end;
 	        justify-content: flex-end;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
 	-ms-flex-wrap: wrap;
 	    flex-wrap: wrap;
 	font-size: 0.75rem;
 	letter-spacing: 0.02em;
 	max-width: 100%;
-	padding: 2em 0 1em 0;
-	color: text_grey_mid_two;
-	border-top: solid 1px #ccc;
+	padding: 1.5em 0;
+	color: #1a1a1a;
+	background: #fff;
 }
 
 .bar {
@@ -890,7 +981,8 @@ a:visited {
 
 .post-comments a:hover {
   color: #1a1a1a !important;
-  border-bottom: solid 1px #1a1a1a;
+  padding-bottom: 0.25em;
+  border-bottom: solid 1px;
   transition: all 0.15s;
 }
 
@@ -919,27 +1011,43 @@ a:visited {
 -------------------------------*/
 
 .reddit-card-css {
-	border-bottom: solid 2px #de0f17;
+	border-bottom: solid 0px #ff4336;
+	color: #ff4336;
+}
+
+.reddit-card-css .reddit-card-inner {
+		  background-image: -webkit-repeating-radial-gradient(center center, #ff4336, #ff4336 1px, transparent 1px, transparent 100%);
+  background-image: repeating-radial-gradient(center center, #ff4336, #ff4336 1px, transparent 1px, transparent 100%);
+  background-size: 3px 3px;
 }
 
 .subreddit-css {
-	color: #de0f17;
-text-shadow: -2px 1px 0px rgba(0,0,0,0.3);		
-	  background-image: -webkit-repeating-radial-gradient(center center, #de0f17, #de0f17 1px, transparent 1px, transparent 100%);
-  background-image: repeating-radial-gradient(center center, #de0f17, #de0f17 1px, transparent 1px, transparent 100%);
+			background: #ff4336;
+		color: #fff;
+		display: inline-block;
+		text-align: center;
+		position: relative;
+		z-index: 500;
+}
+
+.dotted-bg-css {
+	color: #ff4336;
+
+	  background-image: -webkit-repeating-radial-gradient(center center, #ff4336, #ff4336 1px, transparent 1px, transparent 100%);
+  background-image: repeating-radial-gradient(center center, #ff4336, #ff4336 1px, transparent 1px, transparent 100%);
   background-size: 3px 3px;
 }
 
 .css-overlay::before {
   content: '';
   display: block;
-  opacity: 0;
+  opacity: 1;
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  background: #de0f17;
+  background: #ff4336;
   mix-blend-mode: screen;
   transition: opacity 0.15s;
 }
@@ -953,7 +1061,7 @@ text-shadow: -2px 1px 0px rgba(0,0,0,0.3);
   bottom: 0;
   left: 0;
   right: 0;
-  background: #de0f17;
+  background: #ff4336;
   transition: opacity 0.15s;
 }
 
@@ -962,14 +1070,30 @@ text-shadow: -2px 1px 0px rgba(0,0,0,0.3);
 -------------------------------*/
 
 .reddit-card-webdev {
-	border-bottom: solid 2px #00D9FF;
+	border-bottom: solid 0px #41afa5;
+	color: #41afa5;
+}
+
+.reddit-card-webdev .reddit-card-inner {
+		  background-image: -webkit-repeating-radial-gradient(center center, #41afa5, #41afa5 1px, transparent 1px, transparent 100%);
+  background-image: repeating-radial-gradient(center center, #41afa5, #41afa5 1px, transparent 1px, transparent 100%);
+  background-size: 3px 3px;
 }
 
 .subreddit-webdev {
-	color: #00D9FF;
-text-shadow: -2px 1px 0px rgba(0,0,0,0.3);		
-	  background-image: -webkit-repeating-radial-gradient(center center, #00D9FF, #00D9FF 1px, transparent 1px, transparent 100%);
-  background-image: repeating-radial-gradient(center center, #00D9FF, #00D9FF 1px, transparent 1px, transparent 100%);
+			background: #41afa5;
+		color: #fff;
+		display: inline-block;
+		text-align: center;
+		position: relative;
+		z-index: 500;
+}
+
+.dotted-bg-webdev {
+	color: #41afa5;
+
+	  background-image: -webkit-repeating-radial-gradient(center center, #41afa5, #41afa5 1px, transparent 1px, transparent 100%);
+  background-image: repeating-radial-gradient(center center, #41afa5, #41afa5 1px, transparent 1px, transparent 100%);
   background-size: 3px 3px;
 }
 
@@ -982,7 +1106,7 @@ text-shadow: -2px 1px 0px rgba(0,0,0,0.3);
   bottom: 0;
   left: 0;
   right: 0;
-  background: #00D9FF;
+  background: #41afa5;
   mix-blend-mode: screen;
   transition: opacity 0.15s;
 }
@@ -996,7 +1120,7 @@ text-shadow: -2px 1px 0px rgba(0,0,0,0.3);
   bottom: 0;
   left: 0;
   right: 0;
-  background: #00D9FF;
+  background: #41afa5;
   transition: opacity 0.15s;
 }
 
@@ -1005,14 +1129,31 @@ text-shadow: -2px 1px 0px rgba(0,0,0,0.3);
 -------------------------------*/
 
 .reddit-card-web_design {
-	border-bottom: solid 2px #FD5F00;
+	border-bottom: solid 0px #00d8ff;
+	color: #00d8ff;
+}
+
+.reddit-card-web_design .reddit-card-inner {
+		  background-image: -webkit-repeating-radial-gradient(center center, #00d8ff, #00d8ff 1px, transparent 1px, transparent 100%);
+  background-image: repeating-radial-gradient(center center, #00d8ff, #00d8ff 1px, transparent 1px, transparent 100%);
+  background-size: 3px 3px;
 }
 
 .subreddit-web_design {
-	color: #FD5F00;
-text-shadow: -2px 1px 0px rgba(0,0,0,0.3);		
-	  background-image: -webkit-repeating-radial-gradient(center center, #FD5F00, #FD5F00 1px, transparent 1px, transparent 100%);
-  background-image: repeating-radial-gradient(center center, #FD5F00, #FD5F00 1px, transparent 1px, transparent 100%);
+			background: #00d8ff;
+		color: #fff;
+		display: inline-block;
+		margin: auto;
+		text-align: center;
+		position: relative;
+		z-index: 500;
+}
+
+.dotted-bg-web_design {
+	color: #00d8ff;
+
+	  background-image: -webkit-repeating-radial-gradient(center center, #00d8ff, #00d8ff 1px, transparent 1px, transparent 100%);
+  background-image: repeating-radial-gradient(center center, #00d8ff, #00d8ff 1px, transparent 1px, transparent 100%);
   background-size: 3px 3px;
 }
 
@@ -1025,7 +1166,7 @@ text-shadow: -2px 1px 0px rgba(0,0,0,0.3);
   bottom: 0;
   left: 0;
   right: 0;
-  background: #FD5F00;
+  background: #00d8ff;
   mix-blend-mode: screen;
   transition: opacity 0.15s;
 }
@@ -1039,7 +1180,7 @@ text-shadow: -2px 1px 0px rgba(0,0,0,0.3);
   bottom: 0;
   left: 0;
   right: 0;
-  background: #FD5F00;
+  background: #00d8ff;
   transition: opacity 0.15s;
 }
 
@@ -1048,14 +1189,31 @@ text-shadow: -2px 1px 0px rgba(0,0,0,0.3);
 -------------------------------*/
 
 .reddit-card-jquery {
-	border-bottom: solid 2px #1CF909;
+	border-bottom: solid 0px #15db95;
+	color: #15db95;
+}
+
+.reddit-card-jquery .reddit-card-inner {
+		  background-image: -webkit-repeating-radial-gradient(center center, #15db95, #15db95 1px, transparent 1px, transparent 100%);
+  background-image: repeating-radial-gradient(center center, #15db95, #15db95 1px, transparent 1px, transparent 100%);
+  background-size: 3px 3px;
 }
 
 .subreddit-jquery {
-	color: #1CF909;
-text-shadow: -2px 1px 0px rgba(0,0,0,0.3);	
-	  background-image: -webkit-repeating-radial-gradient(center center, #1CF909, #1CF909 1px, transparent 1px, transparent 100%);
-  background-image: repeating-radial-gradient(center center, #1CF909, #1CF909 1px, transparent 1px, transparent 100%);
+			background: #15db95;
+		color: #fff;
+		display: inline-block;
+		margin: auto;
+		text-align: center;
+		position: relative;
+		z-index: 500;
+}
+
+.dotted-bg-jquery {
+	color: #15db95;
+
+	  background-image: -webkit-repeating-radial-gradient(center center, #15db95, #15db95 1px, transparent 1px, transparent 100%);
+  background-image: repeating-radial-gradient(center center, #15db95, #15db95 1px, transparent 1px, transparent 100%);
   background-size: 3px 3px;
 }
 
@@ -1068,7 +1226,7 @@ text-shadow: -2px 1px 0px rgba(0,0,0,0.3);
   bottom: 0;
   left: 0;
   right: 0;
-  background: #1CF909;
+  background: #15db95;
   mix-blend-mode: screen;
   transition: opacity 0.15s;
 }
@@ -1082,7 +1240,7 @@ text-shadow: -2px 1px 0px rgba(0,0,0,0.3);
   bottom: 0;
   left: 0;
   right: 0;
-  background: #1CF909;
+  background: #15db95;
   transition: opacity 0.15s;
 }
 
@@ -1091,18 +1249,34 @@ text-shadow: -2px 1px 0px rgba(0,0,0,0.3);
 -------------------------------*/
 
 .reddit-card-javascript {
-	border-bottom: solid 2px #ff4f81;
+	border-bottom: solid 0px #ff004e;
+	color: #ff004e;
 }
 
-.subreddit-javascript {
-	color: #ff4f81;
-	text-shadow: -2px 1px 0px rgba(0,0,0,0.3);		
-	  background-image: -webkit-repeating-radial-gradient(center center, #ff4f81, #ff4f81 1px, transparent 1px, transparent 100%);
-  background-image: repeating-radial-gradient(center center, #ff4f81, #ff4f81 1px, transparent 1px, transparent 100%);
+.reddit-card-javascript .reddit-card-inner {
+		  background-image: -webkit-repeating-radial-gradient(center center, #ff004e, #ff004e 1px, transparent 1px, transparent 100%);
+  background-image: repeating-radial-gradient(center center, #ff004e, #ff004e 1px, transparent 1px, transparent 100%);
   background-size: 3px 3px;
 }
 
-.subreddit-overlay::before {
+.subreddit-javascript {
+			background: #ff004e;
+		color: #fff;
+		display: inline-block;
+		text-align: center;
+		position: relative;
+		z-index: 500;
+}
+
+.dotted-bg-javascript {
+	color: #ff004e;
+
+	  background-image: -webkit-repeating-radial-gradient(center center, #ff004e, #ff004e 1px, transparent 1px, transparent 100%);
+  background-image: repeating-radial-gradient(center center, #ff004e, #ff004e 1px, transparent 1px, transparent 100%);
+  background-size: 3px 3px;
+}
+
+.javascript-overlay::before {
   content: '';
   display: block;
   opacity: 1;
@@ -1111,12 +1285,12 @@ text-shadow: -2px 1px 0px rgba(0,0,0,0.3);
   bottom: 0;
   left: 0;
   right: 0;
-  background: #ff4f81;
+  background: #ff004e;
   mix-blend-mode: screen;
   transition: opacity 0.15s;
 }
 
-.subreddit-overlay::after {
+.javascript-overlay::after {
   content: '';
   display: block;
   opacity: 0;
@@ -1125,7 +1299,7 @@ text-shadow: -2px 1px 0px rgba(0,0,0,0.3);
   bottom: 0;
   left: 0;
   right: 0;
-  background: #ff4f81;
+  background: #ff004e;
   transition: opacity 0.15s;
 }
 
@@ -1134,14 +1308,30 @@ text-shadow: -2px 1px 0px rgba(0,0,0,0.3);
 -------------------------------*/
 
 .reddit-card-frontend {
-	border-bottom: solid 2px #dbc65d;
+	border-bottom: solid 0px #c19d3f;
+	color: #c19d3f;
+}
+
+.reddit-card-frontend .reddit-card-inner {
+		  background-image: -webkit-repeating-radial-gradient(center center, #c19d3f, #c19d3f 1px, transparent 1px, transparent 100%);
+  background-image: repeating-radial-gradient(center center, #c19d3f, #c19d3f 1px, transparent 1px, transparent 100%);
+  background-size: 3px 3px;
 }
 
 .subreddit-frontend {
-	color: #dbc65d;
-	text-shadow: -2px 1px 0px rgba(0,0,0,0.3);	
-	  background-image: -webkit-repeating-radial-gradient(center center, #dbc65d, #dbc65d 1px, transparent 1px, transparent 100%);
-  background-image: repeating-radial-gradient(center center, #dbc65d, #dbc65d 1px, transparent 1px, transparent 100%);
+			background: #c19d3f;
+		color: #fff;
+		display: inline-block;
+		text-align: center;
+		position: relative;
+		z-index: 500;
+}
+
+.dotted-bg-frontend {
+	color: #c19d3f;
+
+	  background-image: -webkit-repeating-radial-gradient(center center, #c19d3f, #c19d3f 1px, transparent 1px, transparent 100%);
+  background-image: repeating-radial-gradient(center center, #c19d3f, #c19d3f 1px, transparent 1px, transparent 100%);
   background-size: 3px 3px;
 }
 
@@ -1154,7 +1344,7 @@ text-shadow: -2px 1px 0px rgba(0,0,0,0.3);
   bottom: 0;
   left: 0;
   right: 0;
-  background: #dbc65d;
+  background: #c19d3f;
   mix-blend-mode: screen;
   transition: opacity 0.15s;
 }
@@ -1168,7 +1358,7 @@ text-shadow: -2px 1px 0px rgba(0,0,0,0.3);
   bottom: 0;
   left: 0;
   right: 0;
-  background: #dbc65d;
+  background: #c19d3f;
   transition: opacity 0.15s;
 }
 
@@ -1177,12 +1367,26 @@ text-shadow: -2px 1px 0px rgba(0,0,0,0.3);
 -------------------------------*/
 
 .reddit-card-webdevtutorials {
-	border-bottom: solid 2px #2b00f7;
+	border-bottom: solid 0px #2b00f7;
+	color: #2b00f7;
+}
+
+.reddit-card-webdevtutorials .reddit-card-inner {
+		  background-image: -webkit-repeating-radial-gradient(center center, #2b00f7, #2b00f7 1px, transparent 1px, transparent 100%);
+  background-image: repeating-radial-gradient(center center, #2b00f7, #2b00f7 1px, transparent 1px, transparent 100%);
+  background-size: 3px 3px;
 }
 
 .subreddit-webdevtutorials {
+			background: #2b00f7;
+			color: #fff;
+		position: relative;
+		z-index: 500;
+}
+
+.dotted-bg-webdevtutorials {
 	color: #2b00f7;
-	text-shadow: -2px 1px 0px rgba(0,0,0,0.3);	
+
 	  background-image: -webkit-repeating-radial-gradient(center center, #2b00f7, #2b00f7 1px, transparent 1px, transparent 100%);
   background-image: repeating-radial-gradient(center center, #2b00f7, #2b00f7 1px, transparent 1px, transparent 100%);
   background-size: 3px 3px;
@@ -1218,7 +1422,7 @@ text-shadow: -2px 1px 0px rgba(0,0,0,0.3);
 /* Back To Top Button */
 
 .btn {
-	color: #fff;
+	color: #302F2F;
 	transition: all 0.15s;
 	cursor: pointer;
 	font-family: inherit;
@@ -1232,7 +1436,7 @@ text-shadow: -2px 1px 0px rgba(0,0,0,0.3);
 	        align-items: center;
 	padding: 0.5em 0.875em 0.5em 1em;	
 	border: solid 1px #302F2F;	
-	background: #302F2F;	
+	background: #fff;	
 	margin: 0.5em 0.25em;
 	width: 10em;
 	text-transform: uppercase;
@@ -1300,7 +1504,7 @@ text-shadow: -2px 1px 0px rgba(0,0,0,0.3);
 
 .modal__close-btn {
 	position: absolute;
-	right: 2.5em;
+	right: 2em;
 	top: 2.25em;
 	font-size: 1rem;
 	background: none;
@@ -1308,6 +1512,10 @@ text-shadow: -2px 1px 0px rgba(0,0,0,0.3);
 	overflow: hidden;
 	cursor: pointer;
 	z-index: 20;
+}
+
+.modal__close-btn:hover {
+	transition: all 0.3s ease-in-out;
 }
 
 .fa-times:before {
@@ -1333,8 +1541,8 @@ text-shadow: -2px 1px 0px rgba(0,0,0,0.3);
 /* Spinner Circle Rotation */
 
 .spinner-circle {
-  border: 4px #d1d4d5 solid;
-  border-top: 4px #000 solid;
+  border: 4px #ccc solid;
+  border-top: 4px #1a1a1a solid;
   border-radius: 50%;
   -webkit-animation: spCircRot .6s infinite linear;
   animation: spCircRot .6s infinite linear;
@@ -1413,36 +1621,6 @@ body {
 	background-size: 50% 50%;
 }
 
-.scrolled-bar {
-	height: 4px;
-	position: fixed;
-	top: 0;
-	left: 0;
-	z-index: 300;
-	display: block;
-	background: #ececec;
-	width: 100vw;
-}
-
-.scrolled-bar__progress {
-	display: block;
-	height: 4px;
-	position: fixed;
-	top: 0;
-	left: 0;
-	z-index: 410;
-	width: 0;
-	background: #302F2F;
-}
-
-.is-sticky .scrolled-bar__progress {
-	background: #fff;
-}
-
-.is-sticky .scrolled-bar {
-	background: #1a1a1a;
-}
-
 .primary {
 	width: 85%;
 	margin-top: 4px;
@@ -1452,11 +1630,13 @@ body {
 
 .info {
 	position: fixed;
-	left: -1vw;
+	left: 1vw;
 	top: 50vh;
 	font-size: 0.75rem;
 	-webkit-transform: rotate(-90deg);
 	        transform: rotate(-90deg);
+	-webkit-transform-origin: 0 0;
+	        transform-origin: 0 0;
 }
 
 .info::before {
@@ -1627,7 +1807,15 @@ body {
 	}
 
 	.header {
-		height: 80px;
+		height: 75px;
+	}
+
+	.info {
+		-webkit-transform: rotate(0deg);
+		        transform: rotate(0deg);
+		bottom: 1em;
+		top: auto;
+		position: relative;
 	}
 
 	.reddit-content {
@@ -1653,7 +1841,7 @@ body {
 
 	.nav-container {
 		width: 95%;
-		padding: 1em 0;
+		padding: 0;
 	}
 
 	.is-sticky .nav-container {
@@ -1666,7 +1854,7 @@ body {
 
 	.header, .is-sticky {
 		height: 15vw;
-		min-height: 55px;
+		min-height: 50px;
 		padding: 0;
 	}
 
@@ -1676,6 +1864,7 @@ body {
 		    -ms-flex-direction: column;
 		        flex-direction: column;
 		padding-bottom: 0.05em;
+		display: none;
 	}
 
 	.btn {
@@ -1688,7 +1877,8 @@ body {
 
 	.header__title, .is-sticky .header__title {
 		font-size: 10vw;
-		padding: 0;
+		padding: 0.25em 0 0 0;
+		line-height: 1.5;
 	}
 
 	.modal {
