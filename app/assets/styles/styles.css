@@ -46,7 +46,7 @@ body {
 	position: fixed;
 	top: 0;
 	left: 0;
-	z-index: 400;
+	z-index: 300;
 	display: block;
 	background: $background_grey;
 	width: 100vw;
@@ -63,11 +63,38 @@ body {
 	background: $text_grey_dark;
 }
 
+.is-sticky .scrolled-bar__progress {
+	background: #fff;
+}
+
+.is-sticky .scrolled-bar {
+	background: $nearBlack;
+}
+
 .primary {
 	width: 85%;
 	margin-top: 4px;
 	margin-bottom: 2em;
 	transition: all ease 0.3s;
+}
+
+.info {
+	position: fixed;
+	left: -1vw;
+	top: 50vh;
+	font-size: 0.75rem;
+	transform: rotate(-90deg);
+}
+
+.info::before {
+	content: '';
+	display: block;
+	height: 1px;
+	width: 3rem;
+	right: 4rem;
+	bottom: -0.5rem;
+	background: #000;
+	position: relative;
 }
 
 @media (max-width:1440px) {
@@ -239,7 +266,7 @@ body {
 	.is-sticky .nav-container {
 		width: 95%;
 		padding: 0;
-		align-items: flex-end;
+		align-items: center;
 	}
 
 	.header, .is-sticky {
@@ -263,7 +290,7 @@ body {
 
 	.header__title, .is-sticky .header__title {
 		font-size: 10vw;
-		line-height: 0.9;
+		padding: 0;
 	}
 
 	.modal {

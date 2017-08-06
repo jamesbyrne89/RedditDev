@@ -245,6 +245,16 @@ function stickyHeader() {
     }
 };
 
+(function scrollDirection() {
+    var previous = window.scrollY;
+    window.addEventListener('scroll', function () {
+
+        console.log(previous);
+        window.scrollY > previous ? console.log('down') : console.log('up');
+        previous = window.scrollY;
+    });
+})();
+
 window.addEventListener('scroll', checkVisible);
 window.addEventListener('scroll', stickyHeader);
 

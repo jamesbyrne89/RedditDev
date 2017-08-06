@@ -6,7 +6,7 @@
 	column-count: 4;
 	column-gap: 2.5em;
 	position: relative;
-	top: calc(160px + 1.25em);
+	top: 160px;
 	margin: auto;
 	width: 85vw;
 	transition: all ease 0.3s;
@@ -23,7 +23,7 @@
  # Cards
 ------------------------------ */
 .reddit-card {
-	margin: 0 0 1.5em 0;
+	margin: 0 0 1.25em 0;
 	width: 100%;
 	background: white;
 	break-inside: avoid;
@@ -44,15 +44,15 @@
 	padding: 0.3em 0.5em;
 	display: flex;
 	align-items: center;
-	border-radius: 0px;
-	color: $text_grey_dark;
 	font-weight: 600;
+
 	h3 {
 		font-size: 0.75rem;
 		display: inline-block;
 		background: #fff;
 		line-height: 1.1;
-		padding: 0.05em 0.2em;
+
+
 	}
 }
 
@@ -117,7 +117,7 @@
 	letter-spacing: 0.02em;
 	max-width: 100%;
 	padding: 2em 0 1em 0;
-	color: text_grey_dark;
+	color: text_grey_mid_two;
 	border-top: solid 1px $text_grey_mid_two;
 }
 
@@ -139,14 +139,15 @@
 	text-align: left;
 	white-space: nowrap;
 	padding: 0 0.75em;
+		transition: all 0.15s;	
 	a {
 		transition: all 0.15s;
 		cursor: pointer;
 	}
 
 	a:hover {
-			color: #000 !important;
-			border-bottom: solid 1px #000;
+			color: $nearBlack !important;
+			border-bottom: solid 1px $nearBlack;
 			transition: all 0.15s;
 		}
 
@@ -182,6 +183,7 @@
 
 .subreddit-css {
 	color: $subreddit_colour_one;
+text-shadow: -2px 1px 0px rgba(0,0,0,0.3);		
 	  background-image: -webkit-repeating-radial-gradient(center center, $subreddit_colour_one, $subreddit_colour_one 1px, transparent 1px, transparent 100%);
   background-image: -moz-repeating-radial-gradient(center center, $subreddit_colour_one, $subreddit_colour_one 1px, transparent 1px, transparent 100%);
   background-image: -ms-repeating-radial-gradient(center center, $subreddit_colour_one, $subreddit_colour_one 1px, transparent 1px, transparent 100%);
@@ -230,6 +232,7 @@
 
 .subreddit-webdev {
 	color: $subreddit_colour_two;
+text-shadow: -2px 1px 0px rgba(0,0,0,0.3);		
 	  background-image: -webkit-repeating-radial-gradient(center center, $subreddit_colour_two, $subreddit_colour_two 1px, transparent 1px, transparent 100%);
   background-image: -moz-repeating-radial-gradient(center center, $subreddit_colour_two, $subreddit_colour_two 1px, transparent 1px, transparent 100%);
   background-image: -ms-repeating-radial-gradient(center center, $subreddit_colour_two, $subreddit_colour_two 1px, transparent 1px, transparent 100%);
@@ -278,6 +281,7 @@
 
 .subreddit-web_design {
 	color: $subreddit_colour_three;
+text-shadow: -2px 1px 0px rgba(0,0,0,0.3);		
 	  background-image: -webkit-repeating-radial-gradient(center center, $subreddit_colour_three, $subreddit_colour_three 1px, transparent 1px, transparent 100%);
   background-image: -moz-repeating-radial-gradient(center center, $subreddit_colour_three, $subreddit_colour_three 1px, transparent 1px, transparent 100%);
   background-image: -ms-repeating-radial-gradient(center center, $subreddit_colour_three, $subreddit_colour_three 1px, transparent 1px, transparent 100%);
@@ -326,6 +330,7 @@
 
 .subreddit-jquery {
 	color: $subreddit_colour_four;
+text-shadow: -2px 1px 0px rgba(0,0,0,0.3);	
 	  background-image: -webkit-repeating-radial-gradient(center center, $subreddit_colour_four, $subreddit_colour_four 1px, transparent 1px, transparent 100%);
   background-image: -moz-repeating-radial-gradient(center center, $subreddit_colour_four, $subreddit_colour_four 1px, transparent 1px, transparent 100%);
   background-image: -ms-repeating-radial-gradient(center center, $subreddit_colour_four, $subreddit_colour_four 1px, transparent 1px, transparent 100%);
@@ -375,6 +380,7 @@
 
 .subreddit-javascript {
 	color: $subreddit_colour_five;
+	text-shadow: -2px 1px 0px rgba(0,0,0,0.3);		
 	  background-image: -webkit-repeating-radial-gradient(center center, $subreddit_colour_five, $subreddit_colour_five 1px, transparent 1px, transparent 100%);
   background-image: -moz-repeating-radial-gradient(center center, $subreddit_colour_five, $subreddit_colour_five 1px, transparent 1px, transparent 100%);
   background-image: -ms-repeating-radial-gradient(center center, $subreddit_colour_five, $subreddit_colour_five 1px, transparent 1px, transparent 100%);
@@ -423,6 +429,7 @@
 
 .subreddit-frontend {
 	color: $subreddit_colour_six;
+	text-shadow: -2px 1px 0px rgba(0,0,0,0.3);	
 	  background-image: -webkit-repeating-radial-gradient(center center, $subreddit_colour_six, $subreddit_colour_six 1px, transparent 1px, transparent 100%);
   background-image: -moz-repeating-radial-gradient(center center, $subreddit_colour_six, $subreddit_colour_six 1px, transparent 1px, transparent 100%);
   background-image: -ms-repeating-radial-gradient(center center, $subreddit_colour_six, $subreddit_colour_six 1px, transparent 1px, transparent 100%);
@@ -472,6 +479,7 @@
 
 .subreddit-webdevtutorials {
 	color: $subreddit_colour_seven;
+	text-shadow: -2px 1px 0px rgba(0,0,0,0.3);	
 	  background-image: -webkit-repeating-radial-gradient(center center, $subreddit_colour_seven, $subreddit_colour_seven 1px, transparent 1px, transparent 100%);
   background-image: -moz-repeating-radial-gradient(center center, $subreddit_colour_seven, $subreddit_colour_seven 1px, transparent 1px, transparent 100%);
   background-image: -ms-repeating-radial-gradient(center center, $subreddit_colour_seven, $subreddit_colour_seven 1px, transparent 1px, transparent 100%);
