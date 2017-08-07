@@ -39,7 +39,7 @@
 
 .reddit-card-inner {
 		position: relative;
-		background: #fff;
+		background: #fff !important;
 }
 
 .reddit-card::before {
@@ -71,7 +71,6 @@
 	transition: all 0.15s;
 	background: #fff;
 	text-align: left;
-	margin-bottom: 1rem;
 
 	a {
 		font-family: 'Tiempos Headline', georgia, serif;
@@ -82,11 +81,14 @@
 		line-height: 1.25;
 		max-width: 100%;
 		box-decoration-break: clone;		
+		transition: all 0.15s;
 	}
 
-	&:hover {
-		color: $text_grey_mid_two;
+	a:hover {
+		color: #000 !important;
+		text-decoration-style: wavy;
 	}
+
 
 }
 
@@ -129,6 +131,7 @@ filter: screen;
 	padding: 1.5em 0;
 	color: $nearBlack;
 	background: #fff;
+	border-top: solid 1px $text_grey_mid_two;
 }
 
 
@@ -205,8 +208,7 @@ filter: screen;
 }
 
 .subreddit-css {
-			background: $subreddit_colour_one;
-		color: #fff;
+		color: $subreddit_colour_one;
 		display: inline-block;
 		text-align: center;
 		position: relative;
@@ -275,8 +277,7 @@ filter: screen;
 }
 
 .subreddit-webdev {
-			background: $subreddit_colour_two;
-		color: #fff;
+		color: $subreddit_colour_two;
 		display: inline-block;
 		text-align: center;
 		position: relative;
@@ -344,8 +345,7 @@ filter: screen;
 }
 
 .subreddit-web_design {
-			background: $subreddit_colour_three;
-		color: #fff;
+		color: $subreddit_colour_three;
 		display: inline-block;
 		margin: auto;
 		text-align: center;
@@ -414,8 +414,7 @@ filter: screen;
 }
 
 .subreddit-jquery {
-			background: $subreddit_colour_four;
-		color: #fff;
+		color: $subreddit_colour_four;
 		display: inline-block;
 		margin: auto;
 		text-align: center;
@@ -485,8 +484,7 @@ filter: screen;
 }
 
 .subreddit-javascript {
-			background: $subreddit_colour_five;
-		color: #fff;
+			color: $subreddit_colour_five;
 		display: inline-block;
 		text-align: center;
 		position: relative;
@@ -554,8 +552,8 @@ filter: screen;
 }
 
 .subreddit-frontend {
-			background: $subreddit_colour_six;
-		color: #fff;
+			background: ;
+		color: $subreddit_colour_six;
 		display: inline-block;
 		text-align: center;
 		position: relative;
@@ -624,8 +622,7 @@ filter: screen;
 }
 
 .subreddit-webdevtutorials {
-			background: $subreddit_colour_seven;
-			color: #fff;
+		color: $subreddit_colour_seven;
 		position: relative;
 		z-index: 500;
 }

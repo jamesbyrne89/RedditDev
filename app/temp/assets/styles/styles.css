@@ -737,21 +737,21 @@ a:visited {
 }
 
 .filters__list > .frontend-filter {
-	color: #c19d3f;
-	background: #c19d3f;
-	border-left: solid 4px #c19d3f;
+	color: #ffb900;
+	background: #ffb900;
+	border-left: solid 4px #ffb900;
 
 }
 
 .filters__list > .frontend-filter::before {
   transition: all 0.15s;
-  background-image: -webkit-repeating-radial-gradient(center center, #c19d3f, #c19d3f 1px, transparent 1px, transparent 100%);
-  background-image: repeating-radial-gradient(center center, #c19d3f, #c19d3f 1px, transparent 1px, transparent 100%);
+  background-image: -webkit-repeating-radial-gradient(center center, #ffb900, #ffb900 1px, transparent 1px, transparent 100%);
+  background-image: repeating-radial-gradient(center center, #ffb900, #ffb900 1px, transparent 1px, transparent 100%);
   background-size: 3px 3px;
 }
 
 .filters__list > .frontend-filter:hover {
-  background: #c19d3f !important;
+  background: #ffb900 !important;
 }
 
 .filters__list > .frontend-filter:hover i {
@@ -760,14 +760,14 @@ a:visited {
 
 .filters__list > .frontend-filter span {
   background: #fff;
-  color: #c19d3f;
+  color: #ffb900;
   padding: 0 0.3em;
   position: relative;
 }
 
 .filters__list > .frontend-filter:hover span {
   color: #fff;
-  background: #c19d3f;
+  background: #ffb900;
   padding: 0 0.3em;
   position: relative;
 }
@@ -853,7 +853,7 @@ a:visited {
 
 .reddit-card-inner {
 		position: relative;
-		background: #fff;
+		background: #fff !important;
 }
 
 .reddit-card::before {
@@ -883,7 +883,7 @@ a:visited {
 	transition: all 0.15s;
 	background: #fff;
 	text-align: left;
-	margin-bottom: 1rem;
+
 
 }
 
@@ -897,10 +897,13 @@ a:visited {
   max-width: 100%;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
+  transition: all 0.15s;
 }
 
-.reddit-card__post-title:hover {
-  color: #ccc;
+.reddit-card__post-title a:hover {
+  color: #000 !important;
+  -webkit-text-decoration-style: wavy;
+  text-decoration-style: wavy;
 }
 
 .reddit-card__thumbnail-wrapper {
@@ -949,6 +952,7 @@ a:visited {
 	padding: 1.5em 0;
 	color: #1a1a1a;
 	background: #fff;
+	border-top: solid 1px #ccc;
 }
 
 .bar {
@@ -1022,8 +1026,7 @@ a:visited {
 }
 
 .subreddit-css {
-			background: #ff4336;
-		color: #fff;
+		color: #ff4336;
 		display: inline-block;
 		text-align: center;
 		position: relative;
@@ -1081,8 +1084,7 @@ a:visited {
 }
 
 .subreddit-webdev {
-			background: #41afa5;
-		color: #fff;
+		color: #41afa5;
 		display: inline-block;
 		text-align: center;
 		position: relative;
@@ -1140,8 +1142,7 @@ a:visited {
 }
 
 .subreddit-web_design {
-			background: #00d8ff;
-		color: #fff;
+		color: #00d8ff;
 		display: inline-block;
 		margin: auto;
 		text-align: center;
@@ -1200,8 +1201,7 @@ a:visited {
 }
 
 .subreddit-jquery {
-			background: #15db95;
-		color: #fff;
+		color: #15db95;
 		display: inline-block;
 		margin: auto;
 		text-align: center;
@@ -1260,8 +1260,7 @@ a:visited {
 }
 
 .subreddit-javascript {
-			background: #ff004e;
-		color: #fff;
+			color: #ff004e;
 		display: inline-block;
 		text-align: center;
 		position: relative;
@@ -1308,19 +1307,19 @@ a:visited {
 -------------------------------*/
 
 .reddit-card-frontend {
-	border-bottom: solid 0px #c19d3f;
-	color: #c19d3f;
+	border-bottom: solid 0px #ffb900;
+	color: #ffb900;
 }
 
 .reddit-card-frontend .reddit-card-inner {
-		  background-image: -webkit-repeating-radial-gradient(center center, #c19d3f, #c19d3f 1px, transparent 1px, transparent 100%);
-  background-image: repeating-radial-gradient(center center, #c19d3f, #c19d3f 1px, transparent 1px, transparent 100%);
+		  background-image: -webkit-repeating-radial-gradient(center center, #ffb900, #ffb900 1px, transparent 1px, transparent 100%);
+  background-image: repeating-radial-gradient(center center, #ffb900, #ffb900 1px, transparent 1px, transparent 100%);
   background-size: 3px 3px;
 }
 
 .subreddit-frontend {
-			background: #c19d3f;
-		color: #fff;
+			background: ;
+		color: #ffb900;
 		display: inline-block;
 		text-align: center;
 		position: relative;
@@ -1328,10 +1327,10 @@ a:visited {
 }
 
 .dotted-bg-frontend {
-	color: #c19d3f;
+	color: #ffb900;
 
-	  background-image: -webkit-repeating-radial-gradient(center center, #c19d3f, #c19d3f 1px, transparent 1px, transparent 100%);
-  background-image: repeating-radial-gradient(center center, #c19d3f, #c19d3f 1px, transparent 1px, transparent 100%);
+	  background-image: -webkit-repeating-radial-gradient(center center, #ffb900, #ffb900 1px, transparent 1px, transparent 100%);
+  background-image: repeating-radial-gradient(center center, #ffb900, #ffb900 1px, transparent 1px, transparent 100%);
   background-size: 3px 3px;
 }
 
@@ -1344,7 +1343,7 @@ a:visited {
   bottom: 0;
   left: 0;
   right: 0;
-  background: #c19d3f;
+  background: #ffb900;
   mix-blend-mode: screen;
   transition: opacity 0.15s;
 }
@@ -1358,7 +1357,7 @@ a:visited {
   bottom: 0;
   left: 0;
   right: 0;
-  background: #c19d3f;
+  background: #ffb900;
   transition: opacity 0.15s;
 }
 
@@ -1378,8 +1377,7 @@ a:visited {
 }
 
 .subreddit-webdevtutorials {
-			background: #2b00f7;
-			color: #fff;
+		color: #2b00f7;
 		position: relative;
 		z-index: 500;
 }
@@ -1824,8 +1822,8 @@ body {
 	}
 
 	.header::after {
-		width: 90%;
-		left: 5vw;
+		width: 100%;
+		height: 0.5em;
 	}
 
 	.back-to-top {
