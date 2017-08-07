@@ -1,6 +1,6 @@
 /* Typography */
 
-$sansSerif: 'Karla', helvetica, arial, sans-serif;
+$sansSerif: 'Inconsolata', helvetica, arial, sans-serif;
 $serif: 'Tiempos Headline', georgia, serif;
 
 /* Colours */
@@ -12,10 +12,10 @@ $text_grey_dark: #302F2F;
 $text_grey_mid_one: rgb(141, 148, 149);
 $text_grey_mid_two: #ccc;
 
-$subreddit_colour_one: #ff4336;
+$subreddit_colour_one: #bf0d3e;
 $subreddit_colour_two: #41afa5;
 $subreddit_colour_three: #00d8ff;
 $subreddit_colour_four: #15db95;
-$subreddit_colour_five: #ff004e;
+$subreddit_colour_five: #ed6498;
 $subreddit_colour_six: #ffb900;
 $subreddit_colour_seven: #2b00f7;

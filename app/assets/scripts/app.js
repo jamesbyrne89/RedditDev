@@ -1,7 +1,38 @@
+
+/**
+ *  Initialise a store to hold the API data
+ */
+
+const dataStore = (function dataStore() {
+
+    let _data = {};
+
+    const _getData = function _getData() {
+        return _data;
+    }
+
+    const _updateData = function _updateData(input) {
+        _data = input;
+    }
+
+
+
+    return {
+        setData: _updateData,
+        getData: _getData
+    }
+
+})();
+
+
+
+
+
+
 /*
 Fetch all data from the Reddit server
  */
-const getData = function getData() {
+const init = function init() {
 
     // r/webdev
     const fetchWebDev = fetch("https://www.reddit.com/r/webdev.json?")
@@ -55,18 +86,18 @@ const getData = function getData() {
 
                 allPosts.push(post)
             });
-
+            console.log(combined)
             // Sort by date
 
             const sortedByDate = allPosts.sort(function(a, b) {
                 return b.created - a.created;
+
             });
-
-
-
+            dataStore.setData(sortedByDate);
+            console.log(dataStore.getData())
             updateView(sortedByDate)
         });
-
+        
 };
 
 
@@ -143,20 +174,22 @@ function getTimeAgo(timestamp) {
 /*
 Place into HTML
  */
-function updateView(sortedByDate) {
+function updateView(data) {
 
-    for (let i = 0; i < sortedByDate.length; i++) {
+const redditContent = document.getElementById('reddit-content');
 
+redditContent.innerHTML = '';
+
+    for (let i = 0; i < data.length; i++) {
         const endMark = document.getElementById('content-end-mark');
-        let time = getTimeAgo(sortedByDate[i].created_utc);
+        let time = getTimeAgo(data[i].created_utc);
         let thumbnail;
         let numCommentsText;
-        let cardsArr;
 
         // Check whether a thumbnail is available
-        if (sortedByDate[i].preview && sortedByDate[i].preview.images[0].resolutions && sortedByDate[i].preview.images[0].resolutions[2]) {
-            thumbnail = `<a href="${sortedByDate[i].url}" target="_blank">
-                        <div class="reddit-card__thumbnail-wrapper ${(sortedByDate[i].subreddit).toLowerCase()}-overlay"><img class="lazyload reddit-card__thumbnail" src="${sortedByDate[i].preview.images[0].resolutions[2].url}">
+        if (data[i].preview && data[i].preview.images[0].resolutions && data[i].preview.images[0].resolutions[2]) {
+            thumbnail = `<a href="${data[i].url}" target="_blank">
+                        <div class="reddit-card__thumbnail-wrapper ${(data[i].subreddit).toLowerCase()}-overlay"><img class="lazyload reddit-card__thumbnail" src="${data[i].preview.images[0].resolutions[2].url}">
                         </div>
                         </a>`;
         } else {
@@ -164,37 +197,36 @@ function updateView(sortedByDate) {
         }
         let card = document.createElement('div');
         card.className = 'reddit-card';
-        card.classList.add(`reddit-card-${(sortedByDate[i].subreddit).toLowerCase()}`);
-        card.setAttribute('data-sr', (sortedByDate[i].subreddit).toLowerCase())
+        card.classList.add(`reddit-card-${(data[i].subreddit).toLowerCase()}`);
+        card.setAttribute('data-sr', (data[i].subreddit).toLowerCase())
 
         // Remove the 's' if comment number is one
-        if (sortedByDate[i].num_comments === 1) {
-            numCommentsText = `${sortedByDate[i].num_comments} comment`;
+        if (data[i].num_comments === 1) {
+            numCommentsText = `${data[i].num_comments} comment`;
         } else {
-            numCommentsText = `${sortedByDate[i].num_comments} comments`
+            numCommentsText = `${data[i].num_comments} comments`
         }
-//
         let html = `<div class="reddit-card-inner">
-        <h3 class="reddit-card__subreddit subreddit-${(sortedByDate[i].subreddit).toLowerCase()}">r/${sortedByDate[i].subreddit}</h3>
+        <h3 class="reddit-card__subreddit subreddit-${(data[i].subreddit).toLowerCase()}">r/${data[i].subreddit}</h3>
                     
-                      <div class="reddit-card__post-title"><a href="${sortedByDate[i].url}" target="blank">
-                      ${sortedByDate[i].title}</a></div>
+                      <div class="reddit-card__post-title"><a href="${data[i].url}" target="blank">
+                      ${data[i].title}</a></div>
 
 
                       <div class="card-footer">
-                      <span class="short-url">${getHostname(sortedByDate[i].url)}</span><span class='bar'>|</span> 
+                      <span class="short-url">${getHostname(data[i].url)}</span><span class='bar'>|</span> 
                       <time class="timestamp">${time}</time></span><span class='bar'>|</span>
                         <span class="post-comments">
-                          <a href="http://reddit.com/${sortedByDate[i].permalink}" target="blank">
+                          <a href="http://reddit.com/${data[i].permalink}" target="blank">
                           ${numCommentsText}</a>
                         </span>     
                       </div></div>`
         card.innerHTML = html;
         $('#loading').hide();
         $('.reddit-content').hide().append(card).fadeIn(500);
-        endMark.style.display = 'block';
+      //  endMark.style.display = 'block';
+ 
     }
-
     checkVisible();
 
 }
@@ -225,6 +257,7 @@ function debounce(func, wait = 25, immediate = true) {
 // Check which cards are visible on scroll
 
 function checkVisible(e) {
+
     $('.reddit-card').each(function() {
 
         let scrollInAt;
@@ -261,7 +294,6 @@ function stickyHeader() {
 let previous = window.scrollY;
     window.addEventListener('scroll', function(){
         
-        console.log(previous)
         window.scrollY > previous ? console.log('down') : console.log('up');
         previous = window.scrollY;
     });
@@ -293,17 +325,6 @@ $('.filter-btn').on('click', toggleModal);
 $('.modal__close-btn').on('click', toggleModal);
 $('.filter-overlay').on('click', toggleModal);
 
-
-// (function view() {
-
-// const subreddits = function() {
-
-// }
-
-// return {
-//     currentSubReddits
-// }
-// })();
 
 
 // Check if no subreddits are selected then show a message
@@ -483,4 +504,33 @@ $('#back-to-top').on('click', function() {
 
 
 
-getData();
+init();
+
+
+function isSearched (searchTerm) {
+  return function(item) {
+    return !searchTerm || item.title.toLowerCase().includes(searchTerm.toLowerCase());
+  };
+};
+
+
+
+const search = document.getElementById('search');
+
+search.addEventListener('change', function(e) {
+   let filtered = dataStore.getData().filter(isSearched(e.target.value));
+    updateView(filtered);
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
