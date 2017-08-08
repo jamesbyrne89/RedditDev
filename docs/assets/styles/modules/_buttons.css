@@ -7,20 +7,14 @@
 	font-family: inherit;
 	position: relative;
 	font-weight: 600;
-	font-size: 0.75rem;
+	font-size: 1.5rem;
 	z-index: 400;
 	display: block;
 	align-items: center;
-	padding: 0.5em 0.875em 0.5em 1em;	
-	border: solid 1px $text_grey_dark;	
-	background: #fff;	
+	border: 0;
+	background: transparent;	
 	margin: 0.5em 0.25em;
-	width: 10em;
-	text-transform: uppercase;
 	letter-spacing: 0.08em;	
-	i {
-	padding-left: 1em;
-}
 }
 
 .btn:active {
@@ -28,9 +22,7 @@
 }
 
 .btn:hover {
-	background: $background_grey;
 	color: $text_grey_dark;
-	border: solid 1px $text_grey_dark;
 }
 
 .back-to-top {
@@ -58,6 +50,7 @@
   height: 0;
   bottom: 0;
   left: 0;
+  top: auto;
   z-index: -1;
   background: $background_grey;
   transition: all 0.3s ease;

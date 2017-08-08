@@ -127,7 +127,6 @@ filter: screen;
 	font-size: 0.75rem;
 	letter-spacing: 0.02em;
 	max-width: 100%;
-	padding: 0 0 1.5em 0;
 	color: $text_grey_mid_two;
 	background: #fff;
 }

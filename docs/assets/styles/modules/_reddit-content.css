@@ -39,7 +39,7 @@
 
 .reddit-card-inner {
 		position: relative;
-		background: #fff;
+		background: #fff !important;
 }
 
 .reddit-card::before {
@@ -55,23 +55,22 @@
 
 .reddit-card__subreddit {
 	font-family: $sansSerif;
-	padding: 0.15em 0.5em;
+	padding: 0.25em 0.5em;
 	margin-left: 0em;
 	display: inline-block;
 	font-weight: 700;
 	text-transform: uppercase;
 	font-size: 0.75rem;
-	background: #fff;
+	color: #fff;
 }
 
 
 .reddit-card__post-title {
-	padding: 2em 0 2em 0;
+	padding: 1.5em 0;
 	width: 100%;
 	transition: all 0.15s;
 	background: #fff;
 	text-align: left;
-	margin-bottom: 1rem;
 
 	a {
 		font-family: 'Tiempos Headline', georgia, serif;
@@ -82,11 +81,13 @@
 		line-height: 1.25;
 		max-width: 100%;
 		box-decoration-break: clone;		
+		transition: all 0.15s;
 	}
 
-	&:hover {
-		color: $text_grey_mid_two;
+	a:hover {
+		color: #000 !important;
 	}
+
 
 }
 
@@ -120,14 +121,13 @@ filter: screen;
 .card-footer {
 	font-weight: 400;
 	display: flex;
-	justify-content: flex-end;
+	justify-content: flex-start;
 	align-items: center;
 	flex-wrap: wrap;
 	font-size: 0.75rem;
 	letter-spacing: 0.02em;
 	max-width: 100%;
-	padding: 1.5em 0;
-	color: $nearBlack;
+	color: $text_grey_mid_two;
 	background: #fff;
 }
 
@@ -140,7 +140,7 @@ filter: screen;
 .short-url {
 	flex: 0 0 auto;
 	text-align: center;
-	padding: 0 0.75em;
+	padding: 0 0.75em 0 0;
 }
 
 
@@ -158,9 +158,9 @@ filter: screen;
 
 	a:hover {
 			color: $nearBlack !important;
-			padding-bottom: 0.25em;
+			padding-bottom: 0.125em;
 			border-bottom: solid 1px;
-			transition: all 0.15s;
+			transition: all 0.1s;
 		}
 
 }
@@ -205,9 +205,7 @@ filter: screen;
 }
 
 .subreddit-css {
-			background: $subreddit_colour_one;
-		color: #fff;
-		display: inline-block;
+		background: $subreddit_colour_one;
 		text-align: center;
 		position: relative;
 		z-index: 500;
@@ -275,9 +273,7 @@ filter: screen;
 }
 
 .subreddit-webdev {
-			background: $subreddit_colour_two;
-		color: #fff;
-		display: inline-block;
+		background: $subreddit_colour_two;
 		text-align: center;
 		position: relative;
 		z-index: 500;
@@ -344,10 +340,7 @@ filter: screen;
 }
 
 .subreddit-web_design {
-			background: $subreddit_colour_three;
-		color: #fff;
-		display: inline-block;
-		margin: auto;
+		background: $subreddit_colour_three;
 		text-align: center;
 		position: relative;
 		z-index: 500;
@@ -414,10 +407,7 @@ filter: screen;
 }
 
 .subreddit-jquery {
-			background: $subreddit_colour_four;
-		color: #fff;
-		display: inline-block;
-		margin: auto;
+		background: $subreddit_colour_four;
 		text-align: center;
 		position: relative;
 		z-index: 500;
@@ -485,9 +475,7 @@ filter: screen;
 }
 
 .subreddit-javascript {
-			background: $subreddit_colour_five;
-		color: #fff;
-		display: inline-block;
+		background: $subreddit_colour_five;
 		text-align: center;
 		position: relative;
 		z-index: 500;
@@ -554,9 +542,7 @@ filter: screen;
 }
 
 .subreddit-frontend {
-			background: $subreddit_colour_six;
-		color: #fff;
-		display: inline-block;
+		background: $subreddit_colour_six;
 		text-align: center;
 		position: relative;
 		z-index: 500;
@@ -624,8 +610,7 @@ filter: screen;
 }
 
 .subreddit-webdevtutorials {
-			background: $subreddit_colour_seven;
-			color: #fff;
+		background: $subreddit_colour_seven;
 		position: relative;
 		z-index: 500;
 }

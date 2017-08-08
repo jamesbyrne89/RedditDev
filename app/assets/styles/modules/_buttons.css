@@ -12,12 +12,9 @@
 	display: block;
 	align-items: center;
 	border: 0;
-	background: #fff;	
+	background: transparent;	
 	margin: 0.5em 0.25em;
 	letter-spacing: 0.08em;	
-	i {
-	padding-left: 1em;
-}
 }
 
 .btn:active {
@@ -53,6 +50,7 @@
   height: 0;
   bottom: 0;
   left: 0;
+  top: auto;
   z-index: -1;
   background: $background_grey;
   transition: all 0.3s ease;

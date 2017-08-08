@@ -84,7 +84,6 @@ const init = function init() {
 
                 allPosts.push(post)
             });
-            console.log(combined)
             // Sort by date
 
             const sortedByDate = allPosts.sort(function(a, b) {
@@ -178,12 +177,15 @@ const redditContent = document.getElementById('reddit-content');
 
 redditContent.innerHTML = '';
 
+const endMark = document.createElement('img');
+endMark.classList.add('content-end-mark');
+endMark.setAttribute('src', '../../../assets/images/reddit-icon-32x32.png');
     for (let i = 0; i < data.length; i++) {
-        const endMark = document.getElementById('content-end-mark');
+        
         let time = getTimeAgo(data[i].created_utc);
         let thumbnail;
         let numCommentsText;
-
+        let popular = '';
         // Check whether a thumbnail is available
         if (data[i].preview && data[i].preview.images[0].resolutions && data[i].preview.images[0].resolutions[2]) {
             thumbnail = `<a href="${data[i].url}" target="_blank">
@@ -192,6 +194,13 @@ redditContent.innerHTML = '';
                         </a>`;
         } else {
             thumbnail = "";
+        }
+
+        if (data[i].score > 100) {
+            popular = 'Popular';
+        }
+        else {
+            popular = '';
         }
         let card = document.createElement('div');
         card.className = 'reddit-card';
@@ -222,9 +231,12 @@ redditContent.innerHTML = '';
         card.innerHTML = html;
         $('#loading').hide();
         $('.reddit-content').hide().append(card).fadeIn(500);
-      //  endMark.style.display = 'block';
  
     }
+    $('.reddit-content').append(endMark);
+    endMark.style.display = 'block';
+
+    // Check that newly loaded cards are in view
     checkVisible();
 
 }
@@ -345,19 +357,15 @@ const visibleSubreddits = (function visibleSubreddits() {
     }
 
 const _updateVisible = function _updateVisible() {
-    console.log(_checkVisible())
     if (_checkVisible() === 0) {
-        console.log('none selected')
         $('.all-filter').removeClass('subreddit--selected')
         $('.all-filter').addClass('subreddit--deselected')
 
     } else if (_checkVisible() > 0  && _checkVisible() < 7) {
-        console.log('some selected')
         $('.all-filter').removeClass('subreddit--selected')
         $('.all-filter').addClass('subreddit--deselected')
         $('.empty-message').fadeOut('fast');
     } else {
-        console.log('all selected')
         $('.all-filter').removeClass('subreddit--deselected')
         $('.all-filter').addClass('subreddit--selected')
         $('.empty-message').fadeIn('fast');

@@ -2,10 +2,32 @@
 
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
+/**
+ *  Initialise a store to hold the API data
+ */
+
+var dataStore = function dataStore() {
+
+    var _data = {};
+
+    var _getData = function _getData() {
+        return _data;
+    };
+
+    var _updateData = function _updateData(input) {
+        _data = input;
+    };
+
+    return {
+        setData: _updateData,
+        getData: _getData
+    };
+}();
+
 /*
 Fetch all data from the Reddit server
  */
-var getData = function getData() {
+var init = function init() {
 
     // r/webdev
     var fetchWebDev = fetch("https://www.reddit.com/r/webdev.json?").then(function (resp) {
@@ -70,13 +92,13 @@ var getData = function getData() {
 
             allPosts.push(post);
         });
-
         // Sort by date
 
         var sortedByDate = allPosts.sort(function (a, b) {
             return b.created - a.created;
         });
-
+        dataStore.setData(sortedByDate);
+        console.log(dataStore.getData());
         updateView(sortedByDate);
     });
 };
@@ -152,41 +174,53 @@ function getTimeAgo(timestamp) {
 /*
 Place into HTML
  */
-function updateView(sortedByDate) {
+function updateView(data) {
 
-    for (var i = 0; i < sortedByDate.length; i++) {
+    var redditContent = document.getElementById('reddit-content');
 
-        var endMark = document.getElementById('content-end-mark');
-        var time = getTimeAgo(sortedByDate[i].created_utc);
+    redditContent.innerHTML = '';
+
+    var endMark = document.createElement('img');
+    endMark.classList.add('content-end-mark');
+    endMark.setAttribute('src', '../../../assets/images/reddit-icon-32x32.png');
+    for (var i = 0; i < data.length; i++) {
+
+        var time = getTimeAgo(data[i].created_utc);
         var thumbnail = void 0;
         var numCommentsText = void 0;
-        var cardsArr = void 0;
-
+        var popular = '';
         // Check whether a thumbnail is available
-        if (sortedByDate[i].preview && sortedByDate[i].preview.images[0].resolutions && sortedByDate[i].preview.images[0].resolutions[2]) {
-            thumbnail = "<a href=\"" + sortedByDate[i].url + "\" target=\"_blank\">\n                        <div class=\"reddit-card__thumbnail-wrapper " + sortedByDate[i].subreddit.toLowerCase() + "-overlay\"><img class=\"lazyload reddit-card__thumbnail\" src=\"" + sortedByDate[i].preview.images[0].resolutions[2].url + "\">\n                        </div>\n                        </a>";
+        if (data[i].preview && data[i].preview.images[0].resolutions && data[i].preview.images[0].resolutions[2]) {
+            thumbnail = "<a href=\"" + data[i].url + "\" target=\"_blank\">\n                        <div class=\"reddit-card__thumbnail-wrapper " + data[i].subreddit.toLowerCase() + "-overlay\"><img class=\"lazyload reddit-card__thumbnail\" src=\"" + data[i].preview.images[0].resolutions[2].url + "\">\n                        </div>\n                        </a>";
         } else {
             thumbnail = "";
         }
+
+        if (data[i].score > 100) {
+            popular = 'Popular';
+        } else {
+            popular = '';
+        }
         var card = document.createElement('div');
         card.className = 'reddit-card';
-        card.classList.add("reddit-card-" + sortedByDate[i].subreddit.toLowerCase());
-        card.setAttribute('data-sr', sortedByDate[i].subreddit.toLowerCase());
+        card.classList.add("reddit-card-" + data[i].subreddit.toLowerCase());
+        card.setAttribute('data-sr', data[i].subreddit.toLowerCase());
 
         // Remove the 's' if comment number is one
-        if (sortedByDate[i].num_comments === 1) {
-            numCommentsText = sortedByDate[i].num_comments + " comment";
+        if (data[i].num_comments === 1) {
+            numCommentsText = data[i].num_comments + " comment";
         } else {
-            numCommentsText = sortedByDate[i].num_comments + " comments";
+            numCommentsText = data[i].num_comments + " comments";
         }
-        //
-        var html = "<div class=\"reddit-card-inner\">\n        <h3 class=\"reddit-card__subreddit subreddit-" + sortedByDate[i].subreddit.toLowerCase() + "\">r/" + sortedByDate[i].subreddit + "</h3>\n                    \n                      <div class=\"reddit-card__post-title\"><a href=\"" + sortedByDate[i].url + "\" target=\"blank\">\n                      " + sortedByDate[i].title + "</a></div>\n\n\n                      <div class=\"card-footer\">\n                      <span class=\"short-url\">" + getHostname(sortedByDate[i].url) + "</span><span class='bar'>|</span> \n                      <time class=\"timestamp\">" + time + "</time></span><span class='bar'>|</span>\n                        <span class=\"post-comments\">\n                          <a href=\"http://reddit.com/" + sortedByDate[i].permalink + "\" target=\"blank\">\n                          " + numCommentsText + "</a>\n                        </span>     \n                      </div></div>";
+        var html = "<div class=\"reddit-card-inner\">\n        <h3 class=\"reddit-card__subreddit subreddit-" + data[i].subreddit.toLowerCase() + "\">r/" + data[i].subreddit + "</h3>\n                    \n                      <div class=\"reddit-card__post-title\"><a href=\"" + data[i].url + "\" target=\"blank\">\n                      " + data[i].title + "</a></div>\n\n\n                      <div class=\"card-footer\">\n                      <span class=\"short-url\">" + getHostname(data[i].url) + "</span><span class='bar'>|</span> \n                      <time class=\"timestamp\">" + time + "</time></span><span class='bar'>|</span>\n                        <span class=\"post-comments\">\n                          <a href=\"http://reddit.com/" + data[i].permalink + "\" target=\"blank\">\n                          " + numCommentsText + "</a>\n                        </span>     \n                      </div></div>";
         card.innerHTML = html;
         $('#loading').hide();
         $('.reddit-content').hide().append(card).fadeIn(500);
-        endMark.style.display = 'block';
     }
+    $('.reddit-content').append(endMark);
+    endMark.style.display = 'block';
 
+    // Check that newly loaded cards are in view
     checkVisible();
 }
 
@@ -215,6 +249,7 @@ function debounce(func) {
 // Check which cards are visible on scroll
 
 function checkVisible(e) {
+
     $('.reddit-card').each(function () {
 
         var scrollInAt = void 0;
@@ -238,22 +273,22 @@ function checkVisible(e) {
 }
 
 function stickyHeader() {
-    if (window.scrollY > 180) {
-        $('.header').addClass('is-sticky');
-    } else {
-        $('.header').removeClass('is-sticky');
-    }
-};
-
-(function scrollDirection() {
     var previous = window.scrollY;
     window.addEventListener('scroll', function () {
-
-        console.log(previous);
-        window.scrollY > previous ? console.log('down') : console.log('up');
-        previous = window.scrollY;
+        if (window.scrollY > 180 && window.scrollY > previous) {
+            $('.header').removeClass('is-sticky');
+            previous = window.scrollY;
+        } else if (window.scrollY > 180 && window.scrollY < previous) {
+            $('.header').addClass('is-sticky');
+            previous = window.scrollY;
+        } else if (window.scrollY < 180) {
+            $('.header').removeClass('is-sticky');
+            previous = window.scrollY;
+        } else {
+            return;
+        }
     });
-})();
+};
 
 window.addEventListener('scroll', checkVisible);
 window.addEventListener('scroll', stickyHeader);
@@ -277,18 +312,6 @@ $('.filter-btn').on('click', toggleModal);
 $('.modal__close-btn').on('click', toggleModal);
 $('.filter-overlay').on('click', toggleModal);
 
-// (function view() {
-
-// const subreddits = function() {
-
-// }
-
-// return {
-//     currentSubReddits
-// }
-// })();
-
-
 // Check if no subreddits are selected then show a message
 var visibleSubreddits = function visibleSubreddits() {
 
@@ -304,18 +327,14 @@ var visibleSubreddits = function visibleSubreddits() {
     };
 
     var _updateVisible = function _updateVisible() {
-        console.log(_checkVisible());
         if (_checkVisible() === 0) {
-            console.log('none selected');
             $('.all-filter').removeClass('subreddit--selected');
             $('.all-filter').addClass('subreddit--deselected');
         } else if (_checkVisible() > 0 && _checkVisible() < 7) {
-            console.log('some selected');
             $('.all-filter').removeClass('subreddit--selected');
             $('.all-filter').addClass('subreddit--deselected');
             $('.empty-message').fadeOut('fast');
         } else {
-            console.log('all selected');
             $('.all-filter').removeClass('subreddit--deselected');
             $('.all-filter').addClass('subreddit--selected');
             $('.empty-message').fadeIn('fast');
@@ -453,4 +472,34 @@ $('#back-to-top').on('click', function () {
     window.scrollTo(0, 0);
 });
 
-getData();
+init();
+
+function isSearched(searchTerm) {
+    return function (item) {
+        return !searchTerm || item.title.toLowerCase().includes(searchTerm.toLowerCase());
+    };
+};
+
+var search = document.getElementById('search');
+
+search.addEventListener('change', function (e) {
+    var filtered = dataStore.getData().filter(isSearched(e.target.value));
+    updateView(filtered);
+});
+
+$('.search-btn').on('click', function () {
+    $('.search-wrapper').addClass('search-wrapper--opened');
+    $('.search__close-btn').fadeIn('fast');
+    $('.search').addClass('search--opened');
+    document.getElementById('search').focus();
+});
+
+$('.search__close-btn').on('click', function () {
+    $('.search-wrapper').removeClass('search-wrapper--opened');
+    $('.search__close-btn').fadeOut('fast');
+    $('.search').removeClass('search--opened');
+});
+
+document.body.addEventListener('mousemove', function () {
+    document.body.classList.add('mouse-user');
+});

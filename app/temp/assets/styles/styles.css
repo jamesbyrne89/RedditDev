@@ -81,7 +81,7 @@ a:visited {
 	        justify-content: center;
 	width: 100%;
 	height: 140px;
-	background: #fff;
+	background: transparent;
 }
 
 .nav-container {
@@ -98,6 +98,7 @@ a:visited {
 	width: 85vw;
 	height: auto;
 	margin: 0 auto;
+	border-bottom: solid 2px #1a1a1a;
 }
 
 .header__title {
@@ -162,9 +163,12 @@ a:visited {
 }
 
 .is-sticky .btn {
-	border: solid 1px #fff;
 	color: #fff;
 	background: #1a1a1a;
+}
+
+.is-sticky .btn:hover {
+	color: #fff;
 }
 
 .header__btn-wrapper {
@@ -180,8 +184,8 @@ a:visited {
 
 .scrolled-bar {
 	height: 0.5em;
-	position: relative;
-	top: 0.5em;
+	position: fixed;
+	bottom: 0;
 	left: 0;
 	z-index: 300;
 	display: block;
@@ -191,112 +195,13 @@ a:visited {
 
 .scrolled-bar__progress {
 	display: block;
-	height: 4px;
+	height: 0.5em;
 	position: relative;
 	top: 0;
 	left: 0;
 	z-index: 410;
 	width: 0;
 	background: #1a1a1a;
-}
-
-.is-sticky .scrolled-bar__progress {
-	background:#eceef1;
-}
-
-.is-sticky .scrolled-bar {
-	background: transparent;
-}
-
-.search {
-	width: 0;
-	border: 0;
-	height: 2em;
-	font-size: 1.5rem;
-	background: transparent;
-	border-bottom: solid 1px #1a1a1a;
-	transition: all 0.3s;
-}
-
-.search--opened {
-	width: 500px;
-	transition: all 0.15s;
-}
-
-.search-wrapper {
-	display: none;
-}
-
-.search-wrapper--opened {
-	position: absolute;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-align: center;
-	    -ms-flex-align: center;
-	        align-items: center;
-	-webkit-box-pack: start;
-	    -ms-flex-pack: start;
-	        justify-content: flex-start;
-	height: 140px;
-	z-index: 500;
-	top: 0;
-	left: 0;
-	width: 100%;
-	background: #fff;
-	padding: 1em 7.5vw;
-}
-
-.search__close-btn {
-	display: none;
-	font-size: 1rem;
-	background: transparent;
-	border: 0;
-	margin-left: 1em;
-}
-
-.search-icon {
-	height: 1.1em;
-	padding-left: 1em;
-	width: auto;
-	fill: #1a1a1a;
-}
-
-.search-btn:hover .search-icon {
-	fill: ;
-}
-
-.search-btn:hover .search-icon {
-	fill: #1a1a1a;
-}
-
-.is-sticky .search-icon {
-	fill: #fff;
-}
-
-.is-sticky .search-btn:hover .search-icon {
-	fill: #1a1a1a;
-}
-
-::-webkit-input-placeholder {
-	color: #eceef1;
-	font-size: 1rem;
-	font-weight: 300;
-
-}
-
-:-ms-input-placeholder {
-	color: #eceef1;
-	font-size: 1rem;
-	font-weight: 300;
-
-}
-
-::placeholder {
-	color: #eceef1;
-	font-size: 1rem;
-	font-weight: 300;
-
 }
 
 /* Fonts */
@@ -949,7 +854,6 @@ a:visited {
 	font-size: 0.75rem;
 	letter-spacing: 0.02em;
 	max-width: 100%;
-	padding: 0 0 1.5em 0;
 	color: #ccc;
 	background: #fff;
 }
@@ -1423,13 +1327,9 @@ a:visited {
 	    -ms-flex-align: center;
 	        align-items: center;
 	border: 0;
-	background: #fff;	
+	background: transparent;	
 	margin: 0.5em 0.25em;
-	letter-spacing: 0.08em;
-}
-
-.btn i {
-  padding-left: 1em;
+	letter-spacing: 0.08em;	
 }
 
 .btn:active {
@@ -1465,6 +1365,7 @@ a:visited {
   height: 0;
   bottom: 0;
   left: 0;
+  top: auto;
   z-index: -1;
   background: #eceef1;
   transition: all 0.3s ease;
@@ -1574,6 +1475,82 @@ a:visited {
 	display: block;
 	font-size: 0.875rem;
 	width: 250px;
+}
+
+/*-------------------------------
+# Search Bar
+-------------------------------*/
+
+.search {
+	width: 0;
+	border: 0;
+	height: 2em;
+	font-size: 1.5rem;
+	background: transparent;
+	border-bottom: solid 1px #1a1a1a;
+	transition: all 0.3s ease-in-out;
+}
+
+.search-wrapper--opened {
+	width: 500px;
+	transition: all 0.15s ease-in-out;
+}
+
+.search--opened {
+	width: 50%;
+}
+
+.search-wrapper {
+	display: none;
+}
+
+.search-wrapper--opened {
+	position: absolute;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	-webkit-box-pack: start;
+	    -ms-flex-pack: start;
+	        justify-content: flex-start;
+	height: 140px;
+	z-index: 500;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background: #fff;
+	padding: 1em 7.5vw;
+}
+
+.search__close-btn {
+	display: none;
+	font-size: 1rem;
+	background: transparent;
+	border: 0;
+	margin-left: 1em;
+}
+
+::-webkit-input-placeholder {
+	color: #eceef1;
+	font-size: 1rem;
+	font-weight: 300;
+
+}
+
+:-ms-input-placeholder {
+	color: #eceef1;
+	font-size: 1rem;
+	font-weight: 300;
+
+}
+
+::placeholder {
+	color: #eceef1;
+	font-size: 1rem;
+	font-weight: 300;
+
 }
 
 html {
@@ -1766,7 +1743,7 @@ body {
 	.filters__list {
 
 		text-align: left;
-		margin-top: 0.5em;
+		margin-top: 1.5em;
 	}
 
 	.filters {
@@ -1783,12 +1760,20 @@ body {
 		margin: 1em 0.25em;
 	}
 
+	.header__title {
+		font-size: 2.25rem;
+	}
+
 	.header__title-wrapper {
 		margin-right: 0;
 	}
 
 	.reddit-content {
 		width: 90vw;
+	}
+
+	.nav-container {
+		width: 90%;
 	}
 
 	.shift-down {
@@ -1798,6 +1783,7 @@ body {
 
 	.header__description {
 		font-size: 0.875rem;
+		line-height: 1;
 	}
 
 	.header {
@@ -1838,7 +1824,7 @@ body {
 		padding: 0;
 	}
 
-	.is-sticky .nav-container {
+	.nav-container, .is-sticky .nav-container {
 		width: 95%;
 		padding: 0;
 		-webkit-box-align: center;
@@ -1858,11 +1844,32 @@ body {
 		    -ms-flex-direction: column;
 		        flex-direction: column;
 		padding-bottom: 0.05em;
-		display: none;
+		-webkit-box-ordinal-group: 2;
+		    -ms-flex-order: 1;
+		        order: 1;
+	}
+
+	.search-wrapper {
+		height: 100px;
+		top: 50px;
+		padding: 0 2.5vw;
+	}
+
+	.search--opened {
+		width: 85%;
+		position: relative;
+	}
+
+	.search__close-btn {
+		width: 10%;
+	}
+
+	.header__title-wrapper {
+		width: 70%;
 	}
 
 	.btn {
-		margin: 0.125em 0;
+		margin:  0;
 	}
 
 	.header__description {
@@ -1871,21 +1878,24 @@ body {
 
 	.header__title, .is-sticky .header__title {
 		font-size: 10vw;
-		padding: 0.25em 0 0 0;
+		padding: 0;
 		line-height: 1.5;
 	}
 
 	.modal {
 		top: 8vh;
-		right: 5vw;
+		right: 7.55vw;
 		max-width: 85vw;
 		padding: 1em 0.5em;
 		max-height: 85vh;
 	}
 
 	.modal__close-btn {
-		right: 0.5em;
-		top: 0.5em;
+		right: 1em;
+		top: 0.75em;
+	}
+	.modal__close-btn .fa {
+		font-size: 1.5rem;
 	}
 
 	.reddit-content {
@@ -1931,14 +1941,20 @@ body {
 	}
 
 	.btn {
-		font-size: 0.675rem;
-		padding: 0.5em 0.25em;
-		width: 9em;
+		font-size: 1.5rem;
+	}
+
+
+
+	.search-btn {
+		height: 2rem;
 	}
 
 	.view-btn {
 		display: none;
 	}
+
+
 
 }
 

@@ -114,10 +114,10 @@
 
 	&:hover {
 		transition: all 0.15s;
-		border: dotted 1px $text_grey_dark;
+		border: solid 1px $text_grey_dark;
 	}
 	&:hover i {
-		border-left: dotted 1px $text_grey_dark !important;
+		border-left: solid 1px $text_grey_dark !important;
 	}
 
 }
@@ -186,18 +186,7 @@
 .filters__list > .css-filter {
 	color: $subreddit_colour_one;
 	background: $subreddit_colour_one;
-	border-left: solid 4px $subreddit_colour_one;
 
-	&::before {
-		transition: all 0.15s;
-		background-image: -webkit-repeating-radial-gradient(center center, $subreddit_colour_one, $subreddit_colour_one 1px, transparent 1px, transparent 100%);
-		background-image: -moz-repeating-radial-gradient(center center, $subreddit_colour_one, $subreddit_colour_one 1px, transparent 1px, transparent 100%);
-		background-image: -ms-repeating-radial-gradient(center center, $subreddit_colour_one, $subreddit_colour_one 1px, transparent 1px, transparent 100%);
-		background-image: repeating-radial-gradient(center center, $subreddit_colour_one, $subreddit_colour_one 1px, transparent 1px, transparent 100%);
-		-webkit-background-size: 3px 3px;
-		-moz-background-size: 3px 3px;
-		background-size: 3px 3px;
-	}
 
 	&:hover {
 		background: $subreddit_colour_one !important;
@@ -208,7 +197,6 @@
 	}
 
 	span {
-		background: #fff;
 		color: $subreddit_colour_one;
 		padding: 0 0.3em;
 		position: relative;
@@ -216,7 +204,6 @@
 
 	&:hover span {
 		color: #fff;
-		background: $subreddit_colour_one;
 		padding: 0 0.3em;
 		position: relative;
 	}
@@ -227,18 +214,6 @@
 .filters__list > .webdev-filter {
 	color: $subreddit_colour_two;
 	background: $subreddit_colour_two;
-	border-left: solid 4px $subreddit_colour_two;
-
-	&::before {
-		transition: all 0.15s;
-		background-image: -webkit-repeating-radial-gradient(center center, $subreddit_colour_two, $subreddit_colour_two 1px, transparent 1px, transparent 100%);
-		background-image: -moz-repeating-radial-gradient(center center, $subreddit_colour_two, $subreddit_colour_two 1px, transparent 1px, transparent 100%);
-		background-image: -ms-repeating-radial-gradient(center center, $subreddit_colour_two, $subreddit_colour_two 1px, transparent 1px, transparent 100%);
-		background-image: repeating-radial-gradient(center center, $subreddit_colour_two, $subreddit_colour_two 1px, transparent 1px, transparent 100%);
-		-webkit-background-size: 3px 3px;
-		-moz-background-size: 3px 3px;
-		background-size: 3px 3px;
-	}
 
 	&:hover {
 		background: $subreddit_colour_two !important;
@@ -249,7 +224,6 @@
 	}
 
 	span {
-		background: #fff;
 		color: $subreddit_colour_two;
 		padding: 0 0.3em;
 		position: relative;
@@ -257,7 +231,6 @@
 
 	&:hover span {
 		color: #fff;
-		background: $subreddit_colour_two;
 		padding: 0 0.3em;
 		position: relative;
 	}
@@ -267,18 +240,7 @@
 .filters__list > .web_design-filter {
 	color: $subreddit_colour_three;
 	background: $subreddit_colour_three;
-	border-left: solid 4px $subreddit_colour_three;
 
-	&::before {
-		transition: all 0.15s;
-		background-image: -webkit-repeating-radial-gradient(center center, $subreddit_colour_three, $subreddit_colour_three 1px, transparent 1px, transparent 100%);
-		background-image: -moz-repeating-radial-gradient(center center, $subreddit_colour_three, $subreddit_colour_three 1px, transparent 1px, transparent 100%);
-		background-image: -ms-repeating-radial-gradient(center center, $subreddit_colour_three, $subreddit_colour_three 1px, transparent 1px, transparent 100%);
-		background-image: repeating-radial-gradient(center center, $subreddit_colour_three, $subreddit_colour_three 1px, transparent 1px, transparent 100%);
-		-webkit-background-size: 3px 3px;
-		-moz-background-size: 3px 3px;
-		background-size: 3px 3px;
-	}
 
 	&:hover {
 		background: $subreddit_colour_three !important;
@@ -289,7 +251,6 @@
 	}
 
 	span {
-		background: #fff;
 		color: $subreddit_colour_three;
 		padding: 0 0.3em;
 		position: relative;
@@ -297,7 +258,6 @@
 
 	&:hover span {
 		color: #fff;
-		background: $subreddit_colour_three;
 		padding: 0 0.3em;
 		position: relative;
 	}
@@ -307,18 +267,7 @@
 .filters__list > .jquery-filter {
 	color: $subreddit_colour_four;
 	background: $subreddit_colour_four;
-	border-left: solid 4px $subreddit_colour_four;
 
-	&::before {
-		transition: all 0.15s;
-		background-image: -webkit-repeating-radial-gradient(center center, $subreddit_colour_four, $subreddit_colour_four 1px, transparent 1px, transparent 100%);
-		background-image: -moz-repeating-radial-gradient(center center, $subreddit_colour_four, $subreddit_colour_four 1px, transparent 1px, transparent 100%);
-		background-image: -ms-repeating-radial-gradient(center center, $subreddit_colour_four, $subreddit_colour_four 1px, transparent 1px, transparent 100%);
-		background-image: repeating-radial-gradient(center center, $subreddit_colour_four, $subreddit_colour_four 1px, transparent 1px, transparent 100%);
-		-webkit-background-size: 3px 3px;
-		-moz-background-size: 3px 3px;
-		background-size: 3px 3px;
-	}
 
 	&:hover {
 		background: $subreddit_colour_four !important;
@@ -329,7 +278,6 @@
 	}
 
 	span {
-		background: #fff;
 		color: $subreddit_colour_four;
 		padding: 0 0.3em;
 		position: relative;
@@ -347,18 +295,7 @@
 .filters__list > .javascript-filter {
 	color: $subreddit_colour_five;
 	background: $subreddit_colour_five;
-	border-left: solid 4px $subreddit_colour_five;
 
-	&::before {
-		transition: all 0.15s;
-		background-image: -webkit-repeating-radial-gradient(center center, $subreddit_colour_five, $subreddit_colour_five 1px, transparent 1px, transparent 100%);
-		background-image: -moz-repeating-radial-gradient(center center, $subreddit_colour_five, $subreddit_colour_five 1px, transparent 1px, transparent 100%);
-		background-image: -ms-repeating-radial-gradient(center center, $subreddit_colour_five, $subreddit_colour_five 1px, transparent 1px, transparent 100%);
-		background-image: repeating-radial-gradient(center center, $subreddit_colour_five, $subreddit_colour_five 1px, transparent 1px, transparent 100%);
-		-webkit-background-size: 3px 3px;
-		-moz-background-size: 3px 3px;
-		background-size: 3px 3px;
-	}
 
 	&:hover {
 		background: $subreddit_colour_five !important;
@@ -369,7 +306,6 @@
 	}
 
 	span {
-		background: #fff;
 		color: $subreddit_colour_five;
 		padding: 0 0.3em;
 		position: relative;
@@ -377,7 +313,6 @@
 
 	&:hover span {
 		color: #fff;
-		background: $subreddit_colour_five;
 		padding: 0 0.3em;
 		position: relative;
 	}
@@ -387,18 +322,7 @@
 .filters__list > .frontend-filter {
 	color: $subreddit_colour_six;
 	background: $subreddit_colour_six;
-	border-left: solid 4px $subreddit_colour_six;
 
-	&::before {
-		transition: all 0.15s;
-		background-image: -webkit-repeating-radial-gradient(center center, $subreddit_colour_six, $subreddit_colour_six 1px, transparent 1px, transparent 100%);
-		background-image: -moz-repeating-radial-gradient(center center, $subreddit_colour_six, $subreddit_colour_six 1px, transparent 1px, transparent 100%);
-		background-image: -ms-repeating-radial-gradient(center center, $subreddit_colour_six, $subreddit_colour_six 1px, transparent 1px, transparent 100%);
-		background-image: repeating-radial-gradient(center center, $subreddit_colour_six, $subreddit_colour_six 1px, transparent 1px, transparent 100%);
-		-webkit-background-size: 3px 3px;
-		-moz-background-size: 3px 3px;
-		background-size: 3px 3px;
-	}
 
 	&:hover {
 		background: $subreddit_colour_six !important;
@@ -409,7 +333,6 @@
 	}
 
 	span {
-		background: #fff;
 		color: $subreddit_colour_six;
 		padding: 0 0.3em;
 		position: relative;
@@ -417,7 +340,6 @@
 
 	&:hover span {
 		color: #fff;
-		background: $subreddit_colour_six;
 		padding: 0 0.3em;
 		position: relative;
 	}
@@ -427,18 +349,7 @@
 .filters__list > .webdevtutorials-filter {
 	color: $subreddit_colour_seven;
 	background: $subreddit_colour_seven;
-	border-left: solid 4px $subreddit_colour_seven;
 
-	&::before {
-		transition: all 0.15s;
-		background-image: -webkit-repeating-radial-gradient(center center, $subreddit_colour_seven, $subreddit_colour_seven 1px, transparent 1px, transparent 100%);
-		background-image: -moz-repeating-radial-gradient(center center, $subreddit_colour_seven, $subreddit_colour_seven 1px, transparent 1px, transparent 100%);
-		background-image: -ms-repeating-radial-gradient(center center, $subreddit_colour_seven, $subreddit_colour_seven 1px, transparent 1px, transparent 100%);
-		background-image: repeating-radial-gradient(center center, $subreddit_colour_seven, $subreddit_colour_seven 1px, transparent 1px, transparent 100%);
-		-webkit-background-size: 3px 3px;
-		-moz-background-size: 3px 3px;
-		background-size: 3px 3px;
-	}
 
 	&:hover {
 		background: $subreddit_colour_seven !important;
@@ -449,7 +360,6 @@
 	}
 
 	span {
-		background: #fff;
 		color: $subreddit_colour_seven;
 		padding: 0 0.3em;
 		position: relative;
@@ -457,7 +367,6 @@
 
 	&:hover span {
 		color: #fff;
-		background: $subreddit_colour_seven;
 		padding: 0 0.3em;
 		position: relative;
 	}
