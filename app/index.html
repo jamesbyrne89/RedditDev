@@ -27,14 +27,14 @@
              
                 </div>  
                 <div class="header__title-wrapper">
-                    <h1 class="header__title">redditDev</h1>
+                    <a href='/'><h1 class="header__title">redditDev</h1></a>
                     <h2 class='header__description'>The best of frontend web development on Reddit</h2>
                 </div>
             <!-- Search Box -->
-            <form class='search-wrapper'>
+            <div class='search-wrapper'>
             	<input id='search' class='search' type="search" placeholder="What are you looking for?">
             	<button type='button' class="search__close-btn" ><i class="fa fa-times fa-2x" aria-hidden="true"></i></button>
-            </form>	
+            </div>	
             	
 
             <button class="btn filter-btn"><i class="icon-filter"></i></button>
@@ -63,6 +63,7 @@
         </div> 
         <aside class='info'>Created in London by <a href='http://jamestbyrne.com'>James Byrne</a></aside>
         <!-- Main content -->  
+        <div id='search-term' class='search-term'></div>
         <main id="reddit-content" class="reddit-content">
             <div id='loading' class="spinner spinner-circle"></div>
             <div id='empty-message' class='empty-message'>

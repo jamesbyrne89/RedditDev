@@ -179,7 +179,7 @@ function updateView(data) {
     var redditContent = document.getElementById('reddit-content');
 
     redditContent.innerHTML = '';
-
+    $('#search-term').fadeOut('fast');
     var endMark = document.createElement('img');
     endMark.classList.add('content-end-mark');
     endMark.setAttribute('src', '../../../assets/images/reddit-icon-32x32.png');
@@ -482,12 +482,8 @@ function isSearched(searchTerm) {
 
 var search = document.getElementById('search');
 
-search.addEventListener('change', function (e) {
-    var filtered = dataStore.getData().filter(isSearched(e.target.value));
-    updateView(filtered);
-});
-
 $('.search-btn').on('click', function () {
+
     $('.search-wrapper').addClass('search-wrapper--opened');
     $('.search__close-btn').fadeIn('fast');
     $('.search').addClass('search--opened');
@@ -495,6 +491,7 @@ $('.search-btn').on('click', function () {
 });
 
 $('.search__close-btn').on('click', function () {
+    search.value = '';
     $('.search-wrapper').removeClass('search-wrapper--opened');
     $('.search__close-btn').fadeOut('fast');
     $('.search').removeClass('search--opened');
@@ -502,4 +499,22 @@ $('.search__close-btn').on('click', function () {
 
 document.body.addEventListener('mousemove', function () {
     document.body.classList.add('mouse-user');
+});
+
+search.addEventListener('change', function (e) {
+    var filtered = void 0;
+    if (e.target.value.length > 0 && typeof e.target.value === 'string') {
+        filtered = dataStore.getData().filter(isSearched(e.target.value));
+    }
+    if (filtered.length > 0) {
+        updateView(filtered);
+        var searchMessage = document.getElementById('search-term');
+
+        searchMessage.innerHTML = "Results for \"" + e.target.value + "\":\n    <div class='wrapper'>\n    <div id='clear-search' class='clear-search'>Clear search</div>\n    </div";
+        var clearSearch = document.getElementById('clear-search');
+        $('#search-term').fadeIn('fast');
+        clearSearch.addEventListener('click', function () {
+            init();
+        });
+    }
 });

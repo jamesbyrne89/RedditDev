@@ -55,3 +55,43 @@
 	font-weight: 300;
 
 }
+
+.search-term {
+    font-family: $serif;
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-bottom: 1em;
+    display: none;
+    padding: 2em 0;
+    width: 85%;
+    margin: auto;
+    position: relative;
+    top: 150px;
+
+}
+
+.search-term .wrapper {
+	display: flex;
+	justify-content: flex-start;
+}
+
+.clear-search {
+	font-family: $sansSerif;
+	font-size: 1rem;
+	color: $text_grey_mid_two;
+	margin-top: 2em;
+	cursor: pointer;
+	display: inline-block;
+	border-bottom: solid 2px transparent;
+	transition: all 0.15s;
+}
+
+.clear-search:hover {
+	border-bottom: solid 2px $text_grey_dark;
+	color: $text_grey_dark;
+}
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration { display: none; }

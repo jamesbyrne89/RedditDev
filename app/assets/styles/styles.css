@@ -370,10 +370,8 @@ body {
 		font-size: 1.5rem;
 	}
 
-
-
-	.search-btn {
-		height: 2rem;
+	.search-btn, .filter-btn {
+		font-size: 1.25rem;
 	}
 
 	.view-btn {
@@ -385,8 +383,8 @@ body {
 }
 
 @media (max-width:425px) {
-	.sidebar {
-		min-height: 150px;
+	.reddit-content {
+		margin-top: 0;
 	}
 
 	.header__description {
