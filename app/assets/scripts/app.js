@@ -27,8 +27,6 @@ const dataStore = (function dataStore() {
 
 
 
-
-
 /*
 Fetch all data from the Reddit server
  */
@@ -281,23 +279,28 @@ function checkVisible(e) {
 }
 
 
+
+
 function stickyHeader() {
-    if (window.scrollY > 180) {
-        $('.header').addClass('is-sticky');
-    } else {
-        $('.header').removeClass('is-sticky');
-    }
-};
-
-
-(function scrollDirection() {
 let previous = window.scrollY;
     window.addEventListener('scroll', function(){
-        
-        window.scrollY > previous ? console.log('down') : console.log('up');
+        if (window.scrollY > 180 && window.scrollY > previous) {
+        $('.header').removeClass('is-sticky');
         previous = window.scrollY;
+        } 
+        else if (window.scrollY > 180 && window.scrollY < previous) {
+            $('.header').addClass('is-sticky');
+            previous = window.scrollY;
+        }
+        else if (window.scrollY < 180) {
+            $('.header').removeClass('is-sticky');
+            previous = window.scrollY;
+        }        
+        else {
+           return;
+        }
     });
-})();
+};
 
 
 
@@ -522,6 +525,24 @@ search.addEventListener('change', function(e) {
     updateView(filtered);
 })
 
+
+$('.search-btn').on('click', function() {
+    $('.search-wrapper').addClass('search-wrapper--opened');
+    $('.search__close-btn').fadeIn('fast');
+    $('.search').addClass('search--opened');
+    document.getElementById('search').focus();
+});
+
+$('.search__close-btn').on('click', function() {
+    $('.search-wrapper').removeClass('search-wrapper--opened');
+    $('.search__close-btn').fadeOut('fast');
+    $('.search').removeClass('search--opened');
+});
+
+
+document.body.addEventListener('mousemove', function() {
+    document.body.classList.add('mouse-user')
+})
 
 
 

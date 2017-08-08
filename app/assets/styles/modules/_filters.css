@@ -186,7 +186,6 @@
 .filters__list > .css-filter {
 	color: $subreddit_colour_one;
 	background: $subreddit_colour_one;
-	border-left: solid 4px $subreddit_colour_one;
 
 
 	&:hover {
@@ -205,7 +204,6 @@
 
 	&:hover span {
 		color: #fff;
-		background: $subreddit_colour_one;
 		padding: 0 0.3em;
 		position: relative;
 	}
@@ -216,7 +214,6 @@
 .filters__list > .webdev-filter {
 	color: $subreddit_colour_two;
 	background: $subreddit_colour_two;
-	border-left: solid 4px $subreddit_colour_two;
 
 	&:hover {
 		background: $subreddit_colour_two !important;
@@ -234,7 +231,6 @@
 
 	&:hover span {
 		color: #fff;
-		background: $subreddit_colour_two;
 		padding: 0 0.3em;
 		position: relative;
 	}
@@ -244,7 +240,6 @@
 .filters__list > .web_design-filter {
 	color: $subreddit_colour_three;
 	background: $subreddit_colour_three;
-	border-left: solid 4px $subreddit_colour_three;
 
 
 	&:hover {
@@ -263,7 +258,6 @@
 
 	&:hover span {
 		color: #fff;
-		background: $subreddit_colour_three;
 		padding: 0 0.3em;
 		position: relative;
 	}
@@ -273,7 +267,6 @@
 .filters__list > .jquery-filter {
 	color: $subreddit_colour_four;
 	background: $subreddit_colour_four;
-	border-left: solid 4px $subreddit_colour_four;
 
 
 	&:hover {
@@ -302,7 +295,6 @@
 .filters__list > .javascript-filter {
 	color: $subreddit_colour_five;
 	background: $subreddit_colour_five;
-	border-left: solid 4px $subreddit_colour_five;
 
 
 	&:hover {
@@ -321,7 +313,6 @@
 
 	&:hover span {
 		color: #fff;
-		background: $subreddit_colour_five;
 		padding: 0 0.3em;
 		position: relative;
 	}
@@ -331,7 +322,6 @@
 .filters__list > .frontend-filter {
 	color: $subreddit_colour_six;
 	background: $subreddit_colour_six;
-	border-left: solid 4px $subreddit_colour_six;
 
 
 	&:hover {
@@ -350,7 +340,6 @@
 
 	&:hover span {
 		color: #fff;
-		background: $subreddit_colour_six;
 		padding: 0 0.3em;
 		position: relative;
 	}
@@ -360,7 +349,6 @@
 .filters__list > .webdevtutorials-filter {
 	color: $subreddit_colour_seven;
 	background: $subreddit_colour_seven;
-	border-left: solid 4px $subreddit_colour_seven;
 
 
 	&:hover {
@@ -379,7 +367,6 @@
 
 	&:hover span {
 		color: #fff;
-		background: $subreddit_colour_seven;
 		padding: 0 0.3em;
 		position: relative;
 	}

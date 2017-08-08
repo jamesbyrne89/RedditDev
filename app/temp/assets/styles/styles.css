@@ -91,14 +91,13 @@ a:visited {
 	-webkit-box-pack: justify;
 	    -ms-flex-pack: justify;
 	        justify-content: space-between;
-	-webkit-box-align: center;
-	    -ms-flex-align: center;
-	        align-items: center;
+	-webkit-box-align: end;
+	    -ms-flex-align: end;
+	        align-items: flex-end;
 	padding: 0.25em 0;	
 	width: 85vw;
 	height: auto;
 	margin: 0 auto;
-	border-bottom: solid 2px #1a1a1a;
 }
 
 .header__title {
@@ -111,6 +110,7 @@ a:visited {
 	z-index: 100;
 	color: #1a1a1a;
 	line-height: 1;
+	text-align: center;
 }
 
 .header__title-wrapper {
@@ -118,7 +118,7 @@ a:visited {
 }
 
 .header__description {
-	font-family: 'Inconsolata', helvetica, arial, sans-serif;
+	font-family: 'Karla', helvetica, arial, sans-serif;
 	font-size: 1rem;
 	width: 100%;
 	z-index: 15;
@@ -127,6 +127,7 @@ a:visited {
 	line-height: 1.5;
 	padding-bottom: 0.2em;
 	transition: all 0.3s;
+	text-align: center;
 }
 
 /* Sticky Header Styles */
@@ -200,11 +201,102 @@ a:visited {
 }
 
 .is-sticky .scrolled-bar__progress {
-	background:#fdf522;
+	background:#eceef1;
 }
 
 .is-sticky .scrolled-bar {
 	background: transparent;
+}
+
+.search {
+	width: 0;
+	border: 0;
+	height: 2em;
+	font-size: 1.5rem;
+	background: transparent;
+	border-bottom: solid 1px #1a1a1a;
+	transition: all 0.3s;
+}
+
+.search--opened {
+	width: 500px;
+	transition: all 0.15s;
+}
+
+.search-wrapper {
+	display: none;
+}
+
+.search-wrapper--opened {
+	position: absolute;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	-webkit-box-pack: start;
+	    -ms-flex-pack: start;
+	        justify-content: flex-start;
+	height: 140px;
+	z-index: 500;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background: #fff;
+	padding: 1em 7.5vw;
+}
+
+.search__close-btn {
+	display: none;
+	font-size: 1rem;
+	background: transparent;
+	border: 0;
+	margin-left: 1em;
+}
+
+.search-icon {
+	height: 1.1em;
+	padding-left: 1em;
+	width: auto;
+	fill: #1a1a1a;
+}
+
+.search-btn:hover .search-icon {
+	fill: ;
+}
+
+.search-btn:hover .search-icon {
+	fill: #1a1a1a;
+}
+
+.is-sticky .search-icon {
+	fill: #fff;
+}
+
+.is-sticky .search-btn:hover .search-icon {
+	fill: #1a1a1a;
+}
+
+::-webkit-input-placeholder {
+	color: #eceef1;
+	font-size: 1rem;
+	font-weight: 300;
+
+}
+
+:-ms-input-placeholder {
+	color: #eceef1;
+	font-size: 1rem;
+	font-weight: 300;
+
+}
+
+::placeholder {
+	color: #eceef1;
+	font-size: 1rem;
+	font-weight: 300;
+
 }
 
 /* Fonts */
@@ -311,7 +403,7 @@ a:visited {
 /* Filter list */
 
 .modal {
-	font-family: 'Inconsolata', helvetica, arial, sans-serif;
+	font-family: 'Karla', helvetica, arial, sans-serif;
 	display: none;
 	position: fixed;
 	top: 170px;
@@ -385,7 +477,7 @@ a:visited {
 }
 
 .filters__list {
-	font-family: 'Inconsolata', helvetica, arial, sans-serif;
+	font-family: 'Karla', helvetica, arial, sans-serif;
 	padding: 0.5em 0 0 0;
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -535,15 +627,14 @@ a:visited {
 /* Styling for individual subreddits */
 
 .filters__list > .css-filter {
-	color: #bf0d3e;
-	background: #bf0d3e;
-	border-left: solid 4px #bf0d3e;
+	color: #ff4d30;
+	background: #ff4d30;
 
 
 }
 
 .filters__list > .css-filter:hover {
-  background: #bf0d3e !important;
+  background: #ff4d30 !important;
 }
 
 .filters__list > .css-filter:hover i {
@@ -551,14 +642,13 @@ a:visited {
 }
 
 .filters__list > .css-filter span {
-  color: #bf0d3e;
+  color: #ff4d30;
   padding: 0 0.3em;
   position: relative;
 }
 
 .filters__list > .css-filter:hover span {
   color: #fff;
-  background: #bf0d3e;
   padding: 0 0.3em;
   position: relative;
 }
@@ -566,7 +656,6 @@ a:visited {
 .filters__list > .webdev-filter {
 	color: #41afa5;
 	background: #41afa5;
-	border-left: solid 4px #41afa5;
 
 }
 
@@ -586,20 +675,18 @@ a:visited {
 
 .filters__list > .webdev-filter:hover span {
   color: #fff;
-  background: #41afa5;
   padding: 0 0.3em;
   position: relative;
 }
 
 .filters__list > .web_design-filter {
-	color: #00d8ff;
-	background: #00d8ff;
-	border-left: solid 4px #00d8ff;
+	color: #5ac8fa;
+	background: #5ac8fa;
 
 }
 
 .filters__list > .web_design-filter:hover {
-  background: #00d8ff !important;
+  background: #5ac8fa !important;
 }
 
 .filters__list > .web_design-filter:hover i {
@@ -607,14 +694,13 @@ a:visited {
 }
 
 .filters__list > .web_design-filter span {
-  color: #00d8ff;
+  color: #5ac8fa;
   padding: 0 0.3em;
   position: relative;
 }
 
 .filters__list > .web_design-filter:hover span {
   color: #fff;
-  background: #00d8ff;
   padding: 0 0.3em;
   position: relative;
 }
@@ -622,7 +708,6 @@ a:visited {
 .filters__list > .jquery-filter {
 	color: #15db95;
 	background: #15db95;
-	border-left: solid 4px #15db95;
 
 }
 
@@ -648,14 +733,13 @@ a:visited {
 }
 
 .filters__list > .javascript-filter {
-	color: #ed6498;
-	background: #ed6498;
-	border-left: solid 4px #ed6498;
+	color: #ff4474;
+	background: #ff4474;
 
 }
 
 .filters__list > .javascript-filter:hover {
-  background: #ed6498 !important;
+  background: #ff4474 !important;
 }
 
 .filters__list > .javascript-filter:hover i {
@@ -663,27 +747,25 @@ a:visited {
 }
 
 .filters__list > .javascript-filter span {
-  color: #ed6498;
+  color: #ff4474;
   padding: 0 0.3em;
   position: relative;
 }
 
 .filters__list > .javascript-filter:hover span {
   color: #fff;
-  background: #ed6498;
   padding: 0 0.3em;
   position: relative;
 }
 
 .filters__list > .frontend-filter {
-	color: #ffb900;
-	background: #ffb900;
-	border-left: solid 4px #ffb900;
+	color: #ff9500;
+	background: #ff9500;
 
 }
 
 .filters__list > .frontend-filter:hover {
-  background: #ffb900 !important;
+  background: #ff9500 !important;
 }
 
 .filters__list > .frontend-filter:hover i {
@@ -691,27 +773,25 @@ a:visited {
 }
 
 .filters__list > .frontend-filter span {
-  color: #ffb900;
+  color: #ff9500;
   padding: 0 0.3em;
   position: relative;
 }
 
 .filters__list > .frontend-filter:hover span {
   color: #fff;
-  background: #ffb900;
   padding: 0 0.3em;
   position: relative;
 }
 
 .filters__list > .webdevtutorials-filter {
-	color: #2b00f7;
-	background: #2b00f7;
-	border-left: solid 4px #2b00f7;
+	color: #6755E3;
+	background: #6755E3;
 
 }
 
 .filters__list > .webdevtutorials-filter:hover {
-  background: #2b00f7 !important;
+  background: #6755E3 !important;
 }
 
 .filters__list > .webdevtutorials-filter:hover i {
@@ -719,14 +799,13 @@ a:visited {
 }
 
 .filters__list > .webdevtutorials-filter span {
-  color: #2b00f7;
+  color: #6755E3;
   padding: 0 0.3em;
   position: relative;
 }
 
 .filters__list > .webdevtutorials-filter:hover span {
   color: #fff;
-  background: #2b00f7;
   padding: 0 0.3em;
   position: relative;
 }
@@ -790,18 +869,18 @@ a:visited {
 }
 
 .reddit-card__subreddit {
-	font-family: 'Inconsolata', helvetica, arial, sans-serif;
-	padding: 0.15em 0;
+	font-family: 'Karla', helvetica, arial, sans-serif;
+	padding: 0.25em 0.5em;
 	margin-left: 0em;
-	display: block;
+	display: inline-block;
 	font-weight: 700;
 	text-transform: uppercase;
 	font-size: 0.75rem;
-	background: #fff;
+	color: #fff;
 }
 
 .reddit-card__post-title {
-	padding: 2em 0 2em 0;
+	padding: 1.5em 0;
 	width: 100%;
 	transition: all 0.15s;
 	background: #fff;
@@ -825,8 +904,6 @@ a:visited {
 
 .reddit-card__post-title a:hover {
   color: #000 !important;
-  -webkit-text-decoration-style: wavy;
-  text-decoration-style: wavy;
 }
 
 .reddit-card__thumbnail-wrapper {
@@ -861,9 +938,9 @@ a:visited {
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
-	-webkit-box-pack: end;
-	    -ms-flex-pack: end;
-	        justify-content: flex-end;
+	-webkit-box-pack: start;
+	    -ms-flex-pack: start;
+	        justify-content: flex-start;
 	-webkit-box-align: center;
 	    -ms-flex-align: center;
 	        align-items: center;
@@ -872,10 +949,9 @@ a:visited {
 	font-size: 0.75rem;
 	letter-spacing: 0.02em;
 	max-width: 100%;
-	padding: 1.5em 0;
-	color: #1a1a1a;
+	padding: 0 0 1.5em 0;
+	color: #ccc;
 	background: #fff;
-	border-top: solid 1px #ccc;
 }
 
 .bar {
@@ -888,11 +964,11 @@ a:visited {
 	    -ms-flex: 0 0 auto;
 	        flex: 0 0 auto;
 	text-align: center;
-	padding: 0 0.75em;
+	padding: 0 0.75em 0 0;
 }
 
 .post-comments {
-	font-family: 'Inconsolata', helvetica, arial, sans-serif;
+	font-family: 'Karla', helvetica, arial, sans-serif;
 	display: block;
 	text-align: left;
 	white-space: nowrap;
@@ -908,14 +984,14 @@ a:visited {
 
 .post-comments a:hover {
   color: #1a1a1a !important;
-  padding-bottom: 0.25em;
+  padding-bottom: 0.125em;
   border-bottom: solid 1px;
-  transition: all 0.15s;
+  transition: all 0.1s;
 }
 
 .timestamp {
 	display: block;
-	font-family: 'Inconsolata', helvetica, arial, sans-serif;
+	font-family: 'Karla', helvetica, arial, sans-serif;
 	-webkit-box-flex: 0;
 	    -ms-flex: 0 0 auto;
 	        flex: 0 0 auto;
@@ -938,29 +1014,28 @@ a:visited {
 -------------------------------*/
 
 .reddit-card-css {
-	border-bottom: solid 0px #bf0d3e;
-	color: #bf0d3e;
+	border-bottom: solid 0px #ff4d30;
+	color: #ff4d30;
 }
 
 .reddit-card-css .reddit-card-inner {
-		  background-image: -webkit-repeating-radial-gradient(center center, #bf0d3e, #bf0d3e 1px, transparent 1px, transparent 100%);
-  background-image: repeating-radial-gradient(center center, #bf0d3e, #bf0d3e 1px, transparent 1px, transparent 100%);
+		  background-image: -webkit-repeating-radial-gradient(center center, #ff4d30, #ff4d30 1px, transparent 1px, transparent 100%);
+  background-image: repeating-radial-gradient(center center, #ff4d30, #ff4d30 1px, transparent 1px, transparent 100%);
   background-size: 3px 3px;
 }
 
 .subreddit-css {
-		color: #bf0d3e;
-		display: inline-block;
+		background: #ff4d30;
 		text-align: center;
 		position: relative;
 		z-index: 500;
 }
 
 .dotted-bg-css {
-	color: #bf0d3e;
+	color: #ff4d30;
 
-	  background-image: -webkit-repeating-radial-gradient(center center, #bf0d3e, #bf0d3e 1px, transparent 1px, transparent 100%);
-  background-image: repeating-radial-gradient(center center, #bf0d3e, #bf0d3e 1px, transparent 1px, transparent 100%);
+	  background-image: -webkit-repeating-radial-gradient(center center, #ff4d30, #ff4d30 1px, transparent 1px, transparent 100%);
+  background-image: repeating-radial-gradient(center center, #ff4d30, #ff4d30 1px, transparent 1px, transparent 100%);
   background-size: 3px 3px;
 }
 
@@ -973,7 +1048,7 @@ a:visited {
   bottom: 0;
   left: 0;
   right: 0;
-  background: #bf0d3e;
+  background: #ff4d30;
   mix-blend-mode: screen;
   transition: opacity 0.15s;
 }
@@ -987,7 +1062,7 @@ a:visited {
   bottom: 0;
   left: 0;
   right: 0;
-  background: #bf0d3e;
+  background: #ff4d30;
   transition: opacity 0.15s;
 }
 
@@ -1007,8 +1082,7 @@ a:visited {
 }
 
 .subreddit-webdev {
-		color: #41afa5;
-		display: inline-block;
+		background: #41afa5;
 		text-align: center;
 		position: relative;
 		z-index: 500;
@@ -1054,30 +1128,28 @@ a:visited {
 -------------------------------*/
 
 .reddit-card-web_design {
-	border-bottom: solid 0px #00d8ff;
-	color: #00d8ff;
+	border-bottom: solid 0px #5ac8fa;
+	color: #5ac8fa;
 }
 
 .reddit-card-web_design .reddit-card-inner {
-		  background-image: -webkit-repeating-radial-gradient(center center, #00d8ff, #00d8ff 1px, transparent 1px, transparent 100%);
-  background-image: repeating-radial-gradient(center center, #00d8ff, #00d8ff 1px, transparent 1px, transparent 100%);
+		  background-image: -webkit-repeating-radial-gradient(center center, #5ac8fa, #5ac8fa 1px, transparent 1px, transparent 100%);
+  background-image: repeating-radial-gradient(center center, #5ac8fa, #5ac8fa 1px, transparent 1px, transparent 100%);
   background-size: 3px 3px;
 }
 
 .subreddit-web_design {
-		color: #00d8ff;
-		display: inline-block;
-		margin: auto;
+		background: #5ac8fa;
 		text-align: center;
 		position: relative;
 		z-index: 500;
 }
 
 .dotted-bg-web_design {
-	color: #00d8ff;
+	color: #5ac8fa;
 
-	  background-image: -webkit-repeating-radial-gradient(center center, #00d8ff, #00d8ff 1px, transparent 1px, transparent 100%);
-  background-image: repeating-radial-gradient(center center, #00d8ff, #00d8ff 1px, transparent 1px, transparent 100%);
+	  background-image: -webkit-repeating-radial-gradient(center center, #5ac8fa, #5ac8fa 1px, transparent 1px, transparent 100%);
+  background-image: repeating-radial-gradient(center center, #5ac8fa, #5ac8fa 1px, transparent 1px, transparent 100%);
   background-size: 3px 3px;
 }
 
@@ -1090,7 +1162,7 @@ a:visited {
   bottom: 0;
   left: 0;
   right: 0;
-  background: #00d8ff;
+  background: #5ac8fa;
   mix-blend-mode: screen;
   transition: opacity 0.15s;
 }
@@ -1104,7 +1176,7 @@ a:visited {
   bottom: 0;
   left: 0;
   right: 0;
-  background: #00d8ff;
+  background: #5ac8fa;
   transition: opacity 0.15s;
 }
 
@@ -1124,9 +1196,7 @@ a:visited {
 }
 
 .subreddit-jquery {
-		color: #15db95;
-		display: inline-block;
-		margin: auto;
+		background: #15db95;
 		text-align: center;
 		position: relative;
 		z-index: 500;
@@ -1172,29 +1242,28 @@ a:visited {
 -------------------------------*/
 
 .reddit-card-javascript {
-	border-bottom: solid 0px #ed6498;
-	color: #ed6498;
+	border-bottom: solid 0px #ff4474;
+	color: #ff4474;
 }
 
 .reddit-card-javascript .reddit-card-inner {
-		  background-image: -webkit-repeating-radial-gradient(center center, #ed6498, #ed6498 1px, transparent 1px, transparent 100%);
-  background-image: repeating-radial-gradient(center center, #ed6498, #ed6498 1px, transparent 1px, transparent 100%);
+		  background-image: -webkit-repeating-radial-gradient(center center, #ff4474, #ff4474 1px, transparent 1px, transparent 100%);
+  background-image: repeating-radial-gradient(center center, #ff4474, #ff4474 1px, transparent 1px, transparent 100%);
   background-size: 3px 3px;
 }
 
 .subreddit-javascript {
-			color: #ed6498;
-		display: inline-block;
+		background: #ff4474;
 		text-align: center;
 		position: relative;
 		z-index: 500;
 }
 
 .dotted-bg-javascript {
-	color: #ed6498;
+	color: #ff4474;
 
-	  background-image: -webkit-repeating-radial-gradient(center center, #ed6498, #ed6498 1px, transparent 1px, transparent 100%);
-  background-image: repeating-radial-gradient(center center, #ed6498, #ed6498 1px, transparent 1px, transparent 100%);
+	  background-image: -webkit-repeating-radial-gradient(center center, #ff4474, #ff4474 1px, transparent 1px, transparent 100%);
+  background-image: repeating-radial-gradient(center center, #ff4474, #ff4474 1px, transparent 1px, transparent 100%);
   background-size: 3px 3px;
 }
 
@@ -1207,7 +1276,7 @@ a:visited {
   bottom: 0;
   left: 0;
   right: 0;
-  background: #ed6498;
+  background: #ff4474;
   mix-blend-mode: screen;
   transition: opacity 0.15s;
 }
@@ -1221,7 +1290,7 @@ a:visited {
   bottom: 0;
   left: 0;
   right: 0;
-  background: #ed6498;
+  background: #ff4474;
   transition: opacity 0.15s;
 }
 
@@ -1230,30 +1299,28 @@ a:visited {
 -------------------------------*/
 
 .reddit-card-frontend {
-	border-bottom: solid 0px #ffb900;
-	color: #ffb900;
+	border-bottom: solid 0px #ff9500;
+	color: #ff9500;
 }
 
 .reddit-card-frontend .reddit-card-inner {
-		  background-image: -webkit-repeating-radial-gradient(center center, #ffb900, #ffb900 1px, transparent 1px, transparent 100%);
-  background-image: repeating-radial-gradient(center center, #ffb900, #ffb900 1px, transparent 1px, transparent 100%);
+		  background-image: -webkit-repeating-radial-gradient(center center, #ff9500, #ff9500 1px, transparent 1px, transparent 100%);
+  background-image: repeating-radial-gradient(center center, #ff9500, #ff9500 1px, transparent 1px, transparent 100%);
   background-size: 3px 3px;
 }
 
 .subreddit-frontend {
-			background: ;
-		color: #ffb900;
-		display: inline-block;
+		background: #ff9500;
 		text-align: center;
 		position: relative;
 		z-index: 500;
 }
 
 .dotted-bg-frontend {
-	color: #ffb900;
+	color: #ff9500;
 
-	  background-image: -webkit-repeating-radial-gradient(center center, #ffb900, #ffb900 1px, transparent 1px, transparent 100%);
-  background-image: repeating-radial-gradient(center center, #ffb900, #ffb900 1px, transparent 1px, transparent 100%);
+	  background-image: -webkit-repeating-radial-gradient(center center, #ff9500, #ff9500 1px, transparent 1px, transparent 100%);
+  background-image: repeating-radial-gradient(center center, #ff9500, #ff9500 1px, transparent 1px, transparent 100%);
   background-size: 3px 3px;
 }
 
@@ -1266,7 +1333,7 @@ a:visited {
   bottom: 0;
   left: 0;
   right: 0;
-  background: #ffb900;
+  background: #ff9500;
   mix-blend-mode: screen;
   transition: opacity 0.15s;
 }
@@ -1280,7 +1347,7 @@ a:visited {
   bottom: 0;
   left: 0;
   right: 0;
-  background: #ffb900;
+  background: #ff9500;
   transition: opacity 0.15s;
 }
 
@@ -1289,27 +1356,27 @@ a:visited {
 -------------------------------*/
 
 .reddit-card-webdevtutorials {
-	border-bottom: solid 0px #2b00f7;
-	color: #2b00f7;
+	border-bottom: solid 0px #6755E3;
+	color: #6755E3;
 }
 
 .reddit-card-webdevtutorials .reddit-card-inner {
-		  background-image: -webkit-repeating-radial-gradient(center center, #2b00f7, #2b00f7 1px, transparent 1px, transparent 100%);
-  background-image: repeating-radial-gradient(center center, #2b00f7, #2b00f7 1px, transparent 1px, transparent 100%);
+		  background-image: -webkit-repeating-radial-gradient(center center, #6755E3, #6755E3 1px, transparent 1px, transparent 100%);
+  background-image: repeating-radial-gradient(center center, #6755E3, #6755E3 1px, transparent 1px, transparent 100%);
   background-size: 3px 3px;
 }
 
 .subreddit-webdevtutorials {
-		color: #2b00f7;
+		background: #6755E3;
 		position: relative;
 		z-index: 500;
 }
 
 .dotted-bg-webdevtutorials {
-	color: #2b00f7;
+	color: #6755E3;
 
-	  background-image: -webkit-repeating-radial-gradient(center center, #2b00f7, #2b00f7 1px, transparent 1px, transparent 100%);
-  background-image: repeating-radial-gradient(center center, #2b00f7, #2b00f7 1px, transparent 1px, transparent 100%);
+	  background-image: -webkit-repeating-radial-gradient(center center, #6755E3, #6755E3 1px, transparent 1px, transparent 100%);
+  background-image: repeating-radial-gradient(center center, #6755E3, #6755E3 1px, transparent 1px, transparent 100%);
   background-size: 3px 3px;
 }
 
@@ -1322,7 +1389,7 @@ a:visited {
   bottom: 0;
   left: 0;
   right: 0;
-  background: #2b00f7;
+  background: #6755E3;
   mix-blend-mode: screen;
   transition: opacity 0.15s;
 }
@@ -1336,7 +1403,7 @@ a:visited {
   bottom: 0;
   left: 0;
   right: 0;
-  background: #2b00f7;
+  background: #6755E3;
   transition: opacity 0.15s;
 }
 
@@ -1349,18 +1416,15 @@ a:visited {
 	font-family: inherit;
 	position: relative;
 	font-weight: 600;
-	font-size: 0.75rem;
+	font-size: 1.5rem;
 	z-index: 400;
 	display: block;
 	-webkit-box-align: center;
 	    -ms-flex-align: center;
 	        align-items: center;
-	padding: 0.5em 0.875em 0.5em 1em;	
-	border: solid 1px #302F2F;	
+	border: 0;
 	background: #fff;	
 	margin: 0.5em 0.25em;
-	width: 10em;
-	text-transform: uppercase;
 	letter-spacing: 0.08em;
 }
 
@@ -1373,13 +1437,11 @@ a:visited {
 }
 
 .btn:hover {
-	background: #ececec;
 	color: #302F2F;
-	border: solid 1px #302F2F;
 }
 
 .back-to-top {
-	font-family: 'Inconsolata', helvetica, arial, sans-serif;
+	font-family: 'Karla', helvetica, arial, sans-serif;
 	display: none;
 	padding: 0.75em;
 	color: #fff;
@@ -1404,7 +1466,7 @@ a:visited {
   bottom: 0;
   left: 0;
   z-index: -1;
-  background: #ececec;
+  background: #eceef1;
   transition: all 0.3s ease;
 }
 
@@ -1515,7 +1577,7 @@ a:visited {
 }
 
 html {
-	background: #ececec;
+	background: #eceef1;
 	overflow-x: hidden;
 	font-size: 100%;
 	color: #302F2F;
@@ -1526,7 +1588,18 @@ html {
 }
 
 body {
-	font-family: 'Inconsolata', helvetica, arial, sans-serif;
+	font-family: 'Karla', helvetica, arial, sans-serif;
+}
+
+.mouse-user ::focus {
+	outline: 0;
+}
+
+.mouse-user button:focus,
+.mouse-user input:focus,
+.mouse-user select:focus,
+.mouse-user textarea:focus {
+  outline: none;
 }
 
 ::-moz-selection {

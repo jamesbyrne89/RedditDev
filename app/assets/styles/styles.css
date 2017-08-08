@@ -26,6 +26,17 @@ body {
 	font-family: $sansSerif;
 }
 
+.mouse-user ::focus {
+	outline: 0;
+}
+
+
+.mouse-user button:focus,
+.mouse-user input:focus,
+.mouse-user select:focus,
+.mouse-user textarea:focus {
+  outline: none;
+}
 
 
 ::-moz-selection {
