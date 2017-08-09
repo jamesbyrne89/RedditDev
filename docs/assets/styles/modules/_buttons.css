@@ -1,5 +1,4 @@
 /* Back To Top Button */
-
 .btn {
 	color: $text_grey_dark;
 	transition: all 0.15s;
@@ -7,14 +6,19 @@
 	font-family: inherit;
 	position: relative;
 	font-weight: 600;
-	font-size: 1.5rem;
+	font-size: 0.75rem;
+	padding: 0.75em 1em;
+	border: solid 1px $nearBlack;
 	z-index: 400;
-	display: block;
 	align-items: center;
-	border: 0;
-	background: transparent;	
-	margin: 0.5em 0.25em;
-	letter-spacing: 0.08em;	
+	background: transparent;
+	margin: 0.5em 0.5em;
+	text-transform: uppercase;
+
+	i {
+		padding-left: 0.5em;
+	}
+
 }
 
 .btn:active {
@@ -22,19 +26,20 @@
 }
 
 .btn:hover {
-	color: $text_grey_dark;
+	color: #fff;
+	background: $text_grey_dark;
 }
 
 .back-to-top {
 	font-family: $sansSerif;
 	display: none;
-	padding: 0.75em;
+	padding: 0.875em;
 	color: #fff;
 	cursor: pointer;
 	position: fixed;
-	border: solid 1px $text_grey_dark;	
+	border: solid 1px $text_grey_dark;
 	font-size: 0.875rem;
-	background: $text_grey_dark;	
+	background: $text_grey_dark;
 	margin: 1px;
 	bottom: 2em;
 	right: 2.5vw;
@@ -44,29 +49,29 @@
 }
 
 .back-to-top:after {
-  position: absolute;
-  content: "";
-  width: 100%;
-  height: 0;
-  bottom: 0;
-  left: 0;
-  top: auto;
-  z-index: -1;
-  background: $background_grey;
-  transition: all 0.3s ease;
+	position: absolute;
+	content: "";
+	width: 100%;
+	height: 0;
+	bottom: 0;
+	left: 0;
+	top: auto;
+	z-index: -1;
+	background: $background_grey;
+	transition: all 0.3s ease;
 }
+
 .back-to-top:hover {
-  color: $text_grey_dark;
+	color: $text_grey_dark;
 }
+
 .back-to-top:hover:after {
-  top: 0;
-  height: 100%;
-}
-.back-to-top:active {transform: translateY(4px);
+	top: 0;
+	height: 100%;
 }
 
-
-.filter-btn {
+.back-to-top:active {
+	transform: translateY(4px);
 }
 
 .modal__close-btn {
@@ -88,4 +93,3 @@
 .fa-times:before {
 	content: '\00d7' !important;
 }
-

@@ -20,6 +20,7 @@
 	border-top: solid 1px $text_grey_mid_two;
 	padding-top: 1em;
 	padding-bottom: 1em;
+	width: 100%;
 }
 
 .animate {

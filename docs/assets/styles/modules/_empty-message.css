@@ -1,10 +1,8 @@
 /* Message shown when no subreddits are selected */
 
 .empty-message {
-	position: absolute;
-	display: none;
-	width: auto;
-	height: auto;
+	width: 50%;
+	text-align: center;
 	margin: auto;
 	top: calc(150px + 20%);
 	left: calc(50% - 125px);
@@ -21,4 +19,6 @@
 	display: block;
 	font-size: 0.875rem;
 	width: 250px;
+	margin: auto;
+	text-align: center;
 }

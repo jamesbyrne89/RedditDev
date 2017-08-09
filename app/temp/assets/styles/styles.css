@@ -164,10 +164,12 @@ button {
 .is-sticky .btn {
 	color: #fff;
 	background: #1a1a1a;
+	border: solid 1px #fff;
 }
 
 .is-sticky .btn:hover {
-	color: #fff;
+	color: #1a1a1a;
+	background: #fff;
 }
 
 .header__btn-wrapper {
@@ -740,6 +742,7 @@ button {
 	border-top: solid 1px #ccc;
 	padding-top: 1em;
 	padding-bottom: 1em;
+	width: 100%;
 }
 
 .animate {
@@ -1714,7 +1717,6 @@ a:hover {
 	.card-container {
 		-webkit-column-count: 2;
 		        column-count: 2;
-		width: 85vw;
 		-webkit-column-gap: 1em;
 		        column-gap: 1em;
 	}
@@ -1742,7 +1744,7 @@ a:hover {
 	.card-container {
 		-webkit-column-gap: 15px;
 		        column-gap: 15px;
-		max-width: 100vw;
+
 	}
 
 	.filters {
@@ -1827,11 +1829,6 @@ a:hover {
 		.reddit-content {
 		top: 80px;
 	}
-
-	.card-container {
-		width: 90vw;
-	}
-
 	.nav-container {
 		width: 90%;
 	}
@@ -1964,7 +1961,6 @@ a:hover {
 		        column-count: 1;
 		-webkit-column-gap: 15px;
 		        column-gap: 15px;
-		width: 95%;
 		-webkit-column-gap: 0px;
 		        column-gap: 0px;
 		top: 70px;

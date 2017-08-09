@@ -174,21 +174,28 @@ function getTimeAgo(timestamp) {
 /*
 Place into HTML
  */
+
+var contentInfo = document.getElementById('content-info');
+
 function updateView(data) {
 
-    var redditContent = document.getElementById('reddit-content');
+    $('#loading').fadeIn('fast');
+    var redditContent = document.getElementById('card-container');
 
+    // Clear content from card container
+    contentInfo.innerHTML = '';
     redditContent.innerHTML = '';
 
+    // Add an end mark icon
     var endMark = document.createElement('img');
     endMark.classList.add('content-end-mark');
     endMark.setAttribute('src', '../../../assets/images/reddit-icon-32x32.png');
+
     for (var i = 0; i < data.length; i++) {
 
         var time = getTimeAgo(data[i].created_utc);
         var thumbnail = void 0;
         var numCommentsText = void 0;
-        var popular = '';
         // Check whether a thumbnail is available
         if (data[i].preview && data[i].preview.images[0].resolutions && data[i].preview.images[0].resolutions[2]) {
             thumbnail = "<a href=\"" + data[i].url + "\" target=\"_blank\">\n                        <div class=\"reddit-card__thumbnail-wrapper " + data[i].subreddit.toLowerCase() + "-overlay\"><img class=\"lazyload reddit-card__thumbnail\" src=\"" + data[i].preview.images[0].resolutions[2].url + "\">\n                        </div>\n                        </a>";
@@ -196,11 +203,7 @@ function updateView(data) {
             thumbnail = "";
         }
 
-        if (data[i].score > 100) {
-            popular = 'Popular';
-        } else {
-            popular = '';
-        }
+        // Create individual cards
         var card = document.createElement('div');
         card.className = 'reddit-card';
         card.classList.add("reddit-card-" + data[i].subreddit.toLowerCase());
@@ -215,14 +218,65 @@ function updateView(data) {
         var html = "<div class=\"reddit-card-inner\">\n        <h3 class=\"reddit-card__subreddit subreddit-" + data[i].subreddit.toLowerCase() + "\">r/" + data[i].subreddit + "</h3>\n                    \n                      <div class=\"reddit-card__post-title\"><a href=\"" + data[i].url + "\" target=\"blank\">\n                      " + data[i].title + "</a></div>\n\n\n                      <div class=\"card-footer\">\n                      <span class=\"short-url\">" + getHostname(data[i].url) + "</span><span class='bar'>|</span> \n                      <time class=\"timestamp\">" + time + "</time></span><span class='bar'>|</span>\n                        <span class=\"post-comments\">\n                          <a href=\"http://reddit.com/" + data[i].permalink + "\" target=\"blank\">\n                          " + numCommentsText + "</a>\n                        </span>     \n                      </div></div>";
         card.innerHTML = html;
         $('#loading').hide();
-        $('.reddit-content').hide().append(card).fadeIn(500);
+        redditContent.appendChild(card);
     }
-    $('.reddit-content').append(endMark);
+    redditContent.appendChild(endMark);
     endMark.style.display = 'block';
 
     // Check that newly loaded cards are in view
     checkVisible();
 }
+
+var showMessage = function showMessage() {
+
+    // Set up messages
+    var _emptyMessage = document.createElement('div');
+    _emptyMessage.className = 'empty-message';
+    _emptyMessage.innerHTML = "<h3 class='empty-message__header'>Nothing to see here.</h3><span class='empty-message__body'>Please use the filter button to select which subreddits to display</span>";
+
+    // Create a 'clear search' button 
+
+    var _clearSearchBtn = document.createElement('button');
+    _clearSearchBtn.className = 'clear-search';
+    _clearSearchBtn.innerHTML = 'Clear search';
+    _clearSearchBtn.addEventListener('click', function () {
+        init();
+        $('.search-wrapper').removeClass('search-wrapper--opened');
+        $('.search__close-btn').fadeOut('fast');
+        $('.search').removeClass('search--opened');
+    });
+
+    var _searchResult = document.createElement('div');
+
+    var _empty = function _empty() {
+        contentInfo.innerHTML = _emptyMessage;
+    };
+
+    var _search = function _search(term) {
+        _searchResult.className = 'search-term';
+        _searchResult.innerHTML = "Results for \"" + term + "\":";
+        _searchResult.appendChild(_clearSearchBtn);
+        contentInfo.appendChild(_searchResult);
+    };
+
+    var _noResults = function __noResults(term) {
+        _searchResult.className = 'search-term';
+        _searchResult.innerHTML = "No results for \"" + term + "\".";
+        _searchResult.appendChild(_clearSearchBtn);
+        contentInfo.appendChild(_searchResult);
+    };
+
+    var _clear = function _clear() {
+        contentInfo.innerHTML = '';
+    };
+
+    return {
+        empty: _empty,
+        search: _search,
+        noResults: _noResults,
+        clear: _clear
+    };
+}();
 
 // Debounce scroll function to prevent too many triggers
 
@@ -330,14 +384,15 @@ var visibleSubreddits = function visibleSubreddits() {
         if (_checkVisible() === 0) {
             $('.all-filter').removeClass('subreddit--selected');
             $('.all-filter').addClass('subreddit--deselected');
+            showMessage.empty();
         } else if (_checkVisible() > 0 && _checkVisible() < 7) {
             $('.all-filter').removeClass('subreddit--selected');
             $('.all-filter').addClass('subreddit--deselected');
-            $('.empty-message').fadeOut('fast');
+            showMessage.clear();
         } else {
             $('.all-filter').removeClass('subreddit--deselected');
             $('.all-filter').addClass('subreddit--selected');
-            $('.empty-message').fadeIn('fast');
+            showMessage.empty();
         }
         return _checkVisible();
     };
@@ -482,12 +537,8 @@ function isSearched(searchTerm) {
 
 var search = document.getElementById('search');
 
-search.addEventListener('change', function (e) {
-    var filtered = dataStore.getData().filter(isSearched(e.target.value));
-    updateView(filtered);
-});
-
 $('.search-btn').on('click', function () {
+
     $('.search-wrapper').addClass('search-wrapper--opened');
     $('.search__close-btn').fadeIn('fast');
     $('.search').addClass('search--opened');
@@ -495,6 +546,7 @@ $('.search-btn').on('click', function () {
 });
 
 $('.search__close-btn').on('click', function () {
+    search.value = '';
     $('.search-wrapper').removeClass('search-wrapper--opened');
     $('.search__close-btn').fadeOut('fast');
     $('.search').removeClass('search--opened');
@@ -502,4 +554,17 @@ $('.search__close-btn').on('click', function () {
 
 document.body.addEventListener('mousemove', function () {
     document.body.classList.add('mouse-user');
+});
+
+search.addEventListener('change', function (e) {
+    var filtered = void 0;
+    if (e.target.value.length > 0 && typeof e.target.value === 'string') {
+        filtered = dataStore.getData().filter(isSearched(e.target.value));
+        updateView(filtered);
+        showMessage.search(e.target.value);
+        if (filtered.length === 0) {
+            showMessage.noResults(e.target.value);
+        }
+        e.target.value = '';
+    }
 });
