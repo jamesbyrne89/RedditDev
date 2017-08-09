@@ -16,3 +16,8 @@ a:link {
 a:visited {
 	color: $text_grey_mid_one;
 }
+
+button {
+	background: transparent;
+	border: 0;
+}

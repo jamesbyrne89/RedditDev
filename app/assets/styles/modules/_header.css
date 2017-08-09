@@ -1,5 +1,4 @@
 /* Header */
-
 .header {
 	z-index: 350;
 	position: absolute;
@@ -11,13 +10,14 @@
 	width: 100%;
 	height: 140px;
 	background: #fff;
+	border-bottom: solid 1px $text_grey_mid_two;
 }
 
 .nav-container {
 	display: flex;
 	justify-content: space-between;
 	align-items: flex-end;
-	padding: 0.25em 0;	
+	padding: 0.25em 0;
 	width: 85vw;
 	height: auto;
 	margin: 0 auto;
@@ -31,7 +31,7 @@
 	z-index: 100;
 	color: $nearBlack;
 	line-height: 1;
-	text-align: center;
+	text-align: left;
 }
 
 .header__title-wrapper {
@@ -46,15 +46,11 @@
 	color: #495456;
 	font-weight: 400;
 	line-height: 1.5;
-	padding-bottom: 0.2em;
 	transition: all 0.3s;
 	text-align: center;
 }
 
-
-
 /* Sticky Header Styles */
-
 .is-sticky {
 	position: fixed;
 	background: $nearBlack;
@@ -62,7 +58,7 @@
 	height: 65px;
 	justify-content: center !important;
 	-webkit-animation: slideDown 0.3s ease-out forwards;
-	animation: slideDown 0.3s ease-out forwards;	
+	animation: slideDown 0.3s ease-out forwards;
 }
 
 .is-sticky .nav-container {
@@ -71,7 +67,7 @@
 }
 
 .is-sticky .header__title {
-	padding: 0.25em 0 0 0 ;
+	padding: 0.25em 0 0 0;
 	line-height: normal;
 	font-size: 2.25rem;
 	color: #fff;
@@ -100,21 +96,20 @@
 	margin-right: 2.5em;
 }
 
-
 .scrolled-bar {
-	height: 0.5em;
+	height: 6px;
 	position: fixed;
 	bottom: 0;
 	left: 0;
 	z-index: 300;
 	display: block;
-	background: transparent; 
+	background: transparent;
 	width: 100vw;
 }
 
 .scrolled-bar__progress {
 	display: block;
-	height: 0.5em;
+	height: 6px;
 	position: relative;
 	top: 0;
 	left: 0;
@@ -122,9 +117,3 @@
 	width: 0;
 	background: $nearBlack;
 }
-
-
-
-
-
-

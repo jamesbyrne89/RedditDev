@@ -1,4 +1,3 @@
-
 /**
  *  Initialise a store to hold the API data
  */
@@ -23,7 +22,6 @@ const dataStore = (function dataStore() {
     }
 
 })();
-
 
 
 
@@ -94,7 +92,7 @@ const init = function init() {
             console.log(dataStore.getData())
             updateView(sortedByDate)
         });
-        
+
 };
 
 
@@ -171,21 +169,32 @@ function getTimeAgo(timestamp) {
 /*
 Place into HTML
  */
+
+
+const contentInfo = document.getElementById('content-info');
+
+
 function updateView(data) {
 
-const redditContent = document.getElementById('reddit-content');
+    $('#loading').fadeIn('fast');
+    const redditContent = document.getElementById('card-container');
 
-redditContent.innerHTML = '';
-$('#search-term').fadeOut('fast');
-const endMark = document.createElement('img');
-endMark.classList.add('content-end-mark');
-endMark.setAttribute('src', '../../../assets/images/reddit-icon-32x32.png');
+    // Clear content from card container
+    contentInfo.innerHTML = '';
+    redditContent.innerHTML = '';
+
+    // Add an end mark icon
+    const endMark = document.createElement('img');
+    endMark.classList.add('content-end-mark');
+    endMark.setAttribute('src', '../../../assets/images/reddit-icon-32x32.png');
+
+
+
     for (let i = 0; i < data.length; i++) {
-        
+
         let time = getTimeAgo(data[i].created_utc);
         let thumbnail;
         let numCommentsText;
-        let popular = '';
         // Check whether a thumbnail is available
         if (data[i].preview && data[i].preview.images[0].resolutions && data[i].preview.images[0].resolutions[2]) {
             thumbnail = `<a href="${data[i].url}" target="_blank">
@@ -196,12 +205,7 @@ endMark.setAttribute('src', '../../../assets/images/reddit-icon-32x32.png');
             thumbnail = "";
         }
 
-        if (data[i].score > 100) {
-            popular = 'Popular';
-        }
-        else {
-            popular = '';
-        }
+        // Create individual cards
         let card = document.createElement('div');
         card.className = 'reddit-card';
         card.classList.add(`reddit-card-${(data[i].subreddit).toLowerCase()}`);
@@ -230,16 +234,69 @@ endMark.setAttribute('src', '../../../assets/images/reddit-icon-32x32.png');
                       </div></div>`
         card.innerHTML = html;
         $('#loading').hide();
-        $('.reddit-content').hide().append(card).fadeIn(500);
- 
+        redditContent.appendChild(card)
+
     }
-    $('.reddit-content').append(endMark);
+    redditContent.appendChild(endMark);
     endMark.style.display = 'block';
 
     // Check that newly loaded cards are in view
     checkVisible();
 
 }
+
+const showMessage = (function showMessage() {
+
+    // Set up messages
+    const _emptyMessage = document.createElement('div');
+    _emptyMessage.className = 'empty-message';
+    _emptyMessage.innerHTML = "<h3 class='empty-message__header'>Nothing to see here.</h3><span class='empty-message__body'>Please use the filter button to select which subreddits to display</span>";
+
+    // Create a 'clear search' button 
+    
+    const _clearSearchBtn = document.createElement('button');
+    _clearSearchBtn.className = 'clear-search';
+    _clearSearchBtn.innerHTML = 'Clear search';
+    _clearSearchBtn.addEventListener('click', function(){
+        init();
+    $('.search-wrapper').removeClass('search-wrapper--opened');
+    $('.search__close-btn').fadeOut('fast');
+    $('.search').removeClass('search--opened');
+    });
+
+    const _searchResult = document.createElement('div');
+
+
+    const _empty = function _empty() {
+        contentInfo.innerHTML = _emptyMessage;
+    }
+
+    const _search = function _search(term) {
+        _searchResult.className = 'search-term';
+        _searchResult.innerHTML = `Results for "${term}":`;
+        _searchResult.appendChild(_clearSearchBtn);
+         contentInfo.appendChild(_searchResult);          
+    }
+
+    const _noResults = function __noResults(term) {
+        _searchResult.className = 'search-term';
+        _searchResult.innerHTML = `No results for "${term}".`;
+        _searchResult.appendChild(_clearSearchBtn);
+         contentInfo.appendChild(_searchResult);     
+    }
+
+    const _clear = function _clear() {
+        contentInfo.innerHTML = '';
+    }
+
+    return {
+        empty: _empty,
+        search: _search,
+        noResults: _noResults,
+        clear: _clear
+    }
+
+})();
 
 
 
@@ -292,24 +349,20 @@ function checkVisible(e) {
 
 
 
-
 function stickyHeader() {
-let previous = window.scrollY;
-    window.addEventListener('scroll', function(){
+    let previous = window.scrollY;
+    window.addEventListener('scroll', function() {
         if (window.scrollY > 180 && window.scrollY > previous) {
-        $('.header').removeClass('is-sticky');
-        previous = window.scrollY;
-        } 
-        else if (window.scrollY > 180 && window.scrollY < previous) {
-            $('.header').addClass('is-sticky');
-            previous = window.scrollY;
-        }
-        else if (window.scrollY < 180) {
             $('.header').removeClass('is-sticky');
             previous = window.scrollY;
-        }        
-        else {
-           return;
+        } else if (window.scrollY > 180 && window.scrollY < previous) {
+            $('.header').addClass('is-sticky');
+            previous = window.scrollY;
+        } else if (window.scrollY < 180) {
+            $('.header').removeClass('is-sticky');
+            previous = window.scrollY;
+        } else {
+            return;
         }
     });
 };
@@ -356,28 +409,30 @@ const visibleSubreddits = (function visibleSubreddits() {
         return selected.length
     }
 
-const _updateVisible = function _updateVisible() {
-    if (_checkVisible() === 0) {
-        $('.all-filter').removeClass('subreddit--selected')
-        $('.all-filter').addClass('subreddit--deselected')
-
-    } else if (_checkVisible() > 0  && _checkVisible() < 7) {
-        $('.all-filter').removeClass('subreddit--selected')
-        $('.all-filter').addClass('subreddit--deselected')
-        $('.empty-message').fadeOut('fast');
-    } else {
-        $('.all-filter').removeClass('subreddit--deselected')
-        $('.all-filter').addClass('subreddit--selected')
-        $('.empty-message').fadeIn('fast');
+    const _updateVisible = function _updateVisible() {
+        if (_checkVisible() === 0) {
+            $('.all-filter').removeClass('subreddit--selected');
+            $('.all-filter').addClass('subreddit--deselected');
+            showMessage.empty();
+        } else if (_checkVisible() > 0 && _checkVisible() < 7) {
+            $('.all-filter').removeClass('subreddit--selected');
+            $('.all-filter').addClass('subreddit--deselected');
+            showMessage.clear();
+        } else {
+            $('.all-filter').removeClass('subreddit--deselected');
+            $('.all-filter').addClass('subreddit--selected');
+            showMessage.empty();
+        }
+        return _checkVisible();
     }
-    return _checkVisible();
-}
 
-        return {
+    return {
         checkVisible: _checkVisible,
         updateVisible: _updateVisible
     }
 })();
+
+
 
 function removeSubreddit() {
     let subReds = document.getElementsByClassName('filters__list-item')
@@ -518,10 +573,10 @@ $('#back-to-top').on('click', function() {
 init();
 
 
-function isSearched (searchTerm) {
-  return function(item) {
-    return !searchTerm || item.title.toLowerCase().includes(searchTerm.toLowerCase());
-  };
+function isSearched(searchTerm) {
+    return function(item) {
+        return !searchTerm || item.title.toLowerCase().includes(searchTerm.toLowerCase());
+    };
 };
 
 const search = document.getElementById('search');
@@ -535,7 +590,7 @@ $('.search-btn').on('click', function() {
 });
 
 $('.search__close-btn').on('click', function() {
-    search.value= '' ;
+    search.value = '';
     $('.search-wrapper').removeClass('search-wrapper--opened');
     $('.search__close-btn').fadeOut('fast');
     $('.search').removeClass('search--opened');
@@ -548,34 +603,15 @@ document.body.addEventListener('mousemove', function() {
 
 
 
-
 search.addEventListener('change', function(e) {
     let filtered;
     if (e.target.value.length > 0 && typeof e.target.value === 'string') {
-    filtered = dataStore.getData().filter(isSearched(e.target.value));
-    }
-   if (filtered.length > 0) {
-    updateView(filtered);
-    let searchMessage = document.getElementById('search-term');
-    
-    searchMessage.innerHTML= `Results for "${e.target.value}":
-    <div class='wrapper'>
-    <div id='clear-search' class='clear-search'>Clear search</div>
-    </div`;
-    let clearSearch = document.getElementById('clear-search');
-    $('#search-term').fadeIn('fast');
-    clearSearch.addEventListener('click', function() {
-        init();
-    })
+        filtered = dataStore.getData().filter(isSearched(e.target.value));
+        updateView(filtered);
+        showMessage.search(e.target.value);      
+     if (filtered.length === 0) {
+        showMessage.noResults(e.target.value);
+     }   
+     e.target.value = '';
     }
 });
-
-
-
-
-
-
-
-
-
-
