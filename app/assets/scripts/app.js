@@ -170,14 +170,14 @@ function getTimeAgo(timestamp) {
 Place into HTML
  */
 
-
+  const redditContent = document.getElementById('card-container');
 const contentInfo = document.getElementById('content-info');
 
 
 function updateView(data) {
 
     $('#loading').fadeIn('fast');
-    const redditContent = document.getElementById('card-container');
+  
 
     // Clear content from card container
     contentInfo.innerHTML = '';
@@ -615,3 +615,24 @@ search.addEventListener('change', function(e) {
      e.target.value = '';
     }
 });
+
+
+
+
+/**
+ * View button
+ */
+
+(function switchLayout() {
+   const viewBtn = document.getElementById('view-btn');
+   
+   viewBtn.addEventListener('click', function() {
+    redditContent.classList.toggle('card-container--rows');
+   });
+
+
+})();
+
+
+
+
