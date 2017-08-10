@@ -2,6 +2,7 @@
 @import 'base/_variables';
 @import 'base/_reset';
 @import 'base/_animations';
+/*@import 'base/_mixins';*/
 
 @import 'modules/_header';
 @import 'modules/_fonts';
