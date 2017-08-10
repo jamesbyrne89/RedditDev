@@ -93,3 +93,7 @@
 .fa-times:before {
 	content: '\00d7' !important;
 }
+
+.header .btn {
+	min-width: 8em;
+}

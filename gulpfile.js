@@ -19,7 +19,8 @@ debug = require('gulp-debug'),
 rev = require('gulp-rev'),
 beautify = require('gulp-jsbeautify'),
 webpack = require('webpack'),
-stylelint = require('gulp-stylelint');
+stylelint = require('gulp-stylelint'),
+prettier = require('gulp-prettier');
 
 // Default task that runs on 'Gulp' command
 
@@ -84,7 +85,14 @@ watch('app/assets/scripts/app.js', function(){
   browserSync.reload();
 });
 
+gulp.task('prettier', () => {
+    gulp.src('assets/scripts/app.js')
+    .pipe(prettier({useFlowParser: true}))
+    .pipe(gulp.dest('assets/scripts/app.js'))
+});
+
 watch('app/assets/scripts/app.js', function(){
+  gulp.start('prettier');
   gulp.start('babel');
 });
 

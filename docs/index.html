@@ -10,7 +10,7 @@
     <link href="assets/images/favicon-16x16.png?v=2" rel="icon" sizes="16x16" type="image/png">
     <link href="assets/images/favicon.png?v=2" rel="apple-touch-icon"><!-- Place favicon.ico in the root directory -->
     <link href="https://fonts.googleapis.com/css?family=Karla:300,400,700|Karla:400,700" rel="stylesheet">
-    <link rel="stylesheet" href="assets/styles/styles-3ab11ad0ab.css"/>
+    <link rel="stylesheet" href="assets/styles/styles-541bdadc06.css"/>
     <script src="https://use.fontawesome.com/a697955832.js"></script>
 </head>
 <body>
@@ -28,19 +28,17 @@
             <!-- Search Box -->
             <div class='search-wrapper'>
             	<input id='search' class='search' type="search" placeholder="What are you looking for?">
-            	<button type='button' class="search__close-btn" ><i class="fa fa-times fa-2x" aria-hidden="true"></i></button>
+            	<button type='button' id='search-close-btn' class="search__close-btn" ><i class="fa fa-times fa-2x" aria-hidden="true"></i></button>
             </div>	
             	
             <div class='header__btn-wrapper'> 
               <!--  <button class="btn view-btn">Grid view<i class="fa fa-th-large" aria-hidden="true"></i></button> -->
-                         <button id='view-btn' class="btn view-btn">View<i class='fa fa-table'></i>
-                         <button class="btn search-btn">Search<i class='fa fa-search'></i>
-                         <button class="btn filter-btn">Filter<i class="icon-filter"></i></button>
+                         <button id='view-btn' class="btn view-btn grid">View<i class='fa fa-table'></i>
+                         <button id='search-btn' class="btn search-btn">Search<i class='fa fa-search'></i>
+                         <button id='filter-btn' class="btn filter-btn">Filter<i class="icon-filter"></i></button>
             </button>
-
            </div>  
            </div>
-      
         </header>
 
                 <!-- Filters menu --> 
@@ -92,6 +90,7 @@
         <button id="back-to-top" class="back-to-top"><i class="icon-up-open"></i></button>   
     <script src="https://code.jquery.com/jquery-1.12.0.min.js">
     </script> 
-     <script src="assets/scripts/app-fa8e5f2f43.js"></script>
+    <script src="https://hammerjs.github.io/dist/hammer.js"></script>
+     <script src="assets/scripts/app-e283dc1062.js"></script>
 </body>
 </html>

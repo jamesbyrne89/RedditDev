@@ -21,6 +21,7 @@
     "gulp-imagemin": "^3.1.1",
     "gulp-jsbeautify": "^0.1.1",
     "gulp-postcss": "^6.3.0",
+    "gulp-prettier": "^1.1.0",
     "gulp-rev": "^7.1.2",
     "gulp-stylelint": "^4.0.0",
     "gulp-uglify": "^2.0.1",

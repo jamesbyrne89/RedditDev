@@ -24,7 +24,6 @@ const dataStore = (function dataStore() {
 })();
 
 
-
 /*
 Fetch all data from the Reddit server
  */
@@ -205,6 +204,7 @@ let combinedCards = document.createDocumentFragment();
         } else {
             thumbnail = "";
         }
+ 
 
         // Create individual cards
         let card = document.createElement('div');

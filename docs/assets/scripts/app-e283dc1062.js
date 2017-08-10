@@ -191,11 +191,13 @@ function updateView(data) {
     endMark.classList.add('content-end-mark');
     endMark.setAttribute('src', '../../../assets/images/reddit-icon-32x32.png');
 
+    var combinedCards = document.createDocumentFragment();
     for (var i = 0; i < data.length; i++) {
 
         var time = getTimeAgo(data[i].created_utc);
         var thumbnail = void 0;
         var numCommentsText = void 0;
+
         // Check whether a thumbnail is available
         if (data[i].preview && data[i].preview.images[0].resolutions && data[i].preview.images[0].resolutions[2]) {
             thumbnail = "<a href=\"" + data[i].url + "\" target=\"_blank\">\n                        <div class=\"reddit-card__thumbnail-wrapper " + data[i].subreddit.toLowerCase() + "-overlay\"><img class=\"lazyload reddit-card__thumbnail\" src=\"" + data[i].preview.images[0].resolutions[2].url + "\">\n                        </div>\n                        </a>";
@@ -215,11 +217,12 @@ function updateView(data) {
         } else {
             numCommentsText = data[i].num_comments + " comments";
         }
-        var html = "<div class=\"reddit-card-inner\">\n        <h3 class=\"reddit-card__subreddit subreddit-" + data[i].subreddit.toLowerCase() + "\">r/" + data[i].subreddit + "</h3>\n                    \n                      <div class=\"reddit-card__post-title\"><a href=\"" + data[i].url + "\" target=\"blank\">\n                      " + data[i].title + "</a></div>\n\n\n                      <div class=\"card-footer\">\n                      <span class=\"short-url\">" + getHostname(data[i].url) + "</span><span class='bar'>|</span> \n                      <time class=\"timestamp\">" + time + "</time></span><span class='bar'>|</span>\n                        <span class=\"post-comments\">\n                          <a href=\"http://reddit.com/" + data[i].permalink + "\" target=\"blank\">\n                          " + numCommentsText + "</a>\n                        </span>     \n                      </div></div>";
+        var html = "<div class=\"reddit-card-inner\">\n        <div class='subreddit-wrapper'>\n            <h3 class=\"reddit-card__subreddit subreddit-" + data[i].subreddit.toLowerCase() + "\">r/" + data[i].subreddit + "</h3>\n        </div>            \n                      <div class=\"reddit-card__post-title\"><a href=\"" + data[i].url + "\" target=\"blank\">\n                      " + data[i].title + "</a></div>\n\n\n                      <div class=\"card-footer\">\n                      <span class=\"short-url\">" + getHostname(data[i].url) + "</span><span class='bar'>|</span> \n                      <time class=\"timestamp\">" + time + "</time></span><span class='bar'>|</span>\n                        <span class=\"post-comments\">\n                          <a href=\"http://reddit.com/" + data[i].permalink + "\" target=\"blank\">\n                          " + numCommentsText + "</a>\n                        </span>     \n                      </div></div>";
         card.innerHTML = html;
         $('#loading').hide();
-        redditContent.appendChild(card);
+        combinedCards.appendChild(card);
     }
+    redditContent.appendChild(combinedCards);
     redditContent.appendChild(endMark);
     endMark.style.display = 'block';
 
@@ -242,7 +245,7 @@ var showMessage = function showMessage() {
     _clearSearchBtn.addEventListener('click', function () {
         init();
         $('.search-wrapper').removeClass('search-wrapper--opened');
-        $('.search__close-btn').fadeOut('fast');
+        $('.search__close-btn').fadeOut('slow');
         $('.search').removeClass('search--opened');
     });
 
@@ -296,9 +299,6 @@ function debounce(func) {
         };
     };
 };
-
-// Check whether cards are visible on load and animate them in
-
 
 // Check which cards are visible on scroll
 
@@ -523,12 +523,21 @@ $(window).scroll(function () {
     }
 });
 
-$('#back-to-top').on('click', function () {
+var backToTopBtn = document.getElementById('back-to-top');
+
+var backToTopTap = new Hammer(backToTopBtn);
+
+backToTopTap.on("tap", function (ev) {
     window.scrollTo(0, 0);
 });
 
 init();
 
+/**
+ * [isSearched description]
+ * @param  {[type]}  searchTerm [description]
+ * @return {Boolean}            [description]
+ */
 function isSearched(searchTerm) {
     return function (item) {
         return !searchTerm || item.title.toLowerCase().includes(searchTerm.toLowerCase());
@@ -536,16 +545,21 @@ function isSearched(searchTerm) {
 };
 
 var search = document.getElementById('search');
+var searchBtn = document.getElementById('search-btn');
+var searchCloseBtn = document.getElementById('search-close-btn');
 
-$('.search-btn').on('click', function () {
+var searchTap = new Hammer(searchBtn);
 
-    $('.search-wrapper').addClass('search-wrapper--opened');
+searchTap.on("tap", function (ev) {
+    $('.search-wrapper').toggleClass('search-wrapper--opened');
     $('.search__close-btn').fadeIn('fast');
-    $('.search').addClass('search--opened');
+    $('.search').toggleClass('search--opened');
     document.getElementById('search').focus();
 });
 
-$('.search__close-btn').on('click', function () {
+var searchCloseTap = new Hammer(searchCloseBtn);
+
+searchCloseTap.on("tap", function (ev) {
     search.value = '';
     $('.search-wrapper').removeClass('search-wrapper--opened');
     $('.search__close-btn').fadeOut('fast');
@@ -577,6 +591,15 @@ search.addEventListener('change', function (e) {
     var viewBtn = document.getElementById('view-btn');
 
     viewBtn.addEventListener('click', function () {
+        if (this.classList.contains('grid')) {
+            this.classList.add('rows');
+            this.classList.remove('grid');
+            this.innerHTML = "View<i class='fa fa-list'>";
+        } else {
+            this.classList.remove('rows');
+            this.classList.add('grid');
+            this.innerHTML = "View<i class='fa fa-table'>";
+        }
         redditContent.classList.toggle('card-container--rows');
     });
 })();
