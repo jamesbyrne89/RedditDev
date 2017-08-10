@@ -364,7 +364,14 @@ var toggleModal = function toggleModal() {
 
 $('.filter-btn').on('click', toggleModal);
 $('.modal__close-btn').on('click', toggleModal);
-$('.filter-overlay').on('click', toggleModal);
+
+var filterOverlay = document.getElementById('filter-overlay');
+
+var filterOverlayTap = new Hammer(filterOverlay);
+
+filterOverlayTap.on("tap", function (ev) {
+    toggleModal();
+});
 
 // Check if no subreddits are selected then show a message
 var visibleSubreddits = function visibleSubreddits() {

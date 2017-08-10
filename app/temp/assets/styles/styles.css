@@ -728,6 +728,8 @@ button {
 	width: 85vw;
 	transition: all ease 0.3s;
 	padding-bottom: 12em;
+	-webkit-column-break-inside: avoid;
+               break-inside: avoid;
 }
 
 .content__info-bar {
@@ -759,6 +761,10 @@ button {
 	        column-count: 1 !important;
 }
 
+.card-container--rows .reddit-card {
+	padding: 0.5em 1em;
+	}
+
 .card-container--rows .reddit-card-inner {
 	-webkit-box-orient: horizontal;
 	-webkit-box-direction: normal;
@@ -769,26 +775,23 @@ button {
 }
 
 .card-container--rows .reddit-card__post-title {
-	width: 50% ;
-	max-width: 600px;
+	width: 50% !important;
 	padding: 1em 2em;
-	-webkit-box-flex: 1;
-	    -ms-flex: 1 0 60%;
-	        flex: 1 0 60%;
+	border-right: solid 1px #ccc;
 }
 
 .card-container--rows .reddit-card__post-title a {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
 }
 
 .card-container--rows .reddit-card__subreddit {
 	height: 0%;
-	font-size: 1rem;
+	font-size: 0.875rem;
 	margin: auto 0;
 }
 
 .card-container--rows .subreddit-wrapper {
-	width: 15em;
+	width: 20%;
 	height: 100%;
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -796,7 +799,7 @@ button {
 	-webkit-box-align: center;
 	    -ms-flex-align: center;
 	        align-items: center;
-	padding: 2em 4em 2em 1em;
+	padding: 1em 4em 1em 1em;
 	border-right: solid 1px #ccc;
 }
 
@@ -814,6 +817,7 @@ button {
 
 .card-container--rows .card-footer {
 	font-size: 1rem;
+	width: 30%;
 	-webkit-box-pack: end;
 	    -ms-flex-pack: end;
 	        justify-content: flex-end;
@@ -829,8 +833,7 @@ button {
 	margin: 0 0 1.25em 0;
 	width: 100%;
 	background: white;
-	-webkit-column-break-inside: avoid;
-	        break-inside: avoid;
+	break-inside: avoid;
 	overflow: hidden;
 	position: relative;
 	top: 0;
@@ -839,6 +842,8 @@ button {
 	-webkit-transform: translateY(200px);
 	        transform: translateY(200px);
 	opacity: 0;
+	-webkit-column-break-inside: avoid;
+               break-inside: avoid;
 }
 
 .reddit-card-inner {
@@ -2138,11 +2143,19 @@ a:hover {
 		font-size: 1.5rem;
 	}
 
-	.search-btn, .filter-btn {
+	.header .search-btn, .header .filter-btn {
 		font-size: 0.75rem;
 		margin: 0 0.25em;
-		padding: 0.5em;
-		min-width: 7em;
+		padding: 0.5em 0.125em;
+		border: 0;
+		min-width: 6em;
+		width: auto;
+	}
+
+	.header .search-btn:hover, .header .filter-btn:hover {
+		background: transparent;
+		color: #1a1a1a;
+		border: 1px solid #1a1a1a;
 	}
 
 	.view-btn {

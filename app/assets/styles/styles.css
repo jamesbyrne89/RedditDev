@@ -440,11 +440,19 @@ a:hover {
 		font-size: 1.5rem;
 	}
 
-	.search-btn, .filter-btn {
+	.header .search-btn, .header .filter-btn {
 		font-size: 0.75rem;
 		margin: 0 0.25em;
-		padding: 0.5em;
-		min-width: 7em;
+		padding: 0.5em 0.125em;
+		border: 0;
+		min-width: 6em;
+		width: auto;
+	}
+
+	.header .search-btn:hover, .header .filter-btn:hover {
+		background: transparent;
+		color: $nearBlack;
+		border: 1px solid $nearBlack;
 	}
 
 	.view-btn {

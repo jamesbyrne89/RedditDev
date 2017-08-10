@@ -1,3 +1,5 @@
+
+
 /**
  *  Initialise a store to hold the API data
  */
@@ -392,7 +394,14 @@ const toggleModal = function toggleModal() {
 
 $('.filter-btn').on('click', toggleModal);
 $('.modal__close-btn').on('click', toggleModal);
-$('.filter-overlay').on('click', toggleModal);
+
+const filterOverlay = document.getElementById('filter-overlay');
+
+let filterOverlayTap = new Hammer(filterOverlay);
+
+filterOverlayTap.on("tap", function(ev) {
+    toggleModal();
+});
 
 
 
