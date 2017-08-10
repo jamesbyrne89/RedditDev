@@ -16,7 +16,7 @@ a:link {
 }
 
 a:visited {
-	color: rgb(141, 148, 149);
+	color: #c9c9c9;
 }
 
 button {
@@ -740,7 +740,7 @@ button {
 	-webkit-column-gap: 2.5em;
 	        column-gap: 2.5em;
 	border-top: solid 1px #ccc;
-	padding-top: 1em;
+	padding-top: 1.25em;
 	padding-bottom: 1em;
 	width: 100%;
 }
@@ -753,6 +753,15 @@ button {
 .card-container--rows {
 	-webkit-column-count: 1 !important;
 	        column-count: 1 !important;
+}
+
+.card-container--rows .reddit-card-inner {
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: row;
+	        flex-direction: row;
+	-ms-flex-wrap: wrap;
+	    flex-wrap: wrap;
 }
 
 /* ---------------------------
@@ -773,7 +782,6 @@ button {
 	-webkit-transform: translateY(200px);
 	        transform: translateY(200px);
 	opacity: 0;
-	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
 }
 
 .reddit-card-inner {
@@ -826,6 +834,59 @@ button {
 
 .reddit-card__post-title a:hover {
   color: #000 !important;
+  border-bottom: solid 1px #000;
+}
+
+.card-container--rows .reddit-card__post-title {
+	width: 50% !important;
+	padding: 1em 2em;
+	-webkit-box-flex: 1;
+	    -ms-flex: 1 0 auto;
+	        flex: 1 0 auto;
+}
+
+.card-container--rows .reddit-card__post-title a {
+  font-size: 1.5rem;
+}
+
+.card-container--rows .reddit-card__subreddit {
+	height: 0%;
+	font-size: 1rem;
+	margin: auto 0;
+}
+
+.card-container--rows .subreddit-wrapper {
+	width: 15em;
+	height: 100%;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	padding: 2em 4em 2em 1em;
+	border-right: solid 1px #ccc;
+}
+
+.card-container--rows .reddit-card-inner {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: justify;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+}
+
+.card-container--rows .card-footer {
+	font-size: 1rem;
+	-webkit-box-pack: end;
+	    -ms-flex-pack: end;
+	        justify-content: flex-end;
+	padding-left: 2em;
+	height: 100%;
 }
 
 .reddit-card__thumbnail-wrapper {
@@ -1502,11 +1563,12 @@ button {
 	font-size: 1.5rem;
 	background: transparent;
 	border-bottom: solid 1px #1a1a1a;
-	transition: all 0.3s ease-in-out;
+	transition: all 1s ease-in-out;
 }
 
 .search--opened {
 	width: 50%;
+	transition: all 0.5s;
 }
 
 .search-wrapper {
@@ -1531,7 +1593,7 @@ button {
 	width: 100%;
 	background: #fff;
 	padding: 2.5em 7.5vw;
-	transition: all 0.15s ease-in-out;
+	transition: all 0.1s ease-in-out;
 	border-bottom: solid 1px #ccc;
 }
 

@@ -10,12 +10,13 @@
 	font-size: 1.5rem;
 	background: transparent;
 	border-bottom: solid 1px $nearBlack;
-	transition: all 0.3s ease-in-out;
+	transition: all 1s ease-in-out;
 }
 
 
 .search--opened {
 	width: 50%;
+	transition: all 0.5s;
 }
 
 .search-wrapper {
@@ -34,7 +35,7 @@
 	width: 100%;
 	background: #fff;
 	padding: 2.5em 7.5vw;
-	transition: all 0.15s ease-in-out;
+	transition: all 0.1s ease-in-out;
 	border-bottom: solid 1px $text_grey_mid_two;
 }
 

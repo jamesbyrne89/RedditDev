@@ -215,7 +215,7 @@ function updateView(data) {
         } else {
             numCommentsText = data[i].num_comments + " comments";
         }
-        var html = "<div class=\"reddit-card-inner\">\n        <h3 class=\"reddit-card__subreddit subreddit-" + data[i].subreddit.toLowerCase() + "\">r/" + data[i].subreddit + "</h3>\n                    \n                      <div class=\"reddit-card__post-title\"><a href=\"" + data[i].url + "\" target=\"blank\">\n                      " + data[i].title + "</a></div>\n\n\n                      <div class=\"card-footer\">\n                      <span class=\"short-url\">" + getHostname(data[i].url) + "</span><span class='bar'>|</span> \n                      <time class=\"timestamp\">" + time + "</time></span><span class='bar'>|</span>\n                        <span class=\"post-comments\">\n                          <a href=\"http://reddit.com/" + data[i].permalink + "\" target=\"blank\">\n                          " + numCommentsText + "</a>\n                        </span>     \n                      </div></div>";
+        var html = "<div class=\"reddit-card-inner\">\n        <div class='subreddit-wrapper'>\n            <h3 class=\"reddit-card__subreddit subreddit-" + data[i].subreddit.toLowerCase() + "\">r/" + data[i].subreddit + "</h3>\n        </div>            \n                      <div class=\"reddit-card__post-title\"><a href=\"" + data[i].url + "\" target=\"blank\">\n                      " + data[i].title + "</a></div>\n\n\n                      <div class=\"card-footer\">\n                      <span class=\"short-url\">" + getHostname(data[i].url) + "</span><span class='bar'>|</span> \n                      <time class=\"timestamp\">" + time + "</time></span><span class='bar'>|</span>\n                        <span class=\"post-comments\">\n                          <a href=\"http://reddit.com/" + data[i].permalink + "\" target=\"blank\">\n                          " + numCommentsText + "</a>\n                        </span>     \n                      </div></div>";
         card.innerHTML = html;
         $('#loading').hide();
         redditContent.appendChild(card);
@@ -242,7 +242,7 @@ var showMessage = function showMessage() {
     _clearSearchBtn.addEventListener('click', function () {
         init();
         $('.search-wrapper').removeClass('search-wrapper--opened');
-        $('.search__close-btn').fadeOut('fast');
+        $('.search__close-btn').fadeOut('slow');
         $('.search').removeClass('search--opened');
     });
 

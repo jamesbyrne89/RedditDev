@@ -218,8 +218,9 @@ function updateView(data) {
             numCommentsText = `${data[i].num_comments} comments`
         }
         let html = `<div class="reddit-card-inner">
-        <h3 class="reddit-card__subreddit subreddit-${(data[i].subreddit).toLowerCase()}">r/${data[i].subreddit}</h3>
-                    
+        <div class='subreddit-wrapper'>
+            <h3 class="reddit-card__subreddit subreddit-${(data[i].subreddit).toLowerCase()}">r/${data[i].subreddit}</h3>
+        </div>            
                       <div class="reddit-card__post-title"><a href="${data[i].url}" target="blank">
                       ${data[i].title}</a></div>
 
@@ -260,7 +261,7 @@ const showMessage = (function showMessage() {
     _clearSearchBtn.addEventListener('click', function(){
         init();
     $('.search-wrapper').removeClass('search-wrapper--opened');
-    $('.search__close-btn').fadeOut('fast');
+    $('.search__close-btn').fadeOut('slow');
     $('.search').removeClass('search--opened');
     });
 
