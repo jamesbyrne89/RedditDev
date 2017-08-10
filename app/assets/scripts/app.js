@@ -189,12 +189,13 @@ function updateView(data) {
     endMark.setAttribute('src', '../../../assets/images/reddit-icon-32x32.png');
 
 
-
+let combinedCards = document.createDocumentFragment();
     for (let i = 0; i < data.length; i++) {
 
         let time = getTimeAgo(data[i].created_utc);
         let thumbnail;
         let numCommentsText;
+        
         // Check whether a thumbnail is available
         if (data[i].preview && data[i].preview.images[0].resolutions && data[i].preview.images[0].resolutions[2]) {
             thumbnail = `<a href="${data[i].url}" target="_blank">
@@ -235,9 +236,10 @@ function updateView(data) {
                       </div></div>`
         card.innerHTML = html;
         $('#loading').hide();
-        redditContent.appendChild(card)
+        combinedCards.appendChild(card);
 
     }
+    redditContent.appendChild(combinedCards);
     redditContent.appendChild(endMark);
     endMark.style.display = 'block';
 
@@ -317,8 +319,6 @@ function debounce(func, wait = 25, immediate = true) {
     };
 };
 
-
-// Check whether cards are visible on load and animate them in
 
 
 
@@ -565,15 +565,25 @@ $(window).scroll(function() {
     }
 });
 
-$('#back-to-top').on('click', function() {
+const backToTopBtn = document.getElementById('back-to-top');
+
+let backToTopTap = new Hammer(backToTopBtn);
+
+backToTopTap.on("tap", function(ev) {
     window.scrollTo(0, 0);
 });
-
 
 
 init();
 
 
+
+
+/**
+ * [isSearched description]
+ * @param  {[type]}  searchTerm [description]
+ * @return {Boolean}            [description]
+ */
 function isSearched(searchTerm) {
     return function(item) {
         return !searchTerm || item.title.toLowerCase().includes(searchTerm.toLowerCase());
@@ -581,16 +591,21 @@ function isSearched(searchTerm) {
 };
 
 const search = document.getElementById('search');
+const searchBtn = document.getElementById('search-btn');
+const searchCloseBtn = document.getElementById('search-close-btn');
 
-$('.search-btn').on('click', function() {
+let searchTap = new Hammer(searchBtn);
 
-    $('.search-wrapper').addClass('search-wrapper--opened');
+searchTap.on("tap", function(ev) {
+     $('.search-wrapper').toggleClass('search-wrapper--opened');
     $('.search__close-btn').fadeIn('fast');
-    $('.search').addClass('search--opened');
+    $('.search').toggleClass('search--opened');
     document.getElementById('search').focus();
 });
 
-$('.search__close-btn').on('click', function() {
+let searchCloseTap = new Hammer(searchCloseBtn);
+
+searchCloseTap.on("tap", function(ev) {
     search.value = '';
     $('.search-wrapper').removeClass('search-wrapper--opened');
     $('.search__close-btn').fadeOut('fast');
@@ -598,11 +613,10 @@ $('.search__close-btn').on('click', function() {
 });
 
 
+
 document.body.addEventListener('mousemove', function() {
     document.body.classList.add('mouse-user')
 })
-
-
 
 search.addEventListener('change', function(e) {
     let filtered;
@@ -618,8 +632,6 @@ search.addEventListener('change', function(e) {
 });
 
 
-
-
 /**
  * View button
  */
@@ -628,6 +640,16 @@ search.addEventListener('change', function(e) {
    const viewBtn = document.getElementById('view-btn');
    
    viewBtn.addEventListener('click', function() {
+    if (this.classList.contains('grid')) {
+        this.classList.add('rows');
+        this.classList.remove('grid');
+        this.innerHTML= `View<i class='fa fa-list'>`;
+    }
+    else {
+        this.classList.remove('rows');
+        this.classList.add('grid');
+        this.innerHTML= `View<i class='fa fa-table'>`;
+    }
     redditContent.classList.toggle('card-container--rows');
    });
 

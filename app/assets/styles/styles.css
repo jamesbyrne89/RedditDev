@@ -118,6 +118,14 @@ a:hover {
 	.post-comments, .short-url, .timestamp {
 		padding: 0 0.25em;
 	}
+	.card-container--rows .reddit-card__post-title {
+	max-width: 40%;
+	padding: 1em;
+}
+
+	.card-container--rows .card-footer {
+	font-size: 0.875rem;
+}
 
 }
 
@@ -142,6 +150,35 @@ a:hover {
 		display: flex;
 	}
 
+		.card-container--rows .reddit-card-inner {
+		align-items: flex-end;
+	}
+
+	.card-container--rows .reddit-card__post-title {
+		padding: 0.5em 0.5em 0 0.5em;
+		max-width: 80%;
+	}	
+	.card-container--rows .reddit-card__post-title a {
+		font-size: 1.25rem;
+	}	
+
+	.card-container--rows .subreddit-wrapper {
+		width: 100%;
+		padding: 0.5em;
+		border: 0;
+	}
+
+	.card-container--rows .reddit-card__subreddit {
+		font-size: 0.75rem;
+	}
+		.card-container--rows .card-footer {
+		font-size: 0.75rem;
+		flex-direction: column;
+	}
+
+	.card-container--rows .bar {
+		display: none;
+	}
 }
 
 @media (max-width:850px) {
@@ -187,6 +224,7 @@ a:hover {
 		background: #eee;
 	}
 
+
 }
 
 @media (max-width:700px) {
@@ -220,13 +258,14 @@ a:hover {
 
 		.reddit-content {
 		top: 80px;
+		width: 90%;
 	}
 	.nav-container {
 		width: 90%;
 	}
 
-	.shift-down {
-		transform: translateY(0);
+	.content__info-bar {
+		padding: 1em 0 0.25em 0;
 	}
 
 	.header__description {
@@ -257,6 +296,11 @@ a:hover {
 	.back-to-top {
 		right: calc(2.5vw + 1em);
 	}
+	.view-btn, .search-btn, .filter-btn {
+		min-width: 7em;
+		padding: 0.75em 0.25em;
+		margin: 0.25em;
+	}
 
 }
 
@@ -282,18 +326,26 @@ a:hover {
 		padding: 0;
 	}
 
+	.reddit-content {
+		top: 60px;
+		padding-bottom: 4em;
+		width: 95%;
+	}
 
+	.content-end-mark {
+		bottom: 1e90%m;
+	}
 
 	.header__btn-wrapper, .is-sticky .header__btn-wrapper {
-		flex-direction: column;
 		padding-bottom: 0.05em;
 		order: 1;
 	}
 
 	.search-wrapper {
-		height: 100px;
-		top: 50px;
+		height: 55px;
+		top: 65px;
 		padding: 0 2.5vw;
+		align-items: center;
 	}
 
 	.search--opened {
@@ -301,8 +353,18 @@ a:hover {
 		position: relative;
 	}
 
+	.search {
+			height: 2em;
+		font-size: 0.875rem;
+	}
+
 	.search__close-btn {
 		width: 10%;
+		font-size: 0.875rem;
+	}
+
+	.clear-search {
+		margin-top: 1em;
 	}
 
 	.header__title-wrapper {
@@ -345,6 +407,7 @@ a:hover {
 		column-gap: 0px;
 		top: 70px;
 		margin-top: 5px;
+		padding-top: 0.25em;
 	}
 
 	.filters__list-item, .all-filter {
@@ -378,7 +441,10 @@ a:hover {
 	}
 
 	.search-btn, .filter-btn {
-		font-size: 1.25rem;
+		font-size: 0.75rem;
+		margin: 0 0.25em;
+		padding: 0.5em;
+		min-width: 7em;
 	}
 
 	.view-btn {

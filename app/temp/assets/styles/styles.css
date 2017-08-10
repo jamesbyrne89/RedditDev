@@ -127,7 +127,7 @@ button {
 	font-weight: 400;
 	line-height: 1.5;
 	transition: all 0.3s;
-	text-align: center;
+	padding-right: 1em;
 }
 
 /* Sticky Header Styles */
@@ -750,6 +750,10 @@ button {
 	animation: moveUp 1s ease-out forwards;
 }
 
+/* ---------------------------
+ # Row view styles
+------------------------------ */
+
 .card-container--rows {
 	-webkit-column-count: 1 !important;
 	        column-count: 1 !important;
@@ -762,6 +766,59 @@ button {
 	        flex-direction: row;
 	-ms-flex-wrap: wrap;
 	    flex-wrap: wrap;
+}
+
+.card-container--rows .reddit-card__post-title {
+	width: 50% ;
+	max-width: 600px;
+	padding: 1em 2em;
+	-webkit-box-flex: 1;
+	    -ms-flex: 1 0 60%;
+	        flex: 1 0 60%;
+}
+
+.card-container--rows .reddit-card__post-title a {
+  font-size: 1.5rem;
+}
+
+.card-container--rows .reddit-card__subreddit {
+	height: 0%;
+	font-size: 1rem;
+	margin: auto 0;
+}
+
+.card-container--rows .subreddit-wrapper {
+	width: 15em;
+	height: 100%;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	padding: 2em 4em 2em 1em;
+	border-right: solid 1px #ccc;
+}
+
+.card-container--rows .reddit-card-inner {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: justify;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+}
+
+.card-container--rows .card-footer {
+	font-size: 1rem;
+	-webkit-box-pack: end;
+	    -ms-flex-pack: end;
+	        justify-content: flex-end;
+	padding-left: 2em;
+	height: 100%;
 }
 
 /* ---------------------------
@@ -835,58 +892,6 @@ button {
 .reddit-card__post-title a:hover {
   color: #000 !important;
   border-bottom: solid 1px #000;
-}
-
-.card-container--rows .reddit-card__post-title {
-	width: 50% !important;
-	padding: 1em 2em;
-	-webkit-box-flex: 1;
-	    -ms-flex: 1 0 auto;
-	        flex: 1 0 auto;
-}
-
-.card-container--rows .reddit-card__post-title a {
-  font-size: 1.5rem;
-}
-
-.card-container--rows .reddit-card__subreddit {
-	height: 0%;
-	font-size: 1rem;
-	margin: auto 0;
-}
-
-.card-container--rows .subreddit-wrapper {
-	width: 15em;
-	height: 100%;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-align: center;
-	    -ms-flex-align: center;
-	        align-items: center;
-	padding: 2em 4em 2em 1em;
-	border-right: solid 1px #ccc;
-}
-
-.card-container--rows .reddit-card-inner {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-pack: justify;
-	    -ms-flex-pack: justify;
-	        justify-content: space-between;
-	-webkit-box-align: center;
-	    -ms-flex-align: center;
-	        align-items: center;
-}
-
-.card-container--rows .card-footer {
-	font-size: 1rem;
-	-webkit-box-pack: end;
-	    -ms-flex-pack: end;
-	        justify-content: flex-end;
-	padding-left: 2em;
-	height: 100%;
 }
 
 .reddit-card__thumbnail-wrapper {
@@ -1481,6 +1486,10 @@ button {
 	content: '\00d7' !important;
 }
 
+.header .btn {
+	min-width: 8em;
+}
+
 /* Loading animation */
 
 .spinner {
@@ -1772,6 +1781,14 @@ a:hover {
 	.post-comments, .short-url, .timestamp {
 		padding: 0 0.25em;
 	}
+	.card-container--rows .reddit-card__post-title {
+	max-width: 40%;
+	padding: 1em;
+}
+
+	.card-container--rows .card-footer {
+	font-size: 0.875rem;
+}
 
 }
 
@@ -1800,6 +1817,40 @@ a:hover {
 		display: flex;
 	}
 
+		.card-container--rows .reddit-card-inner {
+		-webkit-box-align: end;
+		    -ms-flex-align: end;
+		        align-items: flex-end;
+	}
+
+	.card-container--rows .reddit-card__post-title {
+		padding: 0.5em 0.5em 0 0.5em;
+		max-width: 80%;
+	}	
+	.card-container--rows .reddit-card__post-title a {
+		font-size: 1.25rem;
+	}	
+
+	.card-container--rows .subreddit-wrapper {
+		width: 100%;
+		padding: 0.5em;
+		border: 0;
+	}
+
+	.card-container--rows .reddit-card__subreddit {
+		font-size: 0.75rem;
+	}
+		.card-container--rows .card-footer {
+		font-size: 0.75rem;
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		    -ms-flex-direction: column;
+		        flex-direction: column;
+	}
+
+	.card-container--rows .bar {
+		display: none;
+	}
 }
 
 @media (max-width:850px) {
@@ -1852,6 +1903,7 @@ a:hover {
 		background: #eee;
 	}
 
+
 }
 
 @media (max-width:700px) {
@@ -1890,14 +1942,14 @@ a:hover {
 
 		.reddit-content {
 		top: 80px;
+		width: 90%;
 	}
 	.nav-container {
 		width: 90%;
 	}
 
-	.shift-down {
-		-webkit-transform: translateY(0);
-		        transform: translateY(0);
+	.content__info-bar {
+		padding: 1em 0 0.25em 0;
 	}
 
 	.header__description {
@@ -1929,6 +1981,11 @@ a:hover {
 	.back-to-top {
 		right: calc(2.5vw + 1em);
 	}
+	.view-btn, .search-btn, .filter-btn {
+		min-width: 7em;
+		padding: 0.75em 0.25em;
+		margin: 0.25em;
+	}
 
 }
 
@@ -1956,13 +2013,17 @@ a:hover {
 		padding: 0;
 	}
 
+	.reddit-content {
+		top: 60px;
+		padding-bottom: 4em;
+		width: 95%;
+	}
 
+	.content-end-mark {
+		bottom: 1e90%m;
+	}
 
 	.header__btn-wrapper, .is-sticky .header__btn-wrapper {
-		-webkit-box-orient: vertical;
-		-webkit-box-direction: normal;
-		    -ms-flex-direction: column;
-		        flex-direction: column;
 		padding-bottom: 0.05em;
 		-webkit-box-ordinal-group: 2;
 		    -ms-flex-order: 1;
@@ -1970,9 +2031,12 @@ a:hover {
 	}
 
 	.search-wrapper {
-		height: 100px;
-		top: 50px;
+		height: 55px;
+		top: 65px;
 		padding: 0 2.5vw;
+		-webkit-box-align: center;
+		    -ms-flex-align: center;
+		        align-items: center;
 	}
 
 	.search--opened {
@@ -1980,8 +2044,18 @@ a:hover {
 		position: relative;
 	}
 
+	.search {
+			height: 2em;
+		font-size: 0.875rem;
+	}
+
 	.search__close-btn {
 		width: 10%;
+		font-size: 0.875rem;
+	}
+
+	.clear-search {
+		margin-top: 1em;
 	}
 
 	.header__title-wrapper {
@@ -2027,6 +2101,7 @@ a:hover {
 		        column-gap: 0px;
 		top: 70px;
 		margin-top: 5px;
+		padding-top: 0.25em;
 	}
 
 	.filters__list-item, .all-filter {
@@ -2064,7 +2139,10 @@ a:hover {
 	}
 
 	.search-btn, .filter-btn {
-		font-size: 1.25rem;
+		font-size: 0.75rem;
+		margin: 0 0.25em;
+		padding: 0.5em;
+		min-width: 7em;
 	}
 
 	.view-btn {
