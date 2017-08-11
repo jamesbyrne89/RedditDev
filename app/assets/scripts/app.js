@@ -500,7 +500,7 @@ $('.all-filter').on('click', function(e) {
  */
 function handleShow(target, sr) {
     if (target.classList.contains('subreddit--deselected')) {
-        $(`.reddit-card-${sr}`).hide();
+        $(`.reddit-card-${sr}`).hide(); 
     } else {
         $(`.reddit-card-${sr}`).fadeIn('fast');
     };
