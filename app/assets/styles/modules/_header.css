@@ -36,16 +36,21 @@
 
 .header__title-wrapper {
 	text-align: left;
+	display: flex;
 }
 
 .header__description {
 	font-family: $sansSerif;
 	font-size: 1rem;
-	width: 100%;
+	display: flex;
+	align-items: flex-end;
+	padding-bottom: 0.25em;
+	width: 200px;
+	margin-left: 1em;
 	z-index: 15;
 	color: #495456;
 	font-weight: 400;
-	line-height: 1.5;
+	line-height: 1.2;
 	transition: all 0.3s;
 	padding-right: 1em;
 }

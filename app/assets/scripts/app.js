@@ -16,8 +16,6 @@ const dataStore = (function dataStore() {
         _data = input;
     }
 
-
-
     return {
         setData: _updateData,
         getData: _getData
@@ -89,9 +87,11 @@ const init = function init() {
                 return b.created - a.created;
 
             });
+            // Update the datastore with the API data fetched from the server
             dataStore.setData(sortedByDate);
-            console.log(dataStore.getData())
-            updateView(sortedByDate)
+
+            // Add data to the view
+            updateView(sortedByDate);
         });
 
 };
@@ -138,10 +138,11 @@ const getHostname = function(href) {
     } else {
         return l.hostname;
     }
-
 };
 
-
+/**
+ * Convert the UNIX timestamp provided by the API into human-readable format
+ */
 
 function getTimeAgo(timestamp) {
     let d = new Date() // Convert the passed timestamp to milliseconds
@@ -179,7 +180,6 @@ function updateView(data) {
 
     $('#loading').fadeIn('fast');
   
-
     // Clear content from card container
     contentInfo.innerHTML = '';
     redditContent.innerHTML = '';
@@ -212,7 +212,7 @@ let combinedCards = document.createDocumentFragment();
         let card = document.createElement('div');
         card.className = 'reddit-card';
         card.classList.add(`reddit-card-${(data[i].subreddit).toLowerCase()}`);
-        card.setAttribute('data-sr', (data[i].subreddit).toLowerCase())
+        card.setAttribute('data-sr', (data[i].subreddit).toLowerCase());
 
         // Remove the 's' if comment number is one
         if (data[i].num_comments === 1) {
@@ -220,7 +220,9 @@ let combinedCards = document.createDocumentFragment();
         } else {
             numCommentsText = `${data[i].num_comments} comments`
         }
-        let html = `<div class="reddit-card-inner">
+
+        // Build cards
+        card.innerHTML = `<div class="reddit-card-inner">
         <div class='subreddit-wrapper'>
             <h3 class="reddit-card__subreddit subreddit-${(data[i].subreddit).toLowerCase()}">r/${data[i].subreddit}</h3>
         </div>            
@@ -236,12 +238,14 @@ let combinedCards = document.createDocumentFragment();
                           ${numCommentsText}</a>
                         </span>     
                       </div></div>`
-        card.innerHTML = html;
         $('#loading').hide();
         combinedCards.appendChild(card);
 
     }
+    // Add cards to the container element
     redditContent.appendChild(combinedCards);
+
+    // Add an end mark to the bottom of the container div
     redditContent.appendChild(endMark);
     endMark.style.display = 'block';
 
@@ -341,16 +345,19 @@ function checkVisible(e) {
         let scrolled = window.scrollY > 10;
 
         if (scrolled && isShowing && isNotShowing) {
-            this.classList.add('animate')
+            this.classList.add('animate');
         } else if (!scrolled && isShowing && isNotShowing) {
-            this.classList.add('animate')
+            this.classList.add('animate');
         } else {
-            this.classList.remove('animate')
+            this.classList.remove('animate');
         }
     })
 }
 
 
+/**
+ * Sticky header that slides into view only when the user scrolls up
+ */
 
 function stickyHeader() {
     let previous = window.scrollY;
@@ -371,7 +378,7 @@ function stickyHeader() {
 };
 
 
-
+// Event listeners for scroll events
 window.addEventListener('scroll', checkVisible);
 window.addEventListener('scroll', stickyHeader);
 
@@ -416,7 +423,7 @@ const visibleSubreddits = (function visibleSubreddits() {
                 selected.push(subreddits[i])
             }
         }
-        return selected.length
+        return selected.length;
     }
 
     const _updateVisible = function _updateVisible() {
@@ -461,8 +468,6 @@ function addSubreddit() {
         handleShow(subReds[i], subReds[i].getAttribute('data-sr'));
     }
 }
-
-
 
 /**
  * Toggles the 'select all' button
@@ -622,9 +627,12 @@ searchCloseTap.on("tap", function(ev) {
 });
 
 
+/**
+ * Listens for a mousemove to remove the focus ring from elements if the user is using a mouse.
+ */
 
 document.body.addEventListener('mousemove', function() {
-    document.body.classList.add('mouse-user')
+    document.body.classList.add('mouse-user');
 })
 
 search.addEventListener('change', function(e) {
@@ -642,7 +650,7 @@ search.addEventListener('change', function(e) {
 
 
 /**
- * View button
+ * Button that toggles between grid and row view
  */
 
 (function switchLayout() {
@@ -657,7 +665,7 @@ search.addEventListener('change', function(e) {
     else {
         this.classList.remove('rows');
         this.classList.add('grid');
-        this.innerHTML= `View<i class='fa fa-table'>`;
+        this.innerHTML= `View<i class='fa fa-th-large'>`;
     }
     redditContent.classList.toggle('card-container--rows');
    });

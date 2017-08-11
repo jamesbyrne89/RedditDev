@@ -14,7 +14,7 @@
 }
 
 .content__info-bar {
-	padding: 2em 0;
+	padding: 2em 0 0.25em 0;
 }
 
 .card-container {
@@ -50,7 +50,7 @@
 }
 
 .card-container--rows .reddit-card__post-title {
-	width: 50% !important;
+	width: 50%;
 	padding: 1em 2em;
 	border-right: solid 1px $text_grey_mid_two;
 	a {

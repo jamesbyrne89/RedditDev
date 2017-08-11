@@ -97,8 +97,10 @@ var init = function init() {
         var sortedByDate = allPosts.sort(function (a, b) {
             return b.created - a.created;
         });
+        // Update the datastore with the API data fetched from the server
         dataStore.setData(sortedByDate);
-        console.log(dataStore.getData());
+
+        // Add data to the view
         updateView(sortedByDate);
     });
 };
@@ -147,6 +149,10 @@ var getHostname = function getHostname(href) {
         return l.hostname;
     }
 };
+
+/**
+ * Convert the UNIX timestamp provided by the API into human-readable format
+ */
 
 function getTimeAgo(timestamp) {
     var d = new Date(); // Convert the passed timestamp to milliseconds
@@ -217,12 +223,16 @@ function updateView(data) {
         } else {
             numCommentsText = data[i].num_comments + " comments";
         }
-        var html = "<div class=\"reddit-card-inner\">\n        <div class='subreddit-wrapper'>\n            <h3 class=\"reddit-card__subreddit subreddit-" + data[i].subreddit.toLowerCase() + "\">r/" + data[i].subreddit + "</h3>\n        </div>            \n                      <div class=\"reddit-card__post-title\"><a href=\"" + data[i].url + "\" target=\"blank\">\n                      " + data[i].title + "</a></div>\n\n\n                      <div class=\"card-footer\">\n                      <span class=\"short-url\">" + getHostname(data[i].url) + "</span><span class='bar'>|</span> \n                      <time class=\"timestamp\">" + time + "</time></span><span class='bar'>|</span>\n                        <span class=\"post-comments\">\n                          <a href=\"http://reddit.com/" + data[i].permalink + "\" target=\"blank\">\n                          " + numCommentsText + "</a>\n                        </span>     \n                      </div></div>";
-        card.innerHTML = html;
+
+        // Build cards
+        card.innerHTML = "<div class=\"reddit-card-inner\">\n        <div class='subreddit-wrapper'>\n            <h3 class=\"reddit-card__subreddit subreddit-" + data[i].subreddit.toLowerCase() + "\">r/" + data[i].subreddit + "</h3>\n        </div>            \n                      <div class=\"reddit-card__post-title\"><a href=\"" + data[i].url + "\" target=\"blank\">\n                      " + data[i].title + "</a></div>\n\n\n                      <div class=\"card-footer\">\n                      <span class=\"short-url\">" + getHostname(data[i].url) + "</span><span class='bar'>|</span> \n                      <time class=\"timestamp\">" + time + "</time></span><span class='bar'>|</span>\n                        <span class=\"post-comments\">\n                          <a href=\"http://reddit.com/" + data[i].permalink + "\" target=\"blank\">\n                          " + numCommentsText + "</a>\n                        </span>     \n                      </div></div>";
         $('#loading').hide();
         combinedCards.appendChild(card);
     }
+    // Add cards to the container element
     redditContent.appendChild(combinedCards);
+
+    // Add an end mark to the bottom of the container div
     redditContent.appendChild(endMark);
     endMark.style.display = 'block';
 
@@ -326,6 +336,10 @@ function checkVisible(e) {
     });
 }
 
+/**
+ * Sticky header that slides into view only when the user scrolls up
+ */
+
 function stickyHeader() {
     var previous = window.scrollY;
     window.addEventListener('scroll', function () {
@@ -344,6 +358,7 @@ function stickyHeader() {
     });
 };
 
+// Event listeners for scroll events
 window.addEventListener('scroll', checkVisible);
 window.addEventListener('scroll', stickyHeader);
 
@@ -573,6 +588,10 @@ searchCloseTap.on("tap", function (ev) {
     $('.search').removeClass('search--opened');
 });
 
+/**
+ * Listens for a mousemove to remove the focus ring from elements if the user is using a mouse.
+ */
+
 document.body.addEventListener('mousemove', function () {
     document.body.classList.add('mouse-user');
 });
@@ -591,7 +610,7 @@ search.addEventListener('change', function (e) {
 });
 
 /**
- * View button
+ * Button that toggles between grid and row view
  */
 
 (function switchLayout() {
@@ -605,7 +624,7 @@ search.addEventListener('change', function (e) {
         } else {
             this.classList.remove('rows');
             this.classList.add('grid');
-            this.innerHTML = "View<i class='fa fa-table'>";
+            this.innerHTML = "View<i class='fa fa-th-large'>";
         }
         redditContent.classList.toggle('card-container--rows');
     });
