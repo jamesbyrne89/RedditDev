@@ -1439,6 +1439,7 @@ button {
 
 .btn i {
   padding-left: 0.5em;
+  color: #1a1a1a;
 }
 
 .btn:active {

@@ -429,7 +429,6 @@ const visibleSubreddits = (function visibleSubreddits() {
 
     const _updateVisible = function _updateVisible() {
         if (_checkVisible() === 0) {
-        	console.log('no subreddits visible')
             $('.all-filter').removeClass('subreddit--selected');
             $('.all-filter').addClass('subreddit--deselected');
             showMessage.empty();
@@ -478,7 +477,6 @@ function addSubreddit() {
 $('.all-filter').on('click', function(e) {
 
     if (visibleSubreddits.updateVisible() === 0) {
-    	console.log('running updateVisible()');
         this.classList.remove('subreddit--deselected');
         this.classList.add('subreddit--selected');
         addSubreddit();
@@ -501,10 +499,6 @@ $('.all-filter').on('click', function(e) {
  *  Takes in the chosen category and the subreddit of the element on the page to be shown/hidden. The function targets the data attribute of the cards to select which to hide or show
  */
 function handleShow(target, sr) {
-	console.log(target.classList);
-	console.log('calling handleShow() for ', target)
-
-
     if (target.classList.contains('subreddit--deselected')) {
         $(`.reddit-card-${sr}`).hide();
     } else {
@@ -526,6 +520,9 @@ const cssFilterBtn = document.querySelector('.css-filter');
 const javascriptFilterBtn = document.querySelector('.javascript-filter');
 const jqueryFilterBtn = document.querySelector('.jquery-filter');
 const webdevTutorialsFilterBtn = document.querySelector('.webdevtutorials-filter');
+const filterList = document.querySelector('.filters__list');
+
+
 
 webDesignFilterBtn.addEventListener('click', function(e) {
 	e.stopPropagation();
@@ -640,10 +637,11 @@ searchCloseTap.on("tap", function(ev) {
 /**
  * Listens for a mousemove to remove the focus ring from elements if the user is using a mouse.
  */
-
-document.body.addEventListener('mousemove', function() {
-    document.body.classList.add('mouse-user');
-});
+function checkForMouseUse() {
+    document.body.classList.add('mouse-user');	
+    document.body.removeEventListener('mousemove', checkForMouseUse);    
+}
+document.body.addEventListener('mousemove', checkForMouseUse);
 
 search.addEventListener('change', function(e) {
     let filtered;
