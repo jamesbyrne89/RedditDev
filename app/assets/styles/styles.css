@@ -103,7 +103,6 @@ a:hover {
 		font-size: 1.25rem;
 	}
 
-
 	.reddit-card {
 		margin-bottom: 20px;
 	}
@@ -136,7 +135,9 @@ a:hover {
 		column-gap: 1em;
 	}
 
-
+	.header__description, .header__title-wrapper {
+		margin-right: 0.5em;
+	}
 
 	.sidebar {
 		width: 22vw;
@@ -150,6 +151,7 @@ a:hover {
 	.back-to-top:hover {
 		display: flex;
 	}
+
 
 		.card-container--rows .reddit-card-inner {
 		align-items: center;
@@ -225,6 +227,16 @@ a:hover {
 		align-items: flex-end;
 	}
 
+	.header__title-wrapper {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+
+	.header__description {
+		margin: 0;
+	}
+
 	.card-container--rows .subreddit-wrapper {
 		width: 100%;
 	}
@@ -269,14 +281,14 @@ a:hover {
 	}
 
 	.header__title {
-		font-size: 2.25rem;
+		font-size: 2.5rem;
 	}
 
 	.header__title-wrapper {
 		margin-right: 0;
 	}
 
-		.reddit-content {
+	.reddit-content {
 		top: 80px;
 		width: 90%;
 	}
@@ -289,8 +301,7 @@ a:hover {
 	}
 
 	.header__description {
-		font-size: 0.875rem;
-		line-height: 1;
+		display: none;
 	}
 
 	.header {
@@ -338,6 +349,10 @@ a:hover {
 				font-size: 1.125rem;
 		}
 	}	
+
+	.header__btn-wrapper .btn {
+		min-width: 7em;
+	}
 
 }
 

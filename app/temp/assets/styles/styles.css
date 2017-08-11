@@ -87,6 +87,11 @@ button {
 	border-bottom: solid 1px #ccc;
 }
 
+.header a:hover {
+  text-transform: none;
+  border-bottom: 0;
+}
+
 .nav-container {
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -340,6 +345,7 @@ button {
 
 .modal--opened {
 	top: 160px;
+	position: fixed;
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
@@ -476,6 +482,10 @@ button {
   border-left: solid 1px #302F2F !important;
 }
 
+.all-filter:hover span {
+		color: #1a1a1a !important;
+	}
+
 .subreddit--selected {
 	border-top: solid 1px #fff;
 	display: -webkit-box;
@@ -538,10 +548,11 @@ button {
 
 .subreddit--deselected:hover {
   background: #ccc;
+  border: solid 1px #1a1a1a;
 }
 
 .subreddit--deselected:hover span {
-  color: #fff !important;
+  color: #1a1a1a;
 }
 
 /* Styling for individual subreddits */
@@ -568,7 +579,7 @@ button {
 }
 
 .filters__list > .css-filter:hover span {
-  color: #fff;
+  color: #fff !important;
   padding: 0 0.3em;
   position: relative;
 }
@@ -594,7 +605,7 @@ button {
 }
 
 .filters__list > .webdev-filter:hover span {
-  color: #fff;
+  color: #fff !important;
   padding: 0 0.3em;
   position: relative;
 }
@@ -620,7 +631,7 @@ button {
 }
 
 .filters__list > .web_design-filter:hover span {
-  color: #fff;
+  color: #fff !important;
   padding: 0 0.3em;
   position: relative;
 }
@@ -646,7 +657,7 @@ button {
 }
 
 .filters__list > .jquery-filter:hover span {
-  color: #fff;
+  color: #fff !important;
   background: #15db95;
   padding: 0 0.3em;
   position: relative;
@@ -673,7 +684,7 @@ button {
 }
 
 .filters__list > .javascript-filter:hover span {
-  color: #fff;
+  color: #fff !important;
   padding: 0 0.3em;
   position: relative;
 }
@@ -699,7 +710,7 @@ button {
 }
 
 .filters__list > .frontend-filter:hover span {
-  color: #fff;
+  color: #fff !important;
   padding: 0 0.3em;
   position: relative;
 }
@@ -725,7 +736,7 @@ button {
 }
 
 .filters__list > .webdevtutorials-filter:hover span {
-  color: #fff;
+  color: #fff !important;
   padding: 0 0.3em;
   position: relative;
 }
@@ -1785,7 +1796,6 @@ a:hover {
 		font-size: 1.25rem;
 	}
 
-
 	.reddit-card {
 		margin-bottom: 20px;
 	}
@@ -1820,7 +1830,9 @@ a:hover {
 		        column-gap: 1em;
 	}
 
-
+	.header__description, .header__title-wrapper {
+		margin-right: 0.5em;
+	}
 
 	.sidebar {
 		width: 22vw;
@@ -1836,6 +1848,7 @@ a:hover {
 		display: -ms-flexbox;
 		display: flex;
 	}
+
 
 		.card-container--rows .reddit-card-inner {
 		-webkit-box-align: center;
@@ -1925,6 +1938,21 @@ a:hover {
 		        align-items: flex-end;
 	}
 
+	.header__title-wrapper {
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		    -ms-flex-direction: column;
+		        flex-direction: column;
+		-webkit-box-align: start;
+		    -ms-flex-align: start;
+		        align-items: flex-start;
+	}
+
+
+	.header__description {
+		margin: 0;
+	}
+
 	.card-container--rows .subreddit-wrapper {
 		width: 100%;
 	}
@@ -1977,14 +2005,14 @@ a:hover {
 	}
 
 	.header__title {
-		font-size: 2.25rem;
+		font-size: 2.5rem;
 	}
 
 	.header__title-wrapper {
 		margin-right: 0;
 	}
 
-		.reddit-content {
+	.reddit-content {
 		top: 80px;
 		width: 90%;
 	}
@@ -1997,8 +2025,7 @@ a:hover {
 	}
 
 	.header__description {
-		font-size: 0.875rem;
-		line-height: 1;
+		display: none;
 	}
 
 	.header {
@@ -2050,6 +2077,10 @@ a:hover {
 	.card-container--rows .reddit-card__post-title a {
     font-size: 1.125rem;
   }	
+
+	.header__btn-wrapper .btn {
+		min-width: 7em;
+	}
 
 }
 

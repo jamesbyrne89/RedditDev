@@ -11,6 +11,7 @@
 	background: transparent;
 	border-bottom: solid 1px $nearBlack;
 	transition: all 1s ease-in-out;
+	border-radius: 0;
 }
 
 
@@ -21,6 +22,7 @@
 
 .search-wrapper {
 	display: none;
+	transition: all 0.5s ease-in-out;
 }
 
 .search-wrapper--opened {
@@ -35,7 +37,7 @@
 	width: 100%;
 	background: #fff;
 	padding: 2.5em 7.5vw;
-	transition: all 0.1s ease-in-out;
+	transition: all 0.5s ease-in-out;
 	border-bottom: solid 1px $text_grey_mid_two;
 }
 

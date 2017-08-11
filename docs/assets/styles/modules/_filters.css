@@ -18,6 +18,7 @@
 
 .modal--opened {
 	top: 160px;
+	position: fixed;
 	display: flex;
 	justify-content: flex-start;
 	max-height: 80vh;
@@ -116,12 +117,17 @@
 	&:hover {
 		transition: all 0.15s;
 		border: solid 1px $text_grey_dark;
+		
 	}
 	&:hover i {
 		border-left: solid 1px $text_grey_dark !important;
 	}
 
 }
+
+.all-filter:hover span {
+		color: $nearBlack !important;
+	}
 
 .subreddit--selected {
 	border-top: solid 1px #fff;
@@ -174,10 +180,11 @@
 	}
 	&:hover {
 		background: $text_grey_mid_two;
+		border: solid 1px $nearBlack;
 	}
 
 	&:hover span {
-		color: #fff !important;
+		color: $nearBlack;
 
 	}
 
@@ -204,7 +211,7 @@
 	}
 
 	&:hover span {
-		color: #fff;
+		color: #fff !important;
 		padding: 0 0.3em;
 		position: relative;
 	}
@@ -231,7 +238,7 @@
 	}
 
 	&:hover span {
-		color: #fff;
+		color: #fff !important;
 		padding: 0 0.3em;
 		position: relative;
 	}
@@ -258,7 +265,7 @@
 	}
 
 	&:hover span {
-		color: #fff;
+		color: #fff !important;
 		padding: 0 0.3em;
 		position: relative;
 	}
@@ -285,7 +292,7 @@
 	}
 
 	&:hover span {
-		color: #fff;
+		color: #fff !important;
 		background: $subreddit_colour_four;
 		padding: 0 0.3em;
 		position: relative;
@@ -313,7 +320,7 @@
 	}
 
 	&:hover span {
-		color: #fff;
+		color: #fff !important;
 		padding: 0 0.3em;
 		position: relative;
 	}
@@ -340,7 +347,7 @@
 	}
 
 	&:hover span {
-		color: #fff;
+		color: #fff !important;
 		padding: 0 0.3em;
 		position: relative;
 	}
@@ -367,7 +374,7 @@
 	}
 
 	&:hover span {
-		color: #fff;
+		color: #fff !important;
 		padding: 0 0.3em;
 		position: relative;
 	}

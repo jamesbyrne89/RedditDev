@@ -11,6 +11,10 @@
 	height: 140px;
 	background: #fff;
 	border-bottom: solid 1px $text_grey_mid_two;
+	a:hover {
+		text-transform: none;
+		border-bottom: 0;
+	}
 }
 
 .nav-container {

@@ -62,7 +62,6 @@ gulp.task('compilecss', function(){
 
 
 
-
 // Injects compiled CSS into page
 gulp.task('cssInject', ['compilecss'], function(){
   return gulp.src('app/assets/styles/styles.css')
@@ -93,7 +92,7 @@ gulp.task('prettier', () => {
 
 watch('app/assets/scripts/app.js', function(){
   gulp.start('prettier');
-  gulp.start('babel');
+  gulp.start('compressScripts');
 });
 
 // rebundle scripts when changes are made
@@ -134,7 +133,7 @@ gulp.task('babel', () => {
 gulp.task('compressScripts', ['babel', 'deleteDistFolder'], function(){
  return gulp.src('app/assets/scripts/babel/*.js')
   .pipe(uglify())
-  .pipe(gulp.dest('docs/assets/scripts'));
+  .pipe(gulp.dest('app/temp/assets/scripts/min'));
 });
 
 // Grab any other files

@@ -175,7 +175,7 @@ function getTimeAgo(timestamp) {
     } else {
         return mins + 'Just now';
     }
-}
+};
 
 /*
 Place into HTML
@@ -183,10 +183,11 @@ Place into HTML
 
 var redditContent = document.getElementById('card-container');
 var contentInfo = document.getElementById('content-info');
+var loadingSpinner = document.getElementById('loading');
 
 function updateView(data) {
 
-    $('#loading').fadeIn('fast');
+    loadingSpinner.style.display = 'block';
 
     // Clear content from card container
     contentInfo.innerHTML = '';
@@ -226,9 +227,10 @@ function updateView(data) {
 
         // Build cards
         card.innerHTML = "<div class=\"reddit-card-inner\">\n        <div class='subreddit-wrapper'>\n            <h3 class=\"reddit-card__subreddit subreddit-" + data[i].subreddit.toLowerCase() + "\">r/" + data[i].subreddit + "</h3>\n        </div>            \n                      <div class=\"reddit-card__post-title\"><a href=\"" + data[i].url + "\" target=\"blank\">\n                      " + data[i].title + "</a></div>\n\n\n                      <div class=\"card-footer\">\n                      <span class=\"short-url\">" + getHostname(data[i].url) + "</span><span class='bar'>|</span> \n                      <time class=\"timestamp\">" + time + "</time></span><span class='bar'>|</span>\n                        <span class=\"post-comments\">\n                          <a href=\"http://reddit.com/" + data[i].permalink + "\" target=\"blank\">\n                          " + numCommentsText + "</a>\n                        </span>     \n                      </div></div>";
-        $('#loading').hide();
+
         combinedCards.appendChild(card);
-    }
+    };
+    loadingSpinner.style.display = 'none';
     // Add cards to the container element
     redditContent.appendChild(combinedCards);
 
@@ -238,7 +240,7 @@ function updateView(data) {
 
     // Check that newly loaded cards are in view
     checkVisible();
-}
+};
 
 var showMessage = function showMessage() {
 
@@ -313,8 +315,8 @@ function debounce(func) {
 // Check which cards are visible on scroll
 
 function checkVisible(e) {
-
-    $('.reddit-card').each(function () {
+    var redditCards = document.querySelectorAll('.reddit-card');
+    redditCards.forEach(function (card) {
 
         var scrollInAt = void 0;
         if (window.scrollY < 0) {
@@ -322,16 +324,16 @@ function checkVisible(e) {
         } else {
             scrollInAt = window.scrollY + window.innerHeight - window.innerHeight * 0.1;
         }
-        var isShowing = scrollInAt > this.offsetTop;
+        var isShowing = scrollInAt > card.offsetTop;
         var isNotShowing = window.scrollY < scrollInAt;
         var scrolled = window.scrollY > 10;
 
         if (scrolled && isShowing && isNotShowing) {
-            this.classList.add('animate');
+            card.classList.add('animate');
         } else if (!scrolled && isShowing && isNotShowing) {
-            this.classList.add('animate');
+            card.classList.add('animate');
         } else {
-            this.classList.remove('animate');
+            card.classList.remove('animate');
         }
     });
 }
@@ -397,13 +399,14 @@ var visibleSubreddits = function visibleSubreddits() {
         for (var i = 0; i < subreddits.length; i++) {
             if (subreddits[i].classList.contains('subreddit--selected')) {
                 selected.push(subreddits[i]);
-            }
-        }
+            };
+        };
         return selected.length;
     };
 
     var _updateVisible = function _updateVisible() {
         if (_checkVisible() === 0) {
+            console.log('no subreddits visible');
             $('.all-filter').removeClass('subreddit--selected');
             $('.all-filter').addClass('subreddit--deselected');
             showMessage.empty();
@@ -415,7 +418,7 @@ var visibleSubreddits = function visibleSubreddits() {
             $('.all-filter').removeClass('subreddit--deselected');
             $('.all-filter').addClass('subreddit--selected');
             showMessage.empty();
-        }
+        };
         return _checkVisible();
     };
 
@@ -450,7 +453,7 @@ function addSubreddit() {
 $('.all-filter').on('click', function (e) {
 
     if (visibleSubreddits.updateVisible() === 0) {
-
+        console.log('running updateVisible()');
         this.classList.remove('subreddit--deselected');
         this.classList.add('subreddit--selected');
         addSubreddit();
@@ -470,66 +473,76 @@ $('.all-filter').on('click', function (e) {
  *  Takes in the chosen category and the subreddit of the element on the page to be shown/hidden. The function targets the data attribute of the cards to select which to hide or show
  */
 function handleShow(target, sr) {
-    checkVisible();
+    console.log(target.classList);
+    console.log('calling handleShow() for ', target);
 
     if (target.classList.contains('subreddit--deselected')) {
         $(".reddit-card-" + sr).hide();
     } else {
         $(".reddit-card-" + sr).fadeIn('fast');
-    }
-}
+    };
+    visibleSubreddits.updateVisible();
+};
 
 /**
  *  Add event handlers to all subreddits in list to handle hiding and showing
  */
 
-$('.web_design-filter').on('click', function (e) {
-    $(this).toggleClass('subreddit--selected');
-    $(this).toggleClass('subreddit--deselected');
+var webDesignFilterBtn = document.querySelector('.web_design-filter');
+var frontendFilterBtn = document.querySelector('.frontend-filter');
+var webDevFilterBtn = document.querySelector('.webdev-filter');
+var cssFilterBtn = document.querySelector('.css-filter');
+var javascriptFilterBtn = document.querySelector('.javascript-filter');
+var jqueryFilterBtn = document.querySelector('.jquery-filter');
+var webdevTutorialsFilterBtn = document.querySelector('.webdevtutorials-filter');
+
+webDesignFilterBtn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    this.classList.toggle('subreddit--selected');
+    this.classList.toggle('subreddit--deselected');
     handleShow(this, 'web_design');
-    visibleSubreddits.updateVisible();
 });
 
-$('.frontend-filter').on('click', function (e) {
-    $(this).toggleClass('subreddit--selected');
-    $(this).toggleClass('subreddit--deselected');
+frontendFilterBtn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    this.classList.toggle('subreddit--selected');
+    this.classList.toggle('subreddit--deselected');
     handleShow(this, 'frontend');
-    visibleSubreddits.updateVisible();
 });
 
-$('.webdev-filter').on('click', function (e) {
-    $(this).toggleClass('subreddit--selected');
-    $(this).toggleClass('subreddit--deselected');
+webDevFilterBtn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    this.classList.toggle('subreddit--selected');
+    this.classList.toggle('subreddit--deselected');
     handleShow(this, 'webdev');
-    visibleSubreddits.updateVisible();
 });
 
-$('.css-filter').on('click', function (e) {
-    $(this).toggleClass('subreddit--selected');
-    $(this).toggleClass('subreddit--deselected');
+cssFilterBtn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    this.classList.toggle('subreddit--selected');
+    this.classList.toggle('subreddit--deselected');
     handleShow(this, 'css');
-    visibleSubreddits.updateVisible();
 });
 
-$('.javascript-filter').on('click', function (e) {
-    $(this).toggleClass('subreddit--selected');
-    $(this).toggleClass('subreddit--deselected');
+javascriptFilterBtn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    this.classList.toggle('subreddit--selected');
+    this.classList.toggle('subreddit--deselected');
     handleShow(this, 'javascript');
-    visibleSubreddits.updateVisible();
 });
 
-$('.jquery-filter').on('click', function (e) {
-    $(this).toggleClass('subreddit--selected');
-    $(this).toggleClass('subreddit--deselected');
+jqueryFilterBtn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    this.classList.toggle('subreddit--selected');
+    this.classList.toggle('subreddit--deselected');
     handleShow(this, 'jquery');
-    visibleSubreddits.updateVisible();
 });
 
-$('.webdevtutorials-filter').on('click', function (e) {
-    $(this).toggleClass('subreddit--selected');
-    $(this).toggleClass('subreddit--deselected');
+webdevTutorialsFilterBtn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    this.classList.toggle('subreddit--selected');
+    this.classList.toggle('subreddit--deselected');
     handleShow(this, 'webdevtutorials');
-    visibleSubreddits.updateVisible();
 });
 
 // Scroll progress bar
@@ -552,8 +565,6 @@ var backToTopTap = new Hammer(backToTopBtn);
 backToTopTap.on("tap", function (ev) {
     window.scrollTo(0, 0);
 });
-
-init();
 
 /**
  * [isSearched description]
@@ -604,9 +615,9 @@ search.addEventListener('change', function (e) {
         showMessage.search(e.target.value);
         if (filtered.length === 0) {
             showMessage.noResults(e.target.value);
-        }
+        };
         e.target.value = '';
-    }
+    };
 });
 
 /**
@@ -629,3 +640,5 @@ search.addEventListener('change', function (e) {
         redditContent.classList.toggle('card-container--rows');
     });
 })();
+
+init();

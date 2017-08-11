@@ -32,37 +32,37 @@ const init = function init() {
     // r/webdev
     const fetchWebDev = fetch("https://www.reddit.com/r/webdev.json?")
         .then(resp => resp.json())
-        .catch((err) => console.error('Error fetching data from r/webdev'))
+        .catch((err) => console.error('Error fetching data from r/webdev'));
 
     // r/web_design
     const fetchWebDesign = fetch("https://www.reddit.com/r/web_design.json?")
         .then(resp => resp.json())
-        .catch((err) => console.error('Error fetching data from r/web_design'))
+        .catch((err) => console.error('Error fetching data from r/web_design'));
 
     // r/frontend
     const fetchFrontEnd = fetch("https://www.reddit.com/r/frontend.json?")
         .then(resp => resp.json())
-        .catch((err) => console.error('Error fetching data from r/frontend'))
+        .catch((err) => console.error('Error fetching data from r/frontend'));
 
     // r/css
     const fetchCSS = fetch("https://www.reddit.com/r/css.json?")
         .then(resp => resp.json())
-        .catch((err) => console.error('Error fetching data from r/css'))
+        .catch((err) => console.error('Error fetching data from r/css'));
 
     // r/javascript
     const fetchJavascript = fetch("https://www.reddit.com/r/javascript.json?")
         .then(resp => resp.json())
-        .catch((err) => console.error('Error fetching data from r/javascript'))
+        .catch((err) => console.error('Error fetching data from r/javascript'));
 
     // r/jquery
     const fetchJQuery = fetch("https://www.reddit.com/r/jquery.json?")
         .then(resp => resp.json())
-        .catch((err) => console.error('Error fetching data from r/jquery'))
+        .catch((err) => console.error('Error fetching data from r/jquery'));
 
     // r/webdevtutorials
     const fetchWebDevTutorials = fetch("https://www.reddit.com/r/WebdevTutorials.json?")
         .then(resp => resp.json())
-        .catch((err) => console.error('Error fetching data from r/webdevtutorials'))
+        .catch((err) => console.error('Error fetching data from r/webdevtutorials'));
 
 
     Promise.all([fetchWebDev, fetchWebDesign, fetchFrontEnd, fetchCSS, fetchJavascript, fetchJQuery, fetchWebDevTutorials])
@@ -72,14 +72,14 @@ const init = function init() {
             let allPosts = [];
 
             values.forEach(item => {
-                combined.push(...item.data.children)
+                combined.push(...item.data.children);
 
             });
             combined.forEach(item => {
 
                 let post = item.data;
 
-                allPosts.push(post)
+                allPosts.push(post);
             });
             // Sort by date
 
@@ -165,20 +165,20 @@ function getTimeAgo(timestamp) {
     } else {
         return mins + 'Just now';
     }
-}
+};
 
 
 /*
 Place into HTML
  */
 
-  const redditContent = document.getElementById('card-container');
-const contentInfo = document.getElementById('content-info');
-
+  	const redditContent = document.getElementById('card-container');
+	const contentInfo = document.getElementById('content-info');
+	const loadingSpinner = document.getElementById('loading');
 
 function updateView(data) {
 
-    $('#loading').fadeIn('fast');
+    loadingSpinner.style.display = 'block';
   
     // Clear content from card container
     contentInfo.innerHTML = '';
@@ -218,7 +218,7 @@ let combinedCards = document.createDocumentFragment();
         if (data[i].num_comments === 1) {
             numCommentsText = `${data[i].num_comments} comment`;
         } else {
-            numCommentsText = `${data[i].num_comments} comments`
+            numCommentsText = `${data[i].num_comments} comments`;
         }
 
         // Build cards
@@ -238,10 +238,11 @@ let combinedCards = document.createDocumentFragment();
                           ${numCommentsText}</a>
                         </span>     
                       </div></div>`
-        $('#loading').hide();
+        
         combinedCards.appendChild(card);
 
-    }
+    };
+    loadingSpinner.style.display = 'none';
     // Add cards to the container element
     redditContent.appendChild(combinedCards);
 
@@ -252,7 +253,7 @@ let combinedCards = document.createDocumentFragment();
     // Check that newly loaded cards are in view
     checkVisible();
 
-}
+};
 
 const showMessage = (function showMessage() {
 
@@ -331,8 +332,8 @@ function debounce(func, wait = 25, immediate = true) {
 // Check which cards are visible on scroll
 
 function checkVisible(e) {
-
-    $('.reddit-card').each(function() {
+const redditCards = document.querySelectorAll('.reddit-card');
+    redditCards.forEach(function(card) {
 
         let scrollInAt;
         if (window.scrollY < 0) {
@@ -340,16 +341,16 @@ function checkVisible(e) {
         } else {
             scrollInAt = window.scrollY + window.innerHeight - (window.innerHeight * 0.1);
         }
-        let isShowing = scrollInAt > this.offsetTop;
+        let isShowing = scrollInAt > card.offsetTop;
         let isNotShowing = window.scrollY < scrollInAt;
         let scrolled = window.scrollY > 10;
 
         if (scrolled && isShowing && isNotShowing) {
-            this.classList.add('animate');
+            card.classList.add('animate');
         } else if (!scrolled && isShowing && isNotShowing) {
-            this.classList.add('animate');
+            card.classList.add('animate');
         } else {
-            this.classList.remove('animate');
+            card.classList.remove('animate');
         }
     })
 }
@@ -421,13 +422,14 @@ const visibleSubreddits = (function visibleSubreddits() {
         for (let i = 0; i < subreddits.length; i++) {
             if (subreddits[i].classList.contains('subreddit--selected')) {
                 selected.push(subreddits[i])
-            }
-        }
+            };
+        };
         return selected.length;
-    }
+    };
 
     const _updateVisible = function _updateVisible() {
         if (_checkVisible() === 0) {
+        	console.log('no subreddits visible')
             $('.all-filter').removeClass('subreddit--selected');
             $('.all-filter').addClass('subreddit--deselected');
             showMessage.empty();
@@ -439,14 +441,14 @@ const visibleSubreddits = (function visibleSubreddits() {
             $('.all-filter').removeClass('subreddit--deselected');
             $('.all-filter').addClass('subreddit--selected');
             showMessage.empty();
-        }
+        };
         return _checkVisible();
-    }
+    };
 
     return {
         checkVisible: _checkVisible,
         updateVisible: _updateVisible
-    }
+    };
 })();
 
 
@@ -476,7 +478,7 @@ function addSubreddit() {
 $('.all-filter').on('click', function(e) {
 
     if (visibleSubreddits.updateVisible() === 0) {
-
+    	console.log('running updateVisible()');
         this.classList.remove('subreddit--deselected');
         this.classList.add('subreddit--selected');
         addSubreddit();
@@ -499,15 +501,17 @@ $('.all-filter').on('click', function(e) {
  *  Takes in the chosen category and the subreddit of the element on the page to be shown/hidden. The function targets the data attribute of the cards to select which to hide or show
  */
 function handleShow(target, sr) {
-    checkVisible();
+	console.log(target.classList);
+	console.log('calling handleShow() for ', target)
+
 
     if (target.classList.contains('subreddit--deselected')) {
         $(`.reddit-card-${sr}`).hide();
     } else {
         $(`.reddit-card-${sr}`).fadeIn('fast');
-    }
-
-}
+    };
+    visibleSubreddits.updateVisible();
+};
 
 
 
@@ -515,53 +519,63 @@ function handleShow(target, sr) {
  *  Add event handlers to all subreddits in list to handle hiding and showing
  */
 
-$('.web_design-filter').on('click', function(e) {
-    $(this).toggleClass('subreddit--selected');
-    $(this).toggleClass('subreddit--deselected');
+const webDesignFilterBtn = document.querySelector('.web_design-filter');
+const frontendFilterBtn = document.querySelector('.frontend-filter');
+const webDevFilterBtn = document.querySelector('.webdev-filter');
+const cssFilterBtn = document.querySelector('.css-filter');
+const javascriptFilterBtn = document.querySelector('.javascript-filter');
+const jqueryFilterBtn = document.querySelector('.jquery-filter');
+const webdevTutorialsFilterBtn = document.querySelector('.webdevtutorials-filter');
+
+webDesignFilterBtn.addEventListener('click', function(e) {
+	e.stopPropagation();
+    this.classList.toggle('subreddit--selected');
+    this.classList.toggle('subreddit--deselected');
     handleShow(this, 'web_design');
-    visibleSubreddits.updateVisible();
+    
 });
 
-$('.frontend-filter').on('click', function(e) {
-    $(this).toggleClass('subreddit--selected');
-    $(this).toggleClass('subreddit--deselected')
+frontendFilterBtn.addEventListener('click', function(e) {
+	e.stopPropagation();
+    this.classList.toggle('subreddit--selected');
+    this.classList.toggle('subreddit--deselected')
     handleShow(this, 'frontend');
-    visibleSubreddits.updateVisible();
 });
 
-$('.webdev-filter').on('click', function(e) {
-    $(this).toggleClass('subreddit--selected');
-    $(this).toggleClass('subreddit--deselected');
+webDevFilterBtn.addEventListener('click', function(e) {
+	e.stopPropagation();
+    this.classList.toggle('subreddit--selected');
+    this.classList.toggle('subreddit--deselected');
     handleShow(this, 'webdev');
-    visibleSubreddits.updateVisible();
+    
 });
 
-$('.css-filter').on('click', function(e) {
-    $(this).toggleClass('subreddit--selected');
-    $(this).toggleClass('subreddit--deselected');
+cssFilterBtn.addEventListener('click', function(e) {
+	e.stopPropagation();
+    this.classList.toggle('subreddit--selected');
+    this.classList.toggle('subreddit--deselected');
     handleShow(this, 'css');
-    visibleSubreddits.updateVisible();
 });
 
-$('.javascript-filter').on('click', function(e) {
-    $(this).toggleClass('subreddit--selected');
-    $(this).toggleClass('subreddit--deselected');
+javascriptFilterBtn.addEventListener('click', function(e) {
+	e.stopPropagation();
+    this.classList.toggle('subreddit--selected');
+    this.classList.toggle('subreddit--deselected');
     handleShow(this, 'javascript');
-    visibleSubreddits.updateVisible();
 });
 
-$('.jquery-filter').on('click', function(e) {
-    $(this).toggleClass('subreddit--selected');
-    $(this).toggleClass('subreddit--deselected');
+jqueryFilterBtn.addEventListener('click', function(e) {
+	e.stopPropagation();
+    this.classList.toggle('subreddit--selected');
+    this.classList.toggle('subreddit--deselected');
     handleShow(this, 'jquery');
-    visibleSubreddits.updateVisible();
 });
 
-$('.webdevtutorials-filter').on('click', function(e) {
-    $(this).toggleClass('subreddit--selected');
-    $(this).toggleClass('subreddit--deselected');
+webdevTutorialsFilterBtn.addEventListener('click', function(e) {
+	e.stopPropagation();
+    this.classList.toggle('subreddit--selected');
+    this.classList.toggle('subreddit--deselected');
     handleShow(this, 'webdevtutorials');
-    visibleSubreddits.updateVisible();
 });
 
 
@@ -586,10 +600,6 @@ let backToTopTap = new Hammer(backToTopBtn);
 backToTopTap.on("tap", function(ev) {
     window.scrollTo(0, 0);
 });
-
-
-init();
-
 
 
 
@@ -633,7 +643,7 @@ searchCloseTap.on("tap", function(ev) {
 
 document.body.addEventListener('mousemove', function() {
     document.body.classList.add('mouse-user');
-})
+});
 
 search.addEventListener('change', function(e) {
     let filtered;
@@ -643,9 +653,9 @@ search.addEventListener('change', function(e) {
         showMessage.search(e.target.value);      
      if (filtered.length === 0) {
         showMessage.noResults(e.target.value);
-     }   
+     };
      e.target.value = '';
-    }
+    };
 });
 
 
@@ -672,6 +682,14 @@ search.addEventListener('change', function(e) {
 
 
 })();
+
+
+init();
+
+
+
+
+
 
 
 
