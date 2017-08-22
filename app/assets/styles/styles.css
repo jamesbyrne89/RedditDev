@@ -497,10 +497,21 @@ a:hover {
 		width: auto;
 	}
 
+	.header .search-btn:hover, .header .filter-btn:hover,
+	.header .btn:hover .fa, .header .btn:hover i {
+		background: #fff;
+		color: $nearBlack;
+		
+	}
 	.header .search-btn:hover, .header .filter-btn:hover {
-		background: transparent;
-		color: #fff;
 		border-bottom: 1px solid #fff;
+	}
+
+
+		.is-sticky .search-btn:hover, .is-sticky .filter-btn:hover,
+	.is-sticky .btn:hover .fa, .is-sticky .btn:hover i {
+		color: #fff;
+		background: transparent;
 	}
 
 	.view-btn {

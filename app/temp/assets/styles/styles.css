@@ -185,7 +185,7 @@ button {
 	border: solid 1px #fff;
 }
 
-.is-sticky .btn:hover {
+.is-sticky .btn:hover, .is-sticky .btn:hover .fa {
 	color: #1a1a1a;
 	background: #fff;
 }
@@ -1446,9 +1446,15 @@ button {
 	outline: 0;
 }
 
-.btn:hover {
+.btn:hover, .btn:hover i, .btn:hover .fa {
 	color: #fff;
 	background: #302F2F;
+}
+
+.mouse-user > .btn::focus,
+.mouse-user > .btn:focus,
+.mouse-user > .btn::focus  {
+	outline: 0 !important;
 }
 
 .back-to-top {
@@ -2237,10 +2243,21 @@ a:hover {
 		width: auto;
 	}
 
+	.header .search-btn:hover, .header .filter-btn:hover,
+	.header .btn:hover .fa, .header .btn:hover i {
+		background: #fff;
+		color: #1a1a1a;
+		
+	}
 	.header .search-btn:hover, .header .filter-btn:hover {
-		background: transparent;
-		color: #fff;
 		border-bottom: 1px solid #fff;
+	}
+
+
+		.is-sticky .search-btn:hover, .is-sticky .filter-btn:hover,
+	.is-sticky .btn:hover .fa, .is-sticky .btn:hover i {
+		color: #fff;
+		background: transparent;
 	}
 
 	.view-btn {

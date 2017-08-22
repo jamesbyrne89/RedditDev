@@ -93,7 +93,7 @@
 	border: solid 1px #fff;
 }
 
-.is-sticky .btn:hover {
+.is-sticky .btn:hover, .is-sticky .btn:hover .fa {
 	color: $nearBlack;
 	background: #fff;
 }
