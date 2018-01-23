@@ -78,7 +78,14 @@ var init = function init() {
         return console.error('Error fetching data from r/webdevtutorials');
     });
 
-    Promise.all([fetchWebDev, fetchWebDesign, fetchFrontEnd, fetchCSS, fetchJavascript, fetchJQuery, fetchWebDevTutorials]).then(function (values) {
+    // r/reactjs
+    var fetchReactJS = fetch("https://www.reddit.com/r/reactjs.json?").then(function (resp) {
+        return resp.json();
+    }).catch(function (err) {
+        return console.error('Error fetching data from r/reactjs');
+    });
+
+    Promise.all([fetchWebDev, fetchWebDesign, fetchFrontEnd, fetchCSS, fetchJavascript, fetchJQuery, fetchWebDevTutorials, fetchReactJS]).then(function (values) {
 
         var combined = [];
         var allPosts = [];
@@ -87,7 +94,7 @@ var init = function init() {
             combined.push.apply(combined, _toConsumableArray(item.data.children));
         });
         combined.forEach(function (item) {
-
+            console.log(item);
             var post = item.data;
 
             allPosts.push(post);
@@ -190,8 +197,8 @@ function updateView(data) {
     loadingSpinner.style.display = 'block';
 
     // Clear content from card container
-    contentInfo.innerHTML = '';
-    redditContent.innerHTML = '';
+    contentInfo.innerHTML = null;
+    redditContent.innerHTML = null;
 
     // Add an end mark icon
     var endMark = document.createElement('img');
@@ -363,6 +370,8 @@ function stickyHeader() {
 // Event listeners for scroll events
 window.addEventListener('scroll', checkVisible);
 window.addEventListener('scroll', stickyHeader);
+
+window.addEventListener('resize', checkVisible);
 
 // Close and open filters list modal
 var toggleModal = function toggleModal() {
@@ -573,9 +582,9 @@ function isSearched(searchTerm) {
     };
 };
 
-var search = document.getElementById('search');
-var searchBtn = document.getElementById('search-btn');
-var searchCloseBtn = document.getElementById('search-close-btn');
+var search = document.getElementById('search'),
+    searchBtn = document.getElementById('search-btn'),
+    searchCloseBtn = document.getElementById('search-close-btn');
 
 var searchTap = new Hammer(searchBtn);
 
@@ -610,7 +619,7 @@ search.addEventListener('change', function (e) {
         filtered = dataStore.getData().filter(isSearched(e.target.value));
         updateView(filtered);
         showMessage.search(e.target.value);
-        if (filtered.length === 0) {
+        if (!filtered.length) {
             showMessage.noResults(e.target.value);
         };
         e.target.value = '';

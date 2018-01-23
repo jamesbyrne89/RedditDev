@@ -64,8 +64,13 @@ const init = function init() {
         .then(resp => resp.json())
         .catch((err) => console.error('Error fetching data from r/webdevtutorials'));
 
+        // r/reactjs
+    const fetchReactJS = fetch("https://www.reddit.com/r/reactjs.json?")
+    .then(resp => resp.json())
+    .catch((err) => console.error('Error fetching data from r/reactjs'));
 
-    Promise.all([fetchWebDev, fetchWebDesign, fetchFrontEnd, fetchCSS, fetchJavascript, fetchJQuery, fetchWebDevTutorials])
+
+    Promise.all([fetchWebDev, fetchWebDesign, fetchFrontEnd, fetchCSS, fetchJavascript, fetchJQuery, fetchWebDevTutorials, fetchReactJS])
         .then((values) => {
 
             let combined = [];
@@ -76,7 +81,7 @@ const init = function init() {
 
             });
             combined.forEach(item => {
-
+                console.log(item)
                 let post = item.data;
 
                 allPosts.push(post);
@@ -181,8 +186,8 @@ function updateView(data) {
     loadingSpinner.style.display = 'block';
   
     // Clear content from card container
-    contentInfo.innerHTML = '';
-    redditContent.innerHTML = '';
+    contentInfo.innerHTML = null;
+    redditContent.innerHTML = null;
 
     // Add an end mark icon
     const endMark = document.createElement('img');
@@ -382,6 +387,8 @@ function stickyHeader() {
 // Event listeners for scroll events
 window.addEventListener('scroll', checkVisible);
 window.addEventListener('scroll', stickyHeader);
+
+window.addEventListener('resize', checkVisible);
 
 
 
@@ -611,9 +618,9 @@ function isSearched(searchTerm) {
     };
 };
 
-const search = document.getElementById('search');
-const searchBtn = document.getElementById('search-btn');
-const searchCloseBtn = document.getElementById('search-close-btn');
+const search = document.getElementById('search'),
+    searchBtn = document.getElementById('search-btn'),
+    searchCloseBtn = document.getElementById('search-close-btn');
 
 let searchTap = new Hammer(searchBtn);
 
@@ -649,7 +656,7 @@ search.addEventListener('change', function(e) {
         filtered = dataStore.getData().filter(isSearched(e.target.value));
         updateView(filtered);
         showMessage.search(e.target.value);      
-     if (filtered.length === 0) {
+     if (!filtered.length) {
         showMessage.noResults(e.target.value);
      };
      e.target.value = '';

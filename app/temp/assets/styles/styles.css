@@ -1415,6 +1415,61 @@ button {
   transition: opacity 0.15s;
 }
 
+/*-------------------------------
+* r/reactjs
+-------------------------------*/
+
+.reddit-card-reactjs {
+	border-bottom: solid 0px #7D645F;
+	color: #7D645F;
+}
+
+.reddit-card-reactjs .reddit-card-inner {
+	background-image: -webkit-repeating-radial-gradient(center center, #7D645F, #7D645F 1px, transparent 1px, transparent 100%);
+	background-image: repeating-radial-gradient(center center, #7D645F, #7D645F 1px, transparent 1px, transparent 100%);
+	background-size: 3px 3px;
+}
+
+.subreddit-reactjs {
+	background: #7D645F;
+	position: relative;
+	z-index: 500;
+}
+
+.dotted-bg-reactjs {
+	color: #7D645F;
+	background-image: -webkit-repeating-radial-gradient(center center, #7D645F, #7D645F 1px, transparent 1px, transparent 100%);
+	background-image: repeating-radial-gradient(center center, #7D645F, #7D645F 1px, transparent 1px, transparent 100%);
+	background-size: 3px 3px;
+}
+
+.reactjs-overlay::before {
+  content: '';
+  display: block;
+  opacity: 1;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #7D645F;
+  mix-blend-mode: screen;
+  transition: opacity 0.15s;
+}
+
+.reactjs-overlay::after {
+  content: '';
+  display: block;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #7D645F;
+  transition: opacity 0.15s;
+}
+
 /* Back To Top Button */
 
 .btn {
