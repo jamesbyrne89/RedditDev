@@ -1,0 +1,382 @@
+/* Filter list */
+.modal {
+	font-family: $sansSerif;
+	display: none;
+	position: fixed;
+	top: 170px;
+	right: 7.5vw;
+	z-index: 300;
+	width: 400px;
+	height: auto;
+	margin: auto;
+	background: #fff;
+	padding: 2.5em 1.5em;
+	border: 1px solid fff;
+	transition: all 0.3s ease-out;
+	box-shadow: 0 15px 20px rgba(0,0,0,0.15);
+}
+
+.modal--opened {
+	top: 160px;
+	position: fixed;
+	display: flex;
+	justify-content: flex-start;
+	max-height: 80vh;
+	transform: translateY(30px);
+	transition: transform 0.3s ease-out;
+}
+
+.modal--opened-stuck {
+	position: fixed !important;
+	top: 150px !important;
+}
+
+.filters {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	flex-direction: column;
+	width: auto;
+	margin: auto;
+	position: relative;
+}
+
+.filters__title {
+	font-family: $serif;
+	margin-right: 2em;
+	width: 100%;
+}
+
+.filter-overlay {
+	position: fixed;
+	display: none;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(236,238,241, 0.95); 
+	z-index: 250;
+	max-height: 100vh;
+}
+
+.filters__list {
+	font-family: $sansSerif;
+	padding: 0.5em 0 0 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	flex-wrap: wrap;
+	flex: 1 0 100%;
+	width: 100%;
+	position: relative;
+	text-align: center;
+	font-weight: 400;
+	list-style-type: none;
+	margin-top: 1.5em;
+}
+
+.filters__list-item,
+.all-filter {
+	font-size: 0.875rem;
+	padding: 0 0.5em;
+	position: relative;
+	cursor: pointer;
+	display: flex;
+	justify-content: space-between;
+	text-transform: uppercase;
+	border: 0;
+	text-align: left;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	z-index: 1;
+	transition: all 0.15s;
+	background: transparent !important;
+	margin: 0.5em 0;
+	width: calc(100% - 6px);
+	height: 2.5em;
+
+	i {
+		padding: 0.5em 2em;
+		position: relative;
+		border-left: solid 1px #fff;
+	}
+
+}
+
+.all-filter {
+	border-bottom: solid 1px $text_grey_mid_two;
+	border-top: solid 1px $text_grey_mid_two;
+	border-left: solid 1px #fff;
+	border-right: solid 1px #fff;
+	transition: all 0.15s;
+
+	span {
+		padding: 0 0.3em;
+	}
+
+	&:hover {
+		transition: all 0.15s;
+		border: solid 1px $text_grey_dark;
+		
+	}
+	&:hover i {
+		border-left: solid 1px $text_grey_dark !important;
+	}
+
+}
+
+.all-filter:hover span {
+		color: $nearBlack !important;
+	}
+
+.subreddit--selected {
+	border-top: solid 1px #fff;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	transition: all 0.15s;
+
+	&:hover::before {
+		transition: all 0.15s;
+		opacity: 1;
+		top: 0.675em;
+		left: 0.675em;
+	}
+
+	&:hover i {
+		border-left: solid 1px #fff;
+	}
+
+}
+
+.subreddit--selected::before {
+	content: '';
+	display: block;
+	opacity: 1;
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	transition: all 0.15s;
+}
+
+.subreddit--deselected {
+	border-left: solid 2px #fff !important;
+	background: white !important;
+	align-items: center;
+	transition: all 0.15s;
+	border: solid 1px $text_grey_mid_two !important;
+
+	span {
+		color: $text_grey_mid_two !important;
+		padding-left: 1em !important;
+		transition: all 0.15s;
+	}
+
+	i {
+		opacity: 0;
+		transition: all 0.15s;
+	}
+	&:hover {
+		background: $text_grey_mid_two;
+		border: solid 1px $nearBlack;
+	}
+
+	&:hover span {
+		color: $nearBlack;
+
+	}
+
+}
+
+/* Styling for individual subreddits */
+.filters__list > .css-filter {
+	color: $subreddit_colour_one;
+	background: $subreddit_colour_one;
+
+
+	&:hover {
+		background: $subreddit_colour_one !important;
+	}
+
+	&:hover i {
+		color: #fff;
+	}
+
+	span {
+		color: $subreddit_colour_one;
+		padding: 0 0.3em;
+		position: relative;
+	}
+
+	&:hover span {
+		color: #fff !important;
+		padding: 0 0.3em;
+		position: relative;
+	}
+
+
+}
+
+.filters__list > .webdev-filter {
+	color: $subreddit_colour_two;
+	background: $subreddit_colour_two;
+
+	&:hover {
+		background: $subreddit_colour_two !important;
+	}
+
+	&:hover i {
+		color: #fff;
+	}
+
+	span {
+		color: $subreddit_colour_two;
+		padding: 0 0.3em;
+		position: relative;
+	}
+
+	&:hover span {
+		color: #fff !important;
+		padding: 0 0.3em;
+		position: relative;
+	}
+
+}
+
+.filters__list > .web_design-filter {
+	color: $subreddit_colour_three;
+	background: $subreddit_colour_three;
+
+
+	&:hover {
+		background: $subreddit_colour_three !important;
+	}
+
+	&:hover i {
+		color: #fff;
+	}
+
+	span {
+		color: $subreddit_colour_three;
+		padding: 0 0.3em;
+		position: relative;
+	}
+
+	&:hover span {
+		color: #fff !important;
+		padding: 0 0.3em;
+		position: relative;
+	}
+
+}
+
+.filters__list > .jquery-filter {
+	color: $subreddit_colour_four;
+	background: $subreddit_colour_four;
+
+
+	&:hover {
+		background: $subreddit_colour_four !important;
+	}
+
+	&:hover i {
+		color: #fff;
+	}
+
+	span {
+		color: $subreddit_colour_four;
+		padding: 0 0.3em;
+		position: relative;
+	}
+
+	&:hover span {
+		color: #fff !important;
+		background: $subreddit_colour_four;
+		padding: 0 0.3em;
+		position: relative;
+	}
+
+}
+
+.filters__list > .javascript-filter {
+	color: $subreddit_colour_five;
+	background: $subreddit_colour_five;
+
+
+	&:hover {
+		background: $subreddit_colour_five !important;
+	}
+
+	&:hover i {
+		color: #fff;
+	}
+
+	span {
+		color: $subreddit_colour_five;
+		padding: 0 0.3em;
+		position: relative;
+	}
+
+	&:hover span {
+		color: #fff !important;
+		padding: 0 0.3em;
+		position: relative;
+	}
+
+}
+
+.filters__list > .frontend-filter {
+	color: $subreddit_colour_six;
+	background: $subreddit_colour_six;
+
+
+	&:hover {
+		background: $subreddit_colour_six !important;
+	}
+
+	&:hover i {
+		color: #fff;
+	}
+
+	span {
+		color: $subreddit_colour_six;
+		padding: 0 0.3em;
+		position: relative;
+	}
+
+	&:hover span {
+		color: #fff !important;
+		padding: 0 0.3em;
+		position: relative;
+	}
+
+}
+
+.filters__list > .webdevtutorials-filter {
+	color: $subreddit_colour_seven;
+	background: $subreddit_colour_seven;
+
+
+	&:hover {
+		background: $subreddit_colour_seven !important;
+	}
+
+	&:hover i {
+		color: #fff;
+	}
+
+	span {
+		color: $subreddit_colour_seven;
+		padding: 0 0.3em;
+		position: relative;
+	}
+
+	&:hover span {
+		color: #fff !important;
+		padding: 0 0.3em;
+		position: relative;
+	}
+
+}

@@ -498,14 +498,12 @@ a:hover {
 		width: auto;
 	}
 
-	.header .search-btn:hover, .header .filter-btn:hover,
-	.header .btn:hover .fa, .header .btn:hover i {
+	.header .search-btn:hover, .header .filter-btn:hover {
 		background: #fff;
 		color: $nearBlack;
 		
 	}
 	.header .search-btn:hover, .header .filter-btn:hover {
-<<<<<<< HEAD
 		background: transparent;
 		color: $nearBlack;
 	}
@@ -513,16 +511,18 @@ a:hover {
 	.header.is-sticky .search-btn:hover, .header.is-sticky .filter-btn:hover {
 		background: transparent;
 		color: #fff;
-=======
 		border-bottom: 1px solid #fff;
->>>>>>> 4cdc3cfa470afbab35b82879dd01a9f85b5176e3
+
 	}
 
 
-		.is-sticky .search-btn:hover, .is-sticky .filter-btn:hover,
-	.is-sticky .btn:hover .fa, .is-sticky .btn:hover i {
+		.is-sticky .search-btn:hover, .is-sticky .filter-btn:hover {
 		color: #fff;
 		background: transparent;
+	}
+
+	.btn i, .btn:hover i {
+		background: none;
 	}
 
 	.view-btn {

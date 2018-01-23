@@ -179,14 +179,23 @@ button {
 	transition: all 0.3s;
 }
 
-.is-sticky .btn {
+.header.is-sticky .btn {
 	color: #fff;
 	background: #1a1a1a;
 	border: solid 1px #fff;
 }
 
-.is-sticky .btn:hover, .is-sticky .btn:hover .fa {
+.header .btn {
 	color: #1a1a1a;
+}
+
+.header .btn:hover {
+	background: #1a1a1a;
+	color: #fff;
+}
+
+.header.is-sticky .btn:hover {
+	color:  #1a1a1a;
 	background: #fff;
 }
 
@@ -1503,7 +1512,7 @@ button {
 
 .btn:hover, .btn:hover i, .btn:hover .fa {
 	color: #fff;
-	background: #302F2F;
+	background: none;
 }
 
 .mouse-user > .btn::focus,
@@ -1583,6 +1592,10 @@ button {
 
 .is-sticky .btn i {
   color: #fff;
+}
+
+.is-sticky .btn:hover i {
+  color: #1a1a1a;
 }
 
 /* Loading animation */
@@ -2303,8 +2316,7 @@ a:hover {
 		width: auto;
 	}
 
-	.header .search-btn:hover, .header .filter-btn:hover,
-	.header .btn:hover .fa, .header .btn:hover i {
+	.header .search-btn:hover, .header .filter-btn:hover {
 		background: #fff;
 		color: #1a1a1a;
 		
@@ -2317,13 +2329,18 @@ a:hover {
 	.header.is-sticky .search-btn:hover, .header.is-sticky .filter-btn:hover {
 		background: transparent;
 		color: #fff;
+		border-bottom: 1px solid #fff;
+
 	}
 
 
-		.is-sticky .search-btn:hover, .is-sticky .filter-btn:hover,
-	.is-sticky .btn:hover .fa, .is-sticky .btn:hover i {
+		.is-sticky .search-btn:hover, .is-sticky .filter-btn:hover {
 		color: #fff;
 		background: transparent;
+	}
+
+	.btn i, .btn:hover i {
+		background: none;
 	}
 
 	.view-btn {
