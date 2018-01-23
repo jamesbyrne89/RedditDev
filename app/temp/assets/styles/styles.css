@@ -1520,6 +1520,10 @@ button {
 	min-width: 8em;
 }
 
+.is-sticky .btn i {
+  color: #fff;
+}
+
 /* Loading animation */
 
 .spinner {
@@ -2167,7 +2171,8 @@ a:hover {
 	}
 
 	.header__title, .is-sticky .header__title {
-		font-size: 10vw;
+		font-size: 8vw;
+		margin-right: 1vw;
 		padding: 0;
 		line-height: 1.5;
 	}
@@ -2239,8 +2244,12 @@ a:hover {
 
 	.header .search-btn:hover, .header .filter-btn:hover {
 		background: transparent;
+		color: #1a1a1a;
+	}
+
+	.header.is-sticky .search-btn:hover, .header.is-sticky .filter-btn:hover {
+		background: transparent;
 		color: #fff;
-		border-bottom: 1px solid #fff;
 	}
 
 	.view-btn {

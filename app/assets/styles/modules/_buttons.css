@@ -98,3 +98,9 @@
 .header .btn {
 	min-width: 8em;
 }
+
+.is-sticky {
+	.btn i {
+		color: #fff;
+	}
+}
