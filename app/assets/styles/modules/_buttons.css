@@ -26,9 +26,15 @@
 	outline: 0;
 }
 
-.btn:hover {
+.btn:hover, .btn:hover i, .btn:hover .fa {
 	color: #fff;
 	background: $text_grey_dark;
+}
+
+.mouse-user > .btn::focus,
+.mouse-user > .btn:focus,
+.mouse-user > .btn::focus  {
+	outline: 0 !important;
 }
 
 .back-to-top {
