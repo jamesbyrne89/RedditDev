@@ -1,0 +1,26 @@
+/* Typography */
+
+$sansSerif: 'Karla',
+helvetica,
+arial,
+sans-serif;
+$serif: 'Tiempos Headline',
+georgia,
+serif;
+
+/* Colours */
+
+$nearBlack: #1a1a1a;
+$highlightColourOne: #fdf522;
+$background_grey: #eceef1;
+$text_grey_dark: #302F2F;
+$text_grey_mid_one: #c9c9c9;
+$text_grey_mid_two: #ccc;
+$subreddit_colour_one: #ff4d30;
+$subreddit_colour_two: #41afa5;
+$subreddit_colour_three: #5ac8fa;
+$subreddit_colour_four: #15db95;
+$subreddit_colour_five: #ff4474;
+$subreddit_colour_six: #ff9500;
+$subreddit_colour_seven: #6755E3;
+$subreddit_colour_eight: #7D645F;
