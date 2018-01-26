@@ -1,7 +1,12 @@
 /* Typography */
 
-$sansSerif: 'Karla', helvetica, arial, sans-serif;
-$serif: 'Tiempos Headline', georgia, serif;
+$sansSerif: 'Karla',
+helvetica,
+arial,
+sans-serif;
+$serif: 'Tiempos Headline',
+georgia,
+serif;
 
 /* Colours */
 
@@ -11,7 +16,6 @@ $background_grey: #eceef1;
 $text_grey_dark: #302F2F;
 $text_grey_mid_one: #c9c9c9;
 $text_grey_mid_two: #ccc;
-
 $subreddit_colour_one: #ff4d30;
 $subreddit_colour_two: #41afa5;
 $subreddit_colour_three: #5ac8fa;

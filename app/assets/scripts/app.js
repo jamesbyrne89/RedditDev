@@ -1,5 +1,3 @@
-
-
 /**
  *  Initialise a store to hold the API data
  */
@@ -64,10 +62,10 @@ const init = function init() {
         .then(resp => resp.json())
         .catch((err) => console.error('Error fetching data from r/webdevtutorials'));
 
-        // r/reactjs
+    // r/reactjs
     const fetchReactJS = fetch("https://www.reddit.com/r/reactjs.json?")
-    .then(resp => resp.json())
-    .catch((err) => console.error('Error fetching data from r/reactjs'));
+        .then(resp => resp.json())
+        .catch((err) => console.error('Error fetching data from r/reactjs'));
 
 
     Promise.all([fetchWebDev, fetchWebDesign, fetchFrontEnd, fetchCSS, fetchJavascript, fetchJQuery, fetchWebDevTutorials, fetchReactJS])
@@ -81,7 +79,6 @@ const init = function init() {
 
             });
             combined.forEach(item => {
-                console.log(item)
                 let post = item.data;
 
                 allPosts.push(post);
@@ -171,89 +168,66 @@ function getTimeAgo(timestamp) {
         return mins + 'Just now';
     }
 };
-
+const contentInfo = document.getElementById('content-info');
 
 /*
 Place into HTML
  */
 
-  	const redditContent = document.getElementById('card-container');
-	const contentInfo = document.getElementById('content-info');
-	const loadingSpinner = document.getElementById('loading');
-
 function updateView(data) {
 
-    loadingSpinner.style.display = 'block';
-  
+    const loadingSpinner = document.getElementById('loading');
+
+    const redditContent = document.getElementById('card-container');
+
     // Clear content from card container
     contentInfo.innerHTML = null;
     redditContent.innerHTML = null;
 
-    // Add an end mark icon
-    const endMark = document.createElement('img');
-    endMark.classList.add('content-end-mark');
-    endMark.setAttribute('src', '../../../assets/images/reddit-icon-32x32.png');
+    function isLoading(loadState) {
+        let loading = loadState;
+        loading ? loadingSpinner.style.display = 'block' : loadingSpinner.style.display = 'none';
+    }
 
+    isLoading(true);
 
-let combinedCards = document.createDocumentFragment();
-    for (let i = 0; i < data.length; i++) {
+    let combinedCards = document.createDocumentFragment();
 
-        let time = getTimeAgo(data[i].created_utc);
-        let thumbnail;
-        let numCommentsText;
-        
-        // Check whether a thumbnail is available
-        if (data[i].preview && data[i].preview.images[0].resolutions && data[i].preview.images[0].resolutions[2]) {
-            thumbnail = `<a href="${data[i].url}" target="_blank">
-                        <div class="reddit-card__thumbnail-wrapper ${(data[i].subreddit).toLowerCase()}-overlay"><img class="lazyload reddit-card__thumbnail" src="${data[i].preview.images[0].resolutions[2].url}">
-                        </div>
-                        </a>`;
-        } else {
-            thumbnail = "";
-        }
- 
+    data.forEach(post => {
+
+        let { title, created_utc, num_comments, subreddit, url, permalink } = post;
+
+        let time = getTimeAgo(created_utc);
+        // Remove the 's' if comment number is one
+        let numCommentsText = num_comments === 1 ? `${num_comments} comment` : numCommentsText = `${num_comments} comments`;
+
 
         // Create individual cards
         let card = document.createElement('div');
-        card.className = 'reddit-card';
-        card.classList.add(`reddit-card-${(data[i].subreddit).toLowerCase()}`);
-        card.setAttribute('data-sr', (data[i].subreddit).toLowerCase());
-
-        // Remove the 's' if comment number is one
-        if (data[i].num_comments === 1) {
-            numCommentsText = `${data[i].num_comments} comment`;
-        } else {
-            numCommentsText = `${data[i].num_comments} comments`;
-        }
-
-        // Build cards
+        card.className = `reddit-card reddit-card-${(post.subreddit).toLowerCase()}`;
+        card.setAttribute('data-sr', (subreddit).toLowerCase());
         card.innerHTML = `<div class="reddit-card-inner">
         <div class='subreddit-wrapper'>
-            <h3 class="reddit-card__subreddit subreddit-${(data[i].subreddit).toLowerCase()}">r/${data[i].subreddit}</h3>
+            <h3 class="reddit-card__subreddit subreddit-${(subreddit).toLowerCase()}">r/${subreddit}</h3>
         </div>            
-                      <div class="reddit-card__post-title"><a href="${data[i].url}" target="blank">
-                      ${data[i].title}</a></div>
-
-
+                      <div class="reddit-card__post-title"><a href="${url}" target="blank">
+                      ${title}</a></div>
                       <div class="card-footer">
-                      <span class="short-url">${getHostname(data[i].url)}</span><span class='bar'>|</span> 
+                      <span class="short-url">${getHostname(url)}</span><span class='bar'>|</span> 
                       <time class="timestamp">${time}</time></span><span class='bar'>|</span>
                         <span class="post-comments">
-                          <a href="http://reddit.com/${data[i].permalink}" target="blank">
+                          <a href="http://reddit.com/${permalink}" target="blank">
                           ${numCommentsText}</a>
                         </span>     
                       </div></div>`
-        
+
         combinedCards.appendChild(card);
 
-    };
-    loadingSpinner.style.display = 'none';
+    });
+
     // Add cards to the container element
     redditContent.appendChild(combinedCards);
-
-    // Add an end mark to the bottom of the container div
-    redditContent.appendChild(endMark);
-    endMark.style.display = 'block';
+    isLoading(false);
 
     // Check that newly loaded cards are in view
     checkVisible();
@@ -268,19 +242,18 @@ const showMessage = (function showMessage() {
     _emptyMessage.innerHTML = "<h3 class='empty-message__header'>Nothing to see here.</h3><span class='empty-message__body'>Please use the filter button to select which subreddits to display</span>";
 
     // Create a 'clear search' button 
-    
+
     const _clearSearchBtn = document.createElement('button');
     _clearSearchBtn.className = 'clear-search';
     _clearSearchBtn.innerHTML = 'Clear search';
-    _clearSearchBtn.addEventListener('click', function(){
+    _clearSearchBtn.addEventListener('click', function() {
         init();
-    $('.search-wrapper').removeClass('search-wrapper--opened');
-    $('.search__close-btn').fadeOut('slow');
-    $('.search').removeClass('search--opened');
+        $('.search-wrapper').removeClass('search-wrapper--opened');
+        $('.search__close-btn').fadeOut('slow');
+        $('.search').removeClass('search--opened');
     });
 
     const _searchResult = document.createElement('div');
-
 
     const _empty = function _empty() {
         contentInfo.innerHTML = _emptyMessage;
@@ -290,14 +263,14 @@ const showMessage = (function showMessage() {
         _searchResult.className = 'search-term';
         _searchResult.innerHTML = `Results for "${term}":`;
         _searchResult.appendChild(_clearSearchBtn);
-         contentInfo.appendChild(_searchResult);          
+        contentInfo.appendChild(_searchResult);
     }
 
     const _noResults = function __noResults(term) {
         _searchResult.className = 'search-term';
         _searchResult.innerHTML = `No results for "${term}".`;
         _searchResult.appendChild(_clearSearchBtn);
-         contentInfo.appendChild(_searchResult);     
+        contentInfo.appendChild(_searchResult);
     }
 
     const _clear = function _clear() {
@@ -337,7 +310,7 @@ function debounce(func, wait = 25, immediate = true) {
 // Check which cards are visible on scroll
 
 function checkVisible(e) {
-const redditCards = document.querySelectorAll('.reddit-card');
+    const redditCards = document.querySelectorAll('.reddit-card');
     redditCards.forEach(function(card) {
 
         let scrollInAt;
@@ -387,8 +360,6 @@ function stickyHeader() {
 // Event listeners for scroll events
 window.addEventListener('scroll', checkVisible);
 window.addEventListener('scroll', stickyHeader);
-
-window.addEventListener('resize', checkVisible);
 
 
 
@@ -507,7 +478,7 @@ $('.all-filter').on('click', function(e) {
  */
 function handleShow(target, sr) {
     if (target.classList.contains('subreddit--deselected')) {
-        $(`.reddit-card-${sr}`).hide(); 
+        $(`.reddit-card-${sr}`).hide();
     } else {
         $(`.reddit-card-${sr}`).fadeIn('fast');
     };
@@ -527,59 +498,67 @@ const cssFilterBtn = document.querySelector('.css-filter');
 const javascriptFilterBtn = document.querySelector('.javascript-filter');
 const jqueryFilterBtn = document.querySelector('.jquery-filter');
 const webdevTutorialsFilterBtn = document.querySelector('.webdevtutorials-filter');
+const reactFilterBtn = document.querySelector('.reactjs-filter');
 const filterList = document.querySelector('.filters__list');
 
 
 
 webDesignFilterBtn.addEventListener('click', function(e) {
-	e.stopPropagation();
+    e.stopPropagation();
     this.classList.toggle('subreddit--selected');
     this.classList.toggle('subreddit--deselected');
     handleShow(this, 'web_design');
-    
+
 });
 
 frontendFilterBtn.addEventListener('click', function(e) {
-	e.stopPropagation();
+    e.stopPropagation();
     this.classList.toggle('subreddit--selected');
     this.classList.toggle('subreddit--deselected')
     handleShow(this, 'frontend');
 });
 
 webDevFilterBtn.addEventListener('click', function(e) {
-	e.stopPropagation();
+    e.stopPropagation();
     this.classList.toggle('subreddit--selected');
     this.classList.toggle('subreddit--deselected');
     handleShow(this, 'webdev');
-    
+
 });
 
 cssFilterBtn.addEventListener('click', function(e) {
-	e.stopPropagation();
+    e.stopPropagation();
     this.classList.toggle('subreddit--selected');
     this.classList.toggle('subreddit--deselected');
     handleShow(this, 'css');
 });
 
 javascriptFilterBtn.addEventListener('click', function(e) {
-	e.stopPropagation();
+    e.stopPropagation();
     this.classList.toggle('subreddit--selected');
     this.classList.toggle('subreddit--deselected');
     handleShow(this, 'javascript');
 });
 
 jqueryFilterBtn.addEventListener('click', function(e) {
-	e.stopPropagation();
+    e.stopPropagation();
     this.classList.toggle('subreddit--selected');
     this.classList.toggle('subreddit--deselected');
     handleShow(this, 'jquery');
 });
 
 webdevTutorialsFilterBtn.addEventListener('click', function(e) {
-	e.stopPropagation();
+    e.stopPropagation();
     this.classList.toggle('subreddit--selected');
     this.classList.toggle('subreddit--deselected');
     handleShow(this, 'webdevtutorials');
+});
+
+reactFilterBtn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    this.classList.toggle('subreddit--selected');
+    this.classList.toggle('subreddit--deselected');
+    handleShow(this, 'reactjs');
 });
 
 
@@ -625,7 +604,7 @@ const search = document.getElementById('search'),
 let searchTap = new Hammer(searchBtn);
 
 searchTap.on("tap", function(ev) {
-     $('.search-wrapper').toggleClass('search-wrapper--opened');
+    $('.search-wrapper').toggleClass('search-wrapper--opened');
     $('.search__close-btn').fadeIn('fast');
     $('.search').toggleClass('search--opened');
     document.getElementById('search').focus();
@@ -645,8 +624,8 @@ searchCloseTap.on("tap", function(ev) {
  * Listens for a mousemove to remove the focus ring from elements if the user is using a mouse.
  */
 function checkForMouseUse() {
-    document.body.classList.add('mouse-user');	
-    document.body.removeEventListener('mousemove', checkForMouseUse);    
+    document.body.classList.add('mouse-user');
+    document.body.removeEventListener('mousemove', checkForMouseUse);
 }
 document.body.addEventListener('mousemove', checkForMouseUse);
 
@@ -655,11 +634,11 @@ search.addEventListener('change', function(e) {
     if (e.target.value.length > 0 && typeof e.target.value === 'string') {
         filtered = dataStore.getData().filter(isSearched(e.target.value));
         updateView(filtered);
-        showMessage.search(e.target.value);      
-     if (!filtered.length) {
-        showMessage.noResults(e.target.value);
-     };
-     e.target.value = '';
+        showMessage.search(e.target.value);
+        if (!filtered.length) {
+            showMessage.noResults(e.target.value);
+        };
+        e.target.value = '';
     };
 });
 
@@ -669,33 +648,29 @@ search.addEventListener('change', function(e) {
  */
 
 (function switchLayout() {
-   const viewBtn = document.getElementById('view-btn');
-   
-   viewBtn.addEventListener('click', function() {
-    if (this.classList.contains('grid')) {
-        this.classList.add('rows');
-        this.classList.remove('grid');
-        this.innerHTML= `View<i class='fa fa-list'>`;
-    }
-    else {
-        this.classList.remove('rows');
-        this.classList.add('grid');
-        this.innerHTML= `View<i class='fa fa-th-large'>`;
-    }
-    redditContent.classList.toggle('card-container--rows');
-   });
+    const viewBtn = document.getElementById('view-btn');
+
+    viewBtn.addEventListener('click', function() {
+        if (this.classList.contains('grid')) {
+            this.classList.add('rows');
+            this.classList.remove('grid');
+            this.innerHTML = `View<i class='fa fa-list'>`;
+        } else {
+            this.classList.remove('rows');
+            this.classList.add('grid');
+            this.innerHTML = `View<i class='fa fa-th-large'>`;
+        }
+        redditContent.classList.toggle('card-container--rows');
+    });
 
 
 })();
 
 
-init();
+window.onload = function() {
+    document.body.style.opacity = 0;
+    document.body.style.opacity = 1;
+    init();
 
 
-
-
-
-
-
-
-
+}

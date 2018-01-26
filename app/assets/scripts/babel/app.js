@@ -94,7 +94,6 @@ var init = function init() {
             combined.push.apply(combined, _toConsumableArray(item.data.children));
         });
         combined.forEach(function (item) {
-            console.log(item);
             var post = item.data;
 
             allPosts.push(post);
@@ -183,67 +182,56 @@ function getTimeAgo(timestamp) {
         return mins + 'Just now';
     }
 };
+var contentInfo = document.getElementById('content-info');
 
 /*
 Place into HTML
  */
 
-var redditContent = document.getElementById('card-container');
-var contentInfo = document.getElementById('content-info');
-var loadingSpinner = document.getElementById('loading');
-
 function updateView(data) {
 
-    loadingSpinner.style.display = 'block';
+    var loadingSpinner = document.getElementById('loading');
+
+    var redditContent = document.getElementById('card-container');
 
     // Clear content from card container
     contentInfo.innerHTML = null;
     redditContent.innerHTML = null;
 
-    // Add an end mark icon
-    var endMark = document.createElement('img');
-    endMark.classList.add('content-end-mark');
-    endMark.setAttribute('src', '../../../assets/images/reddit-icon-32x32.png');
+    function isLoading(loadState) {
+        var loading = loadState;
+        loading ? loadingSpinner.style.display = 'block' : loadingSpinner.style.display = 'none';
+    }
+
+    isLoading(true);
 
     var combinedCards = document.createDocumentFragment();
-    for (var i = 0; i < data.length; i++) {
 
-        var time = getTimeAgo(data[i].created_utc);
-        var thumbnail = void 0;
-        var numCommentsText = void 0;
+    data.forEach(function (post) {
+        var title = post.title,
+            created_utc = post.created_utc,
+            num_comments = post.num_comments,
+            subreddit = post.subreddit,
+            url = post.url,
+            permalink = post.permalink;
 
-        // Check whether a thumbnail is available
-        if (data[i].preview && data[i].preview.images[0].resolutions && data[i].preview.images[0].resolutions[2]) {
-            thumbnail = "<a href=\"" + data[i].url + "\" target=\"_blank\">\n                        <div class=\"reddit-card__thumbnail-wrapper " + data[i].subreddit.toLowerCase() + "-overlay\"><img class=\"lazyload reddit-card__thumbnail\" src=\"" + data[i].preview.images[0].resolutions[2].url + "\">\n                        </div>\n                        </a>";
-        } else {
-            thumbnail = "";
-        }
+
+        var time = getTimeAgo(created_utc);
+        // Remove the 's' if comment number is one
+        var numCommentsText = num_comments === 1 ? num_comments + " comment" : numCommentsText = num_comments + " comments";
 
         // Create individual cards
         var card = document.createElement('div');
-        card.className = 'reddit-card';
-        card.classList.add("reddit-card-" + data[i].subreddit.toLowerCase());
-        card.setAttribute('data-sr', data[i].subreddit.toLowerCase());
-
-        // Remove the 's' if comment number is one
-        if (data[i].num_comments === 1) {
-            numCommentsText = data[i].num_comments + " comment";
-        } else {
-            numCommentsText = data[i].num_comments + " comments";
-        }
-
-        // Build cards
-        card.innerHTML = "<div class=\"reddit-card-inner\">\n        <div class='subreddit-wrapper'>\n            <h3 class=\"reddit-card__subreddit subreddit-" + data[i].subreddit.toLowerCase() + "\">r/" + data[i].subreddit + "</h3>\n        </div>            \n                      <div class=\"reddit-card__post-title\"><a href=\"" + data[i].url + "\" target=\"blank\">\n                      " + data[i].title + "</a></div>\n\n\n                      <div class=\"card-footer\">\n                      <span class=\"short-url\">" + getHostname(data[i].url) + "</span><span class='bar'>|</span> \n                      <time class=\"timestamp\">" + time + "</time></span><span class='bar'>|</span>\n                        <span class=\"post-comments\">\n                          <a href=\"http://reddit.com/" + data[i].permalink + "\" target=\"blank\">\n                          " + numCommentsText + "</a>\n                        </span>     \n                      </div></div>";
+        card.className = "reddit-card reddit-card-" + post.subreddit.toLowerCase();
+        card.setAttribute('data-sr', subreddit.toLowerCase());
+        card.innerHTML = "<div class=\"reddit-card-inner\">\n        <div class='subreddit-wrapper'>\n            <h3 class=\"reddit-card__subreddit subreddit-" + subreddit.toLowerCase() + "\">r/" + subreddit + "</h3>\n        </div>            \n                      <div class=\"reddit-card__post-title\"><a href=\"" + url + "\" target=\"blank\">\n                      " + title + "</a></div>\n                      <div class=\"card-footer\">\n                      <span class=\"short-url\">" + getHostname(url) + "</span><span class='bar'>|</span> \n                      <time class=\"timestamp\">" + time + "</time></span><span class='bar'>|</span>\n                        <span class=\"post-comments\">\n                          <a href=\"http://reddit.com/" + permalink + "\" target=\"blank\">\n                          " + numCommentsText + "</a>\n                        </span>     \n                      </div></div>";
 
         combinedCards.appendChild(card);
-    };
-    loadingSpinner.style.display = 'none';
+    });
+
     // Add cards to the container element
     redditContent.appendChild(combinedCards);
-
-    // Add an end mark to the bottom of the container div
-    redditContent.appendChild(endMark);
-    endMark.style.display = 'block';
+    isLoading(false);
 
     // Check that newly loaded cards are in view
     checkVisible();
@@ -371,8 +359,6 @@ function stickyHeader() {
 window.addEventListener('scroll', checkVisible);
 window.addEventListener('scroll', stickyHeader);
 
-window.addEventListener('resize', checkVisible);
-
 // Close and open filters list modal
 var toggleModal = function toggleModal() {
     $('.modal').fadeToggle('fast');
@@ -499,6 +485,7 @@ var cssFilterBtn = document.querySelector('.css-filter');
 var javascriptFilterBtn = document.querySelector('.javascript-filter');
 var jqueryFilterBtn = document.querySelector('.jquery-filter');
 var webdevTutorialsFilterBtn = document.querySelector('.webdevtutorials-filter');
+var reactFilterBtn = document.querySelector('.reactjs-filter');
 var filterList = document.querySelector('.filters__list');
 
 webDesignFilterBtn.addEventListener('click', function (e) {
@@ -548,6 +535,13 @@ webdevTutorialsFilterBtn.addEventListener('click', function (e) {
     this.classList.toggle('subreddit--selected');
     this.classList.toggle('subreddit--deselected');
     handleShow(this, 'webdevtutorials');
+});
+
+reactFilterBtn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    this.classList.toggle('subreddit--selected');
+    this.classList.toggle('subreddit--deselected');
+    handleShow(this, 'reactjs');
 });
 
 // Scroll progress bar
@@ -647,4 +641,8 @@ search.addEventListener('change', function (e) {
     });
 })();
 
-init();
+window.onload = function () {
+    document.body.style.opacity = 0;
+    document.body.style.opacity = 1;
+    init();
+};
