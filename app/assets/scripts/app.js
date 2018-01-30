@@ -177,7 +177,6 @@ Place into HTML
 function updateView(data) {
 
     const loadingSpinner = document.getElementById('loading');
-
     const redditContent = document.getElementById('card-container');
 
     // Clear content from card container
@@ -194,15 +193,12 @@ function updateView(data) {
     let combinedCards = document.createDocumentFragment();
 
     data.forEach(post => {
-
+        console.log(post)
         let { title, created_utc, num_comments, subreddit, url, permalink } = post;
-
+        
         let time = getTimeAgo(created_utc);
-        // Remove the 's' if comment number is one
         let numCommentsText = num_comments === 1 ? `${num_comments} comment` : numCommentsText = `${num_comments} comments`;
 
-
-        // Create individual cards
         let card = document.createElement('div');
         card.className = `reddit-card reddit-card-${(post.subreddit).toLowerCase()}`;
         card.setAttribute('data-sr', (subreddit).toLowerCase());
@@ -216,7 +212,7 @@ function updateView(data) {
                       <span class="short-url">${getHostname(url)}</span><span class='bar'>|</span> 
                       <time class="timestamp">${time}</time></span><span class='bar'>|</span>
                         <span class="post-comments">
-                          <a href="http://reddit.com/${permalink}" target="blank">
+                          <a href="http://reddit.com${permalink}" target="blank">
                           ${numCommentsText}</a>
                         </span>     
                       </div></div>`

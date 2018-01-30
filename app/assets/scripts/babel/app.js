@@ -191,7 +191,6 @@ Place into HTML
 function updateView(data) {
 
     var loadingSpinner = document.getElementById('loading');
-
     var redditContent = document.getElementById('card-container');
 
     // Clear content from card container
@@ -208,6 +207,7 @@ function updateView(data) {
     var combinedCards = document.createDocumentFragment();
 
     data.forEach(function (post) {
+        console.log(post);
         var title = post.title,
             created_utc = post.created_utc,
             num_comments = post.num_comments,
@@ -217,14 +217,12 @@ function updateView(data) {
 
 
         var time = getTimeAgo(created_utc);
-        // Remove the 's' if comment number is one
         var numCommentsText = num_comments === 1 ? num_comments + " comment" : numCommentsText = num_comments + " comments";
 
-        // Create individual cards
         var card = document.createElement('div');
         card.className = "reddit-card reddit-card-" + post.subreddit.toLowerCase();
         card.setAttribute('data-sr', subreddit.toLowerCase());
-        card.innerHTML = "<div class=\"reddit-card-inner\">\n        <div class='subreddit-wrapper'>\n            <h3 class=\"reddit-card__subreddit subreddit-" + subreddit.toLowerCase() + "\">r/" + subreddit + "</h3>\n        </div>            \n                      <div class=\"reddit-card__post-title\"><a href=\"" + url + "\" target=\"blank\">\n                      " + title + "</a></div>\n                      <div class=\"card-footer\">\n                      <span class=\"short-url\">" + getHostname(url) + "</span><span class='bar'>|</span> \n                      <time class=\"timestamp\">" + time + "</time></span><span class='bar'>|</span>\n                        <span class=\"post-comments\">\n                          <a href=\"http://reddit.com/" + permalink + "\" target=\"blank\">\n                          " + numCommentsText + "</a>\n                        </span>     \n                      </div></div>";
+        card.innerHTML = "<div class=\"reddit-card-inner\">\n        <div class='subreddit-wrapper'>\n            <h3 class=\"reddit-card__subreddit subreddit-" + subreddit.toLowerCase() + "\">r/" + subreddit + "</h3>\n        </div>            \n                      <div class=\"reddit-card__post-title\"><a href=\"" + url + "\" target=\"blank\">\n                      " + title + "</a></div>\n                      <div class=\"card-footer\">\n                      <span class=\"short-url\">" + getHostname(url) + "</span><span class='bar'>|</span> \n                      <time class=\"timestamp\">" + time + "</time></span><span class='bar'>|</span>\n                        <span class=\"post-comments\">\n                          <a href=\"http://reddit.com" + permalink + "\" target=\"blank\">\n                          " + numCommentsText + "</a>\n                        </span>     \n                      </div></div>";
 
         combinedCards.appendChild(card);
     });
