@@ -171,7 +171,7 @@ gulp.task('usemin', ['deleteDistFolder', 'compilecss'], function(){
 });
 
 // Preview final build in browserSync
-gulp.task('testBuild', function() {
+gulp.task('newBuild', ['build'], function() {
   browserSync.init({
     notify: false,
     server: {

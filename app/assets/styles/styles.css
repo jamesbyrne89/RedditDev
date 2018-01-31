@@ -258,7 +258,7 @@ a:hover {
         width: 90%;
     }
     .content__info-bar {
-        padding: 1em 0 0.25em 0;
+        padding:0;
     }
     .header__description {
         display: none;
@@ -422,6 +422,7 @@ a:hover {
     }
     .btn {
         font-size: 1.5rem;
+        border: 0;
     }
     .header .search-btn,
     .header .filter-btn {
@@ -446,16 +447,18 @@ a:hover {
     .header.is-sticky .filter-btn:hover {
         background: transparent;
         color: #fff;
-        border-bottom: 1px solid #fff;
-    }
-    .is-sticky .search-btn:hover,
-    .is-sticky .filter-btn:hover {
-        color: #fff;
-        background: transparent;
     }
     .btn i,
     .btn:hover i {
         background: none;
+    }
+    .header.is-sticky {
+        .btn {
+            border: solid 1px $nearBlack;
+        }
+        .btn:hover i {
+            color: #fff;
+        }
     }
     .view-btn {
         display: none;

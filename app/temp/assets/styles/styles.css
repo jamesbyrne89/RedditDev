@@ -116,7 +116,7 @@ button {
 	    -ms-flex: 0 0 200px;
 	        flex: 0 0 200px;
 	z-index: 100;
-	color: #1a1a1a;
+	color: #24292e;
 	line-height: 1;
 	text-align: left;
 }
@@ -155,7 +155,7 @@ sans-serif;
 
 .is-sticky {
 	position: fixed;
-	background: #1a1a1a;
+	background: #24292e;
 	top: -65px;
 	height: 65px;
 	-webkit-box-pack: center !important;
@@ -184,21 +184,21 @@ sans-serif;
 
 .header.is-sticky .btn {
 	color: #fff;
-	background: #1a1a1a;
+	background: #24292e;
 	border: solid 1px #fff;
 }
 
 .header .btn {
-	color: #1a1a1a;
+	color: #24292e;
 }
 
 .header .btn:hover {
-	background: #1a1a1a;
+	background: #24292e;
 	color: #fff;
 }
 
 .header.is-sticky .btn:hover {
-	color:  #1a1a1a;
+	color:  #24292e;
 	background: #fff;
 }
 
@@ -232,7 +232,7 @@ sans-serif;
 	left: 0;
 	z-index: 410;
 	width: 0;
-	background: #1a1a1a;
+	background: #24292e;
 }
 
 /* Fonts */
@@ -503,7 +503,7 @@ sans-serif;
 }
 
 .all-filter:hover span {
-    color: #1a1a1a !important;
+    color: #24292e !important;
 }
 
 .subreddit--selected {
@@ -566,11 +566,11 @@ sans-serif;
 
 .subreddit--deselected:hover {
   background: #ccc;
-  border: solid 1px #1a1a1a;
+  border: solid 1px #24292e;
 }
 
 .subreddit--deselected:hover span {
-  color: #1a1a1a;
+  color: #24292e;
 }
 
 /* Styling for individual subreddits */
@@ -921,7 +921,7 @@ sans-serif;
 	width: 100%;
 	position: relative;
 	top: -0.5em;
-	background: #1a1a1a;
+	background: #24292e;
 }
 
 .reddit-card__subreddit {
@@ -1043,7 +1043,7 @@ sans-serif;
 }
 
 .post-comments a:hover {
-  color: #1a1a1a !important;
+  color: #24292e !important;
   padding-bottom: 0.125em;
   border-bottom: solid 1px;
   transition: all 0.1s;
@@ -1529,7 +1529,7 @@ sans-serif;
 	font-weight: 600;
 	font-size: 0.75rem;
 	padding: 0.75em 1em;
-	border: solid 1px #1a1a1a;
+	border: solid 1px #24292e;
 	z-index: 400;
 	-webkit-box-align: center;
 	    -ms-flex-align: center;
@@ -1542,7 +1542,7 @@ sans-serif;
 
 .btn i {
   padding-left: 0.5em;
-  color: #1a1a1a;
+  color: #24292e;
 }
 
 .btn:active {
@@ -1637,7 +1637,7 @@ sans-serif;
 }
 
 .is-sticky .btn:hover i {
-  color: #1a1a1a;
+  color: #24292e;
 }
 
 /* Loading animation */
@@ -1660,7 +1660,7 @@ sans-serif;
 
 .spinner-circle {
   border: 4px #ccc solid;
-  border-top: 4px #1a1a1a solid;
+  border-top: 4px #24292e solid;
   border-radius: 50%;
   -webkit-animation: spCircRot .6s infinite linear;
   animation: spCircRot .6s infinite linear;
@@ -1723,7 +1723,7 @@ serif;
 	height: 2em;
 	font-size: 1.5rem;
 	background: transparent;
-	border-bottom: solid 1px #1a1a1a;
+	border-bottom: solid 1px #24292e;
 	transition: all 1s ease-in-out;
 	border-radius: 0;
 }
@@ -1897,7 +1897,7 @@ sans-serif;
 }
 
 a:hover {
-    border-bottom: solid 1px #1a1a1a;
+    border-bottom: solid 1px #24292e;
 }
 
 .info::before {
@@ -2118,7 +2118,7 @@ a:hover {
         width: 90%;
     }
     .content__info-bar {
-        padding: 1em 0 0.25em 0;
+        padding:0;
     }
     .header__description {
         display: none;
@@ -2297,6 +2297,7 @@ a:hover {
     }
     .btn {
         font-size: 1.5rem;
+        border: 0;
     }
     .header .search-btn,
     .header .filter-btn {
@@ -2310,28 +2311,28 @@ a:hover {
     .header .search-btn:hover,
     .header .filter-btn:hover {
         background: #fff;
-        color: #1a1a1a;
+        color: #24292e;
     }
     .header .search-btn:hover,
     .header .filter-btn:hover {
         background: transparent;
-        color: #1a1a1a;
+        color: #24292e;
     }
     .header.is-sticky .search-btn:hover,
     .header.is-sticky .filter-btn:hover {
         background: transparent;
         color: #fff;
-        border-bottom: 1px solid #fff;
-    }
-    .is-sticky .search-btn:hover,
-    .is-sticky .filter-btn:hover {
-        color: #fff;
-        background: transparent;
     }
     .btn i,
     .btn:hover i {
         background: none;
     }
+    .header.is-sticky .btn {
+    border: solid 1px #24292e;
+  }
+    .header.is-sticky .btn:hover i {
+    color: #fff;
+  }
     .view-btn {
         display: none;
     }
