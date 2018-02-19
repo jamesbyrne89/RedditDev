@@ -576,12 +576,12 @@ sans-serif;
 /* Styling for individual subreddits */
 
 .filters__list>.css-filter {
-    color: linear-gradient(to right, #ff5858 0%, #f09819 100%);
-    background: linear-gradient(to right, #ff5858 0%, #f09819 100%);
+    color: #5fc9f8;
+    background: #5fc9f8;
 }
 
 .filters__list>.css-filter:hover {
-  background: linear-gradient(to right, #ff5858 0%, #f09819 100%) !important;
+  background: #5fc9f8 !important;
 }
 
 .filters__list>.css-filter:hover i {
@@ -589,7 +589,7 @@ sans-serif;
 }
 
 .filters__list>.css-filter span {
-  color: linear-gradient(to right, #ff5858 0%, #f09819 100%);
+  color: #5fc9f8;
   padding: 0 0.3em;
   position: relative;
 }
@@ -601,12 +601,12 @@ sans-serif;
 }
 
 .filters__list>.webdev-filter {
-    color: linear-gradient(to left, #37ecba 0%, #72afd3 100%);
-    background: linear-gradient(to left, #37ecba 0%, #72afd3 100%);
+    color: #fecb2e;
+    background: #fecb2e;
 }
 
 .filters__list>.webdev-filter:hover {
-  background: linear-gradient(to left, #37ecba 0%, #72afd3 100%) !important;
+  background: #fecb2e !important;
 }
 
 .filters__list>.webdev-filter:hover i {
@@ -614,7 +614,7 @@ sans-serif;
 }
 
 .filters__list>.webdev-filter span {
-  color: linear-gradient(to left, #37ecba 0%, #72afd3 100%);
+  color: #fecb2e;
   padding: 0 0.3em;
   position: relative;
 }
@@ -626,12 +626,12 @@ sans-serif;
 }
 
 .filters__list>.web_design-filter {
-    color: linear-gradient(to right, #f6d365 0%, #eacda3 100%);
-    background: linear-gradient(to right, #f6d365 0%, #eacda3 100%);
+    color: #fd9426;
+    background: #fd9426;
 }
 
 .filters__list>.web_design-filter:hover {
-  background: linear-gradient(to right, #f6d365 0%, #eacda3 100%) !important;
+  background: #fd9426 !important;
 }
 
 .filters__list>.web_design-filter:hover i {
@@ -639,7 +639,7 @@ sans-serif;
 }
 
 .filters__list>.web_design-filter span {
-  color: linear-gradient(to right, #f6d365 0%, #eacda3 100%);
+  color: #fd9426;
   padding: 0 0.3em;
   position: relative;
 }
@@ -651,12 +651,12 @@ sans-serif;
 }
 
 .filters__list>.jquery-filter {
-    color: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
-    background: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+    color: #fc3158;
+    background: #fc3158;
 }
 
 .filters__list>.jquery-filter:hover {
-  background: linear-gradient(to right, #6a11cb 0%, #2575fc 100%) !important;
+  background: #fc3158 !important;
 }
 
 .filters__list>.jquery-filter:hover i {
@@ -664,25 +664,25 @@ sans-serif;
 }
 
 .filters__list>.jquery-filter span {
-  color: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+  color: #fc3158;
   padding: 0 0.3em;
   position: relative;
 }
 
 .filters__list>.jquery-filter:hover span {
   color: #fff !important;
-  background: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+  background: #fc3158;
   padding: 0 0.3em;
   position: relative;
 }
 
 .filters__list>.javascript-filter {
-    color: linear-gradient(to left, #f093fb 0%, #f5576c 100%);
-    background: linear-gradient(to left, #f093fb 0%, #f5576c 100%);
+    color: #147efb;
+    background: #147efb;
 }
 
 .filters__list>.javascript-filter:hover {
-  background: linear-gradient(to left, #f093fb 0%, #f5576c 100%) !important;
+  background: #147efb !important;
 }
 
 .filters__list>.javascript-filter:hover i {
@@ -690,7 +690,7 @@ sans-serif;
 }
 
 .filters__list>.javascript-filter span {
-  color: linear-gradient(to left, #f093fb 0%, #f5576c 100%);
+  color: #147efb;
   padding: 0 0.3em;
   position: relative;
 }
@@ -702,12 +702,12 @@ sans-serif;
 }
 
 .filters__list>.frontend-filter {
-    color: linear-gradient(to left, #868f96 0%, #596164 100%);
-    background: linear-gradient(to left, #868f96 0%, #596164 100%);
+    color: #53d769;
+    background: #53d769;
 }
 
 .filters__list>.frontend-filter:hover {
-  background: linear-gradient(to left, #868f96 0%, #596164 100%) !important;
+  background: #53d769 !important;
 }
 
 .filters__list>.frontend-filter:hover i {
@@ -715,7 +715,7 @@ sans-serif;
 }
 
 .filters__list>.frontend-filter span {
-  color: linear-gradient(to left, #868f96 0%, #596164 100%);
+  color: #53d769;
   padding: 0 0.3em;
   position: relative;
 }
@@ -727,12 +727,12 @@ sans-serif;
 }
 
 .filters__list>.webdevtutorials-filter {
-    color: linear-gradient(to right, #bdc2e8 0%, #e6dee9 100%);
-    background: linear-gradient(to right, #bdc2e8 0%, #e6dee9 100%);
+    color: #fc3d39;
+    background: #fc3d39;
 }
 
 .filters__list>.webdevtutorials-filter:hover {
-  background: linear-gradient(to right, #bdc2e8 0%, #e6dee9 100%) !important;
+  background: #fc3d39 !important;
 }
 
 .filters__list>.webdevtutorials-filter:hover i {
@@ -740,7 +740,7 @@ sans-serif;
 }
 
 .filters__list>.webdevtutorials-filter span {
-  color: linear-gradient(to right, #bdc2e8 0%, #e6dee9 100%);
+  color: #fc3d39;
   padding: 0 0.3em;
   position: relative;
 }
@@ -752,12 +752,12 @@ sans-serif;
 }
 
 .filters__list>.reactjs-filter {
-    color: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
-    background: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+    color: #8e8e93;
+    background: #8e8e93;
 }
 
 .filters__list>.reactjs-filter:hover {
-  background: linear-gradient(to right, #4facfe 0%, #00f2fe 100%) !important;
+  background: #8e8e93 !important;
 }
 
 .filters__list>.reactjs-filter:hover i {
@@ -765,7 +765,7 @@ sans-serif;
 }
 
 .filters__list>.reactjs-filter span {
-  color: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+  color: #8e8e93;
   padding: 0 0.3em;
   position: relative;
 }
@@ -1077,27 +1077,27 @@ sans-serif;
 -------------------------------*/
 
 .reddit-card-css {
-	border-bottom: solid 0px linear-gradient(to right, #ff5858 0%, #f09819 100%);
-	color: linear-gradient(to right, #ff5858 0%, #f09819 100%);
+	border-bottom: solid 0px #5fc9f8;
+	color: #5fc9f8;
 }
 
 .reddit-card-css .reddit-card-inner {
-	background-image: -webkit-repeating-radial-gradient(center center, linear-gradient(to right, #ff5858 0%, #f09819 100%), linear-gradient(to right, #ff5858 0%, #f09819 100%) 1px, transparent 1px, transparent 100%);
-	background-image: repeating-radial-gradient(center center, linear-gradient(to right, #ff5858 0%, #f09819 100%), linear-gradient(to right, #ff5858 0%, #f09819 100%) 1px, transparent 1px, transparent 100%);
+	background-image: -webkit-repeating-radial-gradient(center center, #5fc9f8, #5fc9f8 1px, transparent 1px, transparent 100%);
+	background-image: repeating-radial-gradient(center center, #5fc9f8, #5fc9f8 1px, transparent 1px, transparent 100%);
 	background-size: 3px 3px;
 }
 
 .subreddit-css {
-	background: linear-gradient(to right, #ff5858 0%, #f09819 100%);
+	background: #5fc9f8;
 	text-align: center;
 	position: relative;
 	z-index: 500;
 }
 
 .dotted-bg-css {
-	color: linear-gradient(to right, #ff5858 0%, #f09819 100%);
-	background-image: -webkit-repeating-radial-gradient(center center, linear-gradient(to right, #ff5858 0%, #f09819 100%), linear-gradient(to right, #ff5858 0%, #f09819 100%) 1px, transparent 1px, transparent 100%);
-	background-image: repeating-radial-gradient(center center, linear-gradient(to right, #ff5858 0%, #f09819 100%), linear-gradient(to right, #ff5858 0%, #f09819 100%) 1px, transparent 1px, transparent 100%);
+	color: #5fc9f8;
+	background-image: -webkit-repeating-radial-gradient(center center, #5fc9f8, #5fc9f8 1px, transparent 1px, transparent 100%);
+	background-image: repeating-radial-gradient(center center, #5fc9f8, #5fc9f8 1px, transparent 1px, transparent 100%);
 	background-size: 3px 3px;
 }
 
@@ -1110,7 +1110,7 @@ sans-serif;
   bottom: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(to right, #ff5858 0%, #f09819 100%);
+  background: #5fc9f8;
   mix-blend-mode: screen;
   transition: opacity 0.15s;
 }
@@ -1124,7 +1124,7 @@ sans-serif;
   bottom: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(to right, #ff5858 0%, #f09819 100%);
+  background: #5fc9f8;
   transition: opacity 0.15s;
 }
 
@@ -1133,27 +1133,27 @@ sans-serif;
 -------------------------------*/
 
 .reddit-card-webdev {
-	border-bottom: solid 0px linear-gradient(to left, #37ecba 0%, #72afd3 100%);
-	color: linear-gradient(to left, #37ecba 0%, #72afd3 100%);
+	border-bottom: solid 0px #fecb2e;
+	color: #fecb2e;
 }
 
 .reddit-card-webdev .reddit-card-inner {
-	background-image: -webkit-repeating-radial-gradient(center center, linear-gradient(to left, #37ecba 0%, #72afd3 100%), linear-gradient(to left, #37ecba 0%, #72afd3 100%) 1px, transparent 1px, transparent 100%);
-	background-image: repeating-radial-gradient(center center, linear-gradient(to left, #37ecba 0%, #72afd3 100%), linear-gradient(to left, #37ecba 0%, #72afd3 100%) 1px, transparent 1px, transparent 100%);
+	background-image: -webkit-repeating-radial-gradient(center center, #fecb2e, #fecb2e 1px, transparent 1px, transparent 100%);
+	background-image: repeating-radial-gradient(center center, #fecb2e, #fecb2e 1px, transparent 1px, transparent 100%);
 	background-size: 3px 3px;
 }
 
 .subreddit-webdev {
-	background: linear-gradient(to left, #37ecba 0%, #72afd3 100%);
+	background: #fecb2e;
 	text-align: center;
 	position: relative;
 	z-index: 500;
 }
 
 .dotted-bg-webdev {
-	color: linear-gradient(to left, #37ecba 0%, #72afd3 100%);
-	background-image: -webkit-repeating-radial-gradient(center center, linear-gradient(to left, #37ecba 0%, #72afd3 100%), linear-gradient(to left, #37ecba 0%, #72afd3 100%) 1px, transparent 1px, transparent 100%);
-	background-image: repeating-radial-gradient(center center, linear-gradient(to left, #37ecba 0%, #72afd3 100%), linear-gradient(to left, #37ecba 0%, #72afd3 100%) 1px, transparent 1px, transparent 100%);
+	color: #fecb2e;
+	background-image: -webkit-repeating-radial-gradient(center center, #fecb2e, #fecb2e 1px, transparent 1px, transparent 100%);
+	background-image: repeating-radial-gradient(center center, #fecb2e, #fecb2e 1px, transparent 1px, transparent 100%);
 	background-size: 3px 3px;
 }
 
@@ -1166,7 +1166,7 @@ sans-serif;
   bottom: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(to left, #37ecba 0%, #72afd3 100%);
+  background: #fecb2e;
   mix-blend-mode: screen;
   transition: opacity 0.15s;
 }
@@ -1180,7 +1180,7 @@ sans-serif;
   bottom: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(to left, #37ecba 0%, #72afd3 100%);
+  background: #fecb2e;
   transition: opacity 0.15s;
 }
 
@@ -1189,27 +1189,27 @@ sans-serif;
 -------------------------------*/
 
 .reddit-card-web_design {
-	border-bottom: solid 0px linear-gradient(to right, #f6d365 0%, #eacda3 100%);
-	color: linear-gradient(to right, #f6d365 0%, #eacda3 100%);
+	border-bottom: solid 0px #fd9426;
+	color: #fd9426;
 }
 
 .reddit-card-web_design .reddit-card-inner {
-	background-image: -webkit-repeating-radial-gradient(center center, linear-gradient(to right, #f6d365 0%, #eacda3 100%), linear-gradient(to right, #f6d365 0%, #eacda3 100%) 1px, transparent 1px, transparent 100%);
-	background-image: repeating-radial-gradient(center center, linear-gradient(to right, #f6d365 0%, #eacda3 100%), linear-gradient(to right, #f6d365 0%, #eacda3 100%) 1px, transparent 1px, transparent 100%);
+	background-image: -webkit-repeating-radial-gradient(center center, #fd9426, #fd9426 1px, transparent 1px, transparent 100%);
+	background-image: repeating-radial-gradient(center center, #fd9426, #fd9426 1px, transparent 1px, transparent 100%);
 	background-size: 3px 3px;
 }
 
 .subreddit-web_design {
-	background: linear-gradient(to right, #f6d365 0%, #eacda3 100%);
+	background: #fd9426;
 	text-align: center;
 	position: relative;
 	z-index: 500;
 }
 
 .dotted-bg-web_design {
-	color: linear-gradient(to right, #f6d365 0%, #eacda3 100%);
-	background-image: -webkit-repeating-radial-gradient(center center, linear-gradient(to right, #f6d365 0%, #eacda3 100%), linear-gradient(to right, #f6d365 0%, #eacda3 100%) 1px, transparent 1px, transparent 100%);
-	background-image: repeating-radial-gradient(center center, linear-gradient(to right, #f6d365 0%, #eacda3 100%), linear-gradient(to right, #f6d365 0%, #eacda3 100%) 1px, transparent 1px, transparent 100%);
+	color: #fd9426;
+	background-image: -webkit-repeating-radial-gradient(center center, #fd9426, #fd9426 1px, transparent 1px, transparent 100%);
+	background-image: repeating-radial-gradient(center center, #fd9426, #fd9426 1px, transparent 1px, transparent 100%);
 	background-size: 3px 3px;
 }
 
@@ -1222,7 +1222,7 @@ sans-serif;
   bottom: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(to right, #f6d365 0%, #eacda3 100%);
+  background: #fd9426;
   mix-blend-mode: screen;
   transition: opacity 0.15s;
 }
@@ -1236,7 +1236,7 @@ sans-serif;
   bottom: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(to right, #f6d365 0%, #eacda3 100%);
+  background: #fd9426;
   transition: opacity 0.15s;
 }
 
@@ -1245,27 +1245,27 @@ sans-serif;
 -------------------------------*/
 
 .reddit-card-jquery {
-	border-bottom: solid 0px linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
-	color: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+	border-bottom: solid 0px #fc3158;
+	color: #fc3158;
 }
 
 .reddit-card-jquery .reddit-card-inner {
-	background-image: -webkit-repeating-radial-gradient(center center, linear-gradient(to right, #6a11cb 0%, #2575fc 100%), linear-gradient(to right, #6a11cb 0%, #2575fc 100%) 1px, transparent 1px, transparent 100%);
-	background-image: repeating-radial-gradient(center center, linear-gradient(to right, #6a11cb 0%, #2575fc 100%), linear-gradient(to right, #6a11cb 0%, #2575fc 100%) 1px, transparent 1px, transparent 100%);
+	background-image: -webkit-repeating-radial-gradient(center center, #fc3158, #fc3158 1px, transparent 1px, transparent 100%);
+	background-image: repeating-radial-gradient(center center, #fc3158, #fc3158 1px, transparent 1px, transparent 100%);
 	background-size: 3px 3px;
 }
 
 .subreddit-jquery {
-	background: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+	background: #fc3158;
 	text-align: center;
 	position: relative;
 	z-index: 500;
 }
 
 .dotted-bg-jquery {
-	color: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
-	background-image: -webkit-repeating-radial-gradient(center center, linear-gradient(to right, #6a11cb 0%, #2575fc 100%), linear-gradient(to right, #6a11cb 0%, #2575fc 100%) 1px, transparent 1px, transparent 100%);
-	background-image: repeating-radial-gradient(center center, linear-gradient(to right, #6a11cb 0%, #2575fc 100%), linear-gradient(to right, #6a11cb 0%, #2575fc 100%) 1px, transparent 1px, transparent 100%);
+	color: #fc3158;
+	background-image: -webkit-repeating-radial-gradient(center center, #fc3158, #fc3158 1px, transparent 1px, transparent 100%);
+	background-image: repeating-radial-gradient(center center, #fc3158, #fc3158 1px, transparent 1px, transparent 100%);
 	background-size: 3px 3px;
 }
 
@@ -1278,7 +1278,7 @@ sans-serif;
   bottom: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+  background: #fc3158;
   mix-blend-mode: screen;
   transition: opacity 0.15s;
 }
@@ -1292,7 +1292,7 @@ sans-serif;
   bottom: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+  background: #fc3158;
   transition: opacity 0.15s;
 }
 
@@ -1301,27 +1301,27 @@ sans-serif;
 -------------------------------*/
 
 .reddit-card-javascript {
-	border-bottom: solid 0px linear-gradient(to left, #f093fb 0%, #f5576c 100%);
-	color: linear-gradient(to left, #f093fb 0%, #f5576c 100%);
+	border-bottom: solid 0px #147efb;
+	color: #147efb;
 }
 
 .reddit-card-javascript .reddit-card-inner {
-	background-image: -webkit-repeating-radial-gradient(center center, linear-gradient(to left, #f093fb 0%, #f5576c 100%), linear-gradient(to left, #f093fb 0%, #f5576c 100%) 1px, transparent 1px, transparent 100%);
-	background-image: repeating-radial-gradient(center center, linear-gradient(to left, #f093fb 0%, #f5576c 100%), linear-gradient(to left, #f093fb 0%, #f5576c 100%) 1px, transparent 1px, transparent 100%);
+	background-image: -webkit-repeating-radial-gradient(center center, #147efb, #147efb 1px, transparent 1px, transparent 100%);
+	background-image: repeating-radial-gradient(center center, #147efb, #147efb 1px, transparent 1px, transparent 100%);
 	background-size: 3px 3px;
 }
 
 .subreddit-javascript {
-	background: linear-gradient(to left, #f093fb 0%, #f5576c 100%);
+	background: #147efb;
 	text-align: center;
 	position: relative;
 	z-index: 500;
 }
 
 .dotted-bg-javascript {
-	color: linear-gradient(to left, #f093fb 0%, #f5576c 100%);
-	background-image: -webkit-repeating-radial-gradient(center center, linear-gradient(to left, #f093fb 0%, #f5576c 100%), linear-gradient(to left, #f093fb 0%, #f5576c 100%) 1px, transparent 1px, transparent 100%);
-	background-image: repeating-radial-gradient(center center, linear-gradient(to left, #f093fb 0%, #f5576c 100%), linear-gradient(to left, #f093fb 0%, #f5576c 100%) 1px, transparent 1px, transparent 100%);
+	color: #147efb;
+	background-image: -webkit-repeating-radial-gradient(center center, #147efb, #147efb 1px, transparent 1px, transparent 100%);
+	background-image: repeating-radial-gradient(center center, #147efb, #147efb 1px, transparent 1px, transparent 100%);
 	background-size: 3px 3px;
 }
 
@@ -1334,7 +1334,7 @@ sans-serif;
   bottom: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(to left, #f093fb 0%, #f5576c 100%);
+  background: #147efb;
   mix-blend-mode: screen;
   transition: opacity 0.15s;
 }
@@ -1348,7 +1348,7 @@ sans-serif;
   bottom: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(to left, #f093fb 0%, #f5576c 100%);
+  background: #147efb;
   transition: opacity 0.15s;
 }
 
@@ -1357,27 +1357,27 @@ sans-serif;
 -------------------------------*/
 
 .reddit-card-frontend {
-	border-bottom: solid 0px linear-gradient(to left, #868f96 0%, #596164 100%);
-	color: linear-gradient(to left, #868f96 0%, #596164 100%);
+	border-bottom: solid 0px #53d769;
+	color: #53d769;
 }
 
 .reddit-card-frontend .reddit-card-inner {
-	background-image: -webkit-repeating-radial-gradient(center center, linear-gradient(to left, #868f96 0%, #596164 100%), linear-gradient(to left, #868f96 0%, #596164 100%) 1px, transparent 1px, transparent 100%);
-	background-image: repeating-radial-gradient(center center, linear-gradient(to left, #868f96 0%, #596164 100%), linear-gradient(to left, #868f96 0%, #596164 100%) 1px, transparent 1px, transparent 100%);
+	background-image: -webkit-repeating-radial-gradient(center center, #53d769, #53d769 1px, transparent 1px, transparent 100%);
+	background-image: repeating-radial-gradient(center center, #53d769, #53d769 1px, transparent 1px, transparent 100%);
 	background-size: 3px 3px;
 }
 
 .subreddit-frontend {
-	background: linear-gradient(to left, #868f96 0%, #596164 100%);
+	background: #53d769;
 	text-align: center;
 	position: relative;
 	z-index: 500;
 }
 
 .dotted-bg-frontend {
-	color: linear-gradient(to left, #868f96 0%, #596164 100%);
-	background-image: -webkit-repeating-radial-gradient(center center, linear-gradient(to left, #868f96 0%, #596164 100%), linear-gradient(to left, #868f96 0%, #596164 100%) 1px, transparent 1px, transparent 100%);
-	background-image: repeating-radial-gradient(center center, linear-gradient(to left, #868f96 0%, #596164 100%), linear-gradient(to left, #868f96 0%, #596164 100%) 1px, transparent 1px, transparent 100%);
+	color: #53d769;
+	background-image: -webkit-repeating-radial-gradient(center center, #53d769, #53d769 1px, transparent 1px, transparent 100%);
+	background-image: repeating-radial-gradient(center center, #53d769, #53d769 1px, transparent 1px, transparent 100%);
 	background-size: 3px 3px;
 }
 
@@ -1390,7 +1390,7 @@ sans-serif;
   bottom: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(to left, #868f96 0%, #596164 100%);
+  background: #53d769;
   mix-blend-mode: screen;
   transition: opacity 0.15s;
 }
@@ -1404,7 +1404,7 @@ sans-serif;
   bottom: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(to left, #868f96 0%, #596164 100%);
+  background: #53d769;
   transition: opacity 0.15s;
 }
 
@@ -1413,26 +1413,26 @@ sans-serif;
 -------------------------------*/
 
 .reddit-card-webdevtutorials {
-	border-bottom: solid 0px linear-gradient(to right, #bdc2e8 0%, #e6dee9 100%);
-	color: linear-gradient(to right, #bdc2e8 0%, #e6dee9 100%);
+	border-bottom: solid 0px #fc3d39;
+	color: #fc3d39;
 }
 
 .reddit-card-webdevtutorials .reddit-card-inner {
-	background-image: -webkit-repeating-radial-gradient(center center, linear-gradient(to right, #bdc2e8 0%, #e6dee9 100%), linear-gradient(to right, #bdc2e8 0%, #e6dee9 100%) 1px, transparent 1px, transparent 100%);
-	background-image: repeating-radial-gradient(center center, linear-gradient(to right, #bdc2e8 0%, #e6dee9 100%), linear-gradient(to right, #bdc2e8 0%, #e6dee9 100%) 1px, transparent 1px, transparent 100%);
+	background-image: -webkit-repeating-radial-gradient(center center, #fc3d39, #fc3d39 1px, transparent 1px, transparent 100%);
+	background-image: repeating-radial-gradient(center center, #fc3d39, #fc3d39 1px, transparent 1px, transparent 100%);
 	background-size: 3px 3px;
 }
 
 .subreddit-webdevtutorials {
-	background: linear-gradient(to right, #bdc2e8 0%, #e6dee9 100%);
+	background: #fc3d39;
 	position: relative;
 	z-index: 500;
 }
 
 .dotted-bg-webdevtutorials {
-	color: linear-gradient(to right, #bdc2e8 0%, #e6dee9 100%);
-	background-image: -webkit-repeating-radial-gradient(center center, linear-gradient(to right, #bdc2e8 0%, #e6dee9 100%), linear-gradient(to right, #bdc2e8 0%, #e6dee9 100%) 1px, transparent 1px, transparent 100%);
-	background-image: repeating-radial-gradient(center center, linear-gradient(to right, #bdc2e8 0%, #e6dee9 100%), linear-gradient(to right, #bdc2e8 0%, #e6dee9 100%) 1px, transparent 1px, transparent 100%);
+	color: #fc3d39;
+	background-image: -webkit-repeating-radial-gradient(center center, #fc3d39, #fc3d39 1px, transparent 1px, transparent 100%);
+	background-image: repeating-radial-gradient(center center, #fc3d39, #fc3d39 1px, transparent 1px, transparent 100%);
 	background-size: 3px 3px;
 }
 
@@ -1445,7 +1445,7 @@ sans-serif;
   bottom: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(to right, #bdc2e8 0%, #e6dee9 100%);
+  background: #fc3d39;
   mix-blend-mode: screen;
   transition: opacity 0.15s;
 }
@@ -1459,7 +1459,7 @@ sans-serif;
   bottom: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(to right, #bdc2e8 0%, #e6dee9 100%);
+  background: #fc3d39;
   transition: opacity 0.15s;
 }
 
@@ -1468,26 +1468,26 @@ sans-serif;
 -------------------------------*/
 
 .reddit-card-reactjs {
-	border-bottom: solid 0px linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
-	color: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+	border-bottom: solid 0px #8e8e93;
+	color: #8e8e93;
 }
 
 .reddit-card-reactjs .reddit-card-inner {
-	background-image: -webkit-repeating-radial-gradient(center center, linear-gradient(to right, #4facfe 0%, #00f2fe 100%), linear-gradient(to right, #4facfe 0%, #00f2fe 100%) 1px, transparent 1px, transparent 100%);
-	background-image: repeating-radial-gradient(center center, linear-gradient(to right, #4facfe 0%, #00f2fe 100%), linear-gradient(to right, #4facfe 0%, #00f2fe 100%) 1px, transparent 1px, transparent 100%);
+	background-image: -webkit-repeating-radial-gradient(center center, #8e8e93, #8e8e93 1px, transparent 1px, transparent 100%);
+	background-image: repeating-radial-gradient(center center, #8e8e93, #8e8e93 1px, transparent 1px, transparent 100%);
 	background-size: 3px 3px;
 }
 
 .subreddit-reactjs {
-	background: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+	background: #8e8e93;
 	position: relative;
 	z-index: 500;
 }
 
 .dotted-bg-reactjs {
-	color: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
-	background-image: -webkit-repeating-radial-gradient(center center, linear-gradient(to right, #4facfe 0%, #00f2fe 100%), linear-gradient(to right, #4facfe 0%, #00f2fe 100%) 1px, transparent 1px, transparent 100%);
-	background-image: repeating-radial-gradient(center center, linear-gradient(to right, #4facfe 0%, #00f2fe 100%), linear-gradient(to right, #4facfe 0%, #00f2fe 100%) 1px, transparent 1px, transparent 100%);
+	color: #8e8e93;
+	background-image: -webkit-repeating-radial-gradient(center center, #8e8e93, #8e8e93 1px, transparent 1px, transparent 100%);
+	background-image: repeating-radial-gradient(center center, #8e8e93, #8e8e93 1px, transparent 1px, transparent 100%);
 	background-size: 3px 3px;
 }
 
@@ -1500,7 +1500,7 @@ sans-serif;
   bottom: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+  background: #8e8e93;
   mix-blend-mode: screen;
   transition: opacity 0.15s;
 }
@@ -1514,7 +1514,7 @@ sans-serif;
   bottom: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+  background: #8e8e93;
   transition: opacity 0.15s;
 }
 
@@ -2118,7 +2118,7 @@ a:hover {
         width: 90%;
     }
     .content__info-bar {
-        padding:0;
+        padding: 0;
     }
     .header__description {
         display: none;
