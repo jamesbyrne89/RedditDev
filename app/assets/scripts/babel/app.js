@@ -582,6 +582,7 @@ search.addEventListener('change', function (e) {
             this.innerHTML = "View<i class='fa fa-th-large'>";
         }
         redditContent.classList.toggle('card-container--rows');
+        checkVisible();
     });
 })();
 
