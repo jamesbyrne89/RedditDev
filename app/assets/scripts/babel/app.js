@@ -188,10 +188,10 @@ var contentInfo = document.getElementById('content-info');
 Place into HTML
  */
 
-function updateView(data) {
+var redditContent = document.getElementById('card-container'),
+    loadingSpinner = document.getElementById('loading');
 
-    var loadingSpinner = document.getElementById('loading');
-    var redditContent = document.getElementById('card-container');
+function updateView(data) {
 
     // Clear content from card container
     contentInfo.innerHTML = null;

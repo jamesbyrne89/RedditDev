@@ -174,10 +174,13 @@ const contentInfo = document.getElementById('content-info');
 Place into HTML
  */
 
+const redditContent = document.getElementById('card-container'),
+      loadingSpinner = document.getElementById('loading');
+
 function updateView(data) {
 
-    const loadingSpinner = document.getElementById('loading');
-    const redditContent = document.getElementById('card-container');
+    
+    
 
     // Clear content from card container
     contentInfo.innerHTML = null;
@@ -507,7 +510,7 @@ const backToTopBtn = document.getElementById('back-to-top');
 
 // Scroll progress bar
 window.addEventListener('scroll', () => {
-    const scrolledBar = document.getElementById('scrolled-bar');   
+    const scrolledBar = document.getElementById('scrolled-bar');
     let scrolled = document.height - window.innerHeight,
         scrolledTotal = (window.pageYOffset / scrolled * 100).toFixed(0);
     scrolledBar.style.width = `${scrolledTotal}%`;
