@@ -620,6 +620,6 @@ window.addEventListener('resize', checkVisible);
 
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('temp/assets/scripts/min/serviceworker.js')
-    .then(registration => console.log('registered a serviceworker'))
+    .then(registration => console.log('Registered a serviceworker'))
     .catch(err => console.error(err))
 }
