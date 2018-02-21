@@ -85,7 +85,7 @@ const init = function init() {
             });
             // Sort by date
 
-            const sortedByDate = allPosts.sort(function(a, b) {
+            const sortedByDate = allPosts.sort(function (a, b) {
                 return b.created - a.created;
 
             });
@@ -130,7 +130,7 @@ const convertTimestamp = function convertTimestamp(timestamp) {
 
 
 // Extracts hostname from URL
-const getHostname = function(href) {
+const getHostname = function (href) {
     var l = document.createElement("a");
     var shortened;
     l.href = href;
@@ -194,7 +194,7 @@ function updateView(data) {
 
     data.forEach(post => {
 
-        let { title, created_utc, num_comments, subreddit, url, permalink } = post;       
+        let { title, created_utc, num_comments, subreddit, url, permalink } = post;
         let time = getTimeAgo(created_utc);
         let numCommentsText = num_comments === 1 ? `${num_comments} comment` : numCommentsText = `${num_comments} comments`;
 
@@ -225,7 +225,7 @@ function updateView(data) {
     isLoading(false);
 
     // Check that newly loaded cards are in view
-    numberOfVisible();
+    checkVisible();
 
 };
 
@@ -241,7 +241,7 @@ const showMessage = (function showMessage() {
     const _clearSearchBtn = document.createElement('button');
     _clearSearchBtn.className = 'clear-search';
     _clearSearchBtn.innerHTML = 'Clear search';
-    _clearSearchBtn.addEventListener('click', function() {
+    _clearSearchBtn.addEventListener('click', function () {
         init();
         $('.search-wrapper').removeClass('search-wrapper--opened');
         $('.search__close-btn').fadeOut('slow');
@@ -287,10 +287,10 @@ const showMessage = (function showMessage() {
 
 function debounce(func, wait = 25, immediate = true) {
     let timeout;
-    return function() {
+    return function () {
         let context = this,
             args = arguments;
-        let later = function() {
+        let later = function () {
             timeout = null;
             if (!immediate) {
                 func.apply(context, args);
@@ -304,14 +304,14 @@ function debounce(func, wait = 25, immediate = true) {
 
 // Check which cards are visible on scroll
 
-function numberOfVisible(e) {
+function checkVisible(e) {
     const redditCards = document.querySelectorAll('.reddit-card');
-    redditCards.forEach(function(card) {
+    redditCards.forEach(function (card) {
 
         let scrollInAt;
 
         window.scrollY < 0 ? scrollInAt = window.innerHeight :
-                            scrollInAt = window.scrollY + window.innerHeight - (window.innerHeight * 0.1);
+            scrollInAt = window.scrollY + window.innerHeight - (window.innerHeight * 0.1);
 
         let isShowing = scrollInAt > card.offsetTop;
         let isNotShowing = window.scrollY < scrollInAt;
@@ -328,7 +328,7 @@ function numberOfVisible(e) {
 
 function stickyHeader() {
     let previous = window.scrollY;
-    window.addEventListener('scroll', function() {
+    window.addEventListener('scroll', function () {
         if (window.scrollY > 180 && window.scrollY > previous) {
             $('.header').removeClass('is-sticky');
             previous = window.scrollY;
@@ -346,7 +346,7 @@ function stickyHeader() {
 
 
 // Event listeners for scroll events
-window.addEventListener('scroll', numberOfVisible);
+window.addEventListener('scroll', checkVisible);
 window.addEventListener('scroll', stickyHeader);
 
 
@@ -354,15 +354,15 @@ window.addEventListener('scroll', stickyHeader);
 // Close and open filters list modal
 const toggleModal = function toggleModal() {
 
-        const modal = document.querySelector('.modal');
-        const header = document.querySelector('.header');
-        const body = document.getElementsByTagName('body')[0];
+    const modal = document.querySelector('.modal');
+    const header = document.querySelector('.header');
+    const body = document.getElementsByTagName('body')[0];
 
     $(modal).fadeToggle('fast');
     $('.filter-overlay').fadeToggle(100);
     modal.classList.toggle('modal--opened');
     body.classList.toggle('no-scroll');
-    if (header.classList.contains('is-sticky')) {      
+    if (header.classList.contains('is-sticky')) {
         modal.classList.add('modal--opened--stuck');
     } else {
         modal.classList.remove('modal--opened--stuck');
@@ -380,39 +380,44 @@ modalCloseBtn.addEventListener('click', toggleModal);
 /* Mobile touch events */
 let filterOverlayTap = new Hammer(filterOverlay);
 
-filterOverlayTap.on("tap", function(ev) {
+filterOverlayTap.on("tap", function (ev) {
     toggleModal();
 });
+
+const filters = {};
+
+filters.all = document.querySelector('.all-filter');
 
 // Check if no subreddits are selected then show a message
 const handleVisible = (function handleVisible() {
 
-    const _numberOfVisible = (function _numberOfVisible() {
+    const _numberOfVisible = (() => {
         let subreddits = Array.from(document.querySelectorAll('.filters__list-item'));
         let selected = subreddits.filter(sub => sub.classList.contains('subreddit--selected'));
         return selected.length;
     })();
 
-    const _updateVisible = function _updateVisible() {
+
+    const _updateCards = function _updateCards() {
         if (_numberOfVisible === 0) {
-            $('.all-filter').removeClass('subreddit--selected');
-            $('.all-filter').addClass('subreddit--deselected');
+            filters.all.classList.remove('subreddit--selected');
+            filters.all.classList.add('subreddit--deselected');
             showMessage.empty();
-        } else if (_numberOfVisible > 0 && _numberOfVisible() < 7) {
-            $('.all-filter').removeClass('subreddit--selected');
-            $('.all-filter').addClass('subreddit--deselected');
+        } else if (_numberOfVisible > 0 && _numberOfVisible < 7) {
+            filters.all.classList.remove('subreddit--selected');
+            filters.all.classList.add('subreddit--deselected');
             showMessage.clear();
         } else {
-            $('.all-filter').removeClass('subreddit--deselected');
-            $('.all-filter').addClass('subreddit--selected');
+            filters.all.classList.remove('subreddit--deselected');
+            filters.all.classList.add('subreddit--selected');
             showMessage.empty();
         };
-        return _numberOfVisible();
+        return _numberOfVisible;
     };
 
     return {
         numberOfVisible: _numberOfVisible,
-        updateVisible: _updateVisible
+        updateCards: _updateCards
     };
 })();
 
@@ -440,13 +445,13 @@ function addSubreddit() {
  * Toggles the 'select all' button
  */
 
-$('.all-filter').on('click', function(e) {
+filters.all.addEventListener('click', function (e) {
 
-    if (handleVisible.updateVisible() === 0) {
+    if (handleVisible.updateCards() === 0) {
         this.classList.remove('subreddit--deselected');
         this.classList.add('subreddit--selected');
         addSubreddit();
-    } else if (handleVisible.updateVisible() === 7) {
+    } else if (handleVisible.updateCards() === 7) {
         this.classList.add('subreddit--deselected');
         this.classList.remove('subreddit--selected');
         removeSubreddit();
@@ -470,7 +475,7 @@ function handleShow(target, sr) {
     } else {
         $(`.reddit-card-${sr}`).fadeIn('fast');
     };
-    handleVisible.updateVisible();
+    handleVisible.updateCards();
 };
 
 
@@ -479,96 +484,39 @@ function handleShow(target, sr) {
  *  Add event handlers to all subreddits in list to handle hiding and showing
  */
 
-const webDesignFilterBtn = document.querySelector('.web_design-filter');
-const frontendFilterBtn = document.querySelector('.frontend-filter');
-const webDevFilterBtn = document.querySelector('.webdev-filter');
-const cssFilterBtn = document.querySelector('.css-filter');
-const javascriptFilterBtn = document.querySelector('.javascript-filter');
-const jqueryFilterBtn = document.querySelector('.jquery-filter');
-const webdevTutorialsFilterBtn = document.querySelector('.webdevtutorials-filter');
-const reactFilterBtn = document.querySelector('.reactjs-filter');
-const filterList = document.querySelector('.filters__list');
+filters.webDesign = document.querySelector('.web_design-filter');
+filters.frontend = document.querySelector('.frontend-filter');
+filters.webDev = document.querySelector('.webdev-filter');
+filters.css = document.querySelector('.css-filter');
+filters.javascript = document.querySelector('.javascript-filter');
+filters.jquery = document.querySelector('.jquery-filter');
+filters.webdevTutorials = document.querySelector('.webdevtutorials-filter');
+filters.react = document.querySelector('.reactjs-filter');
+filters.list = document.querySelector('.filters__list');
 
-
-
-webDesignFilterBtn.addEventListener('click', function(e) {
-    e.stopPropagation();
-    this.classList.toggle('subreddit--selected');
-    this.classList.toggle('subreddit--deselected');
-    handleShow(this, 'web_design');
-
-});
-
-frontendFilterBtn.addEventListener('click', function(e) {
-    e.stopPropagation();
-    this.classList.toggle('subreddit--selected');
-    this.classList.toggle('subreddit--deselected')
-    handleShow(this, 'frontend');
-});
-
-webDevFilterBtn.addEventListener('click', function(e) {
-    e.stopPropagation();
-    this.classList.toggle('subreddit--selected');
-    this.classList.toggle('subreddit--deselected');
-    handleShow(this, 'webdev');
-
-});
-
-cssFilterBtn.addEventListener('click', function(e) {
-    e.stopPropagation();
-    this.classList.toggle('subreddit--selected');
-    this.classList.toggle('subreddit--deselected');
-    handleShow(this, 'css');
-});
-
-javascriptFilterBtn.addEventListener('click', function(e) {
-    e.stopPropagation();
-    this.classList.toggle('subreddit--selected');
-    this.classList.toggle('subreddit--deselected');
-    handleShow(this, 'javascript');
-});
-
-jqueryFilterBtn.addEventListener('click', function(e) {
-    e.stopPropagation();
-    this.classList.toggle('subreddit--selected');
-    this.classList.toggle('subreddit--deselected');
-    handleShow(this, 'jquery');
-});
-
-webdevTutorialsFilterBtn.addEventListener('click', function(e) {
-    e.stopPropagation();
-    this.classList.toggle('subreddit--selected');
-    this.classList.toggle('subreddit--deselected');
-    handleShow(this, 'webdevtutorials');
-});
-
-reactFilterBtn.addEventListener('click', function(e) {
-    e.stopPropagation();
-    this.classList.toggle('subreddit--selected');
-    this.classList.toggle('subreddit--deselected');
-    handleShow(this, 'reactjs');
-});
-
-
-
-// Scroll progress bar
-$(window).scroll(function() {
-    let scrolled = $(document).height() - $(window).height();
-
-    let scrolledTotal = ($(window).scrollTop() / scrolled * 100).toFixed(0);
-    $('#scrolled-bar').css('width', `${scrolledTotal}%`);
-    if (scrolledTotal > 2) {
-        $('#back-to-top').fadeIn('fast');
-    } else {
-        $('#back-to-top').fadeOut('fast');
-    }
-});
+for (let filter in filters) {
+    filters[filter].addEventListener('click', function (e) {
+        e.stopPropagation();
+        this.classList.toggle('subreddit--selected');
+        this.classList.toggle('subreddit--deselected');
+        handleShow(this, this.getAttribute('data-sr'));
+    })
+};
 
 const backToTopBtn = document.getElementById('back-to-top');
 
+// Scroll progress bar
+window.addEventListener('scroll', () => {
+    const scrolledBar = document.getElementById('scrolled-bar');   
+    let scrolled = document.height - window.innerHeight,
+        scrolledTotal = (window.pageYOffset / scrolled * 100).toFixed(0);
+    scrolledBar.style.width = `${scrolledTotal}%`;
+    scrolledTotal > 2 ? $(backToTopBtn).fadeIn('fast') : $(backToTopBtn).fadeOut('fast');
+});
+
 let backToTopTap = new Hammer(backToTopBtn);
 
-backToTopTap.on("tap", function(ev) {
+backToTopTap.on("tap", function (ev) {
     window.scrollTo(0, 0);
 });
 
@@ -580,7 +528,7 @@ backToTopTap.on("tap", function(ev) {
  * @return {Boolean}            [description]
  */
 function isSearched(searchTerm) {
-    return function(item) {
+    return function (item) {
         return !searchTerm || item.title.toLowerCase().includes(searchTerm.toLowerCase());
     };
 };
@@ -591,7 +539,7 @@ const search = document.getElementById('search'),
 
 let searchTap = new Hammer(searchBtn);
 
-searchTap.on("tap", function(ev) {
+searchTap.on("tap", function (ev) {
     $('.search-wrapper').toggleClass('search-wrapper--opened');
     $('.search__close-btn').fadeIn('fast');
     $('.search').toggleClass('search--opened');
@@ -600,7 +548,7 @@ searchTap.on("tap", function(ev) {
 
 let searchCloseTap = new Hammer(searchCloseBtn);
 
-searchCloseTap.on("tap", function(ev) {
+searchCloseTap.on("tap", function (ev) {
     search.value = '';
     $('.search-wrapper').removeClass('search-wrapper--opened');
     $('.search__close-btn').fadeOut('fast');
@@ -617,7 +565,7 @@ function checkForMouseUse() {
 }
 document.body.addEventListener('mousemove', checkForMouseUse);
 
-search.addEventListener('change', function(e) {
+search.addEventListener('change', function (e) {
     let filtered;
     if (e.target.value.length > 0 && typeof e.target.value === 'string') {
         filtered = dataStore.getData().filter(isSearched(e.target.value));
@@ -638,7 +586,7 @@ search.addEventListener('change', function(e) {
 (function switchLayout() {
     const viewBtn = document.getElementById('view-btn');
 
-    viewBtn.addEventListener('click', function() {
+    viewBtn.addEventListener('click', function () {
         if (this.classList.contains('grid')) {
             this.classList.add('rows');
             this.classList.remove('grid');
@@ -655,10 +603,8 @@ search.addEventListener('change', function(e) {
 })();
 
 
-window.onload = function() {
+window.onload = function () {
     document.body.style.opacity = 0;
     document.body.style.opacity = 1;
     init();
-
-
 }

@@ -230,7 +230,7 @@ function updateView(data) {
     isLoading(false);
 
     // Check that newly loaded cards are in view
-    numberOfVisible();
+    checkVisible();
 };
 
 var showMessage = function showMessage() {
@@ -305,7 +305,7 @@ function debounce(func) {
 
 // Check which cards are visible on scroll
 
-function numberOfVisible(e) {
+function checkVisible(e) {
     var redditCards = document.querySelectorAll('.reddit-card');
     redditCards.forEach(function (card) {
 
@@ -344,7 +344,7 @@ function stickyHeader() {
 };
 
 // Event listeners for scroll events
-window.addEventListener('scroll', numberOfVisible);
+window.addEventListener('scroll', checkVisible);
 window.addEventListener('scroll', stickyHeader);
 
 // Close and open filters list modal
@@ -379,10 +379,14 @@ filterOverlayTap.on("tap", function (ev) {
     toggleModal();
 });
 
+var filters = {};
+
+filters.all = document.querySelector('.all-filter');
+
 // Check if no subreddits are selected then show a message
 var handleVisible = function handleVisible() {
 
-    var _numberOfVisible = function _numberOfVisible() {
+    var _numberOfVisible = function () {
         var subreddits = Array.from(document.querySelectorAll('.filters__list-item'));
         var selected = subreddits.filter(function (sub) {
             return sub.classList.contains('subreddit--selected');
@@ -390,26 +394,26 @@ var handleVisible = function handleVisible() {
         return selected.length;
     }();
 
-    var _updateVisible = function _updateVisible() {
+    var _updateCards = function _updateCards() {
         if (_numberOfVisible === 0) {
-            $('.all-filter').removeClass('subreddit--selected');
-            $('.all-filter').addClass('subreddit--deselected');
+            filters.all.classList.remove('subreddit--selected');
+            filters.all.classList.add('subreddit--deselected');
             showMessage.empty();
-        } else if (_numberOfVisible > 0 && _numberOfVisible() < 7) {
-            $('.all-filter').removeClass('subreddit--selected');
-            $('.all-filter').addClass('subreddit--deselected');
+        } else if (_numberOfVisible > 0 && _numberOfVisible < 7) {
+            filters.all.classList.remove('subreddit--selected');
+            filters.all.classList.add('subreddit--deselected');
             showMessage.clear();
         } else {
-            $('.all-filter').removeClass('subreddit--deselected');
-            $('.all-filter').addClass('subreddit--selected');
+            filters.all.classList.remove('subreddit--deselected');
+            filters.all.classList.add('subreddit--selected');
             showMessage.empty();
         };
-        return _numberOfVisible();
+        return _numberOfVisible;
     };
 
     return {
         numberOfVisible: _numberOfVisible,
-        updateVisible: _updateVisible
+        updateCards: _updateCards
     };
 }();
 
@@ -435,13 +439,13 @@ function addSubreddit() {
  * Toggles the 'select all' button
  */
 
-$('.all-filter').on('click', function (e) {
+filters.all.addEventListener('click', function (e) {
 
-    if (handleVisible.updateVisible() === 0) {
+    if (handleVisible.updateCards() === 0) {
         this.classList.remove('subreddit--deselected');
         this.classList.add('subreddit--selected');
         addSubreddit();
-    } else if (handleVisible.updateVisible() === 7) {
+    } else if (handleVisible.updateCards() === 7) {
         this.classList.add('subreddit--deselected');
         this.classList.remove('subreddit--selected');
         removeSubreddit();
@@ -462,93 +466,42 @@ function handleShow(target, sr) {
     } else {
         $(".reddit-card-" + sr).fadeIn('fast');
     };
-    handleVisible.updateVisible();
+    handleVisible.updateCards();
 };
 
 /**
  *  Add event handlers to all subreddits in list to handle hiding and showing
  */
 
-var webDesignFilterBtn = document.querySelector('.web_design-filter');
-var frontendFilterBtn = document.querySelector('.frontend-filter');
-var webDevFilterBtn = document.querySelector('.webdev-filter');
-var cssFilterBtn = document.querySelector('.css-filter');
-var javascriptFilterBtn = document.querySelector('.javascript-filter');
-var jqueryFilterBtn = document.querySelector('.jquery-filter');
-var webdevTutorialsFilterBtn = document.querySelector('.webdevtutorials-filter');
-var reactFilterBtn = document.querySelector('.reactjs-filter');
-var filterList = document.querySelector('.filters__list');
+filters.webDesign = document.querySelector('.web_design-filter');
+filters.frontend = document.querySelector('.frontend-filter');
+filters.webDev = document.querySelector('.webdev-filter');
+filters.css = document.querySelector('.css-filter');
+filters.javascript = document.querySelector('.javascript-filter');
+filters.jquery = document.querySelector('.jquery-filter');
+filters.webdevTutorials = document.querySelector('.webdevtutorials-filter');
+filters.react = document.querySelector('.reactjs-filter');
+filters.list = document.querySelector('.filters__list');
 
-webDesignFilterBtn.addEventListener('click', function (e) {
-    e.stopPropagation();
-    this.classList.toggle('subreddit--selected');
-    this.classList.toggle('subreddit--deselected');
-    handleShow(this, 'web_design');
-});
-
-frontendFilterBtn.addEventListener('click', function (e) {
-    e.stopPropagation();
-    this.classList.toggle('subreddit--selected');
-    this.classList.toggle('subreddit--deselected');
-    handleShow(this, 'frontend');
-});
-
-webDevFilterBtn.addEventListener('click', function (e) {
-    e.stopPropagation();
-    this.classList.toggle('subreddit--selected');
-    this.classList.toggle('subreddit--deselected');
-    handleShow(this, 'webdev');
-});
-
-cssFilterBtn.addEventListener('click', function (e) {
-    e.stopPropagation();
-    this.classList.toggle('subreddit--selected');
-    this.classList.toggle('subreddit--deselected');
-    handleShow(this, 'css');
-});
-
-javascriptFilterBtn.addEventListener('click', function (e) {
-    e.stopPropagation();
-    this.classList.toggle('subreddit--selected');
-    this.classList.toggle('subreddit--deselected');
-    handleShow(this, 'javascript');
-});
-
-jqueryFilterBtn.addEventListener('click', function (e) {
-    e.stopPropagation();
-    this.classList.toggle('subreddit--selected');
-    this.classList.toggle('subreddit--deselected');
-    handleShow(this, 'jquery');
-});
-
-webdevTutorialsFilterBtn.addEventListener('click', function (e) {
-    e.stopPropagation();
-    this.classList.toggle('subreddit--selected');
-    this.classList.toggle('subreddit--deselected');
-    handleShow(this, 'webdevtutorials');
-});
-
-reactFilterBtn.addEventListener('click', function (e) {
-    e.stopPropagation();
-    this.classList.toggle('subreddit--selected');
-    this.classList.toggle('subreddit--deselected');
-    handleShow(this, 'reactjs');
-});
-
-// Scroll progress bar
-$(window).scroll(function () {
-    var scrolled = $(document).height() - $(window).height();
-
-    var scrolledTotal = ($(window).scrollTop() / scrolled * 100).toFixed(0);
-    $('#scrolled-bar').css('width', scrolledTotal + "%");
-    if (scrolledTotal > 2) {
-        $('#back-to-top').fadeIn('fast');
-    } else {
-        $('#back-to-top').fadeOut('fast');
-    }
-});
+for (var filter in filters) {
+    filters[filter].addEventListener('click', function (e) {
+        e.stopPropagation();
+        this.classList.toggle('subreddit--selected');
+        this.classList.toggle('subreddit--deselected');
+        handleShow(this, this.getAttribute('data-sr'));
+    });
+};
 
 var backToTopBtn = document.getElementById('back-to-top');
+
+// Scroll progress bar
+window.addEventListener('scroll', function () {
+    var scrolledBar = document.getElementById('scrolled-bar');
+    var scrolled = document.height - window.innerHeight,
+        scrolledTotal = (window.pageYOffset / scrolled * 100).toFixed(0);
+    scrolledBar.style.width = scrolledTotal + "%";
+    scrolledTotal > 2 ? $(backToTopBtn).fadeIn('fast') : $(backToTopBtn).fadeOut('fast');
+});
 
 var backToTopTap = new Hammer(backToTopBtn);
 
