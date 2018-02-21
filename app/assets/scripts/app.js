@@ -193,9 +193,8 @@ function updateView(data) {
     let combinedCards = document.createDocumentFragment();
 
     data.forEach(post => {
-        console.log(post)
-        let { title, created_utc, num_comments, subreddit, url, permalink } = post;
-        
+
+        let { title, created_utc, num_comments, subreddit, url, permalink } = post;       
         let time = getTimeAgo(created_utc);
         let numCommentsText = num_comments === 1 ? `${num_comments} comment` : numCommentsText = `${num_comments} comments`;
 
@@ -226,7 +225,7 @@ function updateView(data) {
     isLoading(false);
 
     // Check that newly loaded cards are in view
-    checkVisible();
+    numberOfVisible();
 
 };
 
@@ -287,11 +286,11 @@ const showMessage = (function showMessage() {
 // Debounce scroll function to prevent too many triggers
 
 function debounce(func, wait = 25, immediate = true) {
-    var timeout;
+    let timeout;
     return function() {
-        var context = this,
+        let context = this,
             args = arguments;
-        var later = function() {
+        let later = function() {
             timeout = null;
             if (!immediate) {
                 func.apply(context, args);
@@ -305,27 +304,20 @@ function debounce(func, wait = 25, immediate = true) {
 
 // Check which cards are visible on scroll
 
-function checkVisible(e) {
+function numberOfVisible(e) {
     const redditCards = document.querySelectorAll('.reddit-card');
     redditCards.forEach(function(card) {
 
         let scrollInAt;
-        if (window.scrollY < 0) {
-            scrollInAt = window.innerHeight;
-        } else {
-            scrollInAt = window.scrollY + window.innerHeight - (window.innerHeight * 0.1);
-        }
+
+        window.scrollY < 0 ? scrollInAt = window.innerHeight :
+                            scrollInAt = window.scrollY + window.innerHeight - (window.innerHeight * 0.1);
+
         let isShowing = scrollInAt > card.offsetTop;
         let isNotShowing = window.scrollY < scrollInAt;
         let scrolled = window.scrollY > 10;
 
-        if (scrolled && isShowing && isNotShowing) {
-            card.classList.add('animate');
-        } else if (!scrolled && isShowing && isNotShowing) {
-            card.classList.add('animate');
-        } else {
-            card.classList.remove('animate');
-        }
+        isShowing && isNotShowing ? card.classList.add('animate') : card.classList.remove('animate');
     })
 }
 
@@ -354,59 +346,59 @@ function stickyHeader() {
 
 
 // Event listeners for scroll events
-window.addEventListener('scroll', checkVisible);
+window.addEventListener('scroll', numberOfVisible);
 window.addEventListener('scroll', stickyHeader);
 
 
 
 // Close and open filters list modal
 const toggleModal = function toggleModal() {
-    $('.modal').fadeToggle('fast');
+
+        const modal = document.querySelector('.modal');
+        const header = document.querySelector('.header');
+        const body = document.getElementsByTagName('body')[0];
+
+    $(modal).fadeToggle('fast');
     $('.filter-overlay').fadeToggle(100);
-    if ($('header').hasClass('is-sticky')) {
-        $('.modal').toggleClass('modal--opened');
-        $('.modal').addClass('modal--opened--stuck');
-        $('html').toggleClass('no-scroll');
+    modal.classList.toggle('modal--opened');
+    body.classList.toggle('no-scroll');
+    if (header.classList.contains('is-sticky')) {      
+        modal.classList.add('modal--opened--stuck');
     } else {
-        $('.modal').toggleClass('modal--opened');
-        $('html').toggleClass('no-scroll');
-        $('.modal').removeClass('modal--opened--stuck');
+        modal.classList.remove('modal--opened--stuck');
     }
 };
 
-$('.filter-btn').on('click', toggleModal);
-$('.modal__close-btn').on('click', toggleModal);
-
+const filterBtn = document.querySelector('.filter-btn');
+const modalCloseBtn = document.querySelector('.modal__close-btn');
 const filterOverlay = document.getElementById('filter-overlay');
 
+filterBtn.addEventListener('click', toggleModal);
+modalCloseBtn.addEventListener('click', toggleModal);
+
+
+/* Mobile touch events */
 let filterOverlayTap = new Hammer(filterOverlay);
 
 filterOverlayTap.on("tap", function(ev) {
     toggleModal();
 });
 
-
-
 // Check if no subreddits are selected then show a message
-const visibleSubreddits = (function visibleSubreddits() {
+const handleVisible = (function handleVisible() {
 
-    const _checkVisible = function _checkVisible() {
-        let subreddits = document.getElementsByClassName('filters__list-item');
-        let selected = [];
-        for (let i = 0; i < subreddits.length; i++) {
-            if (subreddits[i].classList.contains('subreddit--selected')) {
-                selected.push(subreddits[i])
-            };
-        };
+    const _numberOfVisible = (function _numberOfVisible() {
+        let subreddits = Array.from(document.querySelectorAll('.filters__list-item'));
+        let selected = subreddits.filter(sub => sub.classList.contains('subreddit--selected'));
         return selected.length;
-    };
+    })();
 
     const _updateVisible = function _updateVisible() {
-        if (_checkVisible() === 0) {
+        if (_numberOfVisible === 0) {
             $('.all-filter').removeClass('subreddit--selected');
             $('.all-filter').addClass('subreddit--deselected');
             showMessage.empty();
-        } else if (_checkVisible() > 0 && _checkVisible() < 7) {
+        } else if (_numberOfVisible > 0 && _numberOfVisible() < 7) {
             $('.all-filter').removeClass('subreddit--selected');
             $('.all-filter').addClass('subreddit--deselected');
             showMessage.clear();
@@ -415,11 +407,11 @@ const visibleSubreddits = (function visibleSubreddits() {
             $('.all-filter').addClass('subreddit--selected');
             showMessage.empty();
         };
-        return _checkVisible();
+        return _numberOfVisible();
     };
 
     return {
-        checkVisible: _checkVisible,
+        numberOfVisible: _numberOfVisible,
         updateVisible: _updateVisible
     };
 })();
@@ -450,11 +442,11 @@ function addSubreddit() {
 
 $('.all-filter').on('click', function(e) {
 
-    if (visibleSubreddits.updateVisible() === 0) {
+    if (handleVisible.updateVisible() === 0) {
         this.classList.remove('subreddit--deselected');
         this.classList.add('subreddit--selected');
         addSubreddit();
-    } else if (visibleSubreddits.updateVisible() === 7) {
+    } else if (handleVisible.updateVisible() === 7) {
         this.classList.add('subreddit--deselected');
         this.classList.remove('subreddit--selected');
         removeSubreddit();
@@ -478,7 +470,7 @@ function handleShow(target, sr) {
     } else {
         $(`.reddit-card-${sr}`).fadeIn('fast');
     };
-    visibleSubreddits.updateVisible();
+    handleVisible.updateVisible();
 };
 
 
