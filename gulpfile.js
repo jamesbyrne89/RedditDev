@@ -80,17 +80,17 @@ gulp.task('cssInject', ['compilecss'], function(){
 //    });
 //  });
 
-watch('app/assets/scripts/app.js', function(){
+watch('app/assets/scripts/*.js', function(){
   browserSync.reload();
 });
 
 gulp.task('prettier', () => {
-    gulp.src('assets/scripts/app.js')
+    gulp.src('assets/scripts/*.js')
     .pipe(prettier({useFlowParser: true}))
-    .pipe(gulp.dest('assets/scripts/app.js'))
+    .pipe(gulp.dest('assets/scripts/*.js'))
 });
 
-watch('app/assets/scripts/app.js', function(){
+watch('app/assets/scripts/*.js', function(){
   gulp.start('prettier');
   gulp.start('compressScripts');
 });

@@ -1,0 +1,1 @@
+"use strict";var myCache="myCache";self.addEventListener("install",function(){event.waitUntil(caches.open(myCache).then(function(e){return e.addAll(["/index.html","/temp/assets/styles/styles.css"])}))}),self.addEventListener("fetch",function(e){return e.respondWith(caches.open(myCache).then(function(t){return t.match(e.request)}))});

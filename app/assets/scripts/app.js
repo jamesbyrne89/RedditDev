@@ -612,3 +612,14 @@ window.onload = function () {
     document.body.style.opacity = 1;
     init();
 }
+
+window.addEventListener('resize', checkVisible);
+
+
+/* Service Worker */
+
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('temp/assets/scripts/min/serviceworker.js')
+    .then(registration => console.log('registered a serviceworker'))
+    .catch(err => console.error(err))
+}
