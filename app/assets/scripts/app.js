@@ -511,8 +511,8 @@ const backToTopBtn = document.getElementById('back-to-top');
 // Scroll progress bar
 window.addEventListener('scroll', () => {
     const scrolledBar = document.getElementById('scrolled-bar');
-    let scrolled = document.height - window.innerHeight,
-        scrolledTotal = (window.pageYOffset / scrolled * 100).toFixed(0);
+    let scrolled = document.body.clientHeight - window.innerHeight,
+        scrolledTotal = (window.scrollY / scrolled * 100).toFixed(0);
     scrolledBar.style.width = `${scrolledTotal}%`;
     scrolledTotal > 2 ? $(backToTopBtn).fadeIn('fast') : $(backToTopBtn).fadeOut('fast');
 });
