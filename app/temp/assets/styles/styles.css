@@ -576,12 +576,12 @@ sans-serif;
 /* Styling for individual subreddits */
 
 .filters__list>.css-filter {
-    color: #8e8e93;
-    background: #8e8e93;
+    color: #CAD3C8;
+    background: #CAD3C8;
 }
 
 .filters__list>.css-filter:hover {
-  background: #8e8e93 !important;
+  background: #CAD3C8 !important;
 }
 
 .filters__list>.css-filter:hover i {
@@ -589,7 +589,7 @@ sans-serif;
 }
 
 .filters__list>.css-filter span {
-  color: #8e8e93;
+  color: #CAD3C8;
   padding: 0 0.3em;
   position: relative;
 }
@@ -601,12 +601,12 @@ sans-serif;
 }
 
 .filters__list>.webdev-filter {
-    color: #fc3d39;
-    background: #fc3d39;
+    color: #3B3B98;
+    background: #3B3B98;
 }
 
 .filters__list>.webdev-filter:hover {
-  background: #fc3d39 !important;
+  background: #3B3B98 !important;
 }
 
 .filters__list>.webdev-filter:hover i {
@@ -614,7 +614,7 @@ sans-serif;
 }
 
 .filters__list>.webdev-filter span {
-  color: #fc3d39;
+  color: #3B3B98;
   padding: 0 0.3em;
   position: relative;
 }
@@ -626,12 +626,12 @@ sans-serif;
 }
 
 .filters__list>.web_design-filter {
-    color: #fd9426;
-    background: #fd9426;
+    color: #EAB543;
+    background: #EAB543;
 }
 
 .filters__list>.web_design-filter:hover {
-  background: #fd9426 !important;
+  background: #EAB543 !important;
 }
 
 .filters__list>.web_design-filter:hover i {
@@ -639,7 +639,7 @@ sans-serif;
 }
 
 .filters__list>.web_design-filter span {
-  color: #fd9426;
+  color: #EAB543;
   padding: 0 0.3em;
   position: relative;
 }
@@ -651,12 +651,12 @@ sans-serif;
 }
 
 .filters__list>.jquery-filter {
-    color: #fc3158;
-    background: #fc3158;
+    color: #FEA47F;
+    background: #FEA47F;
 }
 
 .filters__list>.jquery-filter:hover {
-  background: #fc3158 !important;
+  background: #FEA47F !important;
 }
 
 .filters__list>.jquery-filter:hover i {
@@ -664,25 +664,25 @@ sans-serif;
 }
 
 .filters__list>.jquery-filter span {
-  color: #fc3158;
+  color: #FEA47F;
   padding: 0 0.3em;
   position: relative;
 }
 
 .filters__list>.jquery-filter:hover span {
   color: #fff !important;
-  background: #fc3158;
+  background: #FEA47F;
   padding: 0 0.3em;
   position: relative;
 }
 
 .filters__list>.javascript-filter {
-    color: #147efb;
-    background: #147efb;
+    color: #ff6b81;
+    background: #ff6b81;
 }
 
 .filters__list>.javascript-filter:hover {
-  background: #147efb !important;
+  background: #ff6b81 !important;
 }
 
 .filters__list>.javascript-filter:hover i {
@@ -690,7 +690,7 @@ sans-serif;
 }
 
 .filters__list>.javascript-filter span {
-  color: #147efb;
+  color: #ff6b81;
   padding: 0 0.3em;
   position: relative;
 }
@@ -702,12 +702,12 @@ sans-serif;
 }
 
 .filters__list>.frontend-filter {
-    color: #53d769;
-    background: #53d769;
+    color: #55E6C1;
+    background: #55E6C1;
 }
 
 .filters__list>.frontend-filter:hover {
-  background: #53d769 !important;
+  background: #55E6C1 !important;
 }
 
 .filters__list>.frontend-filter:hover i {
@@ -715,7 +715,7 @@ sans-serif;
 }
 
 .filters__list>.frontend-filter span {
-  color: #53d769;
+  color: #55E6C1;
   padding: 0 0.3em;
   position: relative;
 }
@@ -727,12 +727,12 @@ sans-serif;
 }
 
 .filters__list>.webdevtutorials-filter {
-    color: #fecb2e;
-    background: #fecb2e;
+    color: #D6A2E8;
+    background: #D6A2E8;
 }
 
 .filters__list>.webdevtutorials-filter:hover {
-  background: #fecb2e !important;
+  background: #D6A2E8 !important;
 }
 
 .filters__list>.webdevtutorials-filter:hover i {
@@ -740,7 +740,7 @@ sans-serif;
 }
 
 .filters__list>.webdevtutorials-filter span {
-  color: #fecb2e;
+  color: #D6A2E8;
   padding: 0 0.3em;
   position: relative;
 }
@@ -752,12 +752,12 @@ sans-serif;
 }
 
 .filters__list>.reactjs-filter {
-    color: #5fc9f8;
-    background: #5fc9f8;
+    color: #25CCF7;
+    background: #25CCF7;
 }
 
 .filters__list>.reactjs-filter:hover {
-  background: #5fc9f8 !important;
+  background: #25CCF7 !important;
 }
 
 .filters__list>.reactjs-filter:hover i {
@@ -765,7 +765,7 @@ sans-serif;
 }
 
 .filters__list>.reactjs-filter span {
-  color: #5fc9f8;
+  color: #25CCF7;
   padding: 0 0.3em;
   position: relative;
 }
@@ -1077,27 +1077,27 @@ sans-serif;
 -------------------------------*/
 
 .reddit-card-css {
-	border-bottom: solid 0px #8e8e93;
-	color: #8e8e93;
+	border-bottom: solid 0px #CAD3C8;
+	color: #CAD3C8;
 }
 
 .reddit-card-css .reddit-card-inner {
-	background-image: -webkit-repeating-radial-gradient(center center, #8e8e93, #8e8e93 1px, transparent 1px, transparent 100%);
-	background-image: repeating-radial-gradient(center center, #8e8e93, #8e8e93 1px, transparent 1px, transparent 100%);
+	background-image: -webkit-repeating-radial-gradient(center center, #CAD3C8, #CAD3C8 1px, transparent 1px, transparent 100%);
+	background-image: repeating-radial-gradient(center center, #CAD3C8, #CAD3C8 1px, transparent 1px, transparent 100%);
 	background-size: 3px 3px;
 }
 
 .subreddit-css {
-	background: #8e8e93;
+	background: #CAD3C8;
 	text-align: center;
 	position: relative;
 	z-index: 500;
 }
 
 .dotted-bg-css {
-	color: #8e8e93;
-	background-image: -webkit-repeating-radial-gradient(center center, #8e8e93, #8e8e93 1px, transparent 1px, transparent 100%);
-	background-image: repeating-radial-gradient(center center, #8e8e93, #8e8e93 1px, transparent 1px, transparent 100%);
+	color: #CAD3C8;
+	background-image: -webkit-repeating-radial-gradient(center center, #CAD3C8, #CAD3C8 1px, transparent 1px, transparent 100%);
+	background-image: repeating-radial-gradient(center center, #CAD3C8, #CAD3C8 1px, transparent 1px, transparent 100%);
 	background-size: 3px 3px;
 }
 
@@ -1110,7 +1110,7 @@ sans-serif;
   bottom: 0;
   left: 0;
   right: 0;
-  background: #8e8e93;
+  background: #CAD3C8;
   mix-blend-mode: screen;
   transition: opacity 0.15s;
 }
@@ -1124,7 +1124,7 @@ sans-serif;
   bottom: 0;
   left: 0;
   right: 0;
-  background: #8e8e93;
+  background: #CAD3C8;
   transition: opacity 0.15s;
 }
 
@@ -1133,27 +1133,27 @@ sans-serif;
 -------------------------------*/
 
 .reddit-card-webdev {
-	border-bottom: solid 0px #fc3d39;
-	color: #fc3d39;
+	border-bottom: solid 0px #3B3B98;
+	color: #3B3B98;
 }
 
 .reddit-card-webdev .reddit-card-inner {
-	background-image: -webkit-repeating-radial-gradient(center center, #fc3d39, #fc3d39 1px, transparent 1px, transparent 100%);
-	background-image: repeating-radial-gradient(center center, #fc3d39, #fc3d39 1px, transparent 1px, transparent 100%);
+	background-image: -webkit-repeating-radial-gradient(center center, #3B3B98, #3B3B98 1px, transparent 1px, transparent 100%);
+	background-image: repeating-radial-gradient(center center, #3B3B98, #3B3B98 1px, transparent 1px, transparent 100%);
 	background-size: 3px 3px;
 }
 
 .subreddit-webdev {
-	background: #fc3d39;
+	background: #3B3B98;
 	text-align: center;
 	position: relative;
 	z-index: 500;
 }
 
 .dotted-bg-webdev {
-	color: #fc3d39;
-	background-image: -webkit-repeating-radial-gradient(center center, #fc3d39, #fc3d39 1px, transparent 1px, transparent 100%);
-	background-image: repeating-radial-gradient(center center, #fc3d39, #fc3d39 1px, transparent 1px, transparent 100%);
+	color: #3B3B98;
+	background-image: -webkit-repeating-radial-gradient(center center, #3B3B98, #3B3B98 1px, transparent 1px, transparent 100%);
+	background-image: repeating-radial-gradient(center center, #3B3B98, #3B3B98 1px, transparent 1px, transparent 100%);
 	background-size: 3px 3px;
 }
 
@@ -1166,7 +1166,7 @@ sans-serif;
   bottom: 0;
   left: 0;
   right: 0;
-  background: #fc3d39;
+  background: #3B3B98;
   mix-blend-mode: screen;
   transition: opacity 0.15s;
 }
@@ -1180,7 +1180,7 @@ sans-serif;
   bottom: 0;
   left: 0;
   right: 0;
-  background: #fc3d39;
+  background: #3B3B98;
   transition: opacity 0.15s;
 }
 
@@ -1189,27 +1189,27 @@ sans-serif;
 -------------------------------*/
 
 .reddit-card-web_design {
-	border-bottom: solid 0px #fd9426;
-	color: #fd9426;
+	border-bottom: solid 0px #EAB543;
+	color: #EAB543;
 }
 
 .reddit-card-web_design .reddit-card-inner {
-	background-image: -webkit-repeating-radial-gradient(center center, #fd9426, #fd9426 1px, transparent 1px, transparent 100%);
-	background-image: repeating-radial-gradient(center center, #fd9426, #fd9426 1px, transparent 1px, transparent 100%);
+	background-image: -webkit-repeating-radial-gradient(center center, #EAB543, #EAB543 1px, transparent 1px, transparent 100%);
+	background-image: repeating-radial-gradient(center center, #EAB543, #EAB543 1px, transparent 1px, transparent 100%);
 	background-size: 3px 3px;
 }
 
 .subreddit-web_design {
-	background: #fd9426;
+	background: #EAB543;
 	text-align: center;
 	position: relative;
 	z-index: 500;
 }
 
 .dotted-bg-web_design {
-	color: #fd9426;
-	background-image: -webkit-repeating-radial-gradient(center center, #fd9426, #fd9426 1px, transparent 1px, transparent 100%);
-	background-image: repeating-radial-gradient(center center, #fd9426, #fd9426 1px, transparent 1px, transparent 100%);
+	color: #EAB543;
+	background-image: -webkit-repeating-radial-gradient(center center, #EAB543, #EAB543 1px, transparent 1px, transparent 100%);
+	background-image: repeating-radial-gradient(center center, #EAB543, #EAB543 1px, transparent 1px, transparent 100%);
 	background-size: 3px 3px;
 }
 
@@ -1222,7 +1222,7 @@ sans-serif;
   bottom: 0;
   left: 0;
   right: 0;
-  background: #fd9426;
+  background: #EAB543;
   mix-blend-mode: screen;
   transition: opacity 0.15s;
 }
@@ -1236,7 +1236,7 @@ sans-serif;
   bottom: 0;
   left: 0;
   right: 0;
-  background: #fd9426;
+  background: #EAB543;
   transition: opacity 0.15s;
 }
 
@@ -1245,27 +1245,27 @@ sans-serif;
 -------------------------------*/
 
 .reddit-card-jquery {
-	border-bottom: solid 0px #fc3158;
-	color: #fc3158;
+	border-bottom: solid 0px #FEA47F;
+	color: #FEA47F;
 }
 
 .reddit-card-jquery .reddit-card-inner {
-	background-image: -webkit-repeating-radial-gradient(center center, #fc3158, #fc3158 1px, transparent 1px, transparent 100%);
-	background-image: repeating-radial-gradient(center center, #fc3158, #fc3158 1px, transparent 1px, transparent 100%);
+	background-image: -webkit-repeating-radial-gradient(center center, #FEA47F, #FEA47F 1px, transparent 1px, transparent 100%);
+	background-image: repeating-radial-gradient(center center, #FEA47F, #FEA47F 1px, transparent 1px, transparent 100%);
 	background-size: 3px 3px;
 }
 
 .subreddit-jquery {
-	background: #fc3158;
+	background: #FEA47F;
 	text-align: center;
 	position: relative;
 	z-index: 500;
 }
 
 .dotted-bg-jquery {
-	color: #fc3158;
-	background-image: -webkit-repeating-radial-gradient(center center, #fc3158, #fc3158 1px, transparent 1px, transparent 100%);
-	background-image: repeating-radial-gradient(center center, #fc3158, #fc3158 1px, transparent 1px, transparent 100%);
+	color: #FEA47F;
+	background-image: -webkit-repeating-radial-gradient(center center, #FEA47F, #FEA47F 1px, transparent 1px, transparent 100%);
+	background-image: repeating-radial-gradient(center center, #FEA47F, #FEA47F 1px, transparent 1px, transparent 100%);
 	background-size: 3px 3px;
 }
 
@@ -1278,7 +1278,7 @@ sans-serif;
   bottom: 0;
   left: 0;
   right: 0;
-  background: #fc3158;
+  background: #FEA47F;
   mix-blend-mode: screen;
   transition: opacity 0.15s;
 }
@@ -1292,7 +1292,7 @@ sans-serif;
   bottom: 0;
   left: 0;
   right: 0;
-  background: #fc3158;
+  background: #FEA47F;
   transition: opacity 0.15s;
 }
 
@@ -1301,27 +1301,27 @@ sans-serif;
 -------------------------------*/
 
 .reddit-card-javascript {
-	border-bottom: solid 0px #147efb;
-	color: #147efb;
+	border-bottom: solid 0px #ff6b81;
+	color: #ff6b81;
 }
 
 .reddit-card-javascript .reddit-card-inner {
-	background-image: -webkit-repeating-radial-gradient(center center, #147efb, #147efb 1px, transparent 1px, transparent 100%);
-	background-image: repeating-radial-gradient(center center, #147efb, #147efb 1px, transparent 1px, transparent 100%);
+	background-image: -webkit-repeating-radial-gradient(center center, #ff6b81, #ff6b81 1px, transparent 1px, transparent 100%);
+	background-image: repeating-radial-gradient(center center, #ff6b81, #ff6b81 1px, transparent 1px, transparent 100%);
 	background-size: 3px 3px;
 }
 
 .subreddit-javascript {
-	background: #147efb;
+	background: #ff6b81;
 	text-align: center;
 	position: relative;
 	z-index: 500;
 }
 
 .dotted-bg-javascript {
-	color: #147efb;
-	background-image: -webkit-repeating-radial-gradient(center center, #147efb, #147efb 1px, transparent 1px, transparent 100%);
-	background-image: repeating-radial-gradient(center center, #147efb, #147efb 1px, transparent 1px, transparent 100%);
+	color: #ff6b81;
+	background-image: -webkit-repeating-radial-gradient(center center, #ff6b81, #ff6b81 1px, transparent 1px, transparent 100%);
+	background-image: repeating-radial-gradient(center center, #ff6b81, #ff6b81 1px, transparent 1px, transparent 100%);
 	background-size: 3px 3px;
 }
 
@@ -1334,7 +1334,7 @@ sans-serif;
   bottom: 0;
   left: 0;
   right: 0;
-  background: #147efb;
+  background: #ff6b81;
   mix-blend-mode: screen;
   transition: opacity 0.15s;
 }
@@ -1348,7 +1348,7 @@ sans-serif;
   bottom: 0;
   left: 0;
   right: 0;
-  background: #147efb;
+  background: #ff6b81;
   transition: opacity 0.15s;
 }
 
@@ -1357,27 +1357,27 @@ sans-serif;
 -------------------------------*/
 
 .reddit-card-frontend {
-	border-bottom: solid 0px #53d769;
-	color: #53d769;
+	border-bottom: solid 0px #55E6C1;
+	color: #55E6C1;
 }
 
 .reddit-card-frontend .reddit-card-inner {
-	background-image: -webkit-repeating-radial-gradient(center center, #53d769, #53d769 1px, transparent 1px, transparent 100%);
-	background-image: repeating-radial-gradient(center center, #53d769, #53d769 1px, transparent 1px, transparent 100%);
+	background-image: -webkit-repeating-radial-gradient(center center, #55E6C1, #55E6C1 1px, transparent 1px, transparent 100%);
+	background-image: repeating-radial-gradient(center center, #55E6C1, #55E6C1 1px, transparent 1px, transparent 100%);
 	background-size: 3px 3px;
 }
 
 .subreddit-frontend {
-	background: #53d769;
+	background: #55E6C1;
 	text-align: center;
 	position: relative;
 	z-index: 500;
 }
 
 .dotted-bg-frontend {
-	color: #53d769;
-	background-image: -webkit-repeating-radial-gradient(center center, #53d769, #53d769 1px, transparent 1px, transparent 100%);
-	background-image: repeating-radial-gradient(center center, #53d769, #53d769 1px, transparent 1px, transparent 100%);
+	color: #55E6C1;
+	background-image: -webkit-repeating-radial-gradient(center center, #55E6C1, #55E6C1 1px, transparent 1px, transparent 100%);
+	background-image: repeating-radial-gradient(center center, #55E6C1, #55E6C1 1px, transparent 1px, transparent 100%);
 	background-size: 3px 3px;
 }
 
@@ -1390,7 +1390,7 @@ sans-serif;
   bottom: 0;
   left: 0;
   right: 0;
-  background: #53d769;
+  background: #55E6C1;
   mix-blend-mode: screen;
   transition: opacity 0.15s;
 }
@@ -1404,7 +1404,7 @@ sans-serif;
   bottom: 0;
   left: 0;
   right: 0;
-  background: #53d769;
+  background: #55E6C1;
   transition: opacity 0.15s;
 }
 
@@ -1413,26 +1413,26 @@ sans-serif;
 -------------------------------*/
 
 .reddit-card-webdevtutorials {
-	border-bottom: solid 0px #fecb2e;
-	color: #fecb2e;
+	border-bottom: solid 0px #D6A2E8;
+	color: #D6A2E8;
 }
 
 .reddit-card-webdevtutorials .reddit-card-inner {
-	background-image: -webkit-repeating-radial-gradient(center center, #fecb2e, #fecb2e 1px, transparent 1px, transparent 100%);
-	background-image: repeating-radial-gradient(center center, #fecb2e, #fecb2e 1px, transparent 1px, transparent 100%);
+	background-image: -webkit-repeating-radial-gradient(center center, #D6A2E8, #D6A2E8 1px, transparent 1px, transparent 100%);
+	background-image: repeating-radial-gradient(center center, #D6A2E8, #D6A2E8 1px, transparent 1px, transparent 100%);
 	background-size: 3px 3px;
 }
 
 .subreddit-webdevtutorials {
-	background: #fecb2e;
+	background: #D6A2E8;
 	position: relative;
 	z-index: 500;
 }
 
 .dotted-bg-webdevtutorials {
-	color: #fecb2e;
-	background-image: -webkit-repeating-radial-gradient(center center, #fecb2e, #fecb2e 1px, transparent 1px, transparent 100%);
-	background-image: repeating-radial-gradient(center center, #fecb2e, #fecb2e 1px, transparent 1px, transparent 100%);
+	color: #D6A2E8;
+	background-image: -webkit-repeating-radial-gradient(center center, #D6A2E8, #D6A2E8 1px, transparent 1px, transparent 100%);
+	background-image: repeating-radial-gradient(center center, #D6A2E8, #D6A2E8 1px, transparent 1px, transparent 100%);
 	background-size: 3px 3px;
 }
 
@@ -1445,7 +1445,7 @@ sans-serif;
   bottom: 0;
   left: 0;
   right: 0;
-  background: #fecb2e;
+  background: #D6A2E8;
   mix-blend-mode: screen;
   transition: opacity 0.15s;
 }
@@ -1459,7 +1459,7 @@ sans-serif;
   bottom: 0;
   left: 0;
   right: 0;
-  background: #fecb2e;
+  background: #D6A2E8;
   transition: opacity 0.15s;
 }
 
@@ -1468,26 +1468,26 @@ sans-serif;
 -------------------------------*/
 
 .reddit-card-reactjs {
-	border-bottom: solid 0px #5fc9f8;
-	color: #5fc9f8;
+	border-bottom: solid 0px #25CCF7;
+	color: #25CCF7;
 }
 
 .reddit-card-reactjs .reddit-card-inner {
-	background-image: -webkit-repeating-radial-gradient(center center, #5fc9f8, #5fc9f8 1px, transparent 1px, transparent 100%);
-	background-image: repeating-radial-gradient(center center, #5fc9f8, #5fc9f8 1px, transparent 1px, transparent 100%);
+	background-image: -webkit-repeating-radial-gradient(center center, #25CCF7, #25CCF7 1px, transparent 1px, transparent 100%);
+	background-image: repeating-radial-gradient(center center, #25CCF7, #25CCF7 1px, transparent 1px, transparent 100%);
 	background-size: 3px 3px;
 }
 
 .subreddit-reactjs {
-	background: #5fc9f8;
+	background: #25CCF7;
 	position: relative;
 	z-index: 500;
 }
 
 .dotted-bg-reactjs {
-	color: #5fc9f8;
-	background-image: -webkit-repeating-radial-gradient(center center, #5fc9f8, #5fc9f8 1px, transparent 1px, transparent 100%);
-	background-image: repeating-radial-gradient(center center, #5fc9f8, #5fc9f8 1px, transparent 1px, transparent 100%);
+	color: #25CCF7;
+	background-image: -webkit-repeating-radial-gradient(center center, #25CCF7, #25CCF7 1px, transparent 1px, transparent 100%);
+	background-image: repeating-radial-gradient(center center, #25CCF7, #25CCF7 1px, transparent 1px, transparent 100%);
 	background-size: 3px 3px;
 }
 
@@ -1500,7 +1500,7 @@ sans-serif;
   bottom: 0;
   left: 0;
   right: 0;
-  background: #5fc9f8;
+  background: #25CCF7;
   mix-blend-mode: screen;
   transition: opacity 0.15s;
 }
@@ -1514,7 +1514,7 @@ sans-serif;
   bottom: 0;
   left: 0;
   right: 0;
-  background: #5fc9f8;
+  background: #25CCF7;
   transition: opacity 0.15s;
 }
 
