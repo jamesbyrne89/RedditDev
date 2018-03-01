@@ -194,7 +194,7 @@ var redditContent = document.getElementById('card-container'),
 function updateView(data) {
 
     // Clear content from card container
-    contentInfo.innerHTML = null;
+    contentInfo.innerHTML = '';
     redditContent.innerHTML = null;
 
     function isLoading(loadState) {
@@ -255,7 +255,8 @@ var showMessage = function showMessage() {
     var _searchResult = document.createElement('div');
 
     var _empty = function _empty() {
-        contentInfo.innerHTML = _emptyMessage;
+        console.log(_emptyMessage);
+        contentInfo.appendChild(_emptyMessage);
     };
 
     var _search = function _search(term) {
@@ -395,6 +396,7 @@ var handleVisible = function handleVisible() {
     }();
 
     var _updateCards = function _updateCards() {
+        console.log(_numberOfVisible);
         if (_numberOfVisible === 0) {
             filters.all.classList.remove('subreddit--selected');
             filters.all.classList.add('subreddit--deselected');
@@ -406,7 +408,6 @@ var handleVisible = function handleVisible() {
         } else {
             filters.all.classList.remove('subreddit--deselected');
             filters.all.classList.add('subreddit--selected');
-            showMessage.empty();
         };
         return _numberOfVisible;
     };
