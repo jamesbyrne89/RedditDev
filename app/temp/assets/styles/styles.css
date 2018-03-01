@@ -67,24 +67,24 @@ button {
 /* Header */
 
 .header {
-	z-index: 350;
-	position: absolute;
-	left: 0;
-	top: 0px;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-orient: vertical;
-	-webkit-box-direction: normal;
-	    -ms-flex-direction: column;
-	        flex-direction: column;
-	-webkit-box-pack: center;
-	    -ms-flex-pack: center;
-	        justify-content: center;
-	width: 100%;
-	height: 140px;
-	background: #fff;
-	border-bottom: solid 1px #ccc;
+    z-index: 350;
+    position: absolute;
+    left: 0;
+    top: 0px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    width: 100%;
+    height: 140px;
+    background: #fff;
+    box-shadow: 0 0 0 1px #ccc;
 }
 
 .header a:hover {
@@ -93,146 +93,146 @@ button {
 }
 
 .nav-container {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-pack: justify;
-	    -ms-flex-pack: justify;
-	        justify-content: space-between;
-	-webkit-box-align: end;
-	    -ms-flex-align: end;
-	        align-items: flex-end;
-	padding: 0.25em 0;
-	width: 85vw;
-	height: auto;
-	margin: 0 auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+    align-items: flex-end;
+    padding: 0.25em 0;
+    width: 85vw;
+    height: auto;
+    margin: 0 auto;
 }
 
 .header__title {
-	font-family: 'Tiempos Headline Black';
-	font-size: 3.75rem;
-	font-weight: 700;
-	-webkit-box-flex: 0;
-	    -ms-flex: 0 0 200px;
-	        flex: 0 0 200px;
-	z-index: 100;
-	color: #24292e;
-	line-height: 1;
-	text-align: left;
+    font-family: 'Tiempos Headline Black';
+    font-size: 3.75rem;
+    font-weight: 700;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 200px;
+    flex: 0 0 200px;
+    z-index: 100;
+    color: #24292e;
+    line-height: 1;
+    text-align: left;
 }
 
 .header__title-wrapper {
-	text-align: left;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
+    text-align: left;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
 }
 
 .header__description {
-	font-family: 'Karla',
+    font-family: 'Karla',
 helvetica,
 arial,
 sans-serif;
-	font-size: 1rem;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-align: end;
-	    -ms-flex-align: end;
-	        align-items: flex-end;
-	padding-bottom: 0.25em;
-	width: 200px;
-	margin-left: 1em;
-	z-index: 15;
-	color: #495456;
-	font-weight: 400;
-	line-height: 1.2;
-	transition: all 0.3s;
-	padding-right: 1em;
+    font-size: 1rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+    align-items: flex-end;
+    padding-bottom: 0.25em;
+    width: 200px;
+    margin-left: 1em;
+    z-index: 15;
+    color: #495456;
+    font-weight: 400;
+    line-height: 1.2;
+    transition: all 0.3s;
+    padding-right: 1em;
 }
 
 /* Sticky Header Styles */
 
 .is-sticky {
-	position: fixed;
-	background: #24292e;
-	top: -65px;
-	height: 65px;
-	-webkit-box-pack: center !important;
-	    -ms-flex-pack: center !important;
-	        justify-content: center !important;
-	-webkit-animation: slideDown 0.3s ease-out forwards;
-	animation: slideDown 0.3s ease-out forwards;
+    position: fixed;
+    background: #24292e;
+    top: -65px;
+    height: 65px;
+    -webkit-box-pack: center !important;
+    -ms-flex-pack: center !important;
+    justify-content: center !important;
+    -webkit-animation: slideDown 0.3s ease-out forwards;
+    animation: slideDown 0.3s ease-out forwards;
 }
 
 .is-sticky .nav-container {
-	border: 0;
-	padding: 0.5em 0;
+    border: 0;
+    padding: 0.5em 0;
 }
 
 .is-sticky .header__title {
-	padding: 0;
-	line-height: normal;
-	font-size: 2.5rem;
-	color: #fff;
+    padding: 0;
+    line-height: normal;
+    font-size: 2.5rem;
+    color: #fff;
 }
 
 .is-sticky .header__description {
-	display: none;
-	transition: all 0.3s;
+    display: none;
+    transition: all 0.3s;
 }
 
 .header.is-sticky .btn {
-	color: #fff;
-	background: #24292e;
-	border: solid 1px #fff;
+    color: #fff;
+    background: #24292e;
+    border: solid 1px #fff;
 }
 
 .header .btn {
-	color: #24292e;
+    color: #24292e;
 }
 
 .header .btn:hover {
-	background: #24292e;
-	color: #fff;
+    background: #24292e;
+    color: #fff;
 }
 
 .header.is-sticky .btn:hover {
-	color:  #24292e;
-	background: #fff;
+    color: #24292e;
+    background: #fff;
 }
 
 .header__btn-wrapper {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
 }
 
 .header__title-wrapper {
-	z-index: 70;
-	margin-right: 2.5em;
+    z-index: 70;
+    margin-right: 2.5em;
 }
 
 .scrolled-bar {
-	height: 6px;
-	position: fixed;
-	bottom: 0;
-	left: 0;
-	z-index: 300;
-	display: block;
-	background: transparent;
-	width: 100vw;
+    height: 6px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 300;
+    display: block;
+    background: transparent;
+    width: 100vw;
 }
 
 .scrolled-bar__progress {
-	display: block;
-	height: 6px;
-	position: relative;
-	top: 0;
-	left: 0;
-	z-index: 410;
-	width: 0;
-	background: #24292e;
+    display: block;
+    height: 6px;
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 410;
+    width: 0;
+    background: #24292e;
 }
 
 /* Fonts */
@@ -781,29 +781,39 @@ sans-serif;
 ------------------------------ */
 
 .reddit-content {
-	position: relative;
-	top: 160px;
-	margin: auto;
-	width: 85vw;
-	transition: all ease 0.3s;
-	padding-bottom: 12em;
-	-webkit-column-break-inside: avoid;
-               break-inside: avoid;
+    position: relative;
+    top: 160px;
+    margin: auto;
+    width: 85vw;
+    transition: all ease 0.3s;
+    padding-bottom: 12em;
+    -webkit-column-break-inside: avoid;
+    break-inside: avoid;
+}
+
+.reddit-content::after {
+  content: '';
+  width: 100%;
+  position: fixed;
+  height: 40px;
+  background: linear-gradient(rgba(236, 238, 241, 0.001), white);
+  pointer-events: none;
+  bottom: 0;
 }
 
 .content__info-bar {
-	padding: 2em 0 0.25em 0;
+    padding: 2em 0 0.25em 0;
 }
 
 .card-container {
-	-webkit-column-count: 4;
-	        column-count: 4;
-	-webkit-column-gap: 2.5em;
-	        column-gap: 2.5em;
-	border-top: solid 1px #ccc;
-	padding-top: 1.25em;
-	padding-bottom: 1em;
-	width: 100%;
+    -webkit-column-count: 4;
+    column-count: 4;
+    -webkit-column-gap: 2.5em;
+    column-gap: 2.5em;
+    border-top: solid 1px #ccc;
+    padding-top: 1.25em;
+    padding-bottom: 1em;
+    width: 100%;
 }
 
 /* ---------------------------
@@ -811,27 +821,27 @@ sans-serif;
 ------------------------------ */
 
 .card-container--rows {
-	-webkit-column-count: 1 !important;
-	        column-count: 1 !important;
+    -webkit-column-count: 1 !important;
+    column-count: 1 !important;
 }
 
 .card-container--rows .reddit-card {
-	padding: 0.5em 1em;
-	}
+    padding: 0.5em 1em;
+}
 
 .card-container--rows .reddit-card-inner {
-	-webkit-box-orient: horizontal;
-	-webkit-box-direction: normal;
-	    -ms-flex-direction: row;
-	        flex-direction: row;
-	-ms-flex-wrap: wrap;
-	    flex-wrap: wrap;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
 }
 
 .card-container--rows .reddit-card__post-title {
-	width: 50%;
-	padding: 1em 2em;
-	border-right: solid 1px #ccc;
+    width: 50%;
+    padding: 1em 2em;
+    border-right: solid 1px #ccc;
 }
 
 .card-container--rows .reddit-card__post-title a {
@@ -839,44 +849,44 @@ sans-serif;
 }
 
 .card-container--rows .reddit-card__subreddit {
-	height: 0%;
-	font-size: 0.875rem;
-	margin: auto 0;
+    height: 0%;
+    font-size: 0.875rem;
+    margin: auto 0;
 }
 
 .card-container--rows .subreddit-wrapper {
-	width: 20%;
-	height: 100%;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-align: center;
-	    -ms-flex-align: center;
-	        align-items: center;
-	padding: 1em 4em 1em 1em;
-	border-right: solid 1px #ccc;
+    width: 20%;
+    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 1em 4em 1em 1em;
+    border-right: solid 1px #ccc;
 }
 
 .card-container--rows .reddit-card-inner {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-pack: justify;
-	    -ms-flex-pack: justify;
-	        justify-content: space-between;
-	-webkit-box-align: center;
-	    -ms-flex-align: center;
-	        align-items: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
 }
 
 .card-container--rows .card-footer {
-	font-size: 1rem;
-	width: 30%;
-	-webkit-box-pack: end;
-	    -ms-flex-pack: end;
-	        justify-content: flex-end;
-	padding-left: 2em;
-	height: 100%;
+    font-size: 1rem;
+    width: 30%;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    padding-left: 2em;
+    height: 100%;
 }
 
 /* ---------------------------
@@ -884,67 +894,66 @@ sans-serif;
 ------------------------------ */
 
 .reddit-card {
-	margin: 0 0 1.25em 0;
-	width: 100%;
-	background: white;
-	break-inside: avoid;
-	overflow: hidden;
-	position: relative;
-	top: 0;
-	overflow-wrap: break-word;
-	padding: 1em 0.75em;
-	-webkit-transform: translateY(200px) scale(0.9);
-	        transform: translateY(200px) scale(0.9);
-	opacity: 0;
-	transition: opacity 1s ease-in-out 0s, -webkit-transform 0.7s ease-in-out 0s;
-	transition: transform 0.7s ease-in-out 0s, opacity 1s ease-in-out 0s;
-	transition: transform 0.7s ease-in-out 0s, opacity 1s ease-in-out 0s, -webkit-transform 0.7s ease-in-out 0s;
-	-webkit-column-break-inside: avoid;
-               break-inside: avoid;
+    margin: 0 0 1.25em 0;
+    width: 100%;
+    background: white;
+    break-inside: avoid;
+    overflow: hidden;
+    position: relative;
+    top: 0;
+    overflow-wrap: break-word;
+    padding: 1em 0.75em;
+    -webkit-transform: translateY(200px) scale(0.9);
+    transform: translateY(200px) scale(0.9);
+    opacity: 0;
+    transition: opacity 1s ease-in-out 0s, -webkit-transform 0.7s ease-in-out 0s;
+    transition: transform 0.7s ease-in-out 0s, opacity 1s ease-in-out 0s;
+    transition: transform 0.7s ease-in-out 0s, opacity 1s ease-in-out 0s, -webkit-transform 0.7s ease-in-out 0s;
+    -webkit-column-break-inside: avoid;
+    break-inside: avoid;
 }
 
 .reddit-card.animate {
-	-webkit-transform: translateY(0) scale(1);
-	        transform: translateY(0) scale(1);
-	opacity: 1;
+    -webkit-transform: translateY(0) scale(1);
+    transform: translateY(0) scale(1);
+    opacity: 1;
 }
 
 .reddit-card-inner {
-	position: relative;
-	background: #fff !important;
+    position: relative;
+    background: #fff !important;
 }
 
 .reddit-card::before {
-	content: '';
-	display: block;
-	height: 0px;
-	width: 100%;
-	position: relative;
-	top: -0.5em;
-	background: #24292e;
+    content: '';
+    display: block;
+    height: 0px;
+    width: 100%;
+    position: relative;
+    top: -0.5em;
+    background: #24292e;
 }
 
 .reddit-card__subreddit {
-	font-family: 'Karla',
+    font-family: 'Karla',
 helvetica,
 arial,
 sans-serif;
-	padding: 0.25em 0.5em;
-	margin-left: 0em;
-	display: inline-block;
-	font-weight: 700;
-	text-transform: uppercase;
-	font-size: 0.75rem;
-	color: #fff;
+    padding: 0.25em 0.5em;
+    margin-left: 0em;
+    display: inline-block;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    color: #fff;
 }
 
 .reddit-card__post-title {
-	padding: 1.5em 0;
-	width: 100%;
-	transition: all 0.15s;
-	background: #fff;
-	text-align: left;
-
+    padding: 1.5em 0;
+    width: 100%;
+    transition: all 0.15s;
+    background: #fff;
+    text-align: left;
 }
 
 .reddit-card__post-title a {
@@ -966,75 +975,74 @@ sans-serif;
 }
 
 .reddit-card__thumbnail-wrapper {
-	position: relative;
-	text-align: center;
-	max-width: 100%;
-	line-height: 0;
-	transition: all 0.2s;
-	-webkit-filter: grayscale(0);
-	        filter: grayscale(0);
-	overflow: hidden !important;
+    position: relative;
+    text-align: center;
+    max-width: 100%;
+    line-height: 0;
+    transition: all 0.2s;
+    -webkit-filter: grayscale(0);
+    filter: grayscale(0);
+    overflow: hidden !important;
 }
 
 .reddit-card__thumbnail-wrapper:hover::after {
-	-webkit-filter: screen;
-	        filter: screen;
+    -webkit-filter: screen;
+    filter: screen;
 }
 
 .reddit-card__thumbnail-wrapper:hover {
-	-webkit-filter: grayscale();
-	        filter: grayscale();
+    -webkit-filter: grayscale();
+    filter: grayscale();
 }
 
 .reddit-card__thumbnail {
-	width: 100%;
-	margin-bottom: -4px;
-	transition: all 0.2s;
+    width: 100%;
+    margin-bottom: -4px;
+    transition: all 0.2s;
 }
 
 .card-footer {
-	font-weight: 400;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-pack: start;
-	    -ms-flex-pack: start;
-	        justify-content: flex-start;
-	-webkit-box-align: center;
-	    -ms-flex-align: center;
-	        align-items: center;
-	-ms-flex-wrap: wrap;
-	    flex-wrap: wrap;
-	font-size: 0.75rem;
-	letter-spacing: 0.02em;
-	max-width: 100%;
-	color: #ccc;
-	background: #fff;
+    font-weight: 400;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    font-size: 0.75rem;
+    letter-spacing: 0.02em;
+    max-width: 100%;
+    color: #ccc;
+    background: #fff;
 }
 
 .bar {
-	font-size: 0.875em;
+    font-size: 0.875em;
 }
 
 .short-url {
-	-webkit-box-flex: 0;
-	    -ms-flex: 0 0 auto;
-	        flex: 0 0 auto;
-	text-align: center;
-	padding: 0 0.75em 0 0;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    text-align: center;
+    padding: 0 0.75em 0 0;
 }
 
 .post-comments {
-	font-family: 'Karla',
+    font-family: 'Karla',
 helvetica,
 arial,
 sans-serif;
-	display: block;
-	text-align: left;
-	white-space: nowrap;
-	padding: 0 0.75em;
-	transition: all 0.15s;
-
+    display: block;
+    text-align: left;
+    white-space: nowrap;
+    padding: 0 0.75em;
+    transition: all 0.15s;
 }
 
 .post-comments a {
@@ -1050,26 +1058,26 @@ sans-serif;
 }
 
 .timestamp {
-	display: block;
-	font-family: 'Karla',
+    display: block;
+    font-family: 'Karla',
 helvetica,
 arial,
 sans-serif;
-	-webkit-box-flex: 0;
-	    -ms-flex: 0 0 auto;
-	        flex: 0 0 auto;
-	text-align: left;
-	padding: 0 0.75em;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    text-align: left;
+    padding: 0 0.75em;
 }
 
 .content-end-mark {
-	display: none;
-	position: absolute;
-	bottom: 4.5em;
-	left: calc(50% - 16px);
-	padding: 1em 0;
-	width: 32px;
-	text-align: center;
+    display: none;
+    position: absolute;
+    bottom: 4.5em;
+    left: calc(50% - 16px);
+    padding: 1em 0;
+    width: 32px;
+    text-align: center;
 }
 
 /*-------------------------------
@@ -1077,28 +1085,28 @@ sans-serif;
 -------------------------------*/
 
 .reddit-card-css {
-	border-bottom: solid 0px #CAD3C8;
-	color: #CAD3C8;
+    border-bottom: solid 0px #CAD3C8;
+    color: #CAD3C8;
 }
 
 .reddit-card-css .reddit-card-inner {
-	background-image: -webkit-repeating-radial-gradient(center center, #CAD3C8, #CAD3C8 1px, transparent 1px, transparent 100%);
-	background-image: repeating-radial-gradient(center center, #CAD3C8, #CAD3C8 1px, transparent 1px, transparent 100%);
-	background-size: 3px 3px;
+    background-image: -webkit-repeating-radial-gradient(center center, #CAD3C8, #CAD3C8 1px, transparent 1px, transparent 100%);
+    background-image: repeating-radial-gradient(center center, #CAD3C8, #CAD3C8 1px, transparent 1px, transparent 100%);
+    background-size: 3px 3px;
 }
 
 .subreddit-css {
-	background: #CAD3C8;
-	text-align: center;
-	position: relative;
-	z-index: 500;
+    background: #CAD3C8;
+    text-align: center;
+    position: relative;
+    z-index: 500;
 }
 
 .dotted-bg-css {
-	color: #CAD3C8;
-	background-image: -webkit-repeating-radial-gradient(center center, #CAD3C8, #CAD3C8 1px, transparent 1px, transparent 100%);
-	background-image: repeating-radial-gradient(center center, #CAD3C8, #CAD3C8 1px, transparent 1px, transparent 100%);
-	background-size: 3px 3px;
+    color: #CAD3C8;
+    background-image: -webkit-repeating-radial-gradient(center center, #CAD3C8, #CAD3C8 1px, transparent 1px, transparent 100%);
+    background-image: repeating-radial-gradient(center center, #CAD3C8, #CAD3C8 1px, transparent 1px, transparent 100%);
+    background-size: 3px 3px;
 }
 
 .css-overlay::before {
@@ -1133,28 +1141,28 @@ sans-serif;
 -------------------------------*/
 
 .reddit-card-webdev {
-	border-bottom: solid 0px #3B3B98;
-	color: #3B3B98;
+    border-bottom: solid 0px #3B3B98;
+    color: #3B3B98;
 }
 
 .reddit-card-webdev .reddit-card-inner {
-	background-image: -webkit-repeating-radial-gradient(center center, #3B3B98, #3B3B98 1px, transparent 1px, transparent 100%);
-	background-image: repeating-radial-gradient(center center, #3B3B98, #3B3B98 1px, transparent 1px, transparent 100%);
-	background-size: 3px 3px;
+    background-image: -webkit-repeating-radial-gradient(center center, #3B3B98, #3B3B98 1px, transparent 1px, transparent 100%);
+    background-image: repeating-radial-gradient(center center, #3B3B98, #3B3B98 1px, transparent 1px, transparent 100%);
+    background-size: 3px 3px;
 }
 
 .subreddit-webdev {
-	background: #3B3B98;
-	text-align: center;
-	position: relative;
-	z-index: 500;
+    background: #3B3B98;
+    text-align: center;
+    position: relative;
+    z-index: 500;
 }
 
 .dotted-bg-webdev {
-	color: #3B3B98;
-	background-image: -webkit-repeating-radial-gradient(center center, #3B3B98, #3B3B98 1px, transparent 1px, transparent 100%);
-	background-image: repeating-radial-gradient(center center, #3B3B98, #3B3B98 1px, transparent 1px, transparent 100%);
-	background-size: 3px 3px;
+    color: #3B3B98;
+    background-image: -webkit-repeating-radial-gradient(center center, #3B3B98, #3B3B98 1px, transparent 1px, transparent 100%);
+    background-image: repeating-radial-gradient(center center, #3B3B98, #3B3B98 1px, transparent 1px, transparent 100%);
+    background-size: 3px 3px;
 }
 
 .webdev-overlay::before {
@@ -1189,28 +1197,28 @@ sans-serif;
 -------------------------------*/
 
 .reddit-card-web_design {
-	border-bottom: solid 0px #EAB543;
-	color: #EAB543;
+    border-bottom: solid 0px #EAB543;
+    color: #EAB543;
 }
 
 .reddit-card-web_design .reddit-card-inner {
-	background-image: -webkit-repeating-radial-gradient(center center, #EAB543, #EAB543 1px, transparent 1px, transparent 100%);
-	background-image: repeating-radial-gradient(center center, #EAB543, #EAB543 1px, transparent 1px, transparent 100%);
-	background-size: 3px 3px;
+    background-image: -webkit-repeating-radial-gradient(center center, #EAB543, #EAB543 1px, transparent 1px, transparent 100%);
+    background-image: repeating-radial-gradient(center center, #EAB543, #EAB543 1px, transparent 1px, transparent 100%);
+    background-size: 3px 3px;
 }
 
 .subreddit-web_design {
-	background: #EAB543;
-	text-align: center;
-	position: relative;
-	z-index: 500;
+    background: #EAB543;
+    text-align: center;
+    position: relative;
+    z-index: 500;
 }
 
 .dotted-bg-web_design {
-	color: #EAB543;
-	background-image: -webkit-repeating-radial-gradient(center center, #EAB543, #EAB543 1px, transparent 1px, transparent 100%);
-	background-image: repeating-radial-gradient(center center, #EAB543, #EAB543 1px, transparent 1px, transparent 100%);
-	background-size: 3px 3px;
+    color: #EAB543;
+    background-image: -webkit-repeating-radial-gradient(center center, #EAB543, #EAB543 1px, transparent 1px, transparent 100%);
+    background-image: repeating-radial-gradient(center center, #EAB543, #EAB543 1px, transparent 1px, transparent 100%);
+    background-size: 3px 3px;
 }
 
 .web_design-overlay::before {
@@ -1245,28 +1253,28 @@ sans-serif;
 -------------------------------*/
 
 .reddit-card-jquery {
-	border-bottom: solid 0px #FEA47F;
-	color: #FEA47F;
+    border-bottom: solid 0px #FEA47F;
+    color: #FEA47F;
 }
 
 .reddit-card-jquery .reddit-card-inner {
-	background-image: -webkit-repeating-radial-gradient(center center, #FEA47F, #FEA47F 1px, transparent 1px, transparent 100%);
-	background-image: repeating-radial-gradient(center center, #FEA47F, #FEA47F 1px, transparent 1px, transparent 100%);
-	background-size: 3px 3px;
+    background-image: -webkit-repeating-radial-gradient(center center, #FEA47F, #FEA47F 1px, transparent 1px, transparent 100%);
+    background-image: repeating-radial-gradient(center center, #FEA47F, #FEA47F 1px, transparent 1px, transparent 100%);
+    background-size: 3px 3px;
 }
 
 .subreddit-jquery {
-	background: #FEA47F;
-	text-align: center;
-	position: relative;
-	z-index: 500;
+    background: #FEA47F;
+    text-align: center;
+    position: relative;
+    z-index: 500;
 }
 
 .dotted-bg-jquery {
-	color: #FEA47F;
-	background-image: -webkit-repeating-radial-gradient(center center, #FEA47F, #FEA47F 1px, transparent 1px, transparent 100%);
-	background-image: repeating-radial-gradient(center center, #FEA47F, #FEA47F 1px, transparent 1px, transparent 100%);
-	background-size: 3px 3px;
+    color: #FEA47F;
+    background-image: -webkit-repeating-radial-gradient(center center, #FEA47F, #FEA47F 1px, transparent 1px, transparent 100%);
+    background-image: repeating-radial-gradient(center center, #FEA47F, #FEA47F 1px, transparent 1px, transparent 100%);
+    background-size: 3px 3px;
 }
 
 .jquery-overlay::before {
@@ -1301,28 +1309,28 @@ sans-serif;
 -------------------------------*/
 
 .reddit-card-javascript {
-	border-bottom: solid 0px #ff6b81;
-	color: #ff6b81;
+    border-bottom: solid 0px #ff6b81;
+    color: #ff6b81;
 }
 
 .reddit-card-javascript .reddit-card-inner {
-	background-image: -webkit-repeating-radial-gradient(center center, #ff6b81, #ff6b81 1px, transparent 1px, transparent 100%);
-	background-image: repeating-radial-gradient(center center, #ff6b81, #ff6b81 1px, transparent 1px, transparent 100%);
-	background-size: 3px 3px;
+    background-image: -webkit-repeating-radial-gradient(center center, #ff6b81, #ff6b81 1px, transparent 1px, transparent 100%);
+    background-image: repeating-radial-gradient(center center, #ff6b81, #ff6b81 1px, transparent 1px, transparent 100%);
+    background-size: 3px 3px;
 }
 
 .subreddit-javascript {
-	background: #ff6b81;
-	text-align: center;
-	position: relative;
-	z-index: 500;
+    background: #ff6b81;
+    text-align: center;
+    position: relative;
+    z-index: 500;
 }
 
 .dotted-bg-javascript {
-	color: #ff6b81;
-	background-image: -webkit-repeating-radial-gradient(center center, #ff6b81, #ff6b81 1px, transparent 1px, transparent 100%);
-	background-image: repeating-radial-gradient(center center, #ff6b81, #ff6b81 1px, transparent 1px, transparent 100%);
-	background-size: 3px 3px;
+    color: #ff6b81;
+    background-image: -webkit-repeating-radial-gradient(center center, #ff6b81, #ff6b81 1px, transparent 1px, transparent 100%);
+    background-image: repeating-radial-gradient(center center, #ff6b81, #ff6b81 1px, transparent 1px, transparent 100%);
+    background-size: 3px 3px;
 }
 
 .javascript-overlay::before {
@@ -1357,28 +1365,28 @@ sans-serif;
 -------------------------------*/
 
 .reddit-card-frontend {
-	border-bottom: solid 0px #55E6C1;
-	color: #55E6C1;
+    border-bottom: solid 0px #55E6C1;
+    color: #55E6C1;
 }
 
 .reddit-card-frontend .reddit-card-inner {
-	background-image: -webkit-repeating-radial-gradient(center center, #55E6C1, #55E6C1 1px, transparent 1px, transparent 100%);
-	background-image: repeating-radial-gradient(center center, #55E6C1, #55E6C1 1px, transparent 1px, transparent 100%);
-	background-size: 3px 3px;
+    background-image: -webkit-repeating-radial-gradient(center center, #55E6C1, #55E6C1 1px, transparent 1px, transparent 100%);
+    background-image: repeating-radial-gradient(center center, #55E6C1, #55E6C1 1px, transparent 1px, transparent 100%);
+    background-size: 3px 3px;
 }
 
 .subreddit-frontend {
-	background: #55E6C1;
-	text-align: center;
-	position: relative;
-	z-index: 500;
+    background: #55E6C1;
+    text-align: center;
+    position: relative;
+    z-index: 500;
 }
 
 .dotted-bg-frontend {
-	color: #55E6C1;
-	background-image: -webkit-repeating-radial-gradient(center center, #55E6C1, #55E6C1 1px, transparent 1px, transparent 100%);
-	background-image: repeating-radial-gradient(center center, #55E6C1, #55E6C1 1px, transparent 1px, transparent 100%);
-	background-size: 3px 3px;
+    color: #55E6C1;
+    background-image: -webkit-repeating-radial-gradient(center center, #55E6C1, #55E6C1 1px, transparent 1px, transparent 100%);
+    background-image: repeating-radial-gradient(center center, #55E6C1, #55E6C1 1px, transparent 1px, transparent 100%);
+    background-size: 3px 3px;
 }
 
 .frontend-overlay::before {
@@ -1413,27 +1421,27 @@ sans-serif;
 -------------------------------*/
 
 .reddit-card-webdevtutorials {
-	border-bottom: solid 0px #D6A2E8;
-	color: #D6A2E8;
+    border-bottom: solid 0px #D6A2E8;
+    color: #D6A2E8;
 }
 
 .reddit-card-webdevtutorials .reddit-card-inner {
-	background-image: -webkit-repeating-radial-gradient(center center, #D6A2E8, #D6A2E8 1px, transparent 1px, transparent 100%);
-	background-image: repeating-radial-gradient(center center, #D6A2E8, #D6A2E8 1px, transparent 1px, transparent 100%);
-	background-size: 3px 3px;
+    background-image: -webkit-repeating-radial-gradient(center center, #D6A2E8, #D6A2E8 1px, transparent 1px, transparent 100%);
+    background-image: repeating-radial-gradient(center center, #D6A2E8, #D6A2E8 1px, transparent 1px, transparent 100%);
+    background-size: 3px 3px;
 }
 
 .subreddit-webdevtutorials {
-	background: #D6A2E8;
-	position: relative;
-	z-index: 500;
+    background: #D6A2E8;
+    position: relative;
+    z-index: 500;
 }
 
 .dotted-bg-webdevtutorials {
-	color: #D6A2E8;
-	background-image: -webkit-repeating-radial-gradient(center center, #D6A2E8, #D6A2E8 1px, transparent 1px, transparent 100%);
-	background-image: repeating-radial-gradient(center center, #D6A2E8, #D6A2E8 1px, transparent 1px, transparent 100%);
-	background-size: 3px 3px;
+    color: #D6A2E8;
+    background-image: -webkit-repeating-radial-gradient(center center, #D6A2E8, #D6A2E8 1px, transparent 1px, transparent 100%);
+    background-image: repeating-radial-gradient(center center, #D6A2E8, #D6A2E8 1px, transparent 1px, transparent 100%);
+    background-size: 3px 3px;
 }
 
 .webdevtutorials-overlay::before {
@@ -1468,27 +1476,27 @@ sans-serif;
 -------------------------------*/
 
 .reddit-card-reactjs {
-	border-bottom: solid 0px #25CCF7;
-	color: #25CCF7;
+    border-bottom: solid 0px #25CCF7;
+    color: #25CCF7;
 }
 
 .reddit-card-reactjs .reddit-card-inner {
-	background-image: -webkit-repeating-radial-gradient(center center, #25CCF7, #25CCF7 1px, transparent 1px, transparent 100%);
-	background-image: repeating-radial-gradient(center center, #25CCF7, #25CCF7 1px, transparent 1px, transparent 100%);
-	background-size: 3px 3px;
+    background-image: -webkit-repeating-radial-gradient(center center, #25CCF7, #25CCF7 1px, transparent 1px, transparent 100%);
+    background-image: repeating-radial-gradient(center center, #25CCF7, #25CCF7 1px, transparent 1px, transparent 100%);
+    background-size: 3px 3px;
 }
 
 .subreddit-reactjs {
-	background: #25CCF7;
-	position: relative;
-	z-index: 500;
+    background: #25CCF7;
+    position: relative;
+    z-index: 500;
 }
 
 .dotted-bg-reactjs {
-	color: #25CCF7;
-	background-image: -webkit-repeating-radial-gradient(center center, #25CCF7, #25CCF7 1px, transparent 1px, transparent 100%);
-	background-image: repeating-radial-gradient(center center, #25CCF7, #25CCF7 1px, transparent 1px, transparent 100%);
-	background-size: 3px 3px;
+    color: #25CCF7;
+    background-image: -webkit-repeating-radial-gradient(center center, #25CCF7, #25CCF7 1px, transparent 1px, transparent 100%);
+    background-image: repeating-radial-gradient(center center, #25CCF7, #25CCF7 1px, transparent 1px, transparent 100%);
+    background-size: 3px 3px;
 }
 
 .reactjs-overlay::before {
