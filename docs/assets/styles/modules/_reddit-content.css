@@ -130,10 +130,10 @@
     -webkit-transform: translateY(200px) scale(0.9);
     transform: translateY(200px) scale(0.9);
     opacity: 0;
-    -webkit-transition: opacity 1s ease-in-out 0s, -webkit-transform 0.7s ease-in-out 0s;
-    transition: opacity 1s ease-in-out 0s, -webkit-transform 0.7s ease-in-out 0s;
-    transition: transform 0.7s ease-in-out 0s, opacity 1s ease-in-out 0s;
-    transition: transform 0.7s ease-in-out 0s, opacity 1s ease-in-out 0s, -webkit-transform 0.7s ease-in-out 0s;
+    -webkit-transition: opacity 1s ease-in-out 0s, -webkit-transform 0.7s cubic-bezier(0.165, 0.84, 0.44, 1) 0s;
+    transition: opacity 1s ease-in-out 0s, -webkit-transform 0.7s cubic-bezier(0.165, 0.84, 0.44, 1) 0s;
+    transition: transform 0.7s cubic-bezier(0.165, 0.84, 0.44, 1) 0s, opacity 1s ease-in-out 0s;
+    transition: transform 0.7s cubic-bezier(0.165, 0.84, 0.44, 1) 0s, opacity 1s ease-in-out 0s, -webkit-transform 0.7s cubic-bezier(0.165, 0.84, 0.44, 1) 0s;
     -webkit-column-break-inside: avoid;
     break-inside: avoid;
 }
