@@ -189,7 +189,10 @@ Place into HTML
  */
 
 var redditContent = document.getElementById('card-container'),
-    loadingSpinner = document.getElementById('loading');
+    loadingSpinner = document.getElementById('loading'),
+    modal = document.querySelector('.modal'),
+    header = document.querySelector('.header'),
+    body = document.getElementsByTagName('body')[0];
 
 function updateView(data) {
 
@@ -329,14 +332,18 @@ function checkVisible(e) {
 function stickyHeader() {
     var previous = window.scrollY;
     window.addEventListener('scroll', function () {
-        if (window.scrollY > 180 && window.scrollY > previous) {
-            $('.header').removeClass('is-sticky');
-            previous = window.scrollY;
-        } else if (window.scrollY > 180 && window.scrollY < previous) {
-            $('.header').addClass('is-sticky');
-            previous = window.scrollY;
+        if (window.scrollY > 180) {
+            header.classList.add('sticky-header');
+            if (window.scrollY >= previous) {
+                header.classList.remove('is-sticky');
+                previous = window.scrollY;
+            } else if (window.scrollY < previous) {
+                header.classList.add('is-sticky');
+                previous = window.scrollY;
+            }
         } else if (window.scrollY < 180) {
-            $('.header').removeClass('is-sticky');
+            header.classList.remove('is-sticky');
+            header.classList.remove('sticky-header');
             previous = window.scrollY;
         } else {
             return;
@@ -350,10 +357,6 @@ window.addEventListener('scroll', stickyHeader);
 
 // Close and open filters list modal
 var toggleModal = function toggleModal() {
-
-    var modal = document.querySelector('.modal');
-    var header = document.querySelector('.header');
-    var body = document.getElementsByTagName('body')[0];
 
     $(modal).fadeToggle('fast');
     $('.filter-overlay').fadeToggle(100);
