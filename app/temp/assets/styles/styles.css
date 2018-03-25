@@ -2153,6 +2153,7 @@ a:hover {
         -webkit-transform: rotate(0deg);
                 transform: rotate(0deg);
         bottom: 1em;
+        left: 0;
         top: auto;
         position: relative;
     }
