@@ -69,9 +69,9 @@ body {
     top: 50vh;
     font-size: 0.75rem;
     -webkit-transform: rotate(-90deg);
-            transform: rotate(-90deg);
+    transform: rotate(-90deg);
     -webkit-transform-origin: 0 0;
-            transform-origin: 0 0;
+    transform-origin: 0 0;
     -webkit-transition: all 0.15s;
     transition: all 0.15s;
     border-bottom: 0;
@@ -99,9 +99,9 @@ a:hover {
 @media (max-width:1440px) {
     .card-container {
         -webkit-column-count: 3;
-                column-count: 3;
+        column-count: 3;
         -webkit-column-gap: 1.5em;
-                column-gap: 1.5em;
+        column-gap: 1.5em;
     }
     .filters__title {
         font-size: 1.25rem;
@@ -131,9 +131,9 @@ a:hover {
 @media (max-width:1000px) {
     .card-container {
         -webkit-column-count: 2;
-                column-count: 2;
+        column-count: 2;
         -webkit-column-gap: 1em;
-                column-gap: 1em;
+        column-gap: 1em;
     }
     .header__description,
     .header__title-wrapper {
@@ -153,8 +153,8 @@ a:hover {
     }
     .card-container--rows .reddit-card-inner {
         -webkit-box-align: center;
-            -ms-flex-align: center;
-                align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
     }
     .card-container--rows .reddit-card__post-title {
         padding: 0.5em 1em 0 1.5em;
@@ -176,11 +176,11 @@ a:hover {
         font-size: 0.75rem;
         -webkit-box-orient: vertical;
         -webkit-box-direction: normal;
-            -ms-flex-direction: column;
-                flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
         -webkit-box-align: center;
-            -ms-flex-align: center;
-                align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
         width: 20%;
         padding: 0.25em;
     }
@@ -197,12 +197,12 @@ a:hover {
 @media (max-width:850px) {
     .card-container {
         -webkit-column-gap: 15px;
-                column-gap: 15px;
+        column-gap: 15px;
     }
     .filters {
         -webkit-box-align: start;
-            -ms-flex-align: start;
-                align-items: flex-start;
+        -ms-flex-align: start;
+        align-items: flex-start;
     }
     .filters__top-bar {
         border-bottom: 1px solid #d1d4d5;
@@ -225,17 +225,17 @@ a:hover {
         display: -ms-flexbox;
         display: flex;
         -webkit-box-align: end;
-            -ms-flex-align: end;
-                align-items: flex-end;
+        -ms-flex-align: end;
+        align-items: flex-end;
     }
     .header__title-wrapper {
         -webkit-box-orient: vertical;
         -webkit-box-direction: normal;
-            -ms-flex-direction: column;
-                flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
         -webkit-box-align: start;
-            -ms-flex-align: start;
-                align-items: flex-start;
+        -ms-flex-align: start;
+        align-items: flex-start;
     }
     .header__description {
         margin: 0;
@@ -246,8 +246,8 @@ a:hover {
     .card-container--rows .card-footer {
         -webkit-box-orient: horizontal;
         -webkit-box-direction: normal;
-            -ms-flex-direction: row;
-                flex-direction: row;
+        -ms-flex-direction: row;
+        flex-direction: row;
         width: 40%;
     }
     .card-container--rows .bar {
@@ -276,11 +276,11 @@ a:hover {
     .filters {
         -webkit-box-orient: vertical;
         -webkit-box-direction: normal;
-            -ms-flex-direction: column;
-                flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
         -webkit-box-align: start;
-            -ms-flex-align: start;
-                align-items: flex-start;
+        -ms-flex-align: start;
+        align-items: flex-start;
     }
     .filters__list-item {
         margin: 1em 0.25em;
@@ -304,12 +304,9 @@ a:hover {
     .header__description {
         display: none;
     }
-    .header {
-        height: 75px;
-    }
     .info {
         -webkit-transform: rotate(0deg);
-                transform: rotate(0deg);
+        transform: rotate(0deg);
         bottom: 1em;
         left: 0;
         top: auto;
@@ -335,8 +332,8 @@ a:hover {
     .card-container--rows .card-footer {
         -webkit-box-orient: vertical;
         -webkit-box-direction: normal;
-            -ms-flex-direction: column;
-                flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
         width: 20%;
     }
     .card-container--rows .bar {
@@ -369,8 +366,8 @@ a:hover {
         width: 95%;
         padding: 0;
         -webkit-box-align: center;
-            -ms-flex-align: center;
-                align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
     }
     .header,
     .is-sticky {
@@ -390,16 +387,16 @@ a:hover {
     .is-sticky .header__btn-wrapper {
         padding-bottom: 0.05em;
         -webkit-box-ordinal-group: 2;
-            -ms-flex-order: 1;
-                order: 1;
+        -ms-flex-order: 1;
+        order: 1;
     }
     .search-wrapper {
         height: 55px;
         top: 65px;
         padding: 0 2.5vw;
         -webkit-box-align: center;
-            -ms-flex-align: center;
-                align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
     }
     .search--opened {
         width: 85%;
@@ -448,11 +445,11 @@ a:hover {
     }
     .card-container {
         -webkit-column-count: 1;
-                column-count: 1;
+        column-count: 1;
         -webkit-column-gap: 15px;
-                column-gap: 15px;
+        column-gap: 15px;
         -webkit-column-gap: 0px;
-                column-gap: 0px;
+        column-gap: 0px;
         top: 70px;
         margin-top: 5px;
         padding-top: 0.25em;
@@ -465,8 +462,8 @@ a:hover {
     .reddit-card__post-title a {
         font-size: 1.25rem;
         -webkit-box-ordinal-group: 2;
-            -ms-flex-order: 1;
-                order: 1;
+        -ms-flex-order: 1;
+        order: 1;
     }
     .reddit-card__post-title:hover {
         margin-left: 0;
@@ -526,11 +523,11 @@ a:hover {
     .card-container--rows .reddit-card-inner {
         -webkit-box-orient: vertical;
         -webkit-box-direction: normal;
-            -ms-flex-direction: column;
-                flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
         -webkit-box-align: start;
-            -ms-flex-align: start;
-                align-items: flex-start;
+        -ms-flex-align: start;
+        align-items: flex-start;
     }
     .card-container--rows .bar {
         display: block;
@@ -551,12 +548,12 @@ a:hover {
     .card-container--rows .card-footer {
         width: 100%;
         -webkit-box-pack: start;
-            -ms-flex-pack: start;
-                justify-content: flex-start;
+        -ms-flex-pack: start;
+        justify-content: flex-start;
         -webkit-box-orient: horizontal;
         -webkit-box-direction: normal;
-            -ms-flex-direction: row;
-                flex-direction: row;
+        -ms-flex-direction: row;
+        flex-direction: row;
         padding: 0;
     }
 }
