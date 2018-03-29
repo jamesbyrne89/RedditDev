@@ -168,7 +168,7 @@ function getTimeAgo(timestamp) {
     var hours = Math.floor(mins / 60);
     var days = Math.floor(seconds / 3600 / 24);
 
-    if (days >= 7) {
+    if (days >= 8) {
         return 'A week ago';
     } else if (seconds > 2 * 24 * 3600) {
         return Math.floor(days) + 'd ago';
@@ -230,6 +230,7 @@ function updateView(data) {
 
     // Add cards to the container element
     redditContent.appendChild(combinedCards);
+    redditContent.appendChild(endMsg);
     isLoading(false);
 
     // Check that newly loaded cards are in view
@@ -258,7 +259,6 @@ var showMessage = function showMessage() {
     var _searchResult = document.createElement('div');
 
     var _empty = function _empty() {
-        console.log(_emptyMessage);
         contentInfo.appendChild(_emptyMessage);
     };
 
@@ -361,7 +361,7 @@ var toggleModal = function toggleModal() {
     $(modal).fadeToggle('fast');
     $('.filter-overlay').fadeToggle(100);
     modal.classList.toggle('modal--opened');
-    body.classList.toggle('no-scroll');
+
     if (header.classList.contains('is-sticky')) {
         modal.classList.add('modal--opened--stuck');
     } else {
@@ -398,13 +398,13 @@ var handleVisible = function handleVisible() {
         return selected.length;
     }();
 
-    var _updateCards = function _updateCards() {
-        console.log(_numberOfVisible);
+    var _updateCards = function _updateCards(num) {
+
         if (_numberOfVisible === 0) {
             filters.all.classList.remove('subreddit--selected');
             filters.all.classList.add('subreddit--deselected');
             showMessage.empty();
-        } else if (_numberOfVisible > 0 && _numberOfVisible < 7) {
+        } else if (_numberOfVisible > 0 && _numberOfVisible < 8) {
             filters.all.classList.remove('subreddit--selected');
             filters.all.classList.add('subreddit--deselected');
             showMessage.clear();
@@ -449,7 +449,7 @@ filters.all.addEventListener('click', function (e) {
         this.classList.remove('subreddit--deselected');
         this.classList.add('subreddit--selected');
         addSubreddit();
-    } else if (handleVisible.updateCards() === 7) {
+    } else if (handleVisible.updateCards() === 8) {
         this.classList.add('subreddit--deselected');
         this.classList.remove('subreddit--selected');
         removeSubreddit();
