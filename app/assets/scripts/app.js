@@ -226,10 +226,15 @@ function updateView(data) {
 
     });
 
+    const endMsg = document.createElement('span');
+    endMsg.classList.add('end-message');
+    endMsg.textContent = "That's all, folks!";
+
+
 
     // Add cards to the container element
     redditContent.appendChild(combinedCards);
-    redditContent.appendChild(endMsg)
+    document.getElementById('reddit-content').appendChild(endMsg);
     isLoading(false);
 
     // Check that newly loaded cards are in view
@@ -483,6 +488,7 @@ function handleShow(target, sr) {
     } else {
         $(`.reddit-card-${sr}`).fadeIn('fast');
     };
+    $('.end-message').fadeIn('fast');
     handleVisible.updateCards();
 };
 

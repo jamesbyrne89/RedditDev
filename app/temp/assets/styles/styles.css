@@ -802,19 +802,6 @@ sans-serif;
     break-inside: avoid;
 }
 
-.reddit-content::before {
-  content: "That's all, folks!";
-  font-family: 'Tiempos Headline',
-georgia,
-serif;
-  font-size: 1rem;
-  position: absolute;
-  bottom: 6rem;
-  font-weight: bold;
-  width: 100%;
-  text-align: center;
-}
-
 .reddit-content::after {
   content: '';
   width: 100%;
@@ -823,6 +810,18 @@ serif;
   background: linear-gradient(rgba(236, 238, 241, 0.001), white);
   pointer-events: none;
   bottom: 0;
+}
+
+.end-message {
+    font-family: 'Tiempos Headline',
+georgia,
+serif;
+    font-size: 1rem;
+    position: absolute;
+    bottom: 6rem;
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
 }
 
 .content__info-bar {
