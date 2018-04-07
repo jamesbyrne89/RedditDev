@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="ie=edge" http-equiv="x-ua-compatible">
+    <title>redditDev - The best of frontend web development on Reddit.</title>
+    <meta content="A place for frontend web development resources on Reddit." name="description">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="assets/images/favicon-32x32.png?v=2" rel="icon" sizes="32x32" type="image/png">
+    <link href="assets/images/favicon-16x16.png?v=2" rel="icon" sizes="16x16" type="image/png">
+    <link href="assets/images/favicon.png?v=2" rel="apple-touch-icon">
+    <!-- Place favicon.ico in the root directory -->
+    <link href="https://fonts.googleapis.com/css?family=Karla:300,400,700|Karla:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles/styles-8020132425.css"/>
+    <script src="https://use.fontawesome.com/a697955832.js"></script>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+
+
+
+            <div class="header__title-wrapper">
+                <a href='./'>
+                    <h1 class="header__title">{redditDev}</h1>
+                </a>
+                <h2 class='header__description'>The best of frontend web development on Reddit</h2>
+            </div>
+            <!-- Search Box -->
+            <div class='search-wrapper'>
+                <input id='search' class='search' type="search" placeholder="What are you looking for?">
+                <button type='button' id='search-close-btn' class="search__close-btn">
+                    <i class="fa fa-times fa-2x" aria-hidden="true"></i>
+                </button>
+            </div>
+
+            <div class='header__btn-wrapper'>
+                <!--  <button class="btn view-btn">Grid view<i class="fa fa-th-large" aria-hidden="true"></i></button> -->
+                <button id='view-btn' class="btn view-btn grid">View
+                    <i class='fa fa-th-large'></i>
+                    <button id='search-btn' class="btn search-btn">Search
+                        <i class='fa fa-search'></i>
+                        <button id='filter-btn' class="btn filter-btn">Filter
+                            <i class="icon-filter"></i>
+                        </button>
+                    </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Filters menu -->
+    <div id='filter-overlay' class='filter-overlay'></div>
+    <div class="modal">
+        <button class="modal__close-btn">
+            <i class="fa fa-times fa-2x" aria-hidden="true"></i>
+        </button>
+        <div class="filters">
+            <h2 class="filters__title">Filter subreddits</h2>
+            <div class="filters__list">
+                <li class="all-filter subreddit--selected">
+                    <span>All</span>
+                    <i class="fa fa-check" aria-hidden="true"></i>
+                </li>
+                <li data-sr='css' class="filters__list-item css-filter subreddit--selected">
+                    <span>r/css</span>
+                    <i class="fa fa-check" aria-hidden="true"></i>
+                </li>
+                <li data-sr='frontend' class="filters__list-item frontend-filter subreddit--selected">
+                    <span>r/frontend</span>
+                    <i class="fa fa-check" aria-hidden="true"></i>
+                </li>
+                <li data-sr='javascript' class="filters__list-item javascript-filter subreddit--selected">
+                    <span>r/javascript</span>
+                    <i class="fa fa-check" aria-hidden="true"></i>
+                </li>
+                <li data-sr='jquery' class="filters__list-item jquery-filter subreddit--selected">
+                    <span>r/jquery</span>
+                    <i class="fa fa-check" aria-hidden="true"></i>
+                </li>
+                <li data-sr='web_design' class="filters__list-item web_design-filter subreddit--selected">
+                    <span>r/web_design</span>
+                    <i class="fa fa-check" aria-hidden="true"></i>
+                </li>
+                <li data-sr='webdev' class="filters__list-item webdev-filter subreddit--selected">
+                    <span>r/webdev</span>
+                    <i class="fa fa-check" aria-hidden="true"></i>
+                </li>
+                <li data-sr='webdevtutorials' class="filters__list-item webdevtutorials-filter subreddit--selected">
+                    <span>r/webdevtutorials</span>
+                    <i class="fa fa-check" aria-hidden="true"></i>
+                </li>
+                <li data-sr='reactjs' class="filters__list-item reactjs-filter subreddit--selected">
+                    <span>r/reactjs</span>
+                    <i class="fa fa-check" aria-hidden="true"></i>
+                </li>
+            </div>
+        </div>
+    </div>
+    <aside class='info'>Created in
+        <?xml version="1.0" encoding="iso-8859-1"?>
+        <!-- Generator: Adobe Illustrator 18.1.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+        <svg class='loc-icon' version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            x="0px" y="0px" viewBox="0 0 19.674 19.674" style="enable-background:new 0 0 19.674 19.674;" xml:space="preserve">
+            <title>London</title>
+            <g>
+                <path d="M10.804,7.278L9.843,8.237L9.836,8.236c-0.005,0-0.007,0.005-0.013,0.005L9.121,7.535l-0.19,0.193L9.64,8.435
+        c0,0.111,0.089,0.2,0.197,0.2c0.11,0,0.199-0.089,0.199-0.2c0-0.001-0.002-0.003-0.002-0.005l0.961-0.96L10.804,7.278z
+         M12.017,18.66v-8.442h0.163V6.774h0.057V6.508h-0.379v-0.4l0,0L10.97,4.447h0.004V3.292h-0.017C10.888,3.132,9.95,0.416,9.883,0
+        H9.79C9.724,0.416,8.783,3.132,8.718,3.292h-0.02v1.154l0,0l-0.88,1.662H7.816v0.4h-0.38v0.266h0.06v3.443h0.162v8.443h-0.69v1.014
+        h5.738V18.66H12.017z M9.836,10.138c-0.939,0-1.701-0.763-1.701-1.703c0-0.939,0.762-1.702,1.701-1.702s1.702,0.762,1.702,1.702
+        S10.777,10.138,9.836,10.138z" />
+            </g>
+        </svg> by
+        <a href='http://jamestbyrne.com'>James Byrne</a>
+    </aside>
+    <!-- Main content -->
+
+    <main id="reddit-content" class="reddit-content">
+        <div id='content-info' class='content__info-bar'>
+            <div id='search-term' class='search-term'></div>
+            <div id='loading' class="spinner spinner-circle"></div>
+        </div>
+        <div id='card-container' class='card-container'></div>
+    </main>
+    <!-- Scroll progress bar -->
+    <div class="scrolled-bar">
+        <div id="scrolled-bar" class="scrolled-bar__progress"></div>
+    </div>
+
+    <button id="back-to-top" class="back-to-top">
+        <i class="icon-up-open"></i>
+    </button>
+    <script src="https://code.jquery.com/jquery-1.12.0.min.js">
+    </script>
+    <script src="https://hammerjs.github.io/dist/hammer.js"></script>
+    <script src="assets/scripts/app-4d1ba49f9c.js"></script>
+</body>
+
+</html>
