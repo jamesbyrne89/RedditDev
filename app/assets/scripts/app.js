@@ -630,7 +630,7 @@ window.addEventListener('resize', checkVisible);
 /* Service Worker */
 
 if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('temp/assets/scripts/min/serviceworker.js')
+    navigator.serviceWorker.register('./serviceworker.js')
         .then(registration => console.log('Registered a serviceworker'))
         .catch(err => console.error(err))
 }
