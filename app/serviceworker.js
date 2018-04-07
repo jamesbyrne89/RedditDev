@@ -1,25 +1,39 @@
 // ServiceWorker
 
-var myCache = 'myCache'
+var CACHE_NAME = 'RedditDev';
+var urlsToCache = [
+	'/',
+  '/index.html'
+];
+self.addEventListener('install', function(event) {
+  // install files needed offline
+  event.waitUntil(
+    caches.open(CACHE_NAME)
+      .then(function(cache) {
+        console.log('Opened cache');
+		console.log(urlsToCache)
+        return cache.addAll(urlsToCache);
+      })
+	  .catch(function(err) {
+		  console.log(err);
+	  })
+  );
+});
 
-self.addEventListener('install', () => {
-    event.waitUntil(caches.open(myCache)
-    .then((cache) => cache.addAll([ '/index.html', '/temp/assets/styles/styles.css' ])))
-})
-
-// self.addEventListener('fetch', event => event.respondWith(caches.open(myCache)
-// .then(cache => cache.match(event.request))));
-
-window.addEventListener('load', function() {
-	function updateOnlineStatus(event) {
-        console.log(event)
-		if (navigator.online) {
-			console.log('Currently online')
-		} else {
-		console.log('currently offline')
-		}
-	}
-
-	window.addEventListener('online',  updateOnlineStatus);
-	window.addEventListener('offline', updateOnlineStatus);
+self.addEventListener('fetch', function(event) {
+  event.respondWith(
+    // check all the caches in the browser and find
+    // out whether our request is in any of them
+    caches.match(event.request)
+      .then(function(response) {
+        if (response) {
+          // if we are here, that means there's a match
+          //return the response stored in browser
+          return response;
+        }
+        // no match in cache, use the network instead
+        return fetch(event.request);
+      }
+    )
+  );
 });
