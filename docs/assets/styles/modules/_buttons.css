@@ -9,7 +9,7 @@
     position: relative;
     font-weight: 600;
     font-size: 0.75rem;
-    padding: 0.75em 1em;
+    padding: 0.75em;
     border: solid 1px $nearBlack;
     z-index: 400;
     -webkit-box-align: center;

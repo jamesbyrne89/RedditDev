@@ -171,13 +171,14 @@
 
 .reddit-card__subreddit {
     font-family: $sansSerif;
-    padding: 0.25em 0.5em;
+    padding: 0.5em 0.5em 0.25em;
     margin-left: 0em;
     display: inline-block;
     font-weight: 700;
     text-transform: uppercase;
     font-size: 0.75rem;
     color: #fff;
+    letter-spacing: 1px;
 }
 
 .reddit-card__post-title {
