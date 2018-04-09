@@ -71,7 +71,7 @@
     -ms-flex-align: end;
     align-items: flex-end;
     padding-bottom: 0.25em;
-    width: 200px;
+    flex: 1;
     margin-left: 1em;
     z-index: 15;
     color: #495456;

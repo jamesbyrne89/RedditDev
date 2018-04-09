@@ -128,7 +128,7 @@ button {
 }
 
 .header__description {
-    font-family: 'Karla',
+    font-family: 'cousine',
 helvetica,
 arial,
 sans-serif;
@@ -140,7 +140,9 @@ sans-serif;
     -ms-flex-align: end;
     align-items: flex-end;
     padding-bottom: 0.25em;
-    width: 200px;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
     margin-left: 1em;
     z-index: 15;
     color: #495456;
@@ -350,7 +352,7 @@ sans-serif;
 /* Filter list */
 
 .modal {
-    font-family: 'Karla',
+    font-family: 'cousine',
 helvetica,
 arial,
 sans-serif;
@@ -433,7 +435,7 @@ serif;
 }
 
 .filters__list {
-    font-family: 'Karla',
+    font-family: 'cousine',
 helvetica,
 arial,
 sans-serif;
@@ -958,17 +960,18 @@ serif;
 }
 
 .reddit-card__subreddit {
-    font-family: 'Karla',
+    font-family: 'cousine',
 helvetica,
 arial,
 sans-serif;
-    padding: 0.25em 0.5em;
+    padding: 0.5em 0.5em 0.25em;
     margin-left: 0em;
     display: inline-block;
     font-weight: 700;
     text-transform: uppercase;
     font-size: 0.75rem;
     color: #fff;
+    letter-spacing: 1px;
 }
 
 .reddit-card__post-title {
@@ -1057,7 +1060,7 @@ sans-serif;
 }
 
 .post-comments {
-    font-family: 'Karla',
+    font-family: 'cousine',
 helvetica,
 arial,
 sans-serif;
@@ -1082,7 +1085,7 @@ sans-serif;
 
 .timestamp {
     display: block;
-    font-family: 'Karla',
+    font-family: 'cousine',
 helvetica,
 arial,
 sans-serif;
@@ -1559,7 +1562,7 @@ sans-serif;
     position: relative;
     font-weight: 600;
     font-size: 0.75rem;
-    padding: 0.75em 1em;
+    padding: 0.75em;
     border: solid 1px #24292e;
     z-index: 400;
     -webkit-box-align: center;
@@ -1593,7 +1596,7 @@ sans-serif;
 }
 
 .back-to-top {
-    font-family: 'Karla',
+    font-family: 'cousine',
 helvetica,
 arial,
 sans-serif;
@@ -1842,7 +1845,7 @@ serif;
 }
 
 .clear-search {
-    font-family: 'Karla',
+    font-family: 'cousine',
 helvetica,
 arial,
 sans-serif;
@@ -1880,7 +1883,7 @@ html {
 }
 
 body {
-    font-family: 'Karla',
+    font-family: 'cousine',
 helvetica,
 arial,
 sans-serif;
