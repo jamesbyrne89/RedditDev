@@ -1,13 +1,12 @@
 /* Typography */
 
-$sansSerif: 'cousine',
+$sansSerif: 'space mono',
 helvetica,
 arial,
 sans-serif;
 $serif: 'Tiempos Headline',
 georgia,
 serif;
-
 /* Colours */
 
 $nearBlack: #24292e;

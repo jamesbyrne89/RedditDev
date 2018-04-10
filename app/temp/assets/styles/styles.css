@@ -128,7 +128,7 @@ button {
 }
 
 .header__description {
-    font-family: 'cousine',
+    font-family: 'space mono',
 helvetica,
 arial,
 sans-serif;
@@ -352,7 +352,7 @@ sans-serif;
 /* Filter list */
 
 .modal {
-    font-family: 'cousine',
+    font-family: 'space mono',
 helvetica,
 arial,
 sans-serif;
@@ -435,7 +435,7 @@ serif;
 }
 
 .filters__list {
-    font-family: 'cousine',
+    font-family: 'space mono',
 helvetica,
 arial,
 sans-serif;
@@ -960,7 +960,7 @@ serif;
 }
 
 .reddit-card__subreddit {
-    font-family: 'cousine',
+    font-family: 'space mono',
 helvetica,
 arial,
 sans-serif;
@@ -1060,7 +1060,7 @@ sans-serif;
 }
 
 .post-comments {
-    font-family: 'cousine',
+    font-family: 'space mono',
 helvetica,
 arial,
 sans-serif;
@@ -1085,7 +1085,7 @@ sans-serif;
 
 .timestamp {
     display: block;
-    font-family: 'cousine',
+    font-family: 'space mono',
 helvetica,
 arial,
 sans-serif;
@@ -1596,7 +1596,7 @@ sans-serif;
 }
 
 .back-to-top {
-    font-family: 'cousine',
+    font-family: 'space mono',
 helvetica,
 arial,
 sans-serif;
@@ -1845,7 +1845,7 @@ serif;
 }
 
 .clear-search {
-    font-family: 'cousine',
+    font-family: 'space mono',
 helvetica,
 arial,
 sans-serif;
@@ -1883,7 +1883,7 @@ html {
 }
 
 body {
-    font-family: 'cousine',
+    font-family: 'space mono',
 helvetica,
 arial,
 sans-serif;
