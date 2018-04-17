@@ -1,7 +1,6 @@
 @import 'base/_variables';
 @import 'base/_reset';
 @import 'base/_animations';
-
 /*@import 'base/_mixins';*/
 
 @import 'modules/_header';
@@ -96,7 +95,7 @@ a:hover {
     height: 1rem;
 }
 
-@media (max-width:1440px) {
+@media (max-width: 1440px) {
     .card-container {
         -webkit-column-count: 3;
         column-count: 3;
@@ -128,7 +127,7 @@ a:hover {
     }
 }
 
-@media (max-width:1000px) {
+@media (max-width: 1000px) {
     .card-container {
         -webkit-column-count: 2;
         column-count: 2;
@@ -194,7 +193,7 @@ a:hover {
     }
 }
 
-@media (max-width:850px) {
+@media (max-width: 850px) {
     .card-container {
         -webkit-column-gap: 15px;
         column-gap: 15px;
@@ -264,7 +263,7 @@ a:hover {
     }
 }
 
-@media (max-width:700px) {
+@media (max-width: 700px) {
     .modal {
         height: auto;
         padding: 1.5em 2.5em;
@@ -328,6 +327,13 @@ a:hover {
         min-width: 7em;
         padding: 0.75em 0.25em;
         margin: 0.25em;
+        white-space: nowrap;
+    }
+    .header button.search-btn {
+        margin-left: 0;
+    }
+    .header button.filter-btn {
+        margin-right: 0;
     }
     .card-container--rows .card-footer {
         -webkit-box-orient: vertical;
@@ -348,12 +354,17 @@ a:hover {
             font-size: 1.125rem;
         }
     }
+    .header__btn-wrapper {
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+    }
     .header__btn-wrapper .btn {
         min-width: 7em;
     }
 }
 
-@media (max-width:500px) {
+@media (max-width: 500px) {
     body {
         display: block;
     }
@@ -558,7 +569,7 @@ a:hover {
     }
 }
 
-@media (max-width:425px) {
+@media (max-width: 425px) {
     .reddit-content {
         margin-top: 0;
     }
@@ -569,9 +580,9 @@ a:hover {
     .filters__list {
         font-size: 0.875rem;
     }
-    input[type=checkbox]:checked+span::after {
+    input[type='checkbox']:checked+span::after {
         right: 0.5em;
     }
 }
 
-@media (max-width:375px) {}
+@media (max-width: 375px) {}
