@@ -5,6 +5,8 @@ var urlsToCache = [
 	'/',
   '/index.html'
 ];
+
+if (window.location.hostname !== 'localhost' ) {
 self.addEventListener('install', function(event) {
   // install files needed offline
   event.waitUntil(
@@ -37,3 +39,4 @@ self.addEventListener('fetch', function(event) {
     )
   );
 });
+}
