@@ -1721,6 +1721,34 @@ sans-serif;
   }
 }
 
+.error-message {
+    width: 50%;
+    text-align: center;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 20%;
+}
+
+.error-message__header {
+    font-family: 'Tiempos Headline',
+georgia,
+serif;
+    font-size: 1.25rem;
+    margin-bottom: 1em;
+}
+
+.error-message__body {
+    color: #495456;
+    display: block;
+    font-size: 0.875rem;
+    width: 250px;
+    margin: auto;
+    text-align: center;
+}
+
 /* Message shown when no subreddits are selected */
 
 .empty-message {

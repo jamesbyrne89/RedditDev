@@ -9,6 +9,7 @@
 @import 'modules/_reddit-content';
 @import 'modules/_buttons';
 @import 'modules/_loading-icon';
+@import 'modules/_error-message';
 @import 'modules/_empty-message';
 @import 'modules/_search';
 html {
