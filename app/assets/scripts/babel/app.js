@@ -80,6 +80,17 @@ var init = function init() {
     return console.error('Error fetching data from r/reactjs');
   });
 
+  // TODO: simplify fetch using array of endpoint urls
+  var urls = ['https://www.reddit.com/r/webdev.json?', 'https://www.reddit.com/r/web_design.json?', 'https://www.reddit.com/r/frontend.json?', 'https://www.reddit.com/r/css.json?', 'https://www.reddit.com/r/javascript.json?', 'https://www.reddit.com/r/jquery.json?', 'https://www.reddit.com/r/WebdevTutorials.json?', 'https://www.reddit.com/r/reactjs.json?'];
+
+  var posts = Promise.all(urls.map(function (endpoint) {
+    return fetch(endpoint).then(function (resp) {
+      return resp.json();
+    }).then(function (data) {
+      return data;
+    });
+  }));
+
   Promise.all([fetchWebDev, fetchWebDesign, fetchFrontEnd, fetchCSS, fetchJavascript, fetchJQuery, fetchWebDevTutorials, fetchReactJS]).then(function (values) {
     var combined = [];
     var allPosts = [];

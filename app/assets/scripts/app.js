@@ -62,6 +62,26 @@ const init = function init() {
     .then(resp => resp.json())
     .catch(err => console.error('Error fetching data from r/reactjs'));
 
+  // TODO: simplify fetch using array of endpoint urls
+  const urls = [
+    'https://www.reddit.com/r/webdev.json?',
+    'https://www.reddit.com/r/web_design.json?',
+    'https://www.reddit.com/r/frontend.json?',
+    'https://www.reddit.com/r/css.json?',
+    'https://www.reddit.com/r/javascript.json?',
+    'https://www.reddit.com/r/jquery.json?',
+    'https://www.reddit.com/r/WebdevTutorials.json?',
+    'https://www.reddit.com/r/reactjs.json?',
+  ];
+
+  let posts = Promise.all(
+    urls.map(
+      endpoint => fetch(endpoint)
+        .then(resp => resp.json())
+        .then(data => data),
+    ),
+  );
+
   Promise
     .all([
       fetchWebDev,
