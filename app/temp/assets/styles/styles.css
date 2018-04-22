@@ -2334,7 +2334,8 @@ a:hover {
     }
     .modal {
         top: 8vh;
-        right: 7.55vw;
+        left: 0;
+        right: 0;
         max-width: 85vw;
         padding: 1em 0.5em;
         max-height: 85vh;
@@ -2379,14 +2380,12 @@ a:hover {
     }
     .btn {
         font-size: 1.5rem;
-        border: 0;
     }
     .header .search-btn,
     .header .filter-btn {
         font-size: 0.75rem;
         margin: 0 0.5em;
-        padding: 0.5em 0.125em;
-        border: 0;
+        padding: 0.5em;
         min-width: 6em;
         width: auto;
     }
