@@ -369,7 +369,7 @@ window.addEventListener('scroll', stickyHeader);
 // Close and open filters list modal
 var toggleModal = function toggleModal() {
   $(modal).fadeToggle('fast');
-  // $('.filter-overlay').fadeToggle(100);
+  $('.filter-overlay').fadeToggle(100);
   modal.classList.toggle('modal--opened');
 
   if (header.classList.contains('is-sticky')) {
