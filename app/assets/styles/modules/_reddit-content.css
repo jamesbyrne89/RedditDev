@@ -28,10 +28,12 @@
     font-family: $serif;
     font-size: 1rem;
     position: absolute;
-    bottom: 6rem;
+    bottom: -6em;
     font-weight: bold;
     width: 100%;
     text-align: center;
+    left: 0;
+    right: 0;
 }
 
 .content__info-bar {
@@ -47,8 +49,8 @@
     padding-top: 1.25em;
     padding-bottom: 1em;
     width: 100%;
+    position: relative;
 }
-
 
 /* ---------------------------
  # Row view styles
@@ -122,7 +124,6 @@
     height: 100%;
 }
 
-
 /* ---------------------------
  # Cards
 ------------------------------ */
@@ -171,7 +172,7 @@
 
 .reddit-card__subreddit {
     font-family: $sansSerif;
-    padding: 0.5em 0.5em 0.25em;
+    padding: 0.5em 0.75em;
     margin-left: 0em;
     display: inline-block;
     font-weight: 700;
@@ -310,7 +311,6 @@
     text-align: center;
 }
 
-
 /*-------------------------------
 * r/css
 -------------------------------*/
@@ -321,8 +321,8 @@
 }
 
 .reddit-card-css .reddit-card-inner {
-    background-image: -webkit-repeating-radial-gradient(center center, $subreddit_colour_one, $subreddit_colour_one 1px, transparent 1px, transparent 100%);
-    background-image: repeating-radial-gradient(center center, $subreddit_colour_one, $subreddit_colour_one 1px, transparent 1px, transparent 100%);
+    background-image: -webkit-repeating-radial-gradient( center center, $subreddit_colour_one, $subreddit_colour_one 1px, transparent 1px, transparent 100%);
+    background-image: repeating-radial-gradient( center center, $subreddit_colour_one, $subreddit_colour_one 1px, transparent 1px, transparent 100%);
     background-size: 3px 3px;
 }
 
@@ -335,8 +335,8 @@
 
 .dotted-bg-css {
     color: $subreddit_colour_one;
-    background-image: -webkit-repeating-radial-gradient(center center, $subreddit_colour_one, $subreddit_colour_one 1px, transparent 1px, transparent 100%);
-    background-image: repeating-radial-gradient(center center, $subreddit_colour_one, $subreddit_colour_one 1px, transparent 1px, transparent 100%);
+    background-image: -webkit-repeating-radial-gradient( center center, $subreddit_colour_one, $subreddit_colour_one 1px, transparent 1px, transparent 100%);
+    background-image: repeating-radial-gradient( center center, $subreddit_colour_one, $subreddit_colour_one 1px, transparent 1px, transparent 100%);
     background-size: 3px 3px;
 }
 
@@ -370,7 +370,6 @@
     }
 }
 
-
 /*-------------------------------
 * r/webdev
 -------------------------------*/
@@ -381,8 +380,8 @@
 }
 
 .reddit-card-webdev .reddit-card-inner {
-    background-image: -webkit-repeating-radial-gradient(center center, $subreddit_colour_two, $subreddit_colour_two 1px, transparent 1px, transparent 100%);
-    background-image: repeating-radial-gradient(center center, $subreddit_colour_two, $subreddit_colour_two 1px, transparent 1px, transparent 100%);
+    background-image: -webkit-repeating-radial-gradient( center center, $subreddit_colour_two, $subreddit_colour_two 1px, transparent 1px, transparent 100%);
+    background-image: repeating-radial-gradient( center center, $subreddit_colour_two, $subreddit_colour_two 1px, transparent 1px, transparent 100%);
     background-size: 3px 3px;
 }
 
@@ -395,8 +394,8 @@
 
 .dotted-bg-webdev {
     color: $subreddit_colour_two;
-    background-image: -webkit-repeating-radial-gradient(center center, $subreddit_colour_two, $subreddit_colour_two 1px, transparent 1px, transparent 100%);
-    background-image: repeating-radial-gradient(center center, $subreddit_colour_two, $subreddit_colour_two 1px, transparent 1px, transparent 100%);
+    background-image: -webkit-repeating-radial-gradient( center center, $subreddit_colour_two, $subreddit_colour_two 1px, transparent 1px, transparent 100%);
+    background-image: repeating-radial-gradient( center center, $subreddit_colour_two, $subreddit_colour_two 1px, transparent 1px, transparent 100%);
     background-size: 3px 3px;
 }
 
@@ -430,7 +429,6 @@
     }
 }
 
-
 /*-------------------------------
 * r/web_design
 -------------------------------*/
@@ -441,8 +439,8 @@
 }
 
 .reddit-card-web_design .reddit-card-inner {
-    background-image: -webkit-repeating-radial-gradient(center center, $subreddit_colour_three, $subreddit_colour_three 1px, transparent 1px, transparent 100%);
-    background-image: repeating-radial-gradient(center center, $subreddit_colour_three, $subreddit_colour_three 1px, transparent 1px, transparent 100%);
+    background-image: -webkit-repeating-radial-gradient( center center, $subreddit_colour_three, $subreddit_colour_three 1px, transparent 1px, transparent 100%);
+    background-image: repeating-radial-gradient( center center, $subreddit_colour_three, $subreddit_colour_three 1px, transparent 1px, transparent 100%);
     background-size: 3px 3px;
 }
 
@@ -455,8 +453,8 @@
 
 .dotted-bg-web_design {
     color: $subreddit_colour_three;
-    background-image: -webkit-repeating-radial-gradient(center center, $subreddit_colour_three, $subreddit_colour_three 1px, transparent 1px, transparent 100%);
-    background-image: repeating-radial-gradient(center center, $subreddit_colour_three, $subreddit_colour_three 1px, transparent 1px, transparent 100%);
+    background-image: -webkit-repeating-radial-gradient( center center, $subreddit_colour_three, $subreddit_colour_three 1px, transparent 1px, transparent 100%);
+    background-image: repeating-radial-gradient( center center, $subreddit_colour_three, $subreddit_colour_three 1px, transparent 1px, transparent 100%);
     background-size: 3px 3px;
 }
 
@@ -490,7 +488,6 @@
     }
 }
 
-
 /*-------------------------------
 * r/jquery
 -------------------------------*/
@@ -501,8 +498,8 @@
 }
 
 .reddit-card-jquery .reddit-card-inner {
-    background-image: -webkit-repeating-radial-gradient(center center, $subreddit_colour_four, $subreddit_colour_four 1px, transparent 1px, transparent 100%);
-    background-image: repeating-radial-gradient(center center, $subreddit_colour_four, $subreddit_colour_four 1px, transparent 1px, transparent 100%);
+    background-image: -webkit-repeating-radial-gradient( center center, $subreddit_colour_four, $subreddit_colour_four 1px, transparent 1px, transparent 100%);
+    background-image: repeating-radial-gradient( center center, $subreddit_colour_four, $subreddit_colour_four 1px, transparent 1px, transparent 100%);
     background-size: 3px 3px;
 }
 
@@ -515,8 +512,8 @@
 
 .dotted-bg-jquery {
     color: $subreddit_colour_four;
-    background-image: -webkit-repeating-radial-gradient(center center, $subreddit_colour_four, $subreddit_colour_four 1px, transparent 1px, transparent 100%);
-    background-image: repeating-radial-gradient(center center, $subreddit_colour_four, $subreddit_colour_four 1px, transparent 1px, transparent 100%);
+    background-image: -webkit-repeating-radial-gradient( center center, $subreddit_colour_four, $subreddit_colour_four 1px, transparent 1px, transparent 100%);
+    background-image: repeating-radial-gradient( center center, $subreddit_colour_four, $subreddit_colour_four 1px, transparent 1px, transparent 100%);
     background-size: 3px 3px;
 }
 
@@ -550,7 +547,6 @@
     }
 }
 
-
 /*-------------------------------
 * r/javascript
 -------------------------------*/
@@ -561,8 +557,8 @@
 }
 
 .reddit-card-javascript .reddit-card-inner {
-    background-image: -webkit-repeating-radial-gradient(center center, $subreddit_colour_five, $subreddit_colour_five 1px, transparent 1px, transparent 100%);
-    background-image: repeating-radial-gradient(center center, $subreddit_colour_five, $subreddit_colour_five 1px, transparent 1px, transparent 100%);
+    background-image: -webkit-repeating-radial-gradient( center center, $subreddit_colour_five, $subreddit_colour_five 1px, transparent 1px, transparent 100%);
+    background-image: repeating-radial-gradient( center center, $subreddit_colour_five, $subreddit_colour_five 1px, transparent 1px, transparent 100%);
     background-size: 3px 3px;
 }
 
@@ -575,8 +571,8 @@
 
 .dotted-bg-javascript {
     color: $subreddit_colour_five;
-    background-image: -webkit-repeating-radial-gradient(center center, $subreddit_colour_five, $subreddit_colour_five 1px, transparent 1px, transparent 100%);
-    background-image: repeating-radial-gradient(center center, $subreddit_colour_five, $subreddit_colour_five 1px, transparent 1px, transparent 100%);
+    background-image: -webkit-repeating-radial-gradient( center center, $subreddit_colour_five, $subreddit_colour_five 1px, transparent 1px, transparent 100%);
+    background-image: repeating-radial-gradient( center center, $subreddit_colour_five, $subreddit_colour_five 1px, transparent 1px, transparent 100%);
     background-size: 3px 3px;
 }
 
@@ -610,7 +606,6 @@
     }
 }
 
-
 /*-------------------------------
 * r/frontend
 -------------------------------*/
@@ -621,8 +616,8 @@
 }
 
 .reddit-card-frontend .reddit-card-inner {
-    background-image: -webkit-repeating-radial-gradient(center center, $subreddit_colour_six, $subreddit_colour_six 1px, transparent 1px, transparent 100%);
-    background-image: repeating-radial-gradient(center center, $subreddit_colour_six, $subreddit_colour_six 1px, transparent 1px, transparent 100%);
+    background-image: -webkit-repeating-radial-gradient( center center, $subreddit_colour_six, $subreddit_colour_six 1px, transparent 1px, transparent 100%);
+    background-image: repeating-radial-gradient( center center, $subreddit_colour_six, $subreddit_colour_six 1px, transparent 1px, transparent 100%);
     background-size: 3px 3px;
 }
 
@@ -635,8 +630,8 @@
 
 .dotted-bg-frontend {
     color: $subreddit_colour_six;
-    background-image: -webkit-repeating-radial-gradient(center center, $subreddit_colour_six, $subreddit_colour_six 1px, transparent 1px, transparent 100%);
-    background-image: repeating-radial-gradient(center center, $subreddit_colour_six, $subreddit_colour_six 1px, transparent 1px, transparent 100%);
+    background-image: -webkit-repeating-radial-gradient( center center, $subreddit_colour_six, $subreddit_colour_six 1px, transparent 1px, transparent 100%);
+    background-image: repeating-radial-gradient( center center, $subreddit_colour_six, $subreddit_colour_six 1px, transparent 1px, transparent 100%);
     background-size: 3px 3px;
 }
 
@@ -670,7 +665,6 @@
     }
 }
 
-
 /*-------------------------------
 * r/webdevtutorials
 -------------------------------*/
@@ -681,8 +675,8 @@
 }
 
 .reddit-card-webdevtutorials .reddit-card-inner {
-    background-image: -webkit-repeating-radial-gradient(center center, $subreddit_colour_seven, $subreddit_colour_seven 1px, transparent 1px, transparent 100%);
-    background-image: repeating-radial-gradient(center center, $subreddit_colour_seven, $subreddit_colour_seven 1px, transparent 1px, transparent 100%);
+    background-image: -webkit-repeating-radial-gradient( center center, $subreddit_colour_seven, $subreddit_colour_seven 1px, transparent 1px, transparent 100%);
+    background-image: repeating-radial-gradient( center center, $subreddit_colour_seven, $subreddit_colour_seven 1px, transparent 1px, transparent 100%);
     background-size: 3px 3px;
 }
 
@@ -694,8 +688,8 @@
 
 .dotted-bg-webdevtutorials {
     color: $subreddit_colour_seven;
-    background-image: -webkit-repeating-radial-gradient(center center, $subreddit_colour_seven, $subreddit_colour_seven 1px, transparent 1px, transparent 100%);
-    background-image: repeating-radial-gradient(center center, $subreddit_colour_seven, $subreddit_colour_seven 1px, transparent 1px, transparent 100%);
+    background-image: -webkit-repeating-radial-gradient( center center, $subreddit_colour_seven, $subreddit_colour_seven 1px, transparent 1px, transparent 100%);
+    background-image: repeating-radial-gradient( center center, $subreddit_colour_seven, $subreddit_colour_seven 1px, transparent 1px, transparent 100%);
     background-size: 3px 3px;
 }
 
@@ -729,7 +723,6 @@
     }
 }
 
-
 /*-------------------------------
 * r/reactjs
 -------------------------------*/
@@ -740,8 +733,8 @@
 }
 
 .reddit-card-reactjs .reddit-card-inner {
-    background-image: -webkit-repeating-radial-gradient(center center, $subreddit_colour_eight, $subreddit_colour_eight 1px, transparent 1px, transparent 100%);
-    background-image: repeating-radial-gradient(center center, $subreddit_colour_eight, $subreddit_colour_eight 1px, transparent 1px, transparent 100%);
+    background-image: -webkit-repeating-radial-gradient( center center, $subreddit_colour_eight, $subreddit_colour_eight 1px, transparent 1px, transparent 100%);
+    background-image: repeating-radial-gradient( center center, $subreddit_colour_eight, $subreddit_colour_eight 1px, transparent 1px, transparent 100%);
     background-size: 3px 3px;
 }
 
@@ -753,8 +746,8 @@
 
 .dotted-bg-reactjs {
     color: $subreddit_colour_eight;
-    background-image: -webkit-repeating-radial-gradient(center center, $subreddit_colour_eight, $subreddit_colour_eight 1px, transparent 1px, transparent 100%);
-    background-image: repeating-radial-gradient(center center, $subreddit_colour_eight, $subreddit_colour_eight 1px, transparent 1px, transparent 100%);
+    background-image: -webkit-repeating-radial-gradient( center center, $subreddit_colour_eight, $subreddit_colour_eight 1px, transparent 1px, transparent 100%);
+    background-image: repeating-radial-gradient( center center, $subreddit_colour_eight, $subreddit_colour_eight 1px, transparent 1px, transparent 100%);
     background-size: 3px 3px;
 }
 

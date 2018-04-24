@@ -1,7 +1,6 @@
 /**
  *  Initialise a store to hold the API data
  */
-
 const dataStore = function dataStore() {
   let _data = {};
 
@@ -120,7 +119,7 @@ const init = function init() {
       const errorMessage = document.createElement('div');
       errorMessage.className = 'error-message';
       errorMessage.innerHTML = "<h3 class='error-message__header'>Oops!</h3><span class='error-message__body'>Sorry, looks like there was an error fetching the latest posts.</span>";
-      document.getElementById('content-info').appendChild(errorMessage);
+      document.getElementById('reddit-content').appendChild(errorMessage);
     });
 };
 
@@ -196,8 +195,6 @@ function getTimeAgo(timestamp) {
   }
 }
 
-const contentInfo = document.getElementById('content-info');
-
 /*
 Place into HTML
  */
@@ -209,7 +206,6 @@ const redditContent = document.getElementById('card-container'),
 
 function updateView(data) {
   // Clear content from card container
-  contentInfo.innerHTML = '';
   redditContent.innerHTML = null;
 
   function isLoading(loadState) {
@@ -259,7 +255,7 @@ function updateView(data) {
 
   // Add cards to the container element
   redditContent.appendChild(combinedCards);
-  document.getElementById('reddit-content').appendChild(endMsg);
+  redditContent.appendChild(endMsg);
   isLoading(false);
 
   // Check that newly loaded cards are in view
@@ -286,7 +282,7 @@ const showMessage = function showMessage() {
   const _searchResult = document.createElement('div');
 
   const _empty = function _empty() {
-    contentInfo.appendChild(_emptyMessage);
+    redditContent.appendChild(_emptyMessage);
   };
 
   const _search = function _search(term) {

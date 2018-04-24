@@ -21,7 +21,10 @@ html {
 
 .no-scroll {
     height: 100vh;
-    overflow: hidden;
+}
+
+.no-wrap {
+    white-space: nowrap;
 }
 
 body {
@@ -53,6 +56,11 @@ body {
     color: #fff;
     background-position: left bottom;
     background-size: 50% 50%;
+}
+
+.container {
+    display: grid;
+    grid-template-rows: 140px 140px;
 }
 
 .primary {

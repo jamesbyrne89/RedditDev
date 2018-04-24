@@ -59,19 +59,18 @@
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 
 .header__description {
     font-family: $sansSerif;
     font-size: 1rem;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: end;
-    -ms-flex-align: end;
-    align-items: flex-end;
     padding-bottom: 0.25em;
-    flex: 1;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
     margin-left: 1em;
     z-index: 15;
     color: #495456;
@@ -81,7 +80,6 @@
     transition: all 0.3s;
     padding-right: 1em;
 }
-
 
 /* Sticky Header Styles */
 

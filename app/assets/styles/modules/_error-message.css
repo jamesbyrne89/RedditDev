@@ -1,12 +1,11 @@
 .error-message {
     width: 50%;
     text-align: center;
-    margin: auto;
+    margin: 2rem auto;
     position: absolute;
-    top: 0;
     left: 0;
     right: 0;
-    bottom: 20%;
+    top: 20%;
 }
 
 .error-message__header {

@@ -1,24 +1,26 @@
 /* Message shown when no subreddits are selected */
 
 .empty-message {
-	width: 50%;
-	text-align: center;
-	margin: auto;
-	top: calc(150px + 20%);
-	left: calc(50% - 125px);
+    width: 50%;
+    text-align: center;
+    margin: auto;
+    position: absolute;
+    top: 20%;
+    left: 0;
+    right: 0;
 }
 
 .empty-message__header {
-	font-family: $serif;
-	font-size: 1.25rem;
-	margin-bottom: 1em;
+    font-family: $serif;
+    font-size: 1.25rem;
+    margin-bottom: 1em;
 }
 
 .empty-message__body {
-	color: #495456;
-	display: block;
-	font-size: 0.875rem;
-	width: 250px;
-	margin: auto;
-	text-align: center;
+    color: #495456;
+    display: block;
+    font-size: 0.875rem;
+    width: 250px;
+    margin: auto;
+    text-align: center;
 }

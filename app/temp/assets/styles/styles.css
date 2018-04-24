@@ -125,6 +125,9 @@ button {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 
 .header__description {
@@ -133,12 +136,6 @@ helvetica,
 arial,
 sans-serif;
     font-size: 1rem;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: end;
-    -ms-flex-align: end;
-    align-items: flex-end;
     padding-bottom: 0.25em;
     -webkit-box-flex: 1;
         -ms-flex: 1;
@@ -823,10 +820,12 @@ georgia,
 serif;
     font-size: 1rem;
     position: absolute;
-    bottom: 6rem;
+    bottom: -6em;
     font-weight: bold;
     width: 100%;
     text-align: center;
+    left: 0;
+    right: 0;
 }
 
 .content__info-bar {
@@ -842,6 +841,7 @@ serif;
     padding-top: 1.25em;
     padding-bottom: 1em;
     width: 100%;
+    position: relative;
 }
 
 /* ---------------------------
@@ -967,7 +967,7 @@ serif;
 helvetica,
 arial,
 sans-serif;
-    padding: 0.5em 0.5em 0.25em;
+    padding: 0.5em 0.75em;
     margin-left: 0em;
     display: inline-block;
     font-weight: 700;
@@ -1119,8 +1119,8 @@ sans-serif;
 }
 
 .reddit-card-css .reddit-card-inner {
-    background-image: -webkit-repeating-radial-gradient(center center, #CAD3C8, #CAD3C8 1px, transparent 1px, transparent 100%);
-    background-image: repeating-radial-gradient(center center, #CAD3C8, #CAD3C8 1px, transparent 1px, transparent 100%);
+    background-image: -webkit-repeating-radial-gradient( center center, #CAD3C8, #CAD3C8 1px, transparent 1px, transparent 100%);
+    background-image: repeating-radial-gradient( center center, #CAD3C8, #CAD3C8 1px, transparent 1px, transparent 100%);
     background-size: 3px 3px;
 }
 
@@ -1133,8 +1133,8 @@ sans-serif;
 
 .dotted-bg-css {
     color: #CAD3C8;
-    background-image: -webkit-repeating-radial-gradient(center center, #CAD3C8, #CAD3C8 1px, transparent 1px, transparent 100%);
-    background-image: repeating-radial-gradient(center center, #CAD3C8, #CAD3C8 1px, transparent 1px, transparent 100%);
+    background-image: -webkit-repeating-radial-gradient( center center, #CAD3C8, #CAD3C8 1px, transparent 1px, transparent 100%);
+    background-image: repeating-radial-gradient( center center, #CAD3C8, #CAD3C8 1px, transparent 1px, transparent 100%);
     background-size: 3px 3px;
 }
 
@@ -1175,8 +1175,8 @@ sans-serif;
 }
 
 .reddit-card-webdev .reddit-card-inner {
-    background-image: -webkit-repeating-radial-gradient(center center, #3B3B98, #3B3B98 1px, transparent 1px, transparent 100%);
-    background-image: repeating-radial-gradient(center center, #3B3B98, #3B3B98 1px, transparent 1px, transparent 100%);
+    background-image: -webkit-repeating-radial-gradient( center center, #3B3B98, #3B3B98 1px, transparent 1px, transparent 100%);
+    background-image: repeating-radial-gradient( center center, #3B3B98, #3B3B98 1px, transparent 1px, transparent 100%);
     background-size: 3px 3px;
 }
 
@@ -1189,8 +1189,8 @@ sans-serif;
 
 .dotted-bg-webdev {
     color: #3B3B98;
-    background-image: -webkit-repeating-radial-gradient(center center, #3B3B98, #3B3B98 1px, transparent 1px, transparent 100%);
-    background-image: repeating-radial-gradient(center center, #3B3B98, #3B3B98 1px, transparent 1px, transparent 100%);
+    background-image: -webkit-repeating-radial-gradient( center center, #3B3B98, #3B3B98 1px, transparent 1px, transparent 100%);
+    background-image: repeating-radial-gradient( center center, #3B3B98, #3B3B98 1px, transparent 1px, transparent 100%);
     background-size: 3px 3px;
 }
 
@@ -1231,8 +1231,8 @@ sans-serif;
 }
 
 .reddit-card-web_design .reddit-card-inner {
-    background-image: -webkit-repeating-radial-gradient(center center, #EAB543, #EAB543 1px, transparent 1px, transparent 100%);
-    background-image: repeating-radial-gradient(center center, #EAB543, #EAB543 1px, transparent 1px, transparent 100%);
+    background-image: -webkit-repeating-radial-gradient( center center, #EAB543, #EAB543 1px, transparent 1px, transparent 100%);
+    background-image: repeating-radial-gradient( center center, #EAB543, #EAB543 1px, transparent 1px, transparent 100%);
     background-size: 3px 3px;
 }
 
@@ -1245,8 +1245,8 @@ sans-serif;
 
 .dotted-bg-web_design {
     color: #EAB543;
-    background-image: -webkit-repeating-radial-gradient(center center, #EAB543, #EAB543 1px, transparent 1px, transparent 100%);
-    background-image: repeating-radial-gradient(center center, #EAB543, #EAB543 1px, transparent 1px, transparent 100%);
+    background-image: -webkit-repeating-radial-gradient( center center, #EAB543, #EAB543 1px, transparent 1px, transparent 100%);
+    background-image: repeating-radial-gradient( center center, #EAB543, #EAB543 1px, transparent 1px, transparent 100%);
     background-size: 3px 3px;
 }
 
@@ -1287,8 +1287,8 @@ sans-serif;
 }
 
 .reddit-card-jquery .reddit-card-inner {
-    background-image: -webkit-repeating-radial-gradient(center center, #FEA47F, #FEA47F 1px, transparent 1px, transparent 100%);
-    background-image: repeating-radial-gradient(center center, #FEA47F, #FEA47F 1px, transparent 1px, transparent 100%);
+    background-image: -webkit-repeating-radial-gradient( center center, #FEA47F, #FEA47F 1px, transparent 1px, transparent 100%);
+    background-image: repeating-radial-gradient( center center, #FEA47F, #FEA47F 1px, transparent 1px, transparent 100%);
     background-size: 3px 3px;
 }
 
@@ -1301,8 +1301,8 @@ sans-serif;
 
 .dotted-bg-jquery {
     color: #FEA47F;
-    background-image: -webkit-repeating-radial-gradient(center center, #FEA47F, #FEA47F 1px, transparent 1px, transparent 100%);
-    background-image: repeating-radial-gradient(center center, #FEA47F, #FEA47F 1px, transparent 1px, transparent 100%);
+    background-image: -webkit-repeating-radial-gradient( center center, #FEA47F, #FEA47F 1px, transparent 1px, transparent 100%);
+    background-image: repeating-radial-gradient( center center, #FEA47F, #FEA47F 1px, transparent 1px, transparent 100%);
     background-size: 3px 3px;
 }
 
@@ -1343,8 +1343,8 @@ sans-serif;
 }
 
 .reddit-card-javascript .reddit-card-inner {
-    background-image: -webkit-repeating-radial-gradient(center center, #ff6b81, #ff6b81 1px, transparent 1px, transparent 100%);
-    background-image: repeating-radial-gradient(center center, #ff6b81, #ff6b81 1px, transparent 1px, transparent 100%);
+    background-image: -webkit-repeating-radial-gradient( center center, #ff6b81, #ff6b81 1px, transparent 1px, transparent 100%);
+    background-image: repeating-radial-gradient( center center, #ff6b81, #ff6b81 1px, transparent 1px, transparent 100%);
     background-size: 3px 3px;
 }
 
@@ -1357,8 +1357,8 @@ sans-serif;
 
 .dotted-bg-javascript {
     color: #ff6b81;
-    background-image: -webkit-repeating-radial-gradient(center center, #ff6b81, #ff6b81 1px, transparent 1px, transparent 100%);
-    background-image: repeating-radial-gradient(center center, #ff6b81, #ff6b81 1px, transparent 1px, transparent 100%);
+    background-image: -webkit-repeating-radial-gradient( center center, #ff6b81, #ff6b81 1px, transparent 1px, transparent 100%);
+    background-image: repeating-radial-gradient( center center, #ff6b81, #ff6b81 1px, transparent 1px, transparent 100%);
     background-size: 3px 3px;
 }
 
@@ -1399,8 +1399,8 @@ sans-serif;
 }
 
 .reddit-card-frontend .reddit-card-inner {
-    background-image: -webkit-repeating-radial-gradient(center center, #55E6C1, #55E6C1 1px, transparent 1px, transparent 100%);
-    background-image: repeating-radial-gradient(center center, #55E6C1, #55E6C1 1px, transparent 1px, transparent 100%);
+    background-image: -webkit-repeating-radial-gradient( center center, #55E6C1, #55E6C1 1px, transparent 1px, transparent 100%);
+    background-image: repeating-radial-gradient( center center, #55E6C1, #55E6C1 1px, transparent 1px, transparent 100%);
     background-size: 3px 3px;
 }
 
@@ -1413,8 +1413,8 @@ sans-serif;
 
 .dotted-bg-frontend {
     color: #55E6C1;
-    background-image: -webkit-repeating-radial-gradient(center center, #55E6C1, #55E6C1 1px, transparent 1px, transparent 100%);
-    background-image: repeating-radial-gradient(center center, #55E6C1, #55E6C1 1px, transparent 1px, transparent 100%);
+    background-image: -webkit-repeating-radial-gradient( center center, #55E6C1, #55E6C1 1px, transparent 1px, transparent 100%);
+    background-image: repeating-radial-gradient( center center, #55E6C1, #55E6C1 1px, transparent 1px, transparent 100%);
     background-size: 3px 3px;
 }
 
@@ -1455,8 +1455,8 @@ sans-serif;
 }
 
 .reddit-card-webdevtutorials .reddit-card-inner {
-    background-image: -webkit-repeating-radial-gradient(center center, #D6A2E8, #D6A2E8 1px, transparent 1px, transparent 100%);
-    background-image: repeating-radial-gradient(center center, #D6A2E8, #D6A2E8 1px, transparent 1px, transparent 100%);
+    background-image: -webkit-repeating-radial-gradient( center center, #D6A2E8, #D6A2E8 1px, transparent 1px, transparent 100%);
+    background-image: repeating-radial-gradient( center center, #D6A2E8, #D6A2E8 1px, transparent 1px, transparent 100%);
     background-size: 3px 3px;
 }
 
@@ -1468,8 +1468,8 @@ sans-serif;
 
 .dotted-bg-webdevtutorials {
     color: #D6A2E8;
-    background-image: -webkit-repeating-radial-gradient(center center, #D6A2E8, #D6A2E8 1px, transparent 1px, transparent 100%);
-    background-image: repeating-radial-gradient(center center, #D6A2E8, #D6A2E8 1px, transparent 1px, transparent 100%);
+    background-image: -webkit-repeating-radial-gradient( center center, #D6A2E8, #D6A2E8 1px, transparent 1px, transparent 100%);
+    background-image: repeating-radial-gradient( center center, #D6A2E8, #D6A2E8 1px, transparent 1px, transparent 100%);
     background-size: 3px 3px;
 }
 
@@ -1510,8 +1510,8 @@ sans-serif;
 }
 
 .reddit-card-reactjs .reddit-card-inner {
-    background-image: -webkit-repeating-radial-gradient(center center, #25CCF7, #25CCF7 1px, transparent 1px, transparent 100%);
-    background-image: repeating-radial-gradient(center center, #25CCF7, #25CCF7 1px, transparent 1px, transparent 100%);
+    background-image: -webkit-repeating-radial-gradient( center center, #25CCF7, #25CCF7 1px, transparent 1px, transparent 100%);
+    background-image: repeating-radial-gradient( center center, #25CCF7, #25CCF7 1px, transparent 1px, transparent 100%);
     background-size: 3px 3px;
 }
 
@@ -1523,8 +1523,8 @@ sans-serif;
 
 .dotted-bg-reactjs {
     color: #25CCF7;
-    background-image: -webkit-repeating-radial-gradient(center center, #25CCF7, #25CCF7 1px, transparent 1px, transparent 100%);
-    background-image: repeating-radial-gradient(center center, #25CCF7, #25CCF7 1px, transparent 1px, transparent 100%);
+    background-image: -webkit-repeating-radial-gradient( center center, #25CCF7, #25CCF7 1px, transparent 1px, transparent 100%);
+    background-image: repeating-radial-gradient( center center, #25CCF7, #25CCF7 1px, transparent 1px, transparent 100%);
     background-size: 3px 3px;
 }
 
@@ -1726,12 +1726,11 @@ sans-serif;
 .error-message {
     width: 50%;
     text-align: center;
-    margin: auto;
+    margin: 2rem auto;
     position: absolute;
-    top: 0;
     left: 0;
     right: 0;
-    bottom: 20%;
+    top: 20%;
 }
 
 .error-message__header {
@@ -1754,28 +1753,30 @@ serif;
 /* Message shown when no subreddits are selected */
 
 .empty-message {
-	width: 50%;
-	text-align: center;
-	margin: auto;
-	top: calc(150px + 20%);
-	left: calc(50% - 125px);
+    width: 50%;
+    text-align: center;
+    margin: auto;
+    position: absolute;
+    top: 20%;
+    left: 0;
+    right: 0;
 }
 
 .empty-message__header {
-	font-family: 'Tiempos Headline',
+    font-family: 'Tiempos Headline',
 georgia,
 serif;
-	font-size: 1.25rem;
-	margin-bottom: 1em;
+    font-size: 1.25rem;
+    margin-bottom: 1em;
 }
 
 .empty-message__body {
-	color: #495456;
-	display: block;
-	font-size: 0.875rem;
-	width: 250px;
-	margin: auto;
-	text-align: center;
+    color: #495456;
+    display: block;
+    font-size: 0.875rem;
+    width: 250px;
+    margin: auto;
+    text-align: center;
 }
 
 /*-------------------------------
@@ -1909,7 +1910,10 @@ html {
 
 .no-scroll {
     height: 100vh;
-    overflow: hidden;
+}
+
+.no-wrap {
+    white-space: nowrap;
 }
 
 body {
@@ -1943,6 +1947,13 @@ sans-serif;
     color: #fff;
     background-position: left bottom;
     background-size: 50% 50%;
+}
+
+.container {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-rows: 140px 140px;
+        grid-template-rows: 140px 140px;
 }
 
 .primary {
