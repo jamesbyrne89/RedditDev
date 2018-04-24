@@ -352,140 +352,143 @@ sans-serif;
 /* Filter list */
 
 .modal {
-  font-family: 'space mono',
+    font-family: 'space mono',
 helvetica,
 arial,
 sans-serif;
-  display: none;
-  position: fixed;
-  top: 170px;
-  right: 7.5vw;
-  z-index: 10;
-  width: 400px;
-  height: auto;
-  margin: auto;
-  background: #fff;
-  padding: 2.5em 1.5em;
-  border: 1px solid fff;
-  transition: all 0.3s ease-out;
-  box-shadow: 0 15px 20px rgba(0, 0, 0, 0.15);
-  -webkit-transform: scale(0.9);
-  transform: scale(0.9);
+    display: none;
+    position: fixed;
+    top: 170px;
+    right: 7.5vw;
+    z-index: 10;
+    width: 400px;
+    height: auto;
+    margin: auto;
+    background: #fff;
+    padding: 2.5em 1.5em;
+    border: 1px solid fff;
+    transition: opacity 0.25s;
+    transition: -webkit-transform 0.3s ease-out;
+    transition: -webkit-transform 0.2s ease-out;
+    transition: transform 0.2s ease-out;
+    transition: transform 0.2s ease-out, -webkit-transform 0.2s ease-out;
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.15);
+    -webkit-transform: scale(0.5) translateY(-10%);
+    transform: scale(0.5) translateY(-10%);
+    -webkit-transform-origin: 100% 0%;
+    transform-origin: 100% 0%;
 }
 
 .modal--opened {
-  top: 160px;
-  position: fixed;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-  max-height: 80vh;
-  -webkit-transform: translateY(30px) scale(1);
-  transform: translateY(30px) scale(1);
-  transition: -webkit-transform 0.3s ease-out;
-  transition: transform 0.3s ease-out;
-  transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out;
+    top: 160px;
+    position: fixed;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    max-height: 80vh;
+    -webkit-transform: translateY(30px) scale(1);
+    transform: translateY(30px) scale(1);
 }
 
 .modal--opened-stuck {
-  position: fixed !important;
-  top: 150px !important;
+    position: fixed !important;
+    top: 150px !important;
 }
 
 .filters {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: start;
-  -ms-flex-align: start;
-  align-items: flex-start;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  width: auto;
-  margin: auto;
-  position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    width: auto;
+    margin: auto;
+    position: relative;
 }
 
 .filters__title {
-  font-family: 'Tiempos Headline',
+    font-family: 'Tiempos Headline',
 georgia,
 serif;
-  margin-right: 2em;
-  width: 100%;
+    margin-right: 2em;
+    width: 100%;
 }
 
 .filter-overlay {
-  position: fixed;
-  display: none;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(236, 238, 241, 0.95);
-  z-index: 5;
-  max-height: 100vh;
+    position: fixed;
+    display: none;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(236, 238, 241, 0.95);
+    z-index: 5;
+    max-height: 100vh;
 }
 
 .filters__list {
-  font-family: 'space mono',
+    font-family: 'space mono',
 helvetica,
 arial,
 sans-serif;
-  padding: 0.5em 0 0 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  -webkit-box-flex: 1;
-  -ms-flex: 1 0 100%;
-  flex: 1 0 100%;
-  width: 100%;
-  position: relative;
-  text-align: center;
-  font-weight: 400;
-  list-style-type: none;
-  margin-top: 1.5em;
+    padding: 0.5em 0 0 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-flex: 1;
+    -ms-flex: 1 0 100%;
+    flex: 1 0 100%;
+    width: 100%;
+    position: relative;
+    text-align: center;
+    font-weight: 400;
+    list-style-type: none;
+    margin-top: 1.5em;
 }
 
 .filters__list-item,
 .all-filter {
-  font-size: 0.875rem;
-  padding: 0 0.5em;
-  position: relative;
-  cursor: pointer;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  text-transform: uppercase;
-  border: 0;
-  text-align: left;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  z-index: 1;
-  transition: all 0.15s;
-  background: transparent !important;
-  margin: 0.5em 0;
-  width: calc(100% - 6px);
-  height: 2.5em;
+    font-size: 0.875rem;
+    padding: 0 0.5em;
+    position: relative;
+    cursor: pointer;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    text-transform: uppercase;
+    border: 0;
+    text-align: left;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    z-index: 1;
+    transition: all 0.15s;
+    background: transparent !important;
+    margin: 0.5em 0;
+    width: calc(100% - 6px);
+    height: 2.5em;
 }
 
 .filters__list-item i, .all-filter i {
@@ -495,11 +498,11 @@ sans-serif;
 }
 
 .all-filter {
-  border-bottom: solid 1px #ccc;
-  border-top: solid 1px #ccc;
-  border-left: solid 1px #fff;
-  border-right: solid 1px #fff;
-  transition: all 0.15s;
+    border-bottom: solid 1px #ccc;
+    border-top: solid 1px #ccc;
+    border-left: solid 1px #fff;
+    border-right: solid 1px #fff;
+    transition: all 0.15s;
 }
 
 .all-filter span {
@@ -516,21 +519,21 @@ sans-serif;
 }
 
 .all-filter:hover span {
-  color: #24292e !important;
+    color: #24292e !important;
 }
 
 .subreddit--selected {
-  border-top: solid 1px #fff;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  transition: all 0.15s;
+    border-top: solid 1px #fff;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    transition: all 0.15s;
 }
 
 .subreddit--selected:hover::before {
@@ -545,25 +548,25 @@ sans-serif;
 }
 
 .subreddit--selected::before {
-  content: '';
-  display: block;
-  opacity: 1;
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  transition: all 0.15s;
+    content: '';
+    display: block;
+    opacity: 1;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all 0.15s;
 }
 
 .subreddit--deselected {
-  border-left: solid 2px #fff !important;
-  background: white !important;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  transition: all 0.15s;
-  border: solid 1px #ccc !important;
+    border-left: solid 2px #fff !important;
+    background: white !important;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    transition: all 0.15s;
+    border: solid 1px #ccc !important;
 }
 
 .subreddit--deselected span {
@@ -588,202 +591,202 @@ sans-serif;
 
 /* Styling for individual subreddits */
 
-.filters__list > .css-filter {
-  color: #CAD3C8;
-  background: #CAD3C8;
+.filters__list>.css-filter {
+    color: #CAD3C8;
+    background: #CAD3C8;
 }
 
-.filters__list > .css-filter:hover {
+.filters__list>.css-filter:hover {
   background: #CAD3C8 !important;
 }
 
-.filters__list > .css-filter:hover i {
+.filters__list>.css-filter:hover i {
   color: #fff;
 }
 
-.filters__list > .css-filter span {
+.filters__list>.css-filter span {
   color: #CAD3C8;
   padding: 0 0.3em;
   position: relative;
 }
 
-.filters__list > .css-filter:hover span {
+.filters__list>.css-filter:hover span {
   color: #fff !important;
   padding: 0 0.3em;
   position: relative;
 }
 
-.filters__list > .webdev-filter {
-  color: #3B3B98;
-  background: #3B3B98;
+.filters__list>.webdev-filter {
+    color: #3B3B98;
+    background: #3B3B98;
 }
 
-.filters__list > .webdev-filter:hover {
+.filters__list>.webdev-filter:hover {
   background: #3B3B98 !important;
 }
 
-.filters__list > .webdev-filter:hover i {
+.filters__list>.webdev-filter:hover i {
   color: #fff;
 }
 
-.filters__list > .webdev-filter span {
+.filters__list>.webdev-filter span {
   color: #3B3B98;
   padding: 0 0.3em;
   position: relative;
 }
 
-.filters__list > .webdev-filter:hover span {
+.filters__list>.webdev-filter:hover span {
   color: #fff !important;
   padding: 0 0.3em;
   position: relative;
 }
 
-.filters__list > .web_design-filter {
-  color: #EAB543;
-  background: #EAB543;
+.filters__list>.web_design-filter {
+    color: #EAB543;
+    background: #EAB543;
 }
 
-.filters__list > .web_design-filter:hover {
+.filters__list>.web_design-filter:hover {
   background: #EAB543 !important;
 }
 
-.filters__list > .web_design-filter:hover i {
+.filters__list>.web_design-filter:hover i {
   color: #fff;
 }
 
-.filters__list > .web_design-filter span {
+.filters__list>.web_design-filter span {
   color: #EAB543;
   padding: 0 0.3em;
   position: relative;
 }
 
-.filters__list > .web_design-filter:hover span {
+.filters__list>.web_design-filter:hover span {
   color: #fff !important;
   padding: 0 0.3em;
   position: relative;
 }
 
-.filters__list > .jquery-filter {
-  color: #FEA47F;
-  background: #FEA47F;
+.filters__list>.jquery-filter {
+    color: #FEA47F;
+    background: #FEA47F;
 }
 
-.filters__list > .jquery-filter:hover {
+.filters__list>.jquery-filter:hover {
   background: #FEA47F !important;
 }
 
-.filters__list > .jquery-filter:hover i {
+.filters__list>.jquery-filter:hover i {
   color: #fff;
 }
 
-.filters__list > .jquery-filter span {
+.filters__list>.jquery-filter span {
   color: #FEA47F;
   padding: 0 0.3em;
   position: relative;
 }
 
-.filters__list > .jquery-filter:hover span {
+.filters__list>.jquery-filter:hover span {
   color: #fff !important;
   background: #FEA47F;
   padding: 0 0.3em;
   position: relative;
 }
 
-.filters__list > .javascript-filter {
-  color: #ff6b81;
-  background: #ff6b81;
+.filters__list>.javascript-filter {
+    color: #ff6b81;
+    background: #ff6b81;
 }
 
-.filters__list > .javascript-filter:hover {
+.filters__list>.javascript-filter:hover {
   background: #ff6b81 !important;
 }
 
-.filters__list > .javascript-filter:hover i {
+.filters__list>.javascript-filter:hover i {
   color: #fff;
 }
 
-.filters__list > .javascript-filter span {
+.filters__list>.javascript-filter span {
   color: #ff6b81;
   padding: 0 0.3em;
   position: relative;
 }
 
-.filters__list > .javascript-filter:hover span {
+.filters__list>.javascript-filter:hover span {
   color: #fff !important;
   padding: 0 0.3em;
   position: relative;
 }
 
-.filters__list > .frontend-filter {
-  color: #55E6C1;
-  background: #55E6C1;
+.filters__list>.frontend-filter {
+    color: #55E6C1;
+    background: #55E6C1;
 }
 
-.filters__list > .frontend-filter:hover {
+.filters__list>.frontend-filter:hover {
   background: #55E6C1 !important;
 }
 
-.filters__list > .frontend-filter:hover i {
+.filters__list>.frontend-filter:hover i {
   color: #fff;
 }
 
-.filters__list > .frontend-filter span {
+.filters__list>.frontend-filter span {
   color: #55E6C1;
   padding: 0 0.3em;
   position: relative;
 }
 
-.filters__list > .frontend-filter:hover span {
+.filters__list>.frontend-filter:hover span {
   color: #fff !important;
   padding: 0 0.3em;
   position: relative;
 }
 
-.filters__list > .webdevtutorials-filter {
-  color: #D6A2E8;
-  background: #D6A2E8;
+.filters__list>.webdevtutorials-filter {
+    color: #D6A2E8;
+    background: #D6A2E8;
 }
 
-.filters__list > .webdevtutorials-filter:hover {
+.filters__list>.webdevtutorials-filter:hover {
   background: #D6A2E8 !important;
 }
 
-.filters__list > .webdevtutorials-filter:hover i {
+.filters__list>.webdevtutorials-filter:hover i {
   color: #fff;
 }
 
-.filters__list > .webdevtutorials-filter span {
+.filters__list>.webdevtutorials-filter span {
   color: #D6A2E8;
   padding: 0 0.3em;
   position: relative;
 }
 
-.filters__list > .webdevtutorials-filter:hover span {
+.filters__list>.webdevtutorials-filter:hover span {
   color: #fff !important;
   padding: 0 0.3em;
   position: relative;
 }
 
-.filters__list > .reactjs-filter {
-  color: #25CCF7;
-  background: #25CCF7;
+.filters__list>.reactjs-filter {
+    color: #25CCF7;
+    background: #25CCF7;
 }
 
-.filters__list > .reactjs-filter:hover {
+.filters__list>.reactjs-filter:hover {
   background: #25CCF7 !important;
 }
 
-.filters__list > .reactjs-filter:hover i {
+.filters__list>.reactjs-filter:hover i {
   color: #fff;
 }
 
-.filters__list > .reactjs-filter span {
+.filters__list>.reactjs-filter span {
   color: #25CCF7;
   padding: 0 0.3em;
   position: relative;
 }
 
-.filters__list > .reactjs-filter:hover span {
+.filters__list>.reactjs-filter:hover span {
   color: #fff !important;
   padding: 0 0.3em;
   position: relative;

@@ -384,7 +384,7 @@ const toggleModal = function toggleModal() {
   $(modal).fadeToggle('fast');
   $('.filter-overlay').fadeToggle(100);
   modal.classList.toggle('modal--opened');
-
+  document.body.classList.toggle('no-scroll');
   if (header.classList.contains('is-sticky')) {
     modal.classList.add('modal--opened--stuck');
   } else {
@@ -636,3 +636,7 @@ if ('serviceWorker' in navigator) {
     });
   });
 }
+
+document.querySelector('.header').addEventListener('mouseover', () => {
+  document.querySelector('.modal').style.willChange = 'transform';
+});
