@@ -445,6 +445,8 @@ function addSubreddit() {
  * Toggles the 'select all' button
  */
 filters.all.addEventListener('click', function (e) {
+  e.stopPropagation();
+
   if (handleVisible.updateCards() === 0) {
     this.classList.remove('subreddit--deselected');
     this.classList.add('subreddit--selected');
@@ -486,7 +488,6 @@ filters.javascript = document.querySelector('.javascript-filter');
 filters.jquery = document.querySelector('.jquery-filter');
 filters.webdevTutorials = document.querySelector('.webdevtutorials-filter');
 filters.react = document.querySelector('.reactjs-filter');
-filters.list = document.querySelector('.filters__list');
 
 for (var filter in filters) {
   filters[filter].addEventListener('click', function (e) {

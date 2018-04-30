@@ -3,119 +3,119 @@
 -------------------------------*/
 
 .search {
-    width: 0;
-    border: 0;
-    height: 2em;
-    font-size: 1.5rem;
-    background: transparent;
-    border-top: none;
-    border-bottom: none;
-    border-bottom: none;
-    border-bottom: solid 1px $nearBlack;
-    -webkit-transition: all 1s ease-in-out;
-    transition: all 1s ease-in-out;
-    border-radius: 0;
+  width: 0;
+  border: 0;
+  height: 2em;
+  font-size: 1.5rem;
+  background: transparent;
+  border-top: none;
+  border-bottom: none;
+  border-bottom: none;
+  border-bottom: solid 1px $nearBlack;
+  -webkit-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+  border-radius: 0;
 }
 
 .search--opened {
-    width: 50%;
-    -webkit-transition: all 0.5s;
-    transition: all 0.5s;
+  width: 50%;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
 }
 
 .search-wrapper {
-    display: none;
-    -webkit-transition: all 0.5s ease-in-out;
-    transition: all 0.5s ease-in-out;
+  display: none;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 
 .search-wrapper--opened {
-    position: absolute;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: end;
-    -ms-flex-align: end;
-    align-items: flex-end;
-    -webkit-box-pack: start;
-    -ms-flex-pack: start;
-    justify-content: flex-start;
-    height: 140px;
-    z-index: 500;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: #fff;
-    padding: 2.5em 7.5vw;
-    -webkit-transition: all 0.5s ease-in-out;
-    transition: all 0.5s ease-in-out;
-    border-bottom: solid 1px $text_grey_mid_two;
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+  -ms-flex-align: end;
+  align-items: flex-end;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  height: 140px;
+  z-index: 500;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  padding: 2.5em 7.5vw;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  border-bottom: solid 1px $text_grey_mid_two;
 }
 
 .search__close-btn {
-    display: none;
-    font-size: 1rem;
-    background: transparent;
-    border: 0;
-    margin-left: 1em;
-    cursor: pointer;
+  display: none;
+  font-size: 1rem;
+  background: transparent;
+  border: 0;
+  margin-left: 1em;
+  cursor: pointer;
 }
 
 ::-webkit-input-placeholder {
-    color: $background_grey;
-    font-size: 1rem;
-    font-weight: 300;
+  color: $background_grey;
+  font-size: 1rem;
+  font-weight: 300;
 }
 
 :-ms-input-placeholder {
-    color: $background_grey;
-    font-size: 1rem;
-    font-weight: 300;
+  color: $background_grey;
+  font-size: 1rem;
+  font-weight: 300;
 }
 
 ::placeholder {
-    color: $background_grey;
-    font-size: 1rem;
-    font-weight: 300;
+  color: $background_grey;
+  font-size: 1rem;
+  font-weight: 300;
 }
 
 .search-term {
-    font-family: $serif;
-    font-weight: bold;
-    font-size: 1.5rem;
-    margin: auto;
-    position: relative;
+  font-family: $serif;
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin: auto;
+  position: relative;
 }
 
 .search-term .wrapper {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: start;
-    -ms-flex-pack: start;
-    justify-content: flex-start;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
 }
 
 .clear-search {
-    font-family: $sansSerif;
-    font-size: 1rem;
-    color: $text_grey_mid_two;
-    margin-top: 2em;
-    cursor: pointer;
-    display: block;
-    border-bottom: solid 2px transparent;
-    -webkit-transition: all 0.15s;
-    transition: all 0.15s;
+  font-family: $sansSerif;
+  font-size: 1rem;
+  color: $text_grey_mid_two;
+  margin-top: 2em;
+  cursor: pointer;
+  display: block;
+  border-bottom: solid 2px transparent;
+  -webkit-transition: all 0.15s;
+  transition: all 0.15s;
 }
 
 .clear-search:hover {
-    border-bottom: solid 2px $text_grey_dark;
-    color: $text_grey_dark;
+  border-bottom: solid 2px $text_grey_dark;
+  color: $text_grey_dark;
 }
 
-input[type="search"]::-webkit-search-decoration,
-input[type="search"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-results-button,
-input[type="search"]::-webkit-search-results-decoration {
-    display: none;
+input[type='search']::-webkit-search-decoration,
+input[type='search']::-webkit-search-cancel-button,
+input[type='search']::-webkit-search-results-button,
+input[type='search']::-webkit-search-results-decoration {
+  display: none;
 }
