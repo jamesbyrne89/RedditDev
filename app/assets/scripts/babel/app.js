@@ -557,9 +557,10 @@ function checkForMouseUse() {
 }
 document.body.addEventListener('mousemove', checkForMouseUse);
 
-search.addEventListener('change', function (e) {
+search.addEventListener('keyup', function (e) {
   var filtered = void 0;
-  if (e.target.value.length > 0 && typeof e.target.value === 'string') {
+  console.log(e.target.value);
+  if (e.target.value.length > 0) {
     filtered = dataStore.getData().filter(isSearched(e.target.value));
     updateView(filtered);
     showMessage.search(e.target.value);
