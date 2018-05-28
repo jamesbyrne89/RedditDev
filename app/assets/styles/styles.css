@@ -398,6 +398,9 @@ a:hover {
     padding-bottom: 4em;
     width: 95%;
   }
+  .spinner {
+    top: calc(40vh - 60px);
+  }
   .content-end-mark {
     bottom: 1e90%m;
   }

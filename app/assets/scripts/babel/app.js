@@ -602,19 +602,20 @@ window.onload = function () {
 window.addEventListener('resize', checkVisible);
 
 /* Service Worker */
-if ('serviceWorker' in navigator) {
-  // Check whether the browser supports the  service worker api
-  window.addEventListener('load', function () {
-    navigator.serviceWorker.register('/serviceworker.js').then(function (registration) {
-      // Registration was successful
-      console.log('Service Worker registered');
-    }, function (err) {
-      // registration failed :(
-      console.log('ServiceWorker registration failed: ', err);
-    });
-  });
-}
-
+// if ('serviceWorker' in navigator) {
+//   // Check whether the browser supports the  service worker api
+//   window.addEventListener('load', function() {
+//     navigator.serviceWorker.register('/serviceworker.js').then(function(
+//       registration,
+//     ) {
+//       // Registration was successful
+//       console.log('Service Worker registered');
+//     }, function(err) {
+//       // registration failed :(
+//       console.log('ServiceWorker registration failed: ', err);
+//     });
+//   });
+// }
 document.querySelector('.header').addEventListener('mouseover', function () {
   document.querySelector('.modal').style.willChange = 'transform';
 });
