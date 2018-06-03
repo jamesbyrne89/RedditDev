@@ -211,13 +211,12 @@ function updateView(data) {
 
   function isLoading(loadState) {
     var loading = loadState;
-    loading ? loadingSpinner.style.display = 'block' : loadingSpinner.style.display = 'none';
+    loading ? loadingSpinner.style.visibility = 'visible' : loadingSpinner.style.visibility = 'hidden';
   }
 
   isLoading(true);
 
   var combinedCards = document.createDocumentFragment();
-
   data.forEach(function (post) {
     var title = post.title,
         created_utc = post.created_utc,
@@ -244,6 +243,7 @@ function updateView(data) {
   // Add cards to the container element
   redditContent.appendChild(combinedCards);
   redditContent.appendChild(endMsg);
+
   isLoading(false);
 
   // Check that newly loaded cards are in view

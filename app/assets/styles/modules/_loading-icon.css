@@ -1,6 +1,49 @@
-/* Loading animation */
+.loader {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 3.5em;
+  height: 2rem;
+  color: $nearBlack;
+  font-family: $sansSerif;
 
-.spinner {
+  font-size: 2rem;
+  opacity: 0.8;
+  margin: auto;
+  position: absolute;
+  top: calc(30vh - 180px);
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.loader span {
+  display: inline-block;
+  -webkit-animation: pulse 0.4s alternate infinite ease-in-out;
+  animation: pulse 0.4s alternate infinite ease-in-out;
+}
+.loader span:nth-child(odd) {
+  -webkit-animation-delay: 0.4s;
+  animation-delay: 0.4s;
+}
+@-webkit-keyframes pulse {
+  to {
+    -webkit-transform: scale(0.8);
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+}
+@keyframes pulse {
+  to {
+    -webkit-transform: scale(0.8);
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+}
+
+/* .spinner {
   width: 3rem;
   height: 3rem;
   clear: both;
@@ -15,7 +58,7 @@
 
 /* Spinner Circle Rotation */
 
-.spinner-circle {
+/* .spinner-circle {
   border: 2px $text_grey_mid_two solid;
   border-top: 2px $nearBlack solid;
   border-radius: 50%;
@@ -41,4 +84,4 @@
     -webkit-transform: rotate(359deg);
     transform: rotate(359deg);
   }
-}
+} */

@@ -211,14 +211,13 @@ function updateView(data) {
   function isLoading(loadState) {
     let loading = loadState;
     loading
-      ? loadingSpinner.style.display = 'block'
-      : loadingSpinner.style.display = 'none';
+      ? loadingSpinner.style.visibility = 'visible'
+      : loadingSpinner.style.visibility = 'hidden';
   }
 
   isLoading(true);
 
   let combinedCards = document.createDocumentFragment();
-
   data.forEach(post => {
     let { title, created_utc, num_comments, subreddit, url, permalink } = post;
     let time = getTimeAgo(created_utc);
@@ -256,6 +255,7 @@ function updateView(data) {
   // Add cards to the container element
   redditContent.appendChild(combinedCards);
   redditContent.appendChild(endMsg);
+
   isLoading(false);
 
   // Check that newly loaded cards are in view
