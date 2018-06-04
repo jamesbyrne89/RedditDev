@@ -5,6 +5,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 /**
  *  Initialise a store to hold the API data
  */
+
 var dataStore = function dataStore() {
   var _data = {};
 

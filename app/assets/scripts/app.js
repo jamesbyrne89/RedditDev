@@ -1,6 +1,7 @@
 /**
  *  Initialise a store to hold the API data
  */
+
 const dataStore = function dataStore() {
   let _data = {};
 
