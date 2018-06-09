@@ -80,9 +80,12 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(236, 238, 241, 0.95);
+  background: $text_grey_dark;
+  opacity: 0.5;
   z-index: 5;
   max-height: 100vh;
+  -webkit-transition: all 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: all 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .filters__list {

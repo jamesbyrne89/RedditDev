@@ -87,6 +87,7 @@
   position: fixed;
   background: $nearBlack;
   top: 0;
+  height: auto;
   -webkit-box-pack: center !important;
   -ms-flex-pack: center !important;
   justify-content: center !important;
@@ -155,7 +156,7 @@
 }
 
 .scrolled-bar {
-  height: 6px;
+  height: 5px;
   position: fixed;
   bottom: 0;
   left: 0;
