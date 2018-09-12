@@ -21,32 +21,44 @@ Fetch all data from the Reddit server
  */
 const init = function init() {
   // r/webdev
-  const fetchWebDev = fetch('https://www.reddit.com/r/webdev.json?')
+  const fetchWebDev = fetch('https://www.reddit.com/r/webdev.json?', {
+    mode: 'no-cors',
+  })
     .then(resp => resp.json())
     .catch(err => console.error('Error fetching data from r/webdev'));
 
   // r/web_design
-  const fetchWebDesign = fetch('https://www.reddit.com/r/web_design.json?')
+  const fetchWebDesign = fetch('https://www.reddit.com/r/web_design.json?', {
+    mode: 'no-cors',
+  })
     .then(resp => resp.json())
     .catch(err => console.error('Error fetching data from r/web_design'));
 
   // r/frontend
-  const fetchFrontEnd = fetch('https://www.reddit.com/r/frontend.json?')
+  const fetchFrontEnd = fetch('https://www.reddit.com/r/frontend.json?', {
+    mode: 'no-cors',
+  })
     .then(resp => resp.json())
     .catch(err => console.error('Error fetching data from r/frontend'));
 
   // r/css
-  const fetchCSS = fetch('https://www.reddit.com/r/css.json?')
+  const fetchCSS = fetch('https://www.reddit.com/r/css.json?', {
+    mode: 'no-cors',
+  })
     .then(resp => resp.json())
     .catch(err => console.error('Error fetching data from r/css'));
 
   // r/javascript
-  const fetchJavascript = fetch('https://www.reddit.com/r/javascript.json?')
+  const fetchJavascript = fetch('https://www.reddit.com/r/javascript.json?', {
+    mode: 'no-cors',
+  })
     .then(resp => resp.json())
     .catch(err => console.error('Error fetching data from r/javascript'));
 
   // r/jquery
-  const fetchJQuery = fetch('https://www.reddit.com/r/jquery.json?')
+  const fetchJQuery = fetch('https://www.reddit.com/r/jquery.json?', {
+    mode: 'no-cors',
+  })
     .then(resp => resp.json())
     .catch(err => console.error('Error fetching data from r/jquery'));
 
@@ -58,7 +70,9 @@ const init = function init() {
     .catch(err => console.error('Error fetching data from r/webdevtutorials'));
 
   // r/reactjs
-  const fetchReactJS = fetch('https://www.reddit.com/r/reactjs.json?')
+  const fetchReactJS = fetch('https://www.reddit.com/r/reactjs.json?', {
+    mode: 'no-cors',
+  })
     .then(resp => resp.json())
     .catch(err => console.error('Error fetching data from r/reactjs'));
 
