@@ -1,5 +1,23 @@
 import * as React from 'react';
-import Head from 'next/head';
+import DocumentHead from './DocumentHead';
+import { createGlobalStyle } from 'styled-components';
+import { constants } from '../styles/constants';
+
+const GlobalStyles = createGlobalStyle`
+html {
+    background: ${constants.background_grey};
+    color: ${constants.text_grey_dark};
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: ${constants.sansSerif};
+    /* opacity: 0; */
+    -webkit-transition: opacity 0.5s ease-in;
+    transition: opacity 0.5s ease-in;
+}
+`;
 
 type Props = { title?: string };
 
@@ -7,11 +25,8 @@ const Layout: React.FunctionComponent<Props> = (
   { children, title = 'This is the default title' },
 ) => (
   <div>
-    <Head>
-      <title>{title}</title>
-      <meta charSet="utf-8" />
-      <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-    </Head>
+    <GlobalStyles />
+    <DocumentHead title={title} />
     <header>
     </header>
     {children}
