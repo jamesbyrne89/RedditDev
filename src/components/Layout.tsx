@@ -16,6 +16,12 @@ body {
     /* opacity: 0; */
     -webkit-transition: opacity 0.5s ease-in;
     transition: opacity 0.5s ease-in;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+
 }
 `;
 
@@ -27,8 +33,6 @@ const Layout: React.FunctionComponent<Props> = (
   <div>
     <GlobalStyles />
     <DocumentHead title={title} />
-    <header>
-    </header>
     {children}
   </div>
 );

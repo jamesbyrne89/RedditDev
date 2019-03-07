@@ -6,7 +6,8 @@ interface Iendpoints {
   css: string,
   javascript: string,
   react_js: string,
-  graphql?: string,
+  graphql: string,
+  nodejs: string,
 }
 
 export const endpoints: Iendpoints = {
@@ -16,4 +17,6 @@ export const endpoints: Iendpoints = {
   css: 'https://www.reddit.com/r/css.json?',
   javascript: 'https://www.reddit.com/r/javascript.json?',
   react_js: 'https://www.reddit.com/r/reactjs.json?',
+  graphql: 'https://www.reddit.com/r/graphql.json?',
+  nodejs: 'https://www.reddit.com/r/nodejs.json?',
 };

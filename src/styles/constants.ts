@@ -3,8 +3,8 @@ export const constants = {
   sansSerif: `'space mono',
 helvetica,
 arial,
-sans-serif;
-serif: 'Tiempos Headline',
+sans-serif;`,
+  serif: `'Tiempos Headline',
 georgia,
 serif`,
   /* Colours */
@@ -22,4 +22,5 @@ serif`,
   subreddit_colour_six: '#55E6C1',
   subreddit_colour_seven: '#D6A2E8',
   subreddit_colour_eight: '#25CCF7',
+  subreddit_colour_nine: '#006266',
 };

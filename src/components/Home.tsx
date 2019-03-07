@@ -1,8 +1,22 @@
 import * as React from 'react';
 import axios from 'axios';
+import styled from 'styled-components';
 import Layout from './Layout';
+import Header from './Header';
 import Card from './Card';
 import { endpoints } from '../lib/subreddits';
+
+const CardsContainer = styled.section`
+      -webkit-column-count: 4;
+    column-count: 4;
+    -webkit-column-gap: 2.5em;
+    column-gap: 2.5em;
+    border-top: solid 1px $text_grey_mid_two;
+    padding-top: 1.25em;
+    padding-bottom: 1em;
+    width: 100%;
+    position: relative;
+`;
 
 interface IProps {}
 
@@ -20,14 +34,18 @@ class Home extends React.Component<IProps, IState> {
       },
       [],
     );
-    this.setState({ posts: cleaned });
+    const sortByNewest = (a: number, b: number) =>
+      b.data.created - a.data.created;
+    this.setState({ posts: cleaned.sort(sortByNewest) });
     console.log(cleaned.slice(0, 20));
   }
   render() {
     const { posts } = this.state;
     return (
       <Layout>
-        {
+        <Header />
+        <CardsContainer>
+          {
           posts.map(
             post => (
               <Card
@@ -39,6 +57,7 @@ class Home extends React.Component<IProps, IState> {
             ),
           )
         }
+        </CardsContainer>
       </Layout>
     );
   }
