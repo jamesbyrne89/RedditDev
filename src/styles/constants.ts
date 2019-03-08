@@ -23,4 +23,13 @@ serif`,
   subreddit_colour_seven: '#D6A2E8',
   subreddit_colour_eight: '#25CCF7',
   subreddit_colour_nine: '#006266',
+  subreddit_colour_ten: '#535c68',
+};
+
+export const sizes = {
+  desktop_lg: 1600,
+  desktop_md: 1376,
+  desktop_sm: 1024,
+  tablet: 768,
+  mobile: 576,
 };

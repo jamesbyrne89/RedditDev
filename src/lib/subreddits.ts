@@ -7,7 +7,7 @@ interface Iendpoints {
   javascript: string,
   react_js: string,
   graphql: string,
-  nodejs: string,
+  node: string,
 }
 
 export const endpoints: Iendpoints = {
@@ -18,6 +18,7 @@ export const endpoints: Iendpoints = {
   javascript: 'https://www.reddit.com/r/javascript.json?',
   react_js: 'https://www.reddit.com/r/reactjs.json?',
   graphql: 'https://www.reddit.com/r/graphql.json?',
-  nodejs: 'https://www.reddit.com/r/nodejs.json?',
+  node: 'https://www.reddit.com/r/node.json?',
   typescript: 'https://www.reddit.com/r/typescript.json?',
+  vue: 'https://www.reddit.com/r/vue.json?',
 };
