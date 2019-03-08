@@ -20,8 +20,26 @@ body {
     padding: 0;
 }
 
-a {
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+a:link {
+	text-decoration: none;
+	color: inherit;
+}
+
+a:visited {
+	color: ${constants.text_grey_mid_one};
+}
+
+button {
+	background: transparent;
+	border: 0;
 }
 `;
 

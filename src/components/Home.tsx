@@ -5,17 +5,16 @@ import Layout from './Layout';
 import Header from './Header';
 import Card from './Card';
 import { endpoints } from '../lib/subreddits';
+import { constants } from '../styles/constants';
 
 const CardsContainer = styled.section`
       -webkit-column-count: 4;
     column-count: 4;
     -webkit-column-gap: 2.5em;
     column-gap: 2.5em;
-    border-top: solid 1px $text_grey_mid_two;
+    border-top: solid 1px ${constants.text_grey_mid_two};
     padding-top: 1.25em;
     padding-bottom: 1em;
-    width: 100%;
-    position: relative;
 `;
 
 interface IProps {}
@@ -46,17 +45,21 @@ class Home extends React.Component<IProps, IState> {
         <Header />
         <CardsContainer>
           {
-          posts.map(
-            post => (
-              <Card
-                key={post.data.id}
-                subName={post.data.subreddit_name_prefixed}
-                postData={post.data}
-                title={post.data.title}
-              />
-            ),
-          )
-        }
+            posts.map(
+              post => (
+                <Card
+                  key={post.data.id}
+                  subName={post.data.subreddit_name_prefixed}
+                  postData={post.data}
+                  title={post.data.title}
+                  url={post.data.url}
+                  permalink={post.data.permalink}
+                  num_comments={post.data.num_comments}
+                  created_utc={post.data.created_utc}
+                />
+              ),
+            )
+          }
         </CardsContainer>
       </Layout>
     );

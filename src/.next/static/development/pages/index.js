@@ -1711,91 +1711,117 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
 /* harmony import */ var _styles_constants__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../styles/constants */ "./styles/constants.ts");
+/* harmony import */ var _lib_utils__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../lib/utils */ "./lib/utils.ts");
 var _jsxFileName = "E:\\Users\\James\\Web Dev\\Projects\\RedditDev\\src\\components\\Card.tsx";
+
 
 
 
 var StyledCard = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].article.withConfig({
   displayName: "Card__StyledCard",
   componentId: "sc-1rnehka-0"
-})(["margin:0 0 1.25em 0;width:100%;background:white;break-inside:avoid;overflow:hidden;position:relative;top:0;overflow-wrap:break-word;padding:1em 0.75em;-webkit-transform:translateY(200px) scale(0.9);transform:translateY(200px) scale(0.9);-webkit-transition:opacity 1s ease-in-out 0s,-webkit-transform 0.7s cubic-bezier(0.165,0.84,0.44,1) 0s;transition:opacity 1s ease-in-out 0s,-webkit-transform 0.7s cubic-bezier(0.165,0.84,0.44,1) 0s;transition:transform 0.7s cubic-bezier(0.165,0.84,0.44,1) 0s,opacity 1s ease-in-out 0s;transition:transform 0.7s cubic-bezier(0.165,0.84,0.44,1) 0s,opacity 1s ease-in-out 0s,-webkit-transform 0.7s cubic-bezier(0.165,0.84,0.44,1) 0s;-webkit-column-break-inside:avoid;break-inside:avoid;"]);
+})(["margin:0 0 1.25em 0;width:100%;background:white;break-inside:avoid;overflow-wrap:break-word;padding:1em 0.75em;-webkit-transform:translateY(200px) scale(0.9);transform:translateY(200px) scale(0.9);-webkit-transition:opacity 1s ease-in-out 0s,-webkit-transform 0.7s cubic-bezier(0.165,0.84,0.44,1) 0s;transition:opacity 1s ease-in-out 0s,-webkit-transform 0.7s cubic-bezier(0.165,0.84,0.44,1) 0s;transition:transform 0.7s cubic-bezier(0.165,0.84,0.44,1) 0s,opacity 1s ease-in-out 0s;transition:transform 0.7s cubic-bezier(0.165,0.84,0.44,1) 0s,opacity 1s ease-in-out 0s,-webkit-transform 0.7s cubic-bezier(0.165,0.84,0.44,1) 0s;-webkit-column-break-inside:avoid;"]);
 var SubRedditName = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].h3.withConfig({
   displayName: "Card__SubRedditName",
   componentId: "sc-1rnehka-1"
-})(["font-family:", ";padding:0.5em 0.75em;margin-left:0em;display:inline-block;font-weight:700;text-transform:uppercase;font-size:0.75rem;color:#fff;letter-spacing:1px;background:", ";padding:1em;"], _styles_constants__WEBPACK_IMPORTED_MODULE_2__["constants"].sansSerif, function (props) {
+})(["font-family:", ";padding:0.5em 0.75em;margin:0;display:inline-block;font-weight:700;text-transform:uppercase;font-size:0.75rem;color:#fff;letter-spacing:1px;background:", ";padding:1em;"], _styles_constants__WEBPACK_IMPORTED_MODULE_2__["constants"].sansSerif, function (props) {
   return _styles_constants__WEBPACK_IMPORTED_MODULE_2__["constants"]["subreddit_colour_".concat(props.colour)];
 });
 var PostTitle = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].h2.withConfig({
   displayName: "Card__PostTitle",
   componentId: "sc-1rnehka-2"
-})(["padding:1.5em 0;width:100%;-webkit-transition:all 0.15s;transition:all 0.15s;background:#fff;text-align:left;a{font-family:'Tiempos Headline',georgia,serif;font-size:1.25rem;font-weight:700;color:", ";text-decoration:none;line-height:1.3;max-width:100%;-webkit-box-decoration-break:clone;box-decoration-break:clone;-webkit-transition:all 0.15s;transition:all 0.15s;}a:hover{color:#000 !important;border-bottom:solid 1px #000;}"], _styles_constants__WEBPACK_IMPORTED_MODULE_2__["constants"].text_grey_dark);
-
-function mapSubsToColours(sub) {
-  console.log(sub.replace('r/', ''));
-
-  switch (sub.replace('r/', '').toLowerCase()) {
-    case 'css':
-      return 'one';
-
-    case 'webdev':
-      return 'two';
-
-    case 'web_design':
-      return 'three';
-
-    case 'javascript':
-      return 'five';
-
-    case 'frontend':
-      return 'six';
-
-    case 'graphql':
-      return 'seven';
-
-    case 'reactjs':
-      return 'eight';
-
-    case 'nodejs':
-      return 'nine';
-
-    default:
-      return 'one';
-  }
-}
+})(["padding:1.5em 0;font-size:1.25rem;margin:0;-webkit-transition:all 0.15s;transition:all 0.15s;background:#fff;text-align:left;a{font-family:'Tiempos Headline',georgia,serif;font-weight:700;color:", ";text-decoration:none;line-height:1.3;max-width:100%;-webkit-box-decoration-break:clone;box-decoration-break:clone;-webkit-transition:all 0.15s;transition:all 0.15s;}a:hover{color:#000 !important;border-bottom:solid 1px #000;}"], _styles_constants__WEBPACK_IMPORTED_MODULE_2__["constants"].text_grey_dark);
+var CardFooter = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].footer.withConfig({
+  displayName: "Card__CardFooter",
+  componentId: "sc-1rnehka-3"
+})([".post-comments{font-family:", ";display:block;text-align:left;white-space:nowrap;padding:0 0.75em;-webkit-transition:all 0.15s;transition:all 0.15s;a{-webkit-transition:all 0.15s;transition:all 0.15s;cursor:pointer;}a:hover{color:", " !important;padding-bottom:0.125em;border-bottom:solid 1px;-webkit-transition:all 0.1s;transition:all 0.1s;}}"], _styles_constants__WEBPACK_IMPORTED_MODULE_2__["constants"].sansSerif, _styles_constants__WEBPACK_IMPORTED_MODULE_2__["constants"].nearBlack);
+var Bar = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].span.withConfig({
+  displayName: "Card__Bar",
+  componentId: "sc-1rnehka-4"
+})(["font-size:0.875em;"]);
 
 var Card = function Card(_ref) {
   var subName = _ref.subName,
       title = _ref.title,
-      url = _ref.url;
-  //   console.log(props);
+      url = _ref.url,
+      permalink = _ref.permalink,
+      num_comments = _ref.num_comments,
+      created_utc = _ref.created_utc;
   return react__WEBPACK_IMPORTED_MODULE_0__["createElement"](StyledCard, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 97
+      lineNumber: 108
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0__["createElement"](SubRedditName, {
-    colour: mapSubsToColours(subName),
+    colour: Object(_lib_utils__WEBPACK_IMPORTED_MODULE_3__["mapSubsToColours"])(subName),
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 98
+      lineNumber: 109
     },
     __self: this
   }, subName), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](PostTitle, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 101
+      lineNumber: 112
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("a", {
-    href: "${url}",
+    href: url,
     target: "blank",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 102
+      lineNumber: 113
     },
     __self: this
-  }, "$", title)));
+  }, "$", title)), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](CardFooter, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 117
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("span", {
+    className: "short-url",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 118
+    },
+    __self: this
+  }, Object(_lib_utils__WEBPACK_IMPORTED_MODULE_3__["getHostname"])(url)), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](Bar, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 118
+    },
+    __self: this
+  }, "|"), react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("time", {
+    className: "timestamp",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 119
+    },
+    __self: this
+  }, Object(_lib_utils__WEBPACK_IMPORTED_MODULE_3__["getTimeAgo"])(created_utc)), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](Bar, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 120
+    },
+    __self: this
+  }, "|"), react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("span", {
+    className: "post-comments",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 121
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("a", {
+    href: "http://reddit.com${permalink}",
+    target: "blank",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 122
+    },
+    __self: this
+  }, Object(_lib_utils__WEBPACK_IMPORTED_MODULE_3__["numCommentsText"])(num_comments)))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Card);
@@ -1883,7 +1909,7 @@ var _jsxFileName = "E:\\Users\\James\\Web Dev\\Projects\\RedditDev\\src\\compone
 var StyledHeader = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].header.withConfig({
   displayName: "Header__StyledHeader",
   componentId: "sc-1qurmiv-0"
-})(["z-index:350;position:absolute;left:0;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;width:100%;height:140px;background:#fff;-webkit-box-shadow:0 0 0 1px ", ";box-shadow:0 0 0 1px ", ";a:hover{text-transform:none;border-bottom:0;}"], _styles_constants__WEBPACK_IMPORTED_MODULE_2__["constants"].text_grey_mid_two, _styles_constants__WEBPACK_IMPORTED_MODULE_2__["constants"].text_grey_mid_two);
+})(["z-index:350;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;width:100%;height:140px;background:#fff;-webkit-box-shadow:0 0 0 1px ", ";box-shadow:0 0 0 1px ", ";a:hover{text-transform:none;border-bottom:0;}"], _styles_constants__WEBPACK_IMPORTED_MODULE_2__["constants"].text_grey_mid_two, _styles_constants__WEBPACK_IMPORTED_MODULE_2__["constants"].text_grey_mid_two);
 var StyledMasthead = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div.withConfig({
   displayName: "Header__StyledMasthead",
   componentId: "sc-1qurmiv-1"
@@ -1901,53 +1927,53 @@ var Header = function Header() {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledHeader, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 76
+      lineNumber: 74
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledMasthead, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 77
+      lineNumber: 75
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "header__title-wrapper",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 78
+      lineNumber: 76
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: "./",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 79
+      lineNumber: 77
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledHeaderTitle, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 80
+      lineNumber: 78
     },
     __self: this
   }, "{redditDev}")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledHeaderDescription, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 82
+      lineNumber: 80
     },
     __self: this
   }, "The best of frontend web development", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "no-wrap",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 84
+      lineNumber: 82
     },
     __self: this
   }, "on Reddit"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "search-wrapper",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 88
+      lineNumber: 86
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -1957,7 +1983,7 @@ var Header = function Header() {
     placeholder: "What are you looking for?",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 89
+      lineNumber: 87
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -1966,7 +1992,7 @@ var Header = function Header() {
     className: "search__close-btn",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 95
+      lineNumber: 93
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
@@ -1974,14 +2000,14 @@ var Header = function Header() {
     "aria-hidden": "true",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 100
+      lineNumber: 98
     },
     __self: this
   }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "header__btn-wrapper",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 103
+      lineNumber: 101
     },
     __self: this
   })));
@@ -2011,6 +2037,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Header__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Header */ "./components/Header.tsx");
 /* harmony import */ var _Card__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Card */ "./components/Card.tsx");
 /* harmony import */ var _lib_subreddits__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../lib/subreddits */ "./lib/subreddits.ts");
+/* harmony import */ var _styles_constants__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../styles/constants */ "./styles/constants.ts");
 
 var _jsxFileName = "E:\\Users\\James\\Web Dev\\Projects\\RedditDev\\src\\components\\Home.tsx";
 
@@ -2053,10 +2080,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
 var CardsContainer = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].section.withConfig({
   displayName: "Home__CardsContainer",
   componentId: "sc-1lsv5zx-0"
-})(["-webkit-column-count:4;column-count:4;-webkit-column-gap:2.5em;column-gap:2.5em;border-top:solid 1px $text_grey_mid_two;padding-top:1.25em;padding-bottom:1em;width:100%;position:relative;"]);
+})(["-webkit-column-count:4;column-count:4;-webkit-column-gap:2.5em;column-gap:2.5em;border-top:solid 1px ", ";padding-top:1.25em;padding-bottom:1em;"], _styles_constants__WEBPACK_IMPORTED_MODULE_8__["constants"].text_grey_mid_two);
 
 var Home =
 /*#__PURE__*/
@@ -2135,19 +2163,19 @@ function (_React$Component) {
       return react__WEBPACK_IMPORTED_MODULE_1__["createElement"](_Layout__WEBPACK_IMPORTED_MODULE_4__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 45
+          lineNumber: 44
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1__["createElement"](_Header__WEBPACK_IMPORTED_MODULE_5__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 46
+          lineNumber: 45
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_1__["createElement"](CardsContainer, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 47
+          lineNumber: 46
         },
         __self: this
       }, posts.map(function (post) {
@@ -2156,9 +2184,13 @@ function (_React$Component) {
           subName: post.data.subreddit_name_prefixed,
           postData: post.data,
           title: post.data.title,
+          url: post.data.url,
+          permalink: post.data.permalink,
+          num_comments: post.data.num_comments,
+          created_utc: post.data.created_utc,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 51
+            lineNumber: 50
           },
           __self: this
         });
@@ -2190,7 +2222,7 @@ __webpack_require__.r(__webpack_exports__);
 var _jsxFileName = "E:\\Users\\James\\Web Dev\\Projects\\RedditDev\\src\\components\\Layout.tsx";
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\nhtml {\n    background: ", ";\n    color: ", ";\n    margin: 0;\n    padding: 0;\n}\n\nbody {\n    font-family: ", ";\n    /* opacity: 0; */\n    -webkit-transition: opacity 0.5s ease-in;\n    transition: opacity 0.5s ease-in;\n    margin: 0;\n    padding: 0;\n}\n\na {\n\n}\n"]);
+  var data = _taggedTemplateLiteral(["\nhtml {\n    background: ", ";\n    color: ", ";\n    margin: 0;\n    padding: 0;\n}\n\nbody {\n    font-family: ", ";\n    /* opacity: 0; */\n    -webkit-transition: opacity 0.5s ease-in;\n    transition: opacity 0.5s ease-in;\n    margin: 0;\n    padding: 0;\n}\n\n\n* {\n  box-sizing: border-box;\n  margin: 0;\n  padding: 0;\n}\n\n\na:link {\n\ttext-decoration: none;\n\tcolor: inherit;\n}\n\na:visited {\n\tcolor: ", ";\n}\n\nbutton {\n\tbackground: transparent;\n\tborder: 0;\n}\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -2205,7 +2237,7 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-var GlobalStyles = Object(styled_components__WEBPACK_IMPORTED_MODULE_2__["createGlobalStyle"])(_templateObject(), _styles_constants__WEBPACK_IMPORTED_MODULE_3__["constants"].background_grey, _styles_constants__WEBPACK_IMPORTED_MODULE_3__["constants"].text_grey_dark, _styles_constants__WEBPACK_IMPORTED_MODULE_3__["constants"].sansSerif);
+var GlobalStyles = Object(styled_components__WEBPACK_IMPORTED_MODULE_2__["createGlobalStyle"])(_templateObject(), _styles_constants__WEBPACK_IMPORTED_MODULE_3__["constants"].background_grey, _styles_constants__WEBPACK_IMPORTED_MODULE_3__["constants"].text_grey_dark, _styles_constants__WEBPACK_IMPORTED_MODULE_3__["constants"].sansSerif, _styles_constants__WEBPACK_IMPORTED_MODULE_3__["constants"].text_grey_mid_one);
 
 var Layout = function Layout(_ref) {
   var children = _ref.children,
@@ -2214,20 +2246,20 @@ var Layout = function Layout(_ref) {
   return react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 33
+      lineNumber: 51
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0__["createElement"](GlobalStyles, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 34
+      lineNumber: 52
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_DocumentHead__WEBPACK_IMPORTED_MODULE_1__["default"], {
     title: title,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 35
+      lineNumber: 53
     },
     __self: this
   }), children);
@@ -2255,8 +2287,92 @@ var endpoints = {
   javascript: 'https://www.reddit.com/r/javascript.json?',
   react_js: 'https://www.reddit.com/r/reactjs.json?',
   graphql: 'https://www.reddit.com/r/graphql.json?',
-  nodejs: 'https://www.reddit.com/r/nodejs.json?'
+  nodejs: 'https://www.reddit.com/r/nodejs.json?',
+  typescript: 'https://www.reddit.com/r/typescript.json?'
 };
+
+/***/ }),
+
+/***/ "./lib/utils.ts":
+/*!**********************!*\
+  !*** ./lib/utils.ts ***!
+  \**********************/
+/*! exports provided: mapSubsToColours, getHostname, numCommentsText, getTimeAgo */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mapSubsToColours", function() { return mapSubsToColours; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getHostname", function() { return getHostname; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "numCommentsText", function() { return numCommentsText; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getTimeAgo", function() { return getTimeAgo; });
+function mapSubsToColours(sub) {
+  switch (sub.replace('r/', '').toLowerCase()) {
+    case 'css':
+      return 'one';
+
+    case 'webdev':
+      return 'two';
+
+    case 'web_design':
+      return 'three';
+
+    case 'typescript':
+      return 'four';
+
+    case 'javascript':
+      return 'five';
+
+    case 'frontend':
+      return 'six';
+
+    case 'graphql':
+      return 'seven';
+
+    case 'reactjs':
+      return 'eight';
+
+    case 'nodejs':
+      return 'nine';
+
+    default:
+      return 'one';
+  }
+}
+function getHostname(url) {
+  var match = url.match(/:\/\/(www[0-9]?\.)?(.[^/:]+)/i);
+  return match[2];
+}
+function numCommentsText(numComments) {
+  return numComments === 1 ? "".concat(numComments, " comment") : "".concat(numComments, " comments");
+}
+/**
+ * Convert the UNIX timestamp provided by the API into human-readable format
+ */
+
+function getTimeAgo(timestamp) {
+  var d = new Date(); // Convert the passed timestamp to milliseconds
+
+  var tNowS = Math.floor(d.getTime() / 1000);
+  var seconds = tNowS - timestamp;
+  var mins = Math.floor(seconds / 60);
+  var hours = Math.floor(mins / 60);
+  var days = Math.floor(seconds / 3600 / 24);
+
+  if (days >= 8) {
+    return 'A week ago';
+  } else if (seconds > 2 * 24 * 3600) {
+    return Math.floor(days) + 'd ago';
+  } else if (seconds > 24 * 3600) {
+    return 'Yesterday';
+  } else if (mins > 60) {
+    return hours + 'h ago';
+  } else if (2 < mins < 60) {
+    return mins + 'm ago';
+  } else {
+    return mins + 'Just now';
+  }
+}
 
 /***/ }),
 

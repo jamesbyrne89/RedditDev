@@ -3,8 +3,6 @@ import { constants } from '../styles/constants';
 
 const StyledHeader = styled.header`
   z-index: 350;
-  position: absolute;
-  left: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

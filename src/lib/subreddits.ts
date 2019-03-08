@@ -19,4 +19,5 @@ export const endpoints: Iendpoints = {
   react_js: 'https://www.reddit.com/r/reactjs.json?',
   graphql: 'https://www.reddit.com/r/graphql.json?',
   nodejs: 'https://www.reddit.com/r/nodejs.json?',
+  typescript: 'https://www.reddit.com/r/typescript.json?',
 };
