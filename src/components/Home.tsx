@@ -77,7 +77,7 @@ class Home extends React.Component<IProps, IState> {
   render() {
     const { loading, posts } = this.state;
     return (
-      <Layout>
+      <Layout title="redditDev - the best of frontend development on Reddit">
         <Header />
         <Sidebar />
         <CardsContainer>

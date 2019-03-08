@@ -154,7 +154,7 @@ class Card extends React.Component {
     window.removeEventListener('scroll', this.onWindowScroll);
   }
 
-  onWindowScroll = debounce(e => this.checkVisible(e), 100);
+  onWindowScroll = debounce(e => this.checkVisible(e), 150);
   render() {
     const {
       subName,

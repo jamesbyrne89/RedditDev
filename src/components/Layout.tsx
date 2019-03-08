@@ -1,5 +1,5 @@
 import * as React from 'react';
-import DocumentHead from './DocumentHead';
+import Head from 'next/head';
 import styled, { createGlobalStyle } from 'styled-components';
 import { constants } from '../styles/constants';
 
@@ -45,14 +45,15 @@ button {
 
 type Props = { title?: string };
 
-const Layout: React.FunctionComponent<Props> = (
-  { children, title = 'This is the default title' },
-) => (
-  <div>
-    <GlobalStyles />
-    <DocumentHead title={title} />
-    {children}
-  </div>
-);
+const Layout: React.FunctionComponent<Props> = ({ children, title }) => {
+  console.log(title);
+  return (
+    <div>
+      <GlobalStyles />
+      <Head><title>{title}</title></Head>
+      {children}
+    </div>
+  );
+};
 
 export default Layout;

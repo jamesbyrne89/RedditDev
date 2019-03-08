@@ -24,6 +24,10 @@ const StyledHeader = styled.header`
     text-transform: none;
     border-bottom: 0;
   }
+  .header__title-wrapper {
+    display: flex;
+    align-items: baseline;
+  }
 `;
 
 const StyledMasthead = styled.div`
@@ -65,6 +69,7 @@ const StyledHeaderDescription = styled.h2`
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
   padding-right: 1em;
+  margin-left: 1rem;
 `;
 
 const Header = () => (
