@@ -63,7 +63,8 @@ export function getTimeAgo(timestamp: number): string {
   }
 }
 
-export function debounce(func: Function, wait: number, immediate: boolean) {
+export function debounce(func: Function, wait = 100, immediate?: boolean) {
+  console.log('debounce');
   let timeout: any;
   return function() {
     var context = this, args = arguments;
@@ -78,4 +79,15 @@ export function debounce(func: Function, wait: number, immediate: boolean) {
     if (callNow)
       func.apply(context, args);
   };
+}
+
+export function filterPostsCallback(searchTerm: string): any {
+  return function(post: {}) {
+    return post.data.title.includes(searchTerm) ||
+      post.data.url.includes(searchTerm);
+  };
+}
+
+export function sortByNewest(a: any, b: any): number {
+  return b.data.created - a.data.created;
 }

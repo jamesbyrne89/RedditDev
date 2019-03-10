@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import styled from 'styled-components';
 import { constants } from '../styles/constants';
+import Search from '../components/Search';
 
 const StyledHeader = styled.header`
   z-index: 350;
@@ -72,7 +73,7 @@ const StyledHeaderDescription = styled.h2`
   margin-left: 1rem;
 `;
 
-const Header = () => (
+const Header = props => (
   <StyledHeader>
     <StyledMasthead>
       <div className="header__title-wrapper">
@@ -84,21 +85,7 @@ const Header = () => (
         </StyledHeaderDescription>
       </div>
       {}
-      <div className="search-wrapper">
-        <input
-          id="search"
-          className="search"
-          type="search"
-          placeholder="What are you looking for?"
-        />
-        <button
-          type="button"
-          id="search-close-btn"
-          className="search__close-btn"
-        >
-          <i className="fa fa-times fa-2x" aria-hidden="true"></i>
-        </button>
-      </div>
+      <Search onSearchSubmit={props.onSearchSubmit} />
       <div className="header__btn-wrapper">
         {}
         {}

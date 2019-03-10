@@ -8,6 +8,7 @@ import Loader from './Loader';
 import Card from './Card';
 import { endpoints } from '../lib/subreddits';
 import { constants, sizes } from '../styles/constants';
+import { filterPostsCallback, sortByNewest } from '../lib/utils';
 
 const CardsContainer = styled.main`
     -webkit-column-count: 4;
@@ -55,11 +56,12 @@ const CardsContainer = styled.main`
 
 interface IProps {}
 
-interface IState { posts: array, loading: boolean }
+interface IState { posts: Array<object>, loading: boolean }
 
 class Home extends React.Component<IProps, IState> {
   state = { posts: [], loading: true };
-  async componentDidMount() {
+
+  getPosts = async (filterFunc?: Function) => {
     const data = await axios.all(
       Object.keys(endpoints).map(url => axios.get(endpoints[url])),
     );
@@ -69,16 +71,34 @@ class Home extends React.Component<IProps, IState> {
       },
       [],
     );
-    const sortByNewest = (a: number, b: number) =>
-      b.data.created - a.data.created;
-    this.setState({ posts: cleaned.sort(sortByNewest), loading: false });
-    console.log(cleaned.slice(0, 20));
+
+    const postsSortedByNewest: Array<object> = cleaned.sort(sortByNewest);
+
+    if (filterFunc) {
+      postsSortedByNewest.filter(filterFunc);
+    }
+    const postsToDisplay = filterFunc
+      ? postsSortedByNewest.filter(filterFunc)
+      : postsSortedByNewest;
+
+    this.setState({ posts: postsToDisplay, loading: false });
+    console.log(postsSortedByNewest.slice(0, 20));
+    console.log(this.state.posts.filter(filterPostsCallback('hello')));
+  };
+
+  componentDidMount() {
+    this.getPosts();
   }
+
+  onSearchSubmit = (searchTerm: string) => {
+    this.getPosts(filterPostsCallback(searchTerm));
+  };
+
   render() {
     const { loading, posts } = this.state;
     return (
       <Layout title="redditDev - the best of frontend development on Reddit">
-        <Header />
+        <Header onSearchSubmit={this.onSearchSubmit} />
         <Sidebar />
         <CardsContainer>
           {

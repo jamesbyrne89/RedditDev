@@ -122,7 +122,7 @@ type Props = {
   created_utc: number,
 };
 
-class Card extends React.Component {
+class Card extends React.Component<Props> {
   constructor(props) {
     super(props);
     this.cardRef = React.createRef();
@@ -150,6 +150,11 @@ class Card extends React.Component {
     this.onWindowScroll();
     window.addEventListener('scroll', this.onWindowScroll);
   }
+
+  componentDidUpdate() {
+    this.onWindowScroll();
+  }
+
   componentWillUnmount() {
     window.removeEventListener('scroll', this.onWindowScroll);
   }

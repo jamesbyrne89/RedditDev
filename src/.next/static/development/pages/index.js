@@ -1814,6 +1814,11 @@ function (_React$Component) {
       window.addEventListener('scroll', this.onWindowScroll);
     }
   }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate() {
+      this.onWindowScroll();
+    }
+  }, {
     key: "componentWillUnmount",
     value: function componentWillUnmount() {
       window.removeEventListener('scroll', this.onWindowScroll);
@@ -1834,20 +1839,20 @@ function (_React$Component) {
         isAnimated: isAnimated,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 169
+          lineNumber: 174
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0__["createElement"](SubRedditName, {
         colour: Object(_lib_utils__WEBPACK_IMPORTED_MODULE_3__["mapSubsToColours"])(subName),
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 170
+          lineNumber: 175
         },
         __self: this
       }, subName), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](PostTitle, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 173
+          lineNumber: 178
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("a", {
@@ -1855,46 +1860,46 @@ function (_React$Component) {
         target: "blank",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 174
+          lineNumber: 179
         },
         __self: this
       }, title)), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](CardFooter, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 178
+          lineNumber: 183
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("span", {
         className: "short-url",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 179
+          lineNumber: 184
         },
         __self: this
       }, Object(_lib_utils__WEBPACK_IMPORTED_MODULE_3__["getHostname"])(url)), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](Bar, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 179
+          lineNumber: 184
         },
         __self: this
       }, "|"), react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("time", {
         className: "timestamp",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 180
+          lineNumber: 185
         },
         __self: this
       }, Object(_lib_utils__WEBPACK_IMPORTED_MODULE_3__["getTimeAgo"])(created_utc)), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](Bar, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 181
+          lineNumber: 186
         },
         __self: this
       }, "|"), react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("span", {
         className: "post-comments",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 182
+          lineNumber: 187
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("a", {
@@ -1902,7 +1907,7 @@ function (_React$Component) {
         target: "blank",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 183
+          lineNumber: 188
         },
         __self: this
       }, Object(_lib_utils__WEBPACK_IMPORTED_MODULE_3__["numCommentsText"])(num_comments)))));
@@ -1931,7 +1936,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
 /* harmony import */ var _styles_constants__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../styles/constants */ "./styles/constants.ts");
+/* harmony import */ var _components_Search__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/Search */ "./components/Search.tsx");
 var _jsxFileName = "E:\\Users\\James\\Web Dev\\Projects\\RedditDev\\src\\components\\Header.tsx";
+
 
 
 
@@ -1953,90 +1960,63 @@ var StyledHeaderDescription = styled_components__WEBPACK_IMPORTED_MODULE_2__["de
   componentId: "sc-1qurmiv-3"
 })(["font-family:", ";font-size:1rem;padding-bottom:0.25em;color:#495456;font-weight:400;line-height:1.2;-webkit-transition:all 0.3s;transition:all 0.3s;padding-right:1em;margin-left:1rem;"], _styles_constants__WEBPACK_IMPORTED_MODULE_3__["constants"].sansSerif);
 
-var Header = function Header() {
+var Header = function Header(props) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledHeader, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 76
+      lineNumber: 77
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledMasthead, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 77
+      lineNumber: 78
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "header__title-wrapper",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 78
+      lineNumber: 79
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledHeaderTitle, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 79
+      lineNumber: 80
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
     href: "./",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 80
+      lineNumber: 81
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 80
+      lineNumber: 81
     },
     __self: this
   }, "{redditDev}"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledHeaderDescription, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 82
+      lineNumber: 83
     },
     __self: this
-  }, "The best of frontend web development on Reddit")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "search-wrapper",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 87
-    },
-    __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-    id: "search",
-    className: "search",
-    type: "search",
-    placeholder: "What are you looking for?",
+  }, "The best of frontend web development on Reddit")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Search__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    onSearchSubmit: props.onSearchSubmit,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 88
     },
     __self: this
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    type: "button",
-    id: "search-close-btn",
-    className: "search__close-btn",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 94
-    },
-    __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-    className: "fa fa-times fa-2x",
-    "aria-hidden": "true",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 99
-    },
-    __self: this
-  }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "header__btn-wrapper",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 102
+      lineNumber: 89
     },
     __self: this
   })));
@@ -2069,6 +2049,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Card__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Card */ "./components/Card.tsx");
 /* harmony import */ var _lib_subreddits__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../lib/subreddits */ "./lib/subreddits.ts");
 /* harmony import */ var _styles_constants__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../styles/constants */ "./styles/constants.ts");
+/* harmony import */ var _lib_utils__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../lib/utils */ "./lib/utils.ts");
 
 var _jsxFileName = "E:\\Users\\James\\Web Dev\\Projects\\RedditDev\\src\\components\\Home.tsx";
 
@@ -2114,6 +2095,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
 var CardsContainer = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].main.withConfig({
   displayName: "Home__CardsContainer",
   componentId: "sc-1lsv5zx-0"
@@ -2142,16 +2124,13 @@ function (_React$Component) {
       loading: true
     });
 
-    return _this;
-  }
-
-  _createClass(Home, [{
-    key: "componentDidMount",
-    value: function () {
-      var _componentDidMount = _asyncToGenerator(
+    _defineProperty(_assertThisInitialized(_this), "getPosts",
+    /*#__PURE__*/
+    function () {
+      var _ref = _asyncToGenerator(
       /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        var data, cleaned, sortByNewest;
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(filterFunc) {
+        var data, cleaned, postsSortedByNewest, postsToDisplay;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
@@ -2166,31 +2145,47 @@ function (_React$Component) {
                 cleaned = data.reduce(function (acc, curr) {
                   return [].concat(_toConsumableArray(curr.data.data.children), _toConsumableArray(acc));
                 }, []);
+                postsSortedByNewest = cleaned.sort(_lib_utils__WEBPACK_IMPORTED_MODULE_11__["sortByNewest"]);
 
-                sortByNewest = function sortByNewest(a, b) {
-                  return b.data.created - a.data.created;
-                };
+                if (filterFunc) {
+                  postsSortedByNewest.filter(filterFunc);
+                }
 
-                this.setState({
-                  posts: cleaned.sort(sortByNewest),
+                postsToDisplay = filterFunc ? postsSortedByNewest.filter(filterFunc) : postsSortedByNewest;
+
+                _this.setState({
+                  posts: postsToDisplay,
                   loading: false
                 });
-                console.log(cleaned.slice(0, 20));
 
-              case 7:
+                console.log(postsSortedByNewest.slice(0, 20));
+                console.log(_this.state.posts.filter(Object(_lib_utils__WEBPACK_IMPORTED_MODULE_11__["filterPostsCallback"])('hello')));
+
+              case 10:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, this);
+        }, _callee);
       }));
 
-      function componentDidMount() {
-        return _componentDidMount.apply(this, arguments);
-      }
+      return function (_x) {
+        return _ref.apply(this, arguments);
+      };
+    }());
 
-      return componentDidMount;
-    }()
+    _defineProperty(_assertThisInitialized(_this), "onSearchSubmit", function (searchTerm) {
+      _this.getPosts(Object(_lib_utils__WEBPACK_IMPORTED_MODULE_11__["filterPostsCallback"])(searchTerm));
+    });
+
+    return _this;
+  }
+
+  _createClass(Home, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.getPosts();
+    }
   }, {
     key: "render",
     value: function render() {
@@ -2201,31 +2196,32 @@ function (_React$Component) {
         title: "redditDev - the best of frontend development on Reddit",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 80
+          lineNumber: 100
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1__["createElement"](_Header__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        onSearchSubmit: this.onSearchSubmit,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 81
+          lineNumber: 101
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_1__["createElement"](_Sidebar__WEBPACK_IMPORTED_MODULE_6__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 82
+          lineNumber: 102
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_1__["createElement"](CardsContainer, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 83
+          lineNumber: 103
         },
         __self: this
       }, loading ? react__WEBPACK_IMPORTED_MODULE_1__["createElement"](_Loader__WEBPACK_IMPORTED_MODULE_7__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 86
+          lineNumber: 106
         },
         __self: this
       }) : posts.map(function (post) {
@@ -2240,7 +2236,7 @@ function (_React$Component) {
           created_utc: post.data.created_utc,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 89
+            lineNumber: 109
           },
           __self: this
         });
@@ -2371,6 +2367,136 @@ var Loader = function Loader() {
 
 /***/ }),
 
+/***/ "./components/Search.tsx":
+/*!*******************************!*\
+  !*** ./components/Search.tsx ***!
+  \*******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _lib_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../lib/utils */ "./lib/utils.ts");
+var _jsxFileName = "E:\\Users\\James\\Web Dev\\Projects\\RedditDev\\src\\components\\Search.tsx";
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+var Search =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(Search, _Component);
+
+  function Search() {
+    var _getPrototypeOf2;
+
+    var _this;
+
+    _classCallCheck(this, Search);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Search)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    _defineProperty(_assertThisInitialized(_this), "state", {
+      input: ''
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "onUserEntry", function (e) {
+      _this.setState({
+        input: e.target.value
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "onSubmit", function (e) {
+      e.preventDefault();
+
+      _this.props.onSearchSubmit(_this.state.input);
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "handleKeyup", Object(_lib_utils__WEBPACK_IMPORTED_MODULE_1__["debounce"])(function (e) {
+      return _this.onSubmit(e);
+    }, 500));
+
+    return _this;
+  }
+
+  _createClass(Search, [{
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        className: "search-wrapper",
+        onSubmit: this.onSubmit,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 27
+        },
+        __self: this
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        id: "search",
+        className: "search",
+        type: "search",
+        placeholder: "What are you looking for?",
+        value: this.state.input,
+        onChange: this.onUserEntry,
+        onKeyUp: this.handleKeyup,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 28
+        },
+        __self: this
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "button",
+        id: "search-close-btn",
+        className: "search__close-btn",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 37
+        },
+        __self: this
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fa fa-times fa-2x",
+        "aria-hidden": "true",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 42
+        },
+        __self: this
+      })));
+    }
+  }]);
+
+  return Search;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+/* harmony default export */ __webpack_exports__["default"] = (Search);
+
+/***/ }),
+
 /***/ "./components/Sidebar.tsx":
 /*!********************************!*\
   !*** ./components/Sidebar.tsx ***!
@@ -2474,7 +2600,7 @@ var endpoints = {
 /*!**********************!*\
   !*** ./lib/utils.ts ***!
   \**********************/
-/*! exports provided: mapSubsToColours, getHostname, numCommentsText, getTimeAgo, debounce */
+/*! exports provided: mapSubsToColours, getHostname, numCommentsText, getTimeAgo, debounce, filterPostsCallback, sortByNewest */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2484,6 +2610,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "numCommentsText", function() { return numCommentsText; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getTimeAgo", function() { return getTimeAgo; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "debounce", function() { return debounce; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "filterPostsCallback", function() { return filterPostsCallback; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "sortByNewest", function() { return sortByNewest; });
 function mapSubsToColours(sub) {
   switch (sub.replace('r/', '').toLowerCase()) {
     case 'css':
@@ -2554,7 +2682,10 @@ function getTimeAgo(timestamp) {
     return mins + 'Just now';
   }
 }
-function debounce(func, wait, immediate) {
+function debounce(func) {
+  var wait = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 100;
+  var immediate = arguments.length > 2 ? arguments[2] : undefined;
+  console.log('debounce');
   var timeout;
   return function () {
     var context = this,
@@ -2570,6 +2701,14 @@ function debounce(func, wait, immediate) {
     timeout = setTimeout(later, wait);
     if (callNow) func.apply(context, args);
   };
+}
+function filterPostsCallback(searchTerm) {
+  return function (post) {
+    return post.data.title.includes(searchTerm) || post.data.url.includes(searchTerm);
+  };
+}
+function sortByNewest(a, b) {
+  return b.data.created - a.data.created;
 }
 
 /***/ }),
@@ -16234,7 +16373,7 @@ var IndexPage = function IndexPage() {
   return react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_components_Home__WEBPACK_IMPORTED_MODULE_1__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 6
+      lineNumber: 5
     },
     __self: this
   });
