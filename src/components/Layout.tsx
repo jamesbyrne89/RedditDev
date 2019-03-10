@@ -1,6 +1,8 @@
 import * as React from 'react';
-import Head from 'next/head';
+
 import styled, { createGlobalStyle } from 'styled-components';
+
+import Head from 'next/head';
 import { constants } from '../styles/constants';
 
 const GlobalStyles = createGlobalStyle`
@@ -43,17 +45,16 @@ button {
 }
 `;
 
-type Props = { title?: string };
+type Props = { title: string };
 
-const Layout: React.FunctionComponent<Props> = ({ children, title }) => {
-  console.log(title);
-  return (
-    <div>
-      <GlobalStyles />
-      <Head><title>{title}</title></Head>
-      {children}
-    </div>
-  );
-};
+const Layout: React.FunctionComponent<Props> = (
+  { children, title = 'redditDev' },
+) => (
+  <div>
+    <GlobalStyles />
+    <Head><title>{title}</title></Head>
+    {children}
+  </div>
+);
 
 export default Layout;

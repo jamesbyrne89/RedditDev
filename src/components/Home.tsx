@@ -1,14 +1,16 @@
 import * as React from 'react';
-import axios from 'axios';
-import styled from 'styled-components';
-import Layout from './Layout';
-import Header from './Header';
-import Sidebar from './Sidebar';
-import Loader from './Loader';
-import Card from './Card';
-import { endpoints } from '../lib/subreddits';
+
 import { constants, sizes } from '../styles/constants';
 import { filterPostsCallback, sortByNewest } from '../lib/utils';
+
+import Card from './Card';
+import Header from './Header';
+import Layout from './Layout';
+import Loader from './Loader';
+import Sidebar from './Sidebar';
+import axios from 'axios';
+import { endpoints } from '../lib/subreddits';
+import styled from 'styled-components';
 
 const CardsContainer = styled.main`
     -webkit-column-count: 4;
@@ -65,8 +67,8 @@ class Home extends React.Component<IProps, IState> {
     const data = await axios.all(
       Object.keys(endpoints).map(url => axios.get(endpoints[url])),
     );
-    const cleaned: array = data.reduce(
-      (acc, curr): array => {
+    const cleaned: Array<{}> = data.reduce(
+      (acc: any, curr: any): Array<{}> => {
         return [ ...curr.data.data.children, ...acc ];
       },
       [],
@@ -83,7 +85,6 @@ class Home extends React.Component<IProps, IState> {
 
     this.setState({ posts: postsToDisplay, loading: false });
     console.log(postsSortedByNewest.slice(0, 20));
-    console.log(this.state.posts.filter(filterPostsCallback('hello')));
   };
 
   componentDidMount() {
@@ -105,7 +106,7 @@ class Home extends React.Component<IProps, IState> {
             loading
               ? <Loader />
               : posts.map(
-                post => (
+                (post: object): any => (
                   <Card
                     key={post.data.id}
                     subName={post.data.subreddit_name_prefixed}

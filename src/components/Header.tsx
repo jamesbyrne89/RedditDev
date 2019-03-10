@@ -1,7 +1,7 @@
 import Link from 'next/link';
-import styled from 'styled-components';
-import { constants } from '../styles/constants';
 import Search from '../components/Search';
+import { constants } from '../styles/constants';
+import styled from 'styled-components';
 
 const StyledHeader = styled.header`
   z-index: 350;
@@ -42,7 +42,7 @@ const StyledMasthead = styled.div`
   -ms-flex-align: end;
   align-items: flex-end;
   padding: 0.25em 0;
-  width: 85vw;
+  width: 85%;
   height: auto;
   margin: 0 auto;
 `;
@@ -73,7 +73,9 @@ const StyledHeaderDescription = styled.h2`
   margin-left: 1rem;
 `;
 
-const Header = props => (
+interface Props { onSearchSubmit?: Function }
+
+const Header: React.FunctionComponent<Props> = props => (
   <StyledHeader>
     <StyledMasthead>
       <div className="header__title-wrapper">
@@ -84,12 +86,7 @@ const Header = props => (
           The best of frontend web development on Reddit
         </StyledHeaderDescription>
       </div>
-      {}
       <Search onSearchSubmit={props.onSearchSubmit} />
-      <div className="header__btn-wrapper">
-        {}
-        {}
-      </div>
     </StyledMasthead>
   </StyledHeader>
 );
