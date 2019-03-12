@@ -122,8 +122,10 @@ type Props = {
   created_utc: number,
 };
 
-class Card extends React.Component<Props> {
-  constructor(props) {
+type State = { isAnimated: boolean };
+
+class Card extends React.Component<Props, State> {
+  constructor(props: Props) {
     super(props);
     this.cardRef = React.createRef();
     this.state = { isAnimated: false };
