@@ -86,6 +86,7 @@ const Header: React.FunctionComponent<Props> = props => (
           The best of frontend web development on Reddit
         </StyledHeaderDescription>
       </div>
+      <Link href="./favourites"><a>Favourites</a></Link>
       <Search onSearchSubmit={props.onSearchSubmit} />
     </StyledMasthead>
   </StyledHeader>

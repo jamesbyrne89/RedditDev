@@ -116,6 +116,10 @@ const CardFooter = styled.footer`
 
 const AddToFavouritesButton = styled.button`
   cursor: pointer;
+  height: 16px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
 `;
 
 const Bar = styled.span`
@@ -130,6 +134,7 @@ type Props = {
   num_comments: number,
   created_utc: number,
   onAddToFavourites: Function,
+  isFavourite: boolean,
 };
 
 type State = { isAnimated: boolean };
