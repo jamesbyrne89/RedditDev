@@ -281,13 +281,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
 
@@ -300,15 +302,44 @@ function (_App) {
   _inherits(MyApp, _App);
 
   function MyApp() {
+    var _getPrototypeOf2;
+
+    var _this;
+
     _classCallCheck(this, MyApp);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(MyApp).apply(this, arguments));
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(MyApp)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    _defineProperty(_assertThisInitialized(_this), "state", {
+      loading: true,
+      posts: []
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "filterPosts", function () {
+      var searchTerm = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+
+      var filtered = _this.state.posts.filter(Object(_lib_utils__WEBPACK_IMPORTED_MODULE_5__["filterPostsCallback"])(searchTerm));
+
+      _this.setState({
+        posts: filtered
+      });
+    });
+
+    return _this;
   }
 
   _createClass(MyApp, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      console.log(this.props.posts.slice(0, 10));
+      this.setState({
+        loading: false,
+        posts: this.props.posts
+      });
+      localStorage.setItem('reddit-posts', JSON.stringify(this.props.posts));
     }
   }, {
     key: "render",
@@ -316,22 +347,21 @@ function (_App) {
       var _this$props = this.props,
           Component = _this$props.Component,
           pageProps = _this$props.pageProps,
-          _this$props$loading = _this$props.loading,
-          loading = _this$props$loading === void 0 ? true : _this$props$loading,
           posts = _this$props.posts;
       return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(next_app__WEBPACK_IMPORTED_MODULE_2__["Container"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 39
+          lineNumber: 43
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Component, _extends({
-        posts: posts,
-        loading: loading
+        posts: this.state.posts,
+        loading: this.state.loading,
+        onSearchSubmit: this.filterPosts
       }, pageProps, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 40
+          lineNumber: 44
         },
         __self: this
       })));
@@ -341,34 +371,29 @@ function (_App) {
     value: function () {
       var _getInitialProps = _asyncToGenerator(
       /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(_ref) {
-        var Component, ctx, data, cleaned, filterFunc, postsSortedByNewest, postsToDisplay;
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var data, cleaned, filterFunc, postsSortedByNewest, postsToDisplay;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                Component = _ref.Component, ctx = _ref.ctx;
-                _context.next = 3;
+                _context.next = 2;
                 return axios__WEBPACK_IMPORTED_MODULE_3___default.a.all(Object.keys(_lib_subreddits__WEBPACK_IMPORTED_MODULE_4__["endpoints"]).map(function (url) {
                   return axios__WEBPACK_IMPORTED_MODULE_3___default.a.get(_lib_subreddits__WEBPACK_IMPORTED_MODULE_4__["endpoints"][url]);
                 }));
 
-              case 3:
+              case 2:
                 data = _context.sent;
                 cleaned = data.reduce(function (acc, curr) {
                   return [].concat(_toConsumableArray(curr.data.data.children), _toConsumableArray(acc));
                 }, []);
-                postsSortedByNewest = cleaned.sort(_lib_utils__WEBPACK_IMPORTED_MODULE_5__["sortByNewest"]); // if (filterFunc) {
-                //   postsSortedByNewest.filter(filterFunc);
-                // }
-
+                postsSortedByNewest = cleaned.sort(_lib_utils__WEBPACK_IMPORTED_MODULE_5__["sortByNewest"]);
                 postsToDisplay = filterFunc ? postsSortedByNewest.filter(filterFunc) : postsSortedByNewest;
                 return _context.abrupt("return", {
-                  posts: postsToDisplay,
-                  loading: false
+                  posts: postsToDisplay
                 });
 
-              case 8:
+              case 7:
               case "end":
                 return _context.stop();
             }
@@ -376,7 +401,7 @@ function (_App) {
         }, _callee);
       }));
 
-      function getInitialProps(_x) {
+      function getInitialProps() {
         return _getInitialProps.apply(this, arguments);
       }
 

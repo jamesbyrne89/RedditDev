@@ -6,8 +6,8 @@ import { filterPostsCallback, sortByNewest } from '../lib/utils';
 interface Props { loading: boolean, posts: Array }
 
 class MyApp extends App<Props> {
-  static async getInitialProps({ Component, ctx }) {
-    // getPosts = async (filterFunc?: Function) => {
+  state = { loading: true, posts: [] };
+  static async getInitialProps() {
     const data = await axios.all(
       Object.keys(endpoints).map(url => axios.get(endpoints[url])),
     );
@@ -19,25 +19,34 @@ class MyApp extends App<Props> {
     );
     let filterFunc;
     const postsSortedByNewest: Array<object> = cleaned.sort(sortByNewest);
-    // if (filterFunc) {
-    //   postsSortedByNewest.filter(filterFunc);
-    // }
     const postsToDisplay = filterFunc
       ? postsSortedByNewest.filter(filterFunc)
       : postsSortedByNewest;
 
-    return { posts: postsToDisplay, loading: false };
+    return { posts: postsToDisplay };
   }
 
   componentDidMount() {
-    console.log(this.props.posts.slice(0, 10));
+    this.setState({ loading: false, posts: this.props.posts });
+
+    localStorage.setItem('reddit-posts', JSON.stringify(this.props.posts));
   }
 
+  filterPosts = (searchTerm = '') => {
+    const filtered = this.state.posts.filter(filterPostsCallback(searchTerm));
+    this.setState({ posts: filtered });
+  };
+
   render() {
-    const { Component, pageProps, loading = true, posts } = this.props;
+    const { Component, pageProps, posts } = this.props;
     return (
       <Container>
-        <Component posts={posts} loading={loading} {...pageProps} />
+        <Component
+          posts={this.state.posts}
+          loading={this.state.loading}
+          onSearchSubmit={this.filterPosts}
+          {...pageProps}
+        />
       </Container>
     );
   }

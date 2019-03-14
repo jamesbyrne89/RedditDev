@@ -484,7 +484,8 @@ function (_React$Component) {
     value: function render() {
       var _this$props = this.props,
           loading = _this$props.loading,
-          posts = _this$props.posts;
+          posts = _this$props.posts,
+          onSearchSubmit = _this$props.onSearchSubmit;
       return react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_Layout__WEBPACK_IMPORTED_MODULE_4__["default"], {
         title: "redditDev - the best of frontend development on Reddit",
         __source: {
@@ -493,6 +494,7 @@ function (_React$Component) {
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_Header__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        onSearchSubmit: onSearchSubmit,
         __source: {
           fileName: _jsxFileName,
           lineNumber: 62

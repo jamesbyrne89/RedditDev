@@ -56,10 +56,10 @@ const CardsContainer = styled.main`
 
 class Home extends React.Component<IProps, IState> {
   render() {
-    const { loading, posts } = this.props;
+    const { loading, posts, onSearchSubmit } = this.props;
     return (
       <Layout title="redditDev - the best of frontend development on Reddit">
-        <Header />
+        <Header onSearchSubmit={onSearchSubmit} />
         <Sidebar />
         <CardsContainer>
           {
