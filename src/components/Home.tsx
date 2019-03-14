@@ -4,11 +4,12 @@ import { constants, sizes } from '../styles/constants';
 
 import Card from './Card';
 import Header from './Header';
-import Layout from './Layout';
 import Loader from './Loader';
 import Sidebar from './Sidebar';
 
 import styled from 'styled-components';
+
+import { isAlreadyFavourite } from '../lib/utils';
 
 const CardsContainer = styled.main`
     -webkit-column-count: 4;
@@ -56,10 +57,19 @@ const CardsContainer = styled.main`
 
 class Home extends React.Component<IProps, IState> {
   render() {
-    const { loading, posts, onSearchSubmit } = this.props;
+    const {
+      loading,
+      posts,
+      favourites,
+      onSearchSubmit,
+      onAddNewFavourite,
+    } = this.props;
     return (
-      <Layout title="redditDev - the best of frontend development on Reddit">
-        <Header onSearchSubmit={onSearchSubmit} />
+      <React.Fragment>
+        <Header
+          onSearchSubmit={onSearchSubmit}
+          onAddNewFavourite={onAddNewFavourite}
+        />
         <Sidebar />
         <CardsContainer>
           {
@@ -76,12 +86,24 @@ class Home extends React.Component<IProps, IState> {
                     permalink={post.data.permalink}
                     num_comments={post.data.num_comments}
                     created_utc={post.data.created_utc}
+                    isFavourite={
+                      favourites.filter(
+                        isAlreadyFavourite({
+                          data: {
+                            title: post.data.title,
+                            created_utc: post.data.created_utc,
+                          },
+                        }),
+                      ).length >
+                        0
+                    }
+                    onAddToFavourites={this.props.onAddToFavourites}
                   />
                 ),
               )
           }
         </CardsContainer>
-      </Layout>
+      </React.Fragment>
     );
   }
 }

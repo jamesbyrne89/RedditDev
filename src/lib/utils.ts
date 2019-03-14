@@ -87,6 +87,15 @@ export function filterPostsCallback(searchTerm: string): any {
   };
 }
 
+interface PostToCheckType { data: { title: string, created_utc: number } }
+
+export function isAlreadyFavourite(postToCheck: Object): any {
+  return function(post: {}) {
+    return postToCheck.data.title === post.data.title &&
+      postToCheck.data.created_utc === post.data.created_utc;
+  };
+}
+
 export function sortByNewest(a: any, b: any): number {
   return b.data.created - a.data.created;
 }

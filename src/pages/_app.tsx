@@ -1,12 +1,16 @@
 import App, { Container } from 'next/app';
 import axios from 'axios';
 import { endpoints } from '../lib/subreddits';
-import { filterPostsCallback, sortByNewest } from '../lib/utils';
+import {
+  filterPostsCallback,
+  isAlreadyFavourite,
+  sortByNewest,
+} from '../lib/utils';
 
 interface Props { loading: boolean, posts: Array }
 
 class MyApp extends App<Props> {
-  state = { loading: true, posts: [] };
+  state = { loading: true, posts: [], favourites: [] };
   static async getInitialProps() {
     const data = await axios.all(
       Object.keys(endpoints).map(url => axios.get(endpoints[url])),
@@ -27,9 +31,17 @@ class MyApp extends App<Props> {
   }
 
   componentDidMount() {
-    this.setState({ loading: false, posts: this.props.posts });
-
     localStorage.setItem('reddit-posts', JSON.stringify(this.props.posts));
+    const cachedFavourites: Array<{}> = JSON.parse(
+      localStorage.getItem('favourite-reddit-posts'),
+    ) ||
+      [];
+
+    this.setState({
+      loading: false,
+      posts: this.props.posts,
+      favourites: cachedFavourites,
+    });
   }
 
   filterPosts = (searchTerm = '') => {
@@ -37,14 +49,46 @@ class MyApp extends App<Props> {
     this.setState({ posts: filtered });
   };
 
+  addToFavourites = postToAdd => {
+    if (
+      this.state.favourites.filter(isAlreadyFavourite(postToAdd)).length > 0
+    ) {
+      return this.removeFromFavourites(postToAdd);
+    }
+    const newFavouritesList = [ ...this.state.favourites, postToAdd ];
+    this.setState({ favourites: newFavouritesList }, () => {
+      localStorage.setItem(
+        'favourite-reddit-posts',
+        JSON.stringify(this.state.favourites),
+      );
+    });
+  };
+
+  removeFromFavourites = postToRemove => {
+    console.log('remove');
+    const newFavouritesList = this.state.favourites.filter(
+      fav =>
+        postToRemove.data.title !== fav.data.title &&
+          postToRemove.data.created_utc !== fav.data.created_utc,
+    );
+    this.setState({ favourites: newFavouritesList }, () => {
+      localStorage.setItem(
+        'favourite-reddit-posts',
+        JSON.stringify(this.state.favourites),
+      );
+    });
+  };
+
   render() {
-    const { Component, pageProps, posts } = this.props;
+    const { Component, pageProps } = this.props;
     return (
       <Container>
         <Component
           posts={this.state.posts}
           loading={this.state.loading}
           onSearchSubmit={this.filterPosts}
+          onAddToFavourites={this.addToFavourites}
+          favourites={this.state.favourites}
           {...pageProps}
         />
       </Container>

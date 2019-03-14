@@ -122,7 +122,7 @@ var endpoints = {
 /*!**********************!*\
   !*** ./lib/utils.ts ***!
   \**********************/
-/*! exports provided: mapSubsToColours, getHostname, numCommentsText, getTimeAgo, debounce, filterPostsCallback, sortByNewest */
+/*! exports provided: mapSubsToColours, getHostname, numCommentsText, getTimeAgo, debounce, filterPostsCallback, isAlreadyFavourite, sortByNewest */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -133,6 +133,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getTimeAgo", function() { return getTimeAgo; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "debounce", function() { return debounce; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "filterPostsCallback", function() { return filterPostsCallback; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isAlreadyFavourite", function() { return isAlreadyFavourite; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "sortByNewest", function() { return sortByNewest; });
 function mapSubsToColours(sub) {
   switch (sub.replace('r/', '').toLowerCase()) {
@@ -228,6 +229,11 @@ function filterPostsCallback(searchTerm) {
     return post.data.title.includes(searchTerm) || post.data.url.includes(searchTerm);
   };
 }
+function isAlreadyFavourite(postToCheck) {
+  return function (post) {
+    return postToCheck.data.title === post.data.title && postToCheck.data.created_utc === post.data.created_utc;
+  };
+}
 function sortByNewest(a, b) {
   return b.data.created - a.data.created;
 }
@@ -259,6 +265,12 @@ var _jsxFileName = "E:\\Users\\James\\Web Dev\\Projects\\RedditDev\\src\\pages\\
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
@@ -266,12 +278,6 @@ function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread n
 function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
 
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
-
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
-function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -316,7 +322,8 @@ function (_App) {
 
     _defineProperty(_assertThisInitialized(_this), "state", {
       loading: true,
-      posts: []
+      posts: [],
+      favourites: []
     });
 
     _defineProperty(_assertThisInitialized(_this), "filterPosts", function () {
@@ -329,39 +336,70 @@ function (_App) {
       });
     });
 
+    _defineProperty(_assertThisInitialized(_this), "addToFavourites", function (postToAdd) {
+      if (_this.state.favourites.filter(Object(_lib_utils__WEBPACK_IMPORTED_MODULE_5__["isAlreadyFavourite"])(postToAdd)).length > 0) {
+        return _this.removeFromFavourites(postToAdd);
+      }
+
+      var newFavouritesList = [].concat(_toConsumableArray(_this.state.favourites), [postToAdd]);
+
+      _this.setState({
+        favourites: newFavouritesList
+      }, function () {
+        localStorage.setItem('favourite-reddit-posts', JSON.stringify(_this.state.favourites));
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "removeFromFavourites", function (postToRemove) {
+      console.log('remove');
+
+      var newFavouritesList = _this.state.favourites.filter(function (fav) {
+        return postToRemove.data.title !== fav.data.title && postToRemove.data.created_utc !== fav.data.created_utc;
+      });
+
+      _this.setState({
+        favourites: newFavouritesList
+      }, function () {
+        localStorage.setItem('favourite-reddit-posts', JSON.stringify(_this.state.favourites));
+      });
+    });
+
     return _this;
   }
 
   _createClass(MyApp, [{
     key: "componentDidMount",
     value: function componentDidMount() {
+      localStorage.setItem('reddit-posts', JSON.stringify(this.props.posts));
+      var cachedFavourites = JSON.parse(localStorage.getItem('favourite-reddit-posts')) || [];
       this.setState({
         loading: false,
-        posts: this.props.posts
+        posts: this.props.posts,
+        favourites: cachedFavourites
       });
-      localStorage.setItem('reddit-posts', JSON.stringify(this.props.posts));
     }
   }, {
     key: "render",
     value: function render() {
       var _this$props = this.props,
           Component = _this$props.Component,
-          pageProps = _this$props.pageProps,
-          posts = _this$props.posts;
+          pageProps = _this$props.pageProps;
       return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(next_app__WEBPACK_IMPORTED_MODULE_2__["Container"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 43
+          lineNumber: 85
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Component, _extends({
         posts: this.state.posts,
         loading: this.state.loading,
-        onSearchSubmit: this.filterPosts
+        onSearchSubmit: this.filterPosts,
+        onAddToFavourites: this.addToFavourites,
+        favourites: this.state.favourites
       }, pageProps, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 44
+          lineNumber: 86
         },
         __self: this
       })));

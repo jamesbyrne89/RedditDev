@@ -137,7 +137,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 var StyledCard = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.article.withConfig({
   displayName: "Card__StyledCard",
   componentId: "sc-1rnehka-0"
-})(["margin:0 0 1.25em 0;width:100%;background:white;break-inside:avoid;overflow-wrap:break-word;padding:1em 0.75em;-webkit-transform:translateY(200px) scale(0.9);transform:translateY(200px) scale(0.9);opacity:0;-webkit-transition:opacity 1s ease-in-out 0s,-webkit-transform 0.7s cubic-bezier(0.165,0.84,0.44,1) 0s;transition:opacity 1s ease-in-out 0s,-webkit-transform 0.7s cubic-bezier(0.165,0.84,0.44,1) 0s;transition:transform 0.7s cubic-bezier(0.165,0.84,0.44,1) 0s,opacity 1s ease-in-out 0s;transition:transform 0.7s cubic-bezier(0.165,0.84,0.44,1) 0s,opacity 1s ease-in-out 0s,-webkit-transform 0.7s cubic-bezier(0.165,0.84,0.44,1) 0s;-webkit-column-break-inside:avoid;", ""], function (_ref) {
+})(["margin:0 0 1.25em 0;width:100%;background:white;break-inside:avoid;overflow-wrap:break-word;padding:1em 0.75em;-webkit-transform:translateY(200px) scale(0.9);transform:translateY(200px) scale(0.9);opacity:0;-webkit-transition:opacity 1s ease-in-out 0s,-webkit-transform 0.7s cubic-bezier(0.165,0.84,0.44,1) 0s;transition:opacity 1s ease-in-out 0s,-webkit-transform 0.7s cubic-bezier(0.165,0.84,0.44,1) 0s;transition:transform 0.7s cubic-bezier(0.165,0.84,0.44,1) 0s,opacity 1s ease-in-out 0s;transition:transform 0.7s cubic-bezier(0.165,0.84,0.44,1) 0s,opacity 1s ease-in-out 0s,-webkit-transform 0.7s cubic-bezier(0.165,0.84,0.44,1) 0s;-webkit-column-break-inside:avoid;", " .card-header{width:100%;display:flex;justify-content:space-between;}"], function (_ref) {
   var isAnimated = _ref.isAnimated;
   return isAnimated && "transform: translateY(0) scale(1);\n      opacity: 1;";
 });
@@ -155,9 +155,13 @@ var CardFooter = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.footer
   displayName: "Card__CardFooter",
   componentId: "sc-1rnehka-3"
 })(["font-weight:400;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-ms-flex-wrap:wrap;flex-wrap:wrap;font-size:0.75rem;letter-spacing:0.02em;color:", ";.post-comments{font-family:", ";display:block;text-align:left;white-space:nowrap;padding:0 0.75em;-webkit-transition:all 0.15s;transition:all 0.15s;a{-webkit-transition:all 0.15s;transition:all 0.15s;cursor:pointer;}a:hover{color:", " !important;padding-bottom:0.125em;border-bottom:solid 1px;-webkit-transition:all 0.1s;transition:all 0.1s;}}.post-comments,.short-url,.timestamp{padding:0 0.25em;}"], _styles_constants__WEBPACK_IMPORTED_MODULE_2__["constants"].text_grey_mid_two, _styles_constants__WEBPACK_IMPORTED_MODULE_2__["constants"].sansSerif, _styles_constants__WEBPACK_IMPORTED_MODULE_2__["constants"].nearBlack);
+var AddToFavouritesButton = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.button.withConfig({
+  displayName: "Card__AddToFavouritesButton",
+  componentId: "sc-1rnehka-4"
+})(["cursor:pointer;"]);
 var Bar = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.span.withConfig({
   displayName: "Card__Bar",
-  componentId: "sc-1rnehka-4"
+  componentId: "sc-1rnehka-5"
 })(["font-size:0.875em;"]);
 
 var Card =
@@ -192,6 +196,28 @@ function (_React$Component) {
       }
     });
 
+    _defineProperty(_assertThisInitialized(_this), "addToFavourites", function () {
+      var _this$props = _this.props,
+          subreddit_name_prefixed = _this$props.subName,
+          title = _this$props.title,
+          url = _this$props.url,
+          permalink = _this$props.permalink,
+          num_comments = _this$props.num_comments,
+          created_utc = _this$props.created_utc;
+      var postData = {
+        data: {
+          subreddit_name_prefixed: subreddit_name_prefixed,
+          title: title,
+          url: url,
+          permalink: permalink,
+          num_comments: num_comments,
+          created_utc: created_utc
+        }
+      };
+
+      _this.props.onAddToFavourites(postData);
+    });
+
     _defineProperty(_assertThisInitialized(_this), "onWindowScroll", Object(_lib_utils__WEBPACK_IMPORTED_MODULE_3__["debounce"])(function (e) {
       return _this.checkVisible(e);
     }, 150));
@@ -222,33 +248,134 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this$props = this.props,
-          subName = _this$props.subName,
-          title = _this$props.title,
-          url = _this$props.url,
-          permalink = _this$props.permalink,
-          num_comments = _this$props.num_comments,
-          created_utc = _this$props.created_utc;
+      var _this$props2 = this.props,
+          subName = _this$props2.subName,
+          title = _this$props2.title,
+          url = _this$props2.url,
+          permalink = _this$props2.permalink,
+          num_comments = _this$props2.num_comments,
+          created_utc = _this$props2.created_utc,
+          isFavourite = _this$props2.isFavourite;
       var isAnimated = this.state.isAnimated;
       return react__WEBPACK_IMPORTED_MODULE_0__["createElement"](StyledCard, {
         ref: this.cardRef,
         isAnimated: isAnimated,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 176
+          lineNumber: 211
+        },
+        __self: this
+      }, react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("header", {
+        className: "card-header",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 212
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0__["createElement"](SubRedditName, {
         colour: Object(_lib_utils__WEBPACK_IMPORTED_MODULE_3__["mapSubsToColours"])(subName),
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 177
+          lineNumber: 213
         },
         __self: this
-      }, subName), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](PostTitle, {
+      }, subName), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](AddToFavouritesButton, {
+        onClick: this.addToFavourites,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 180
+          lineNumber: 216
+        },
+        __self: this
+      }, isFavourite ? react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("svg", {
+        shapeRendering: "geometricPrecision",
+        textRendering: "geometricPrecision",
+        imageRendering: "optimizeQuality",
+        viewBox: "0 0 6.82666 8.533325000000001",
+        x: "0px",
+        y: "0px",
+        fillRule: "evenodd",
+        clipRule: "evenodd",
+        height: "20px",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 218
+        },
+        __self: this
+      }, react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("defs", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 229
+        },
+        __self: this
+      }), react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("g", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 229
+        },
+        __self: this
+      }, react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("path", {
+        d: "M3.41333 1.70208c0.371594,-0.557594 0.851559,-0.770898 1.29613,-0.740787 0.23215,0.0157244 0.453988,0.0985315 0.645429,0.234012 0.189815,0.134331 0.349358,0.320457 0.458709,0.544079 0.260024,0.531764 0.238177,1.276 -0.33728,2.03498l0.000397638 0.000299213c-0.00423228,0.00557874 -0.00890945,0.0106181 -0.013937,0.015122l-1.97276 2.0456 -0.0766654 -0.073752 0.0767795 0.0740472c-0.0408937,0.0424016 -0.108425,0.043626 -0.150827,0.00273228 -0.00284646,-0.00274409 -0.00550394,-0.00561417 -0.00797638,-0.00858268l-1.97295 -2.04576 -0.000208661 0.000200787c-0.00567323,-0.00588189 -0.0105315,-0.012252 -0.0145866,-0.0189646 -0.568776,-0.755831 -0.5895,-1.49626 -0.330512,-2.02591 0.109343,-0.223622 0.26889,-0.409748 0.458705,-0.544079 0.191441,-0.13548 0.41328,-0.218287 0.645425,-0.234012 0.444575,-0.0301142 0.924539,0.183193 1.29613,0.74078z",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 230
+        },
+        __self: this
+      })), react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("rect", {
+        fill: "none",
+        width: "6.82666",
+        height: "6.82666",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 233
+        },
+        __self: this
+      })) : react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("svg", {
+        shapeRendering: "geometricPrecision",
+        textRendering: "geometricPrecision",
+        imageRendering: "optimizeQuality",
+        viewBox: "0 0 6.82666 8.533325000000001",
+        x: "0px",
+        y: "0px",
+        fillRule: "evenodd",
+        clipRule: "evenodd",
+        height: "20px",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 236
+        },
+        __self: this
+      }, react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("defs", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 247
+        },
+        __self: this
+      }), react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("g", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 247
+        },
+        __self: this
+      }, react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("path", {
+        d: "M3.41333 1.70208c0.371594,-0.557594 0.851559,-0.770898 1.29613,-0.740787 0.23215,0.0157244 0.453988,0.0985315 0.645429,0.234012 0.189815,0.134331 0.349358,0.320457 0.458709,0.544079 0.260024,0.531764 0.238177,1.276 -0.33728,2.03498l0.000397638 0.000299213c-0.00423228,0.00557874 -0.00890945,0.0106181 -0.013937,0.015122l-1.97276 2.0456 -0.0766654 -0.073752 0.0767795 0.0740472c-0.0408937,0.0424016 -0.108425,0.043626 -0.150827,0.00273228 -0.00284646,-0.00274409 -0.00550394,-0.00561417 -0.00797638,-0.00858268l-1.97295 -2.04576 -0.000208661 0.000200787c-0.00567323,-0.00588189 -0.0105315,-0.012252 -0.0145866,-0.0189646 -0.568776,-0.755831 -0.5895,-1.49626 -0.330512,-2.02591 0.109343,-0.223622 0.26889,-0.409748 0.458705,-0.544079 0.191441,-0.13548 0.41328,-0.218287 0.645425,-0.234012 0.444575,-0.0301142 0.924539,0.183193 1.29613,0.74078zm1.28196 -0.528283c-0.405449,-0.0274606 -0.85111,0.194484 -1.18585,0.777067 -0.00905118,0.0188425 -0.0237126,0.0352283 -0.0432402,0.046374 -0.0511614,0.0291969 -0.116315,0.0113898 -0.145512,-0.0397717l0.0926417 -0.0528701 -0.0925 0.0525c-0.335138,-0.58726 -0.782563,-0.810854 -1.18947,-0.783291 -0.193067,0.0130748 -0.377673,0.0820236 -0.537087,0.194839 -0.161035,0.113961 -0.296795,0.272701 -0.390374,0.464079 -0.227772,0.465803 -0.203764,1.1245 0.311051,1.80721l1.89839 1.96845 1.89836 -1.96845c0.514811,-0.682709 0.538823,-1.34141 0.311051,-1.80722 -0.0935827,-0.191378 -0.229343,-0.350118 -0.390378,-0.464079 -0.159413,-0.112815 -0.34402,-0.181764 -0.537091,-0.194839z",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 248
+        },
+        __self: this
+      })), react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("rect", {
+        fill: "none",
+        width: "6.82666",
+        height: "6.82666",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 251
+        },
+        __self: this
+      })))), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](PostTitle, {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 256
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("a", {
@@ -256,46 +383,46 @@ function (_React$Component) {
         target: "blank",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 181
+          lineNumber: 257
         },
         __self: this
       }, title)), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](CardFooter, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 185
+          lineNumber: 261
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("span", {
         className: "short-url",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 186
+          lineNumber: 262
         },
         __self: this
       }, Object(_lib_utils__WEBPACK_IMPORTED_MODULE_3__["getHostname"])(url)), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](Bar, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 186
+          lineNumber: 262
         },
         __self: this
       }, "|"), react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("time", {
         className: "timestamp",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 187
+          lineNumber: 263
         },
         __self: this
       }, Object(_lib_utils__WEBPACK_IMPORTED_MODULE_3__["getTimeAgo"])(created_utc)), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](Bar, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 188
+          lineNumber: 264
         },
         __self: this
       }, "|"), react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("span", {
         className: "post-comments",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 189
+          lineNumber: 265
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("a", {
@@ -303,7 +430,7 @@ function (_React$Component) {
         target: "blank",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 190
+          lineNumber: 266
         },
         __self: this
       }, Object(_lib_utils__WEBPACK_IMPORTED_MODULE_3__["numCommentsText"])(num_comments)))));
@@ -430,11 +557,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _styles_constants__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../styles/constants */ "./styles/constants.ts");
 /* harmony import */ var _Card__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Card */ "./components/Card.tsx");
 /* harmony import */ var _Header__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Header */ "./components/Header.tsx");
-/* harmony import */ var _Layout__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Layout */ "./components/Layout.tsx");
-/* harmony import */ var _Loader__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Loader */ "./components/Loader.tsx");
-/* harmony import */ var _Sidebar__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Sidebar */ "./components/Sidebar.tsx");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! styled-components */ "styled-components");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _Loader__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Loader */ "./components/Loader.tsx");
+/* harmony import */ var _Sidebar__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Sidebar */ "./components/Sidebar.tsx");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! styled-components */ "styled-components");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _lib_utils__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../lib/utils */ "./lib/utils.ts");
 var _jsxFileName = "E:\\Users\\James\\Web Dev\\Projects\\RedditDev\\src\\components\\Home.tsx";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -463,7 +590,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
-var CardsContainer = styled_components__WEBPACK_IMPORTED_MODULE_7___default.a.main.withConfig({
+var CardsContainer = styled_components__WEBPACK_IMPORTED_MODULE_6___default.a.main.withConfig({
   displayName: "Home__CardsContainer",
   componentId: "sc-1lsv5zx-0"
 })(["-webkit-column-count:4;column-count:4;-webkit-column-gap:2.5em;column-gap:2.5em;border-top:solid 1px ", ";padding-top:1.25em;padding-bottom:1em;width:85%;margin:2rem auto;margin-left:calc(7.5% + 2rem);@media (max-width:", "px){column-gap:1.5rem;}@media (max-width:", "px){column-count:3;}@media (max-width:", "px){column-count:2;}@media (max-width:", "px){column-gap:1rem;width:90%;margin-left:calc(5% + 2rem);}@media (max-width:", "px){column-count:1;width:95%;margin-left:auto;}&::after{content:'';width:100%;position:fixed;height:40px;background:-webkit-gradient(linear,left top,left bottom,from(rgba(236,238,241,0.001)),to(white));background:linear-gradient(rgba(236,238,241,0.001),white);pointer-events:none;bottom:0;left:0;}"], _styles_constants__WEBPACK_IMPORTED_MODULE_1__["constants"].text_grey_mid_two, _styles_constants__WEBPACK_IMPORTED_MODULE_1__["sizes"].desktop_lg, _styles_constants__WEBPACK_IMPORTED_MODULE_1__["sizes"].desktop_md, _styles_constants__WEBPACK_IMPORTED_MODULE_1__["sizes"].desktop_sm, _styles_constants__WEBPACK_IMPORTED_MODULE_1__["sizes"].tablet, _styles_constants__WEBPACK_IMPORTED_MODULE_1__["sizes"].mobile);
@@ -482,40 +609,44 @@ function (_React$Component) {
   _createClass(Home, [{
     key: "render",
     value: function render() {
+      var _this = this;
+
       var _this$props = this.props,
           loading = _this$props.loading,
           posts = _this$props.posts,
-          onSearchSubmit = _this$props.onSearchSubmit;
-      return react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_Layout__WEBPACK_IMPORTED_MODULE_4__["default"], {
-        title: "redditDev - the best of frontend development on Reddit",
+          favourites = _this$props.favourites,
+          onSearchSubmit = _this$props.onSearchSubmit,
+          onAddNewFavourite = _this$props.onAddNewFavourite;
+      return react__WEBPACK_IMPORTED_MODULE_0__["createElement"](react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 61
+          lineNumber: 68
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_Header__WEBPACK_IMPORTED_MODULE_3__["default"], {
         onSearchSubmit: onSearchSubmit,
+        onAddNewFavourite: onAddNewFavourite,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 62
+          lineNumber: 69
         },
         __self: this
-      }), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_Sidebar__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      }), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_Sidebar__WEBPACK_IMPORTED_MODULE_5__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 63
+          lineNumber: 73
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](CardsContainer, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 64
+          lineNumber: 74
         },
         __self: this
-      }, loading ? react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_Loader__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      }, loading ? react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_Loader__WEBPACK_IMPORTED_MODULE_4__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 67
+          lineNumber: 77
         },
         __self: this
       }) : posts.map(function (post) {
@@ -528,9 +659,16 @@ function (_React$Component) {
           permalink: post.data.permalink,
           num_comments: post.data.num_comments,
           created_utc: post.data.created_utc,
+          isFavourite: favourites.filter(Object(_lib_utils__WEBPACK_IMPORTED_MODULE_7__["isAlreadyFavourite"])({
+            data: {
+              title: post.data.title,
+              created_utc: post.data.created_utc
+            }
+          })).length > 0,
+          onAddToFavourites: _this.props.onAddToFavourites,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 70
+            lineNumber: 80
           },
           __self: this
         });
@@ -946,7 +1084,7 @@ var Sidebar = function Sidebar() {
 /*!**********************!*\
   !*** ./lib/utils.ts ***!
   \**********************/
-/*! exports provided: mapSubsToColours, getHostname, numCommentsText, getTimeAgo, debounce, filterPostsCallback, sortByNewest */
+/*! exports provided: mapSubsToColours, getHostname, numCommentsText, getTimeAgo, debounce, filterPostsCallback, isAlreadyFavourite, sortByNewest */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -957,6 +1095,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getTimeAgo", function() { return getTimeAgo; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "debounce", function() { return debounce; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "filterPostsCallback", function() { return filterPostsCallback; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isAlreadyFavourite", function() { return isAlreadyFavourite; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "sortByNewest", function() { return sortByNewest; });
 function mapSubsToColours(sub) {
   switch (sub.replace('r/', '').toLowerCase()) {
@@ -1052,6 +1191,11 @@ function filterPostsCallback(searchTerm) {
     return post.data.title.includes(searchTerm) || post.data.url.includes(searchTerm);
   };
 }
+function isAlreadyFavourite(postToCheck) {
+  return function (post) {
+    return postToCheck.data.title === post.data.title && postToCheck.data.created_utc === post.data.created_utc;
+  };
+}
 function sortByNewest(a, b) {
   return b.data.created - a.data.created;
 }
@@ -1070,6 +1214,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_Home__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Home */ "./components/Home.tsx");
+/* harmony import */ var _components_Layout__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/Layout */ "./components/Layout.tsx");
 var _jsxFileName = "E:\\Users\\James\\Web Dev\\Projects\\RedditDev\\src\\pages\\index.tsx";
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
@@ -1077,14 +1222,22 @@ function _extends() { _extends = Object.assign || function (target) { for (var i
 
 
 
+
 var IndexPage = function IndexPage(props) {
-  return react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_components_Home__WEBPACK_IMPORTED_MODULE_1__["default"], _extends({}, props, {
+  return react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_components_Layout__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    title: "RedditDev - home",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 5
+      lineNumber: 6
     },
     __self: this
-  }));
+  }, react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_components_Home__WEBPACK_IMPORTED_MODULE_1__["default"], _extends({}, props, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 6
+    },
+    __self: this
+  })));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (IndexPage);
