@@ -73,6 +73,44 @@ const StyledHeaderDescription = styled.h2`
   margin-left: 1rem;
 `;
 
+const StyledNavItem = styled.li`
+  display: flex;
+  align-items: center;
+  margin-left: -2px;
+  padding: 0 1em;
+  position: relative;
+  font-weight: bold;
+  a,
+  button {
+    display: flex;
+    align-items: center;
+    position: relative;
+    background: none;
+    border: 0;
+    cursor: pointer;
+    transition: all 0.2s ease-out;
+    &:hover {
+  text-decoration: underline;
+    }
+
+  }
+  &:before, &:after {
+      content: '';
+      width: 2px;
+      background: ${constants.text_grey_mid_two};
+      height: 100%;
+      left: 0;
+      position: absolute;
+      transform: skew(-20deg);
+      top: 0;
+      bottom: 0;
+    }
+    &:after {
+      left: auto;
+      right: 0;
+    }
+`;
+
 interface Props { onSearchSubmit?: Function }
 
 const Header: React.FunctionComponent<Props> = props => (
@@ -86,8 +124,14 @@ const Header: React.FunctionComponent<Props> = props => (
           The best of frontend web development on Reddit
         </StyledHeaderDescription>
       </div>
-      <Link href="./favourites"><a>Favourites</a></Link>
-      <Search onSearchSubmit={props.onSearchSubmit} />
+      <ul style={{ display: 'flex' }}>
+        <StyledNavItem>
+          <Link href="./favourites"><a>Favourites</a></Link>
+        </StyledNavItem>
+        <StyledNavItem>
+          <Search onSearchSubmit={props.onSearchSubmit} />
+        </StyledNavItem>
+      </ul>
     </StyledMasthead>
   </StyledHeader>
 );

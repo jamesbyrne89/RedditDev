@@ -78,6 +78,8 @@ const SearchInput = styled.input`
 display: block;
 font-size: 1rem;
 padding: 0.25em;
+border: none;
+height: 3em;
 `;
 
 interface Props { onSearchSubmit: Function }

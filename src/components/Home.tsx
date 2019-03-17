@@ -79,8 +79,8 @@ class Home extends React.Component<IProps, IState> {
                 (post: object): any => (
                   <Card
                     key={post.data.id}
+                    id={post.data.id}
                     subName={post.data.subreddit_name_prefixed}
-                    postData={post.data}
                     title={post.data.title}
                     url={post.data.url}
                     permalink={post.data.permalink}

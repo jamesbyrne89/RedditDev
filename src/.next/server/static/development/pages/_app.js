@@ -351,8 +351,6 @@ function (_App) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "removeFromFavourites", function (postToRemove) {
-      console.log('remove');
-
       var newFavouritesList = _this.state.favourites.filter(function (fav) {
         return postToRemove.data.title !== fav.data.title && postToRemove.data.created_utc !== fav.data.created_utc;
       });
@@ -387,7 +385,7 @@ function (_App) {
       return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(next_app__WEBPACK_IMPORTED_MODULE_2__["Container"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 85
+          lineNumber: 96
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Component, _extends({
@@ -399,7 +397,7 @@ function (_App) {
       }, pageProps, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 86
+          lineNumber: 97
         },
         __self: this
       })));

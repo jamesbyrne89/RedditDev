@@ -184,6 +184,7 @@ class Card extends React.Component<Props, State> {
       permalink,
       num_comments,
       created_utc,
+      id,
     } = this.props;
     const postData = {
       data: {
@@ -193,6 +194,7 @@ class Card extends React.Component<Props, State> {
         permalink,
         num_comments,
         created_utc,
+        id,
       },
     };
 

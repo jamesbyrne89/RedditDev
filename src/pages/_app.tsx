@@ -9,6 +9,18 @@ import {
 
 interface Props { loading: boolean, posts: Array }
 
+interface IPostToRemove {
+  data: {
+    created_utc: number,
+    id: string,
+    num_comments: number,
+    permalink: string,
+    subreddit_name_prefixed: string,
+    title: string,
+    url: string,
+  },
+}
+
 class MyApp extends App<Props> {
   state = { loading: true, posts: [], favourites: [] };
   static async getInitialProps() {
@@ -64,8 +76,7 @@ class MyApp extends App<Props> {
     });
   };
 
-  removeFromFavourites = postToRemove => {
-    console.log('remove');
+  removeFromFavourites = (postToRemove: IPostToRemove) => {
     const newFavouritesList = this.state.favourites.filter(
       fav =>
         postToRemove.data.title !== fav.data.title &&
