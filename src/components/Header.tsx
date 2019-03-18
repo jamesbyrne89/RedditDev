@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Search from '../components/Search';
-import { constants } from '../styles/constants';
+import { constants } from './styles/constants';
 import styled from 'styled-components';
 
 const StyledHeader = styled.header`

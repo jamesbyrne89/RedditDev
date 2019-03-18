@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { constants, sizes } from '../styles/constants';
+import { constants, sizes } from './styles/constants';
 
 import Card from './Card';
 import Header from './Header';
