@@ -202,7 +202,7 @@ function (_Document) {
         rel: "icon",
         type: "image/png",
         sizes: "32x32",
-        href: "/assets/favicon-32x32.png",
+        href: "/images/favicon-32x32.png",
         __source: {
           fileName: _jsxFileName,
           lineNumber: 41
@@ -212,7 +212,7 @@ function (_Document) {
         rel: "icon",
         type: "image/png",
         sizes: "16x16",
-        href: "/assets/favicon-16x16.png",
+        href: "/images/favicon-16x16.png",
         __source: {
           fileName: _jsxFileName,
           lineNumber: 48
