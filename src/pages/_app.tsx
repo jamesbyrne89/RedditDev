@@ -22,7 +22,13 @@ interface IPostToRemove {
 }
 
 class MyApp extends App<Props> {
-  state = { loading: true, posts: [], favourites: [] };
+  state = {
+    loading: true,
+    posts: [],
+    filteredPosts: [],
+    isFiltered: false,
+    favourites: [],
+  };
   static async getInitialProps() {
     const data = await axios.all(
       Object.keys(endpoints).map(url => axios.get(endpoints[url])),
@@ -57,8 +63,19 @@ class MyApp extends App<Props> {
   }
 
   filterPosts = (searchTerm = '') => {
+    if (!searchTerm) {
+      return this.setState({
+        filteredPosts: this.state.posts,
+        isFiltered: false,
+      });
+    }
+    this.setState({ loading: true });
     const filtered = this.state.posts.filter(filterPostsCallback(searchTerm));
-    this.setState({ posts: filtered });
+    this.setState({
+      filteredPosts: filtered,
+      loading: false,
+      isFiltered: true,
+    });
   };
 
   addToFavourites = postToAdd => {
@@ -91,11 +108,12 @@ class MyApp extends App<Props> {
   };
 
   render() {
+    const { posts, filteredPosts, isFiltered } = this.state;
     const { Component, pageProps } = this.props;
     return (
       <Container>
         <Component
-          posts={this.state.posts}
+          posts={isFiltered ? filteredPosts : posts}
           loading={this.state.loading}
           onSearchSubmit={this.filterPosts}
           onAddToFavourites={this.addToFavourites}

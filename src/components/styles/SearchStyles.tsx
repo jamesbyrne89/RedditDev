@@ -1,17 +1,33 @@
 import styled from 'styled-components';
 import { constants } from '../styles/constants';
 
-const SearchStyles = styled.form`
-.search--opened {
-  width: 50%;
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
+const SearchStyles = styled.div`
+  width: 300px;
+  position: relative;
+
+.search__input {
+  display: block;
+  font-size: 1rem;
+  padding: 0.25em;
+  border: none;
+  height: 2.75em;
+  background: ${constants.background_grey};
+  border-radius: 6px;
+  width: 100%;
+  padding-left: 3em;
+  font-family: ${constants.sansSerif}
+  &:focus {
+    &::placeholder {
+      opacity: 0;
+    }
+  }
 }
 
-.search-wrapper {
-  display: none;
-  -webkit-transition: cubic-bezier(0.165, 0.84, 0.44, 1);
-  transition: cubic-bezier(0.165, 0.84, 0.44, 1);
+.search__icon {
+  position: absolute;
+  top: 0.575em;
+  left: 0.65em;
+  height: 2em;
 }
 
 .search__close-btn {
@@ -69,13 +85,6 @@ const SearchStyles = styled.form`
   -webkit-transition: all 0.15s;
   transition: all 0.15s;
 }
-
-input {
-    display: block;
-    font-size: 1rem;
-    padding: 0.25em;
-    border: none;
-    height: 3em;
-}`;
+`;
 
 export default SearchStyles;

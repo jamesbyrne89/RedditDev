@@ -92,7 +92,7 @@ export const StyledNavItem = styled.li`
     }
 
   }
-  &:before, &:after {
+  /* &:before, &:after {
       content: '';
       width: 2px;
       background: ${constants.text_grey_mid_two};
@@ -106,5 +106,5 @@ export const StyledNavItem = styled.li`
     &:after {
       left: auto;
       right: 0;
-    }
+    } */
 `;

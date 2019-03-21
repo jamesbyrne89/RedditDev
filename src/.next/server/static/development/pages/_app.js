@@ -323,16 +323,31 @@ function (_App) {
     _defineProperty(_assertThisInitialized(_this), "state", {
       loading: true,
       posts: [],
+      filteredPosts: [],
+      isFiltered: false,
       favourites: []
     });
 
     _defineProperty(_assertThisInitialized(_this), "filterPosts", function () {
       var searchTerm = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
 
+      if (!searchTerm) {
+        return _this.setState({
+          filteredPosts: _this.state.posts,
+          isFiltered: false
+        });
+      }
+
+      _this.setState({
+        loading: true
+      });
+
       var filtered = _this.state.posts.filter(Object(_lib_utils__WEBPACK_IMPORTED_MODULE_5__["filterPostsCallback"])(searchTerm));
 
       _this.setState({
-        posts: filtered
+        filteredPosts: filtered,
+        loading: false,
+        isFiltered: true
       });
     });
 
@@ -379,17 +394,21 @@ function (_App) {
   }, {
     key: "render",
     value: function render() {
+      var _this$state = this.state,
+          posts = _this$state.posts,
+          filteredPosts = _this$state.filteredPosts,
+          isFiltered = _this$state.isFiltered;
       var _this$props = this.props,
           Component = _this$props.Component,
           pageProps = _this$props.pageProps;
       return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(next_app__WEBPACK_IMPORTED_MODULE_2__["Container"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 96
+          lineNumber: 114
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Component, _extends({
-        posts: this.state.posts,
+        posts: isFiltered ? filteredPosts : posts,
         loading: this.state.loading,
         onSearchSubmit: this.filterPosts,
         onAddToFavourites: this.addToFavourites,
@@ -397,7 +416,7 @@ function (_App) {
       }, pageProps, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 97
+          lineNumber: 115
         },
         __self: this
       })));
