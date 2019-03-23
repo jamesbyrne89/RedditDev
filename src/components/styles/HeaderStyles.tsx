@@ -19,10 +19,6 @@ export const StyledHeader = styled.header`
   -webkit-box-shadow: 0 0 0 1px ${constants.text_grey_mid_two};
   box-shadow: 0 0 0 1px ${constants.text_grey_mid_two};
   grid-area: header;
-  a:hover {
-    text-transform: none;
-    border-bottom: 0;
-  }
   .header__title-wrapper {
     display: flex;
     align-items: baseline;
@@ -87,8 +83,13 @@ export const StyledNavItem = styled.li`
     border: 0;
     cursor: pointer;
     transition: all 0.2s ease-out;
+    padding: 0 1em;
+    line-height: 2.4;
+    border: solid 2px ${constants.nearBlack};
     &:hover {
-  text-decoration: underline;
+ /* // text-decoration: underline; */
+    color: white;
+    background: ${constants.nearBlack};
     }
 
   }

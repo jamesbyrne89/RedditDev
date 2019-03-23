@@ -1015,7 +1015,7 @@ __webpack_require__.r(__webpack_exports__);
 var StyledHeader = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].header.withConfig({
   displayName: "HeaderStyles__StyledHeader",
   componentId: "fr55j3-0"
-})(["z-index:350;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;width:100%;height:140px;background:#fff;-webkit-box-shadow:0 0 0 1px ", ";box-shadow:0 0 0 1px ", ";grid-area:header;a:hover{text-transform:none;border-bottom:0;}.header__title-wrapper{display:flex;align-items:baseline;}"], _constants__WEBPACK_IMPORTED_MODULE_0__["constants"].text_grey_mid_two, _constants__WEBPACK_IMPORTED_MODULE_0__["constants"].text_grey_mid_two);
+})(["z-index:350;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;width:100%;height:140px;background:#fff;-webkit-box-shadow:0 0 0 1px ", ";box-shadow:0 0 0 1px ", ";grid-area:header;.header__title-wrapper{display:flex;align-items:baseline;}"], _constants__WEBPACK_IMPORTED_MODULE_0__["constants"].text_grey_mid_two, _constants__WEBPACK_IMPORTED_MODULE_0__["constants"].text_grey_mid_two);
 var StyledMasthead = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div.withConfig({
   displayName: "HeaderStyles__StyledMasthead",
   componentId: "fr55j3-1"
@@ -1031,7 +1031,7 @@ var StyledHeaderDescription = styled_components__WEBPACK_IMPORTED_MODULE_1__["de
 var StyledNavItem = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].li.withConfig({
   displayName: "HeaderStyles__StyledNavItem",
   componentId: "fr55j3-4"
-})(["display:flex;align-items:center;margin-left:-2px;padding:0 1em;position:relative;font-weight:bold;a,button{display:flex;align-items:center;position:relative;background:none;border:0;cursor:pointer;transition:all 0.2s ease-out;&:hover{text-decoration:underline;}}"]);
+})(["display:flex;align-items:center;margin-left:-2px;padding:0 1em;position:relative;font-weight:bold;a,button{display:flex;align-items:center;position:relative;background:none;border:0;cursor:pointer;transition:all 0.2s ease-out;padding:0 1em;line-height:2.4;border:solid 2px ", ";&:hover{color:white;background:", ";}}"], _constants__WEBPACK_IMPORTED_MODULE_0__["constants"].nearBlack, _constants__WEBPACK_IMPORTED_MODULE_0__["constants"].nearBlack);
 
 /***/ }),
 
