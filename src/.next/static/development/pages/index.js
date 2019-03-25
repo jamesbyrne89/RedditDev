@@ -1000,7 +1000,7 @@ var StyledHeader = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].hea
 var StyledMasthead = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div.withConfig({
   displayName: "HeaderStyles__StyledMasthead",
   componentId: "fr55j3-1"
-})(["display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;-webkit-box-align:end;-ms-flex-align:end;align-items:flex-end;padding:0.25em 0;width:85%;height:auto;margin:0 auto;"]);
+})(["display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;-webkit-box-align:end;-ms-flex-align:end;align-items:flex-end;padding:0.25em 0;width:85%;height:auto;margin:0 auto 0 10%;"]);
 var StyledHeaderTitle = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].h1.withConfig({
   displayName: "HeaderStyles__StyledHeaderTitle",
   componentId: "fr55j3-2"
@@ -1012,7 +1012,7 @@ var StyledHeaderDescription = styled_components__WEBPACK_IMPORTED_MODULE_1__["de
 var StyledNavItem = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].li.withConfig({
   displayName: "HeaderStyles__StyledNavItem",
   componentId: "fr55j3-4"
-})(["display:flex;align-items:center;margin-left:-2px;padding:0 1em;position:relative;font-weight:bold;a,button{display:flex;align-items:center;position:relative;background:none;border:0;cursor:pointer;transition:all 0.2s ease-out;padding:0 1em;line-height:2.4;border:solid 2px ", ";&:hover{color:white;background:", ";}}"], _constants__WEBPACK_IMPORTED_MODULE_0__["constants"].nearBlack, _constants__WEBPACK_IMPORTED_MODULE_0__["constants"].nearBlack);
+})(["display:flex;align-items:center;margin-left:-2px;padding-left:1em;position:relative;font-weight:bold;a,button{display:flex;align-items:center;position:relative;background:none;border:0;cursor:pointer;transition:all 0.2s ease-out;padding:0 1em;line-height:2.4;border:solid 2px ", ";&:hover{color:white;background:", ";}}"], _constants__WEBPACK_IMPORTED_MODULE_0__["constants"].nearBlack, _constants__WEBPACK_IMPORTED_MODULE_0__["constants"].nearBlack);
 
 /***/ }),
 
@@ -15433,7 +15433,7 @@ var IndexPage = function IndexPage(props) {
 
 /***/ }),
 
-/***/ 3:
+/***/ 4:
 /*!*******************************!*\
   !*** multi ./pages/index.tsx ***!
   \*******************************/
@@ -15458,5 +15458,5 @@ module.exports = dll_088020044fcad06258c8;
 
 /***/ })
 
-},[[3,"static/runtime/webpack.js"]]]));;
+},[[4,"static/runtime/webpack.js"]]]));;
 //# sourceMappingURL=index.js.map

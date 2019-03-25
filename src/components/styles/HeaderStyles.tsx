@@ -38,7 +38,7 @@ export const StyledMasthead = styled.div`
   padding: 0.25em 0;
   width: 85%;
   height: auto;
-  margin: 0 auto;
+  margin: 0 auto 0 10%;
 `;
 
 export const StyledHeaderTitle = styled.h1`
@@ -71,7 +71,7 @@ export const StyledNavItem = styled.li`
   display: flex;
   align-items: center;
   margin-left: -2px;
-  padding: 0 1em;
+  padding-left: 1em;
   position: relative;
   font-weight: bold;
   a,

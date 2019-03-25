@@ -11,11 +11,11 @@
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],
-    "/index": [
+    "/favourites": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],
-    "/favourites": [
+    "/index": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],
