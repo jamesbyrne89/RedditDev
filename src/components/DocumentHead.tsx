@@ -5,6 +5,7 @@ type Props = { title: string };
 
 const DocumentHead: React.FunctionComponent<Props> = ({ title }) => (
   <Head>
+    <link rel="stylesheet" type="text/css" href="/static/nprogress.css" />
     <title>{title}</title>
   </Head>
 );

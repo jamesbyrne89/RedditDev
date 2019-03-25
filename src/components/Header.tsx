@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import Router from 'next/router';
+import NProgress from 'nprogress';
 import Search from '../components/Search';
 import {
   StyledHeader,
@@ -7,6 +9,22 @@ import {
   StyledHeaderDescription,
   StyledNavItem,
 } from './styles/HeaderStyles';
+
+const onRouteChangeStart = () => {
+  NProgress.start();
+};
+
+const onRouteChangeComplete = () => {
+  NProgress.done();
+};
+
+const onRouteChangeError = () => {
+  console.log('routeChangeError');
+};
+
+Router.events.on('routeChangeStart', onRouteChangeStart);
+Router.events.on('routeChangeComplete', onRouteChangeComplete);
+Router.events.on('routeChangeError', onRouteChangeError);
 
 interface Props { onSearchSubmit?: Function }
 

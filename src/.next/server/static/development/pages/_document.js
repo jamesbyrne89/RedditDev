@@ -192,7 +192,7 @@ function (_Document) {
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("link", {
         rel: "apple-touch-icon",
         sizes: "180x180",
-        href: "/apple-touch-icon.png",
+        href: "/static/apple-touch-icon.png",
         __source: {
           fileName: _jsxFileName,
           lineNumber: 35
@@ -202,7 +202,7 @@ function (_Document) {
         rel: "icon",
         type: "image/png",
         sizes: "32x32",
-        href: "/images/favicon-32x32.png",
+        href: "/static/images/favicon-32x32.png",
         __source: {
           fileName: _jsxFileName,
           lineNumber: 41
@@ -212,28 +212,37 @@ function (_Document) {
         rel: "icon",
         type: "image/png",
         sizes: "16x16",
-        href: "/images/favicon-16x16.png",
+        href: "/static/images/favicon-16x16.png",
         __source: {
           fileName: _jsxFileName,
           lineNumber: 48
         },
         __self: this
-      }), this.props.styleTags), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("body", {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("link", {
+        rel: "stylesheet",
+        type: "text/css",
+        href: "/static/nprogress.css",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 57
+          lineNumber: 55
         },
         __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_document__WEBPACK_IMPORTED_MODULE_1__["Main"], {
+      }), this.props.styleTags), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("body", {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 58
         },
         __self: this
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_document__WEBPACK_IMPORTED_MODULE_1__["NextScript"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_document__WEBPACK_IMPORTED_MODULE_1__["Main"], {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 59
+        },
+        __self: this
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_document__WEBPACK_IMPORTED_MODULE_1__["NextScript"], {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 60
         },
         __self: this
       })));
