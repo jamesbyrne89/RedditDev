@@ -1,0 +1,75 @@
+{
+  "modules": {
+    "byIdentifier": {
+      "external \"react\"": 0,
+      "../../../../Web Dev\\Projects\\RedditDev\\src\\node_modules\\next\\dist\\build\\webpack\\loaders\\next-babel-loader.js??ref--5!../../../../Web Dev\\Projects\\RedditDev\\src\\components\\styles\\constants.ts": 1,
+      "external \"styled-components\"": 2,
+      "../../../../Web Dev\\Projects\\RedditDev\\src\\node_modules\\next\\dist\\build\\webpack\\loaders\\next-babel-loader.js??ref--5!../../../../Web Dev\\Projects\\RedditDev\\src\\lib\\utils.ts": 3,
+      "external \"next/router\"": 4,
+      "external \"next/link\"": 5,
+      "external \"nprogress\"": 6,
+      "external \"next/head\"": 7,
+      "../../../../Web Dev\\Projects\\RedditDev\\src\\node_modules\\next\\dist\\build\\webpack\\loaders\\next-babel-loader.js??ref--5!../../../../Web Dev\\Projects\\RedditDev\\src\\components\\Home.tsx 8a8d306c7a7cd1afb66883251d7a9165": 8,
+      "../../../../Web Dev\\Projects\\RedditDev\\src\\node_modules\\next\\dist\\build\\webpack\\loaders\\next-babel-loader.js??ref--5!../../../../Web Dev\\Projects\\RedditDev\\src\\components\\Layout.tsx 5ba48235c92e0d7ac637e8104e4cdefc": 9,
+      "external \"next/document\"": 10,
+      "external \"@babel/runtime/regenerator\"": 11,
+      "external \"next/app\"": 12,
+      "external \"axios\"": 13,
+      "multi ./pages/_app.tsx": 14,
+      "multi ./pages/_document.tsx": 15,
+      "../../../../Web Dev\\Projects\\RedditDev\\src\\node_modules\\next\\dist\\build\\webpack\\loaders\\next-babel-loader.js??ref--5!../../../../Web Dev\\Projects\\RedditDev\\src\\pages\\_document.tsx": 16,
+      "multi ./pages/favourites.tsx": 17,
+      "../../../../Web Dev\\Projects\\RedditDev\\src\\node_modules\\next\\dist\\build\\webpack\\loaders\\next-babel-loader.js??ref--5!../../../../Web Dev\\Projects\\RedditDev\\src\\pages\\favourites.tsx": 18,
+      "multi ./pages/index.tsx": 19,
+      "../../../../Web Dev\\Projects\\RedditDev\\src\\node_modules\\next\\dist\\build\\webpack\\loaders\\next-babel-loader.js??ref--5!../../../../Web Dev\\Projects\\RedditDev\\src\\pages\\index.tsx": 20,
+      "multi ../../../../Web Dev\\Projects\\RedditDev\\src\\node_modules\\next\\dist\\pages\\_error.js": 21,
+      "../../../../Web Dev\\Projects\\RedditDev\\src\\node_modules\\next\\dist\\pages\\_error.js": 22,
+      "external \"next/error\"": 23,
+      "../../../../Web Dev\\Projects\\RedditDev\\src\\node_modules\\next\\dist\\build\\webpack\\loaders\\next-babel-loader.js??ref--5!../../../../Web Dev\\Projects\\RedditDev\\src\\pages\\_app.tsx 9cd176eeb56f33225a83dd94788fc420": 24
+    },
+    "usedIds": {
+      "0": 0,
+      "1": 1,
+      "2": 2,
+      "3": 3,
+      "4": 4,
+      "5": 5,
+      "6": 6,
+      "7": 7,
+      "8": 8,
+      "9": 9,
+      "10": 10,
+      "11": 11,
+      "12": 12,
+      "13": 13,
+      "14": 14,
+      "15": 15,
+      "16": 16,
+      "17": 17,
+      "18": 18,
+      "19": 19,
+      "20": 20,
+      "21": 21,
+      "22": 22,
+      "23": 23,
+      "24": 24
+    }
+  },
+  "chunks": {
+    "byName": {
+      "static\\JIXGPmq7nNcy0PG7zxQIT\\pages\\_app.js": 0,
+      "static\\JIXGPmq7nNcy0PG7zxQIT\\pages\\_document.js": 1,
+      "static\\JIXGPmq7nNcy0PG7zxQIT\\pages\\favourites.js": 2,
+      "static\\JIXGPmq7nNcy0PG7zxQIT\\pages\\index.js": 3,
+      "static\\JIXGPmq7nNcy0PG7zxQIT\\pages\\_error.js": 4
+    },
+    "bySource": {},
+    "usedIds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ]
+  }
+}
