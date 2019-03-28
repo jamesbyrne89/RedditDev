@@ -657,25 +657,25 @@ function (_React$Component) {
       return react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 13
+          lineNumber: 11
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_styles_GlobalStyles__WEBPACK_IMPORTED_MODULE_2__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 14
+          lineNumber: 12
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](next_head__WEBPACK_IMPORTED_MODULE_1___default.a, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 15
+          lineNumber: 13
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("title", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 15
+          lineNumber: 13
         },
         __self: this
       }, title)), children);

@@ -2,11 +2,9 @@ import * as React from 'react';
 import Head from 'next/head';
 import GlobalStyles from './styles/GlobalStyles';
 
-interface IProps {}
+interface IProps { title: string }
 
-interface IState { posts: Array<object>, loading: boolean }
-
-class Layout extends React.Component<Props> {
+class Layout extends React.Component<IProps> {
   render() {
     const { children, title = 'redditDev' } = this.props;
     return (

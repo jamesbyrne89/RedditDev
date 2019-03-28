@@ -1,9 +1,4 @@
 const withTypescript = require('@zeit/next-typescript');
-module.exports = (() => {
-  withTypescript();
-  return {
-    exportPathMap: function() {
-      return { '/': { page: '/' } };
-    },
-  };
-})();
+const assetPrefix = process.env.NODE_ENV === 'production' ? '/RedditDev' : '';
+
+module.exports = withTypescript({ assetPrefix });
