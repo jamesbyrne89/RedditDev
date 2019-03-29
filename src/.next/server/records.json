@@ -5,8 +5,8 @@
       "../../../../Web Dev\\Projects\\RedditDev\\src\\node_modules\\next\\dist\\build\\webpack\\loaders\\next-babel-loader.js??ref--5!../../../../Web Dev\\Projects\\RedditDev\\src\\components\\styles\\constants.ts": 1,
       "external \"styled-components\"": 2,
       "../../../../Web Dev\\Projects\\RedditDev\\src\\node_modules\\next\\dist\\build\\webpack\\loaders\\next-babel-loader.js??ref--5!../../../../Web Dev\\Projects\\RedditDev\\src\\lib\\utils.ts": 3,
-      "external \"next/router\"": 4,
-      "external \"next/link\"": 5,
+      "external \"next/link\"": 4,
+      "external \"next/router\"": 5,
       "external \"nprogress\"": 6,
       "external \"next/head\"": 7,
       "../../../../Web Dev\\Projects\\RedditDev\\src\\node_modules\\next\\dist\\build\\webpack\\loaders\\next-babel-loader.js??ref--5!../../../../Web Dev\\Projects\\RedditDev\\src\\components\\Home.tsx 8a8d306c7a7cd1afb66883251d7a9165": 8,
@@ -57,11 +57,11 @@
   },
   "chunks": {
     "byName": {
-      "static\\7afFUliccYlgw2iBK7Zxm\\pages\\_app.js": 0,
-      "static\\7afFUliccYlgw2iBK7Zxm\\pages\\_document.js": 1,
-      "static\\7afFUliccYlgw2iBK7Zxm\\pages\\favourites.js": 2,
-      "static\\7afFUliccYlgw2iBK7Zxm\\pages\\index.js": 3,
-      "static\\7afFUliccYlgw2iBK7Zxm\\pages\\_error.js": 4
+      "static\\jEaTQDYZ9_5SrUPhmd9Jk\\pages\\_app.js": 0,
+      "static\\jEaTQDYZ9_5SrUPhmd9Jk\\pages\\_document.js": 1,
+      "static\\jEaTQDYZ9_5SrUPhmd9Jk\\pages\\favourites.js": 2,
+      "static\\jEaTQDYZ9_5SrUPhmd9Jk\\pages\\index.js": 3,
+      "static\\jEaTQDYZ9_5SrUPhmd9Jk\\pages\\_error.js": 4
     },
     "bySource": {},
     "usedIds": [

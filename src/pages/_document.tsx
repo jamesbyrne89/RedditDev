@@ -1,4 +1,5 @@
 import Document, { Head, Main, NextScript } from 'next/document';
+import Link from 'next/link';
 // Import styled components ServerStyleSheet
 import { ServerStyleSheet } from 'styled-components';
 
@@ -27,32 +28,38 @@ export default class MyDocument extends Document {
             name="viewport"
             content="initial-scale=1.0, width=device-width"
           />
-          <link
+          <Link
             href="https://fonts.googleapis.com/css?family=Space+Mono:300,400"
             rel="stylesheet"
           >
-          </link>
-          <link
+            <link></link>
+          </Link>
+          <Link
             rel="apple-touch-icon"
             sizes="180x180"
             href="/static/apple-touch-icon.png"
           >
-          </link>
-          <link
+            <link></link>
+          </Link>
+          <Link
             rel="icon"
             type="image/png"
             sizes="32x32"
             href="/static/images/favicon-32x32.png"
           >
-          </link>
-          <link
+            <link></link>
+          </Link>
+          <Link
             rel="icon"
             type="image/png"
             sizes="16x16"
             href="/static/images/favicon-16x16.png"
           >
-          </link>
-          <link rel="stylesheet" type="text/css" href="/static/nprogress.css" />
+            <link></link>
+          </Link>
+          <Link rel="stylesheet" type="text/css" href="/static/nprogress.css">
+            <link></link>
+          </Link>
           {this.props.styleTags}
         </Head>
         <body>
