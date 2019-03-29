@@ -28,12 +28,10 @@ export default class MyDocument extends Document {
             name="viewport"
             content="initial-scale=1.0, width=device-width"
           />
-          <Link
+          <link
             href="https://fonts.googleapis.com/css?family=Space+Mono:300,400"
             rel="stylesheet"
-          >
-            <link></link>
-          </Link>
+          />
           <Link
             rel="apple-touch-icon"
             sizes="180x180"
