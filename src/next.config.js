@@ -1,5 +1,5 @@
 const withTypescript = require('@zeit/next-typescript');
-const assetPrefix = process.env.NODE_ENV === 'production' ? '/RedditDev' : '';
+const assetPrefix = process.env.NODE_ENV === 'production' ? '' : '';
 
 module.exports = withTypescript({
   assetPrefix,
