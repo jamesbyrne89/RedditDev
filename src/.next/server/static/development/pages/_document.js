@@ -107,10 +107,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var next_document__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/document */ "next/document");
 /* harmony import */ var next_document__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_document__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/link */ "next/link");
-/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! styled-components */ "styled-components");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "styled-components");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_2__);
 var _jsxFileName = "E:\\Users\\James\\Web Dev\\Projects\\RedditDev\\src\\pages\\_document.tsx";
 
 
@@ -138,7 +136,6 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
-
  // Import styled components ServerStyleSheet
 
 
@@ -160,20 +157,20 @@ function (_Document) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("html", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 24
+          lineNumber: 23
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_document__WEBPACK_IMPORTED_MODULE_1__["Head"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 25
+          lineNumber: 24
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("meta", {
         charSet: "utf-8",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 26
+          lineNumber: 25
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("meta", {
@@ -181,101 +178,71 @@ function (_Document) {
         content: "initial-scale=1.0, width=device-width",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 27
+          lineNumber: 26
         },
         __self: this
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("link", {
         href: "https://fonts.googleapis.com/css?family=Space+Mono:300,400",
         rel: "stylesheet",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 31
+          lineNumber: 30
         },
         __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("link", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 35
-        },
-        __self: this
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("link", {
         rel: "apple-touch-icon",
         sizes: "180x180",
         href: "/static/apple-touch-icon.png",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 37
+          lineNumber: 35
         },
         __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("link", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 42
-        },
-        __self: this
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("link", {
         rel: "icon",
         type: "image/png",
         sizes: "32x32",
         href: "/static/images/favicon-32x32.png",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 44
+          lineNumber: 41
         },
         __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("link", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 50
-        },
-        __self: this
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("link", {
         rel: "icon",
         type: "image/png",
         sizes: "16x16",
         href: "/static/images/favicon-16x16.png",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 52
+          lineNumber: 48
         },
         __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("link", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 58
-        },
-        __self: this
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("link", {
         rel: "stylesheet",
         type: "text/css",
         href: "/static/nprogress.css",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 60
+          lineNumber: 55
         },
         __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("link", {
+      }), this.props.styleTags), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("body", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 61
-        },
-        __self: this
-      })), this.props.styleTags), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("body", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 65
+          lineNumber: 58
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_document__WEBPACK_IMPORTED_MODULE_1__["Main"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 66
+          lineNumber: 59
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_document__WEBPACK_IMPORTED_MODULE_1__["NextScript"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 67
+          lineNumber: 60
         },
         __self: this
       })));
@@ -285,14 +252,14 @@ function (_Document) {
     value: function getInitialProps(_ref) {
       var renderPage = _ref.renderPage;
       // Step 1: Create an instance of ServerStyleSheet
-      var sheet = new styled_components__WEBPACK_IMPORTED_MODULE_3__["ServerStyleSheet"](); // Step 2: Retrieve styles from components in the page
+      var sheet = new styled_components__WEBPACK_IMPORTED_MODULE_2__["ServerStyleSheet"](); // Step 2: Retrieve styles from components in the page
 
       var page = renderPage(function (App) {
         return function (props) {
           return sheet.collectStyles(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(App, _extends({}, props, {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 13
+              lineNumber: 12
             },
             __self: this
           })));
@@ -334,17 +301,6 @@ module.exports = __webpack_require__(/*! ./pages/_document.tsx */"./pages/_docum
 /***/ (function(module, exports) {
 
 module.exports = require("next/document");
-
-/***/ }),
-
-/***/ "next/link":
-/*!****************************!*\
-  !*** external "next/link" ***!
-  \****************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("next/link");
 
 /***/ }),
 
