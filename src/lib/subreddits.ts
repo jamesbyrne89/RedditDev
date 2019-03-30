@@ -20,5 +20,5 @@ export const endpoints: Iendpoints = {
   graphql: 'https://www.reddit.com/r/graphql.json?',
   node: 'https://www.reddit.com/r/node.json?',
   typescript: 'https://www.reddit.com/r/typescript.json?',
-  vue: 'https://www.reddit.com/r/vue.json?',
+  vue: 'https://www.reddit.com/r/vuejs.json?',
 };

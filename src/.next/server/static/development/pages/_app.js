@@ -93,6 +93,40 @@ module.exports =
 /************************************************************************/
 /******/ ({
 
+/***/ "./db/firestore.js":
+/*!*************************!*\
+  !*** ./db/firestore.js ***!
+  \*************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var firebase__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! firebase */ "firebase");
+/* harmony import */ var firebase__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(firebase__WEBPACK_IMPORTED_MODULE_0__);
+
+var config = {
+  apiKey: 'AIzaSyBkHyS6BMFlRBww9mZMsTQgMzjp6P9ml6M',
+  authDomain: 'redditdev-e11fc.firebaseapp.com',
+  databaseURL: 'https://redditdev-e11fc.firebaseio.com',
+  projectId: 'redditdev-e11fc',
+  storageBucket: 'redditdev-e11fc.appspot.com',
+  messagingSenderId: '976173547224'
+};
+
+var initDB = function initDB() {
+  if (!firebase__WEBPACK_IMPORTED_MODULE_0___default.a.apps.length) {
+    firebase__WEBPACK_IMPORTED_MODULE_0___default.a.initializeApp(config);
+  }
+
+  var db = firebase__WEBPACK_IMPORTED_MODULE_0___default.a.firestore();
+  return db;
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (initDB());
+
+/***/ }),
+
 /***/ "./lib/subreddits.ts":
 /*!***************************!*\
   !*** ./lib/subreddits.ts ***!
@@ -113,7 +147,7 @@ var endpoints = {
   graphql: 'https://www.reddit.com/r/graphql.json?',
   node: 'https://www.reddit.com/r/node.json?',
   typescript: 'https://www.reddit.com/r/typescript.json?',
-  vue: 'https://www.reddit.com/r/vue.json?'
+  vue: 'https://www.reddit.com/r/vuejs.json?'
 };
 
 /***/ }),
@@ -164,7 +198,7 @@ function mapSubsToColours(sub) {
     case 'node':
       return 'nine';
 
-    case 'vue':
+    case 'vuejs':
       return 'ten';
 
     default:
@@ -259,6 +293,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _lib_subreddits__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../lib/subreddits */ "./lib/subreddits.ts");
 /* harmony import */ var _lib_utils__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../lib/utils */ "./lib/utils.ts");
+/* harmony import */ var _db_firestore__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../db/firestore */ "./db/firestore.js");
 
 var _jsxFileName = "E:\\Users\\James\\Web Dev\\Projects\\RedditDev\\src\\pages\\_app.tsx";
 
@@ -279,6 +314,8 @@ function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.
 
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
 
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -296,6 +333,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -328,6 +366,25 @@ function (_App) {
       favourites: []
     });
 
+    _defineProperty(_assertThisInitialized(_this), "getFavourites", function () {
+      _db_firestore__WEBPACK_IMPORTED_MODULE_6__["default"].collection('favourites').get().then(function (querySnapshot) {
+        var savedFavourites = [];
+        querySnapshot.forEach(function (doc) {
+          console.log(_objectSpread({
+            doc_id: doc.id
+          }, doc.data()));
+          savedFavourites.push(_objectSpread({
+            doc_id: doc.id
+          }, doc.data()));
+        });
+        console.log(savedFavourites);
+
+        _this.setState({
+          favourites: savedFavourites
+        });
+      });
+    });
+
     _defineProperty(_assertThisInitialized(_this), "filterPosts", function () {
       var searchTerm = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
 
@@ -352,20 +409,27 @@ function (_App) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "addToFavourites", function (postToAdd) {
-      if (_this.state.favourites.filter(Object(_lib_utils__WEBPACK_IMPORTED_MODULE_5__["isAlreadyFavourite"])(postToAdd)).length > 0) {
+      if (postToAdd.doc_id) {
         return _this.removeFromFavourites(postToAdd);
       }
 
+      console.log('post to add:', postToAdd);
+      _db_firestore__WEBPACK_IMPORTED_MODULE_6__["default"].collection('favourites').add(postToAdd).then(function (docRef) {
+        console.log('Document written with ID: ', docRef.id);
+      }).catch(function (error) {
+        console.error('Error adding document: ', error);
+      });
       var newFavouritesList = [].concat(_toConsumableArray(_this.state.favourites), [postToAdd]);
 
       _this.setState({
         favourites: newFavouritesList
-      }, function () {
-        localStorage.setItem('favourite-reddit-posts', JSON.stringify(_this.state.favourites));
-      });
+      }, function () {});
     });
 
     _defineProperty(_assertThisInitialized(_this), "removeFromFavourites", function (postToRemove) {
+      _db_firestore__WEBPACK_IMPORTED_MODULE_6__["default"].collection('favourites').doc(postToRemove.doc_id).delete();
+      console.log('remove');
+
       var newFavouritesList = _this.state.favourites.filter(function (fav) {
         return postToRemove.data.title !== fav.data.title && postToRemove.data.created_utc !== fav.data.created_utc;
       });
@@ -390,6 +454,7 @@ function (_App) {
         posts: this.props.posts,
         favourites: cachedFavourites
       });
+      this.getFavourites();
     }
   }, {
     key: "render",
@@ -404,7 +469,7 @@ function (_App) {
       return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(next_app__WEBPACK_IMPORTED_MODULE_2__["Container"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 114
+          lineNumber: 134
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Component, _extends({
@@ -416,7 +481,7 @@ function (_App) {
       }, pageProps, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 115
+          lineNumber: 135
         },
         __self: this
       })));
@@ -444,11 +509,12 @@ function (_App) {
                 }, []);
                 postsSortedByNewest = cleaned.sort(_lib_utils__WEBPACK_IMPORTED_MODULE_5__["sortByNewest"]);
                 postsToDisplay = filterFunc ? postsSortedByNewest.filter(filterFunc) : postsSortedByNewest;
+                console.log(_db_firestore__WEBPACK_IMPORTED_MODULE_6__["default"]);
                 return _context.abrupt("return", {
                   posts: postsToDisplay
                 });
 
-              case 7:
+              case 8:
               case "end":
                 return _context.stop();
             }
@@ -502,6 +568,17 @@ module.exports = require("@babel/runtime/regenerator");
 /***/ (function(module, exports) {
 
 module.exports = require("axios");
+
+/***/ }),
+
+/***/ "firebase":
+/*!***************************!*\
+  !*** external "firebase" ***!
+  \***************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("firebase");
 
 /***/ }),
 

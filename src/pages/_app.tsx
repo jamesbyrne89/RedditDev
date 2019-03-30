@@ -6,6 +6,7 @@ import {
   isAlreadyFavourite,
   sortByNewest,
 } from '../lib/utils';
+import firestore from '../db/firestore';
 
 interface Props { loading: boolean, posts: Array }
 
@@ -44,9 +45,21 @@ class MyApp extends App<Props> {
     const postsToDisplay = filterFunc
       ? postsSortedByNewest.filter(filterFunc)
       : postsSortedByNewest;
-
+    console.log(firestore);
     return { posts: postsToDisplay };
   }
+
+  getFavourites = () => {
+    firestore.collection('favourites').get().then(querySnapshot => {
+      const savedFavourites: object[] = [];
+      querySnapshot.forEach(doc => {
+        console.log({ doc_id: doc.id, ...doc.data() });
+        savedFavourites.push({ doc_id: doc.id, ...doc.data() });
+      });
+      console.log(savedFavourites);
+      this.setState({ favourites: savedFavourites });
+    });
+  };
 
   componentDidMount() {
     localStorage.setItem('reddit-posts', JSON.stringify(this.props.posts));
@@ -60,6 +73,8 @@ class MyApp extends App<Props> {
       posts: this.props.posts,
       favourites: cachedFavourites,
     });
+
+    this.getFavourites();
   }
 
   filterPosts = (searchTerm = '') => {
@@ -79,21 +94,26 @@ class MyApp extends App<Props> {
   };
 
   addToFavourites = postToAdd => {
-    if (
-      this.state.favourites.filter(isAlreadyFavourite(postToAdd)).length > 0
-    ) {
+    if (postToAdd.doc_id) {
       return this.removeFromFavourites(postToAdd);
     }
+    console.log('post to add:', postToAdd);
+    firestore
+      .collection('favourites')
+      .add(postToAdd)
+      .then(function(docRef) {
+        console.log('Document written with ID: ', docRef.id);
+      })
+      .catch(function(error) {
+        console.error('Error adding document: ', error);
+      });
     const newFavouritesList = [ ...this.state.favourites, postToAdd ];
-    this.setState({ favourites: newFavouritesList }, () => {
-      localStorage.setItem(
-        'favourite-reddit-posts',
-        JSON.stringify(this.state.favourites),
-      );
-    });
+    this.setState({ favourites: newFavouritesList }, () => {});
   };
 
   removeFromFavourites = (postToRemove: IPostToRemove) => {
+    firestore.collection('favourites').doc(postToRemove.doc_id).delete();
+    console.log('remove');
     const newFavouritesList = this.state.favourites.filter(
       fav =>
         postToRemove.data.title !== fav.data.title &&

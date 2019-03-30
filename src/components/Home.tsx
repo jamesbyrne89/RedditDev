@@ -72,14 +72,13 @@ class Home extends React.Component<IProps, IState> {
         />
         <Sidebar />
         <CardsContainer>
-          {
-            loading
-              ? <Loader />
-              : posts.map(
-                (post: object): any => (
+          {loading ? <Loader /> : posts.map((post: object): any => {
+                console.log(post.doc_id);
+                return (
                   <Card
                     key={post.data.id}
                     id={post.data.id}
+                    doc_id={post.doc_id}
                     subName={post.data.subreddit_name_prefixed}
                     title={post.data.title}
                     url={post.data.url}
@@ -99,9 +98,8 @@ class Home extends React.Component<IProps, IState> {
                     }
                     onAddToFavourites={this.props.onAddToFavourites}
                   />
-                ),
-              )
-          }
+                );
+              })}
         </CardsContainer>
       </React.Fragment>
     );

@@ -18,7 +18,7 @@ export function mapSubsToColours(sub: string): string {
       return 'eight';
     case 'node':
       return 'nine';
-    case 'vue':
+    case 'vuejs':
       return 'ten';
     default:
       return 'one';

@@ -24,6 +24,7 @@ type Props = {
   created_utc: number,
   onAddToFavourites: Function,
   isFavourite: boolean,
+  doc_id?: string,
 };
 
 type State = { isAnimated: boolean };
@@ -74,8 +75,12 @@ class Card extends React.Component<Props, State> {
       num_comments,
       created_utc,
       id,
+      doc_id,
     } = this.props;
+    console.log(doc_id);
+    console.log({ ...(doc_id && { doc_id }) });
     const postData = {
+      ...(doc_id && { doc_id: doc_id }),
       data: {
         subreddit_name_prefixed,
         title,
@@ -107,7 +112,7 @@ class Card extends React.Component<Props, State> {
       <CardStyles ref={this.cardRef} isAnimated={isAnimated}>
         <header className="card-header">
           <SubRedditNameStyles colour={mapSubsToColours(subName)}>
-            {subName}
+            <a href={`https://reddit.com/${subName}`}>{subName}</a>
           </SubRedditNameStyles>
           <AddToFavouritesButtonStyles onClick={this.addToFavourites}>
             {isFavourite ? (
