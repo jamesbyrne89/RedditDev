@@ -33,7 +33,7 @@ const Header: React.FunctionComponent<Props> = props => (
     <StyledMasthead>
       <div className="header__title-wrapper">
         <StyledHeaderTitle>
-          <Link href="./"><a>{`{redditDev}`}</a></Link>
+          <Link href="/"><a>{`{redditDev}`}</a></Link>
         </StyledHeaderTitle>
         <StyledHeaderDescription>
           The best of frontend web development on Reddit
@@ -41,7 +41,7 @@ const Header: React.FunctionComponent<Props> = props => (
       </div>
       <ul style={{ display: 'flex' }}>
         <StyledNavItem>
-          <Link href="./favourites"><a>Favourites</a></Link>
+          <Link href="/favourites"><a>Favourites</a></Link>
         </StyledNavItem>
         <StyledNavItem>
           <Search onSearchSubmit={props.onSearchSubmit} />
