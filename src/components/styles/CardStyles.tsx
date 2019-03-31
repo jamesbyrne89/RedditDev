@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { constants } from './constants';
+import { constants, sizes } from './constants';
 
 export const CardStyles = styled.article`
     margin: 0 0 1.25em 0;
@@ -46,6 +46,9 @@ export const PostTitleStyles = styled.h2`
     -webkit-transition: all 0.15s;
     transition: all 0.15s;
     text-align: left;
+    @media (max-width: ${sizes.tablet}px) {
+      padding: 0.75em 0;
+    }
     a {
         font-family: 'Tiempos Headline', georgia, serif;
         font-weight: 700;
@@ -113,8 +116,12 @@ export const CardFooterStyles = styled.footer`
 
 export const AddToFavouritesButtonStyles = styled.button`
   cursor: pointer;
-  height: 16px;
+  height: 20px;
+  width: auto;
   line-height: 1;
   display: flex;
   align-items: center;
+  @media (max-width: ${sizes.tablet}px) {
+      height: 24px;
+    }
 `;

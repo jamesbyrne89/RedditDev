@@ -190,7 +190,7 @@ function (_React$Component) {
         y: "0px",
         fillRule: "evenodd",
         clipRule: "evenodd",
-        height: "20px",
+        height: "100%",
         __source: {
           fileName: _jsxFileName,
           lineNumber: 121
@@ -233,7 +233,7 @@ function (_React$Component) {
         y: "0px",
         fillRule: "evenodd",
         clipRule: "evenodd",
-        height: "20px",
+        height: "100%",
         __source: {
           fileName: _jsxFileName,
           lineNumber: 139
@@ -967,7 +967,7 @@ var SubRedditNameStyles = styled_components__WEBPACK_IMPORTED_MODULE_0__["defaul
 var PostTitleStyles = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].h2.withConfig({
   displayName: "CardStyles__PostTitleStyles",
   componentId: "sc-1on57zg-2"
-})(["padding:1.5em 0;font-size:1.25rem;margin:0;-webkit-transition:all 0.15s;transition:all 0.15s;text-align:left;a{font-family:'Tiempos Headline',georgia,serif;font-weight:700;color:", ";text-decoration:none;line-height:1.3;max-width:100%;-webkit-box-decoration-break:clone;box-decoration-break:clone;-webkit-transition:all 0.15s;transition:all 0.15s;}a:hover{color:#000 !important;border-bottom:solid 1px #000;}"], _constants__WEBPACK_IMPORTED_MODULE_1__["constants"].text_grey_dark);
+})(["padding:1.5em 0;font-size:1.25rem;margin:0;-webkit-transition:all 0.15s;transition:all 0.15s;text-align:left;@media (max-width:", "px){padding:0.75em 0;}a{font-family:'Tiempos Headline',georgia,serif;font-weight:700;color:", ";text-decoration:none;line-height:1.3;max-width:100%;-webkit-box-decoration-break:clone;box-decoration-break:clone;-webkit-transition:all 0.15s;transition:all 0.15s;}a:hover{color:#000 !important;border-bottom:solid 1px #000;}"], _constants__WEBPACK_IMPORTED_MODULE_1__["sizes"].tablet, _constants__WEBPACK_IMPORTED_MODULE_1__["constants"].text_grey_dark);
 var CardFooterStyles = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].footer.withConfig({
   displayName: "CardStyles__CardFooterStyles",
   componentId: "sc-1on57zg-3"
@@ -975,7 +975,7 @@ var CardFooterStyles = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"]
 var AddToFavouritesButtonStyles = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].button.withConfig({
   displayName: "CardStyles__AddToFavouritesButtonStyles",
   componentId: "sc-1on57zg-4"
-})(["cursor:pointer;height:16px;line-height:1;display:flex;align-items:center;"]);
+})(["cursor:pointer;height:20px;width:auto;line-height:1;display:flex;align-items:center;@media (max-width:", "px){height:24px;}"], _constants__WEBPACK_IMPORTED_MODULE_1__["sizes"].tablet);
 
 /***/ }),
 
@@ -15467,7 +15467,7 @@ var IndexPage = function IndexPage(props) {
 
 /***/ }),
 
-/***/ 4:
+/***/ 3:
 /*!*******************************!*\
   !*** multi ./pages/index.tsx ***!
   \*******************************/
@@ -15492,5 +15492,5 @@ module.exports = dll_088020044fcad06258c8;
 
 /***/ })
 
-},[[4,"static/runtime/webpack.js"]]]));;
+},[[3,"static/runtime/webpack.js"]]]));;
 //# sourceMappingURL=index.js.map

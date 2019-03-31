@@ -127,7 +127,7 @@ class Card extends React.Component<Props, State> {
                     y="0px"
                     fillRule="evenodd"
                     clipRule="evenodd"
-                    height="20px"
+                    height="100%"
                   >
                     <defs></defs><g>
                       <path
@@ -145,7 +145,7 @@ class Card extends React.Component<Props, State> {
                     y="0px"
                     fillRule="evenodd"
                     clipRule="evenodd"
-                    height="20px"
+                    height="100%"
                   >
                     <defs></defs><g>
                       <path
