@@ -40,6 +40,9 @@ class Card extends React.Component<Props, State> {
       return false;
     }
     const card = this.cardRef.current;
+    if (!this.cardRef.current) {
+      return;
+    }
     let scrollInAt;
     window.scrollY < 0
       ? scrollInAt = window.innerHeight

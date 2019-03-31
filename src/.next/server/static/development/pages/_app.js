@@ -265,7 +265,7 @@ function filterPostsCallback(searchTerm) {
 }
 function isAlreadyFavourite(postToCheck) {
   return function (post) {
-    return postToCheck.data.title === post.data.title && postToCheck.data.created_utc === post.data.created_utc;
+    return postToCheck.data.title === post.data.title && postToCheck.data.id === post.data.id;
   };
 }
 function sortByNewest(a, b) {
@@ -405,20 +405,30 @@ function (_App) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "addToFavourites", function (postToAdd) {
+      console.log({
+        postToAdd: postToAdd
+      });
+
       if (postToAdd.doc_id) {
         return _this.removeFromFavourites(postToAdd);
       }
 
+      console.log('safe to add');
       _db_firestore__WEBPACK_IMPORTED_MODULE_6__["default"].collection('favourites').add(postToAdd).then(function (docRef) {
+        var newFavourite = _objectSpread({}, postToAdd, {
+          doc_id: docRef.id
+        });
+
+        console.log(_assertThisInitialized(_this));
+
+        _this.setState({
+          favourites: [].concat(_toConsumableArray(_this.state.favourites), [newFavourite])
+        });
+
         console.log('Document written with ID: ', docRef.id);
       }).catch(function (error) {
         console.error('Error adding document: ', error);
       });
-      var newFavouritesList = [].concat(_toConsumableArray(_this.state.favourites), [postToAdd]);
-
-      _this.setState({
-        favourites: newFavouritesList
-      }, function () {});
     });
 
     _defineProperty(_assertThisInitialized(_this), "removeFromFavourites", function (postToRemove) {
@@ -458,7 +468,7 @@ function (_App) {
       return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(next_app__WEBPACK_IMPORTED_MODULE_2__["Container"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 108
+          lineNumber: 113
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Component, _extends({
@@ -470,7 +480,7 @@ function (_App) {
       }, pageProps, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 109
+          lineNumber: 114
         },
         __self: this
       })));

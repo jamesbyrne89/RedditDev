@@ -59,6 +59,11 @@ function (_React$Component) {
       }
 
       var card = _this.cardRef.current;
+
+      if (!_this.cardRef.current) {
+        return;
+      }
+
       var scrollInAt;
       window.scrollY < 0 ? scrollInAt = window.innerHeight : scrollInAt = window.scrollY + window.innerHeight - window.innerHeight * 0.1;
       var isShowing = scrollInAt > card.offsetTop;
@@ -145,35 +150,35 @@ function (_React$Component) {
         isAnimated: isAnimated,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 111
+          lineNumber: 114
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("header", {
         className: "card-header",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 112
+          lineNumber: 115
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_styles_CardStyles__WEBPACK_IMPORTED_MODULE_1__["SubRedditNameStyles"], {
         colour: Object(_lib_utils__WEBPACK_IMPORTED_MODULE_2__["mapSubsToColours"])(subName),
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 113
+          lineNumber: 116
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("a", {
         href: "https://reddit.com/".concat(subName),
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 114
+          lineNumber: 117
         },
         __self: this
       }, subName)), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_styles_CardStyles__WEBPACK_IMPORTED_MODULE_1__["AddToFavouritesButtonStyles"], {
         onClick: this.addToFavourites,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 116
+          lineNumber: 119
         },
         __self: this
       }, isFavourite ? react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("svg", {
@@ -188,26 +193,26 @@ function (_React$Component) {
         height: "20px",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 118
+          lineNumber: 121
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("defs", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 129
+          lineNumber: 132
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("g", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 129
+          lineNumber: 132
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("path", {
         d: "M3.41333 1.70208c0.371594,-0.557594 0.851559,-0.770898 1.29613,-0.740787 0.23215,0.0157244 0.453988,0.0985315 0.645429,0.234012 0.189815,0.134331 0.349358,0.320457 0.458709,0.544079 0.260024,0.531764 0.238177,1.276 -0.33728,2.03498l0.000397638 0.000299213c-0.00423228,0.00557874 -0.00890945,0.0106181 -0.013937,0.015122l-1.97276 2.0456 -0.0766654 -0.073752 0.0767795 0.0740472c-0.0408937,0.0424016 -0.108425,0.043626 -0.150827,0.00273228 -0.00284646,-0.00274409 -0.00550394,-0.00561417 -0.00797638,-0.00858268l-1.97295 -2.04576 -0.000208661 0.000200787c-0.00567323,-0.00588189 -0.0105315,-0.012252 -0.0145866,-0.0189646 -0.568776,-0.755831 -0.5895,-1.49626 -0.330512,-2.02591 0.109343,-0.223622 0.26889,-0.409748 0.458705,-0.544079 0.191441,-0.13548 0.41328,-0.218287 0.645425,-0.234012 0.444575,-0.0301142 0.924539,0.183193 1.29613,0.74078z",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 130
+          lineNumber: 133
         },
         __self: this
       })), react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("rect", {
@@ -216,7 +221,7 @@ function (_React$Component) {
         height: "6.82666",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 133
+          lineNumber: 136
         },
         __self: this
       })) : react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("svg", {
@@ -231,26 +236,26 @@ function (_React$Component) {
         height: "20px",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 136
+          lineNumber: 139
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("defs", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 147
+          lineNumber: 150
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("g", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 147
+          lineNumber: 150
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("path", {
         d: "M3.41333 1.70208c0.371594,-0.557594 0.851559,-0.770898 1.29613,-0.740787 0.23215,0.0157244 0.453988,0.0985315 0.645429,0.234012 0.189815,0.134331 0.349358,0.320457 0.458709,0.544079 0.260024,0.531764 0.238177,1.276 -0.33728,2.03498l0.000397638 0.000299213c-0.00423228,0.00557874 -0.00890945,0.0106181 -0.013937,0.015122l-1.97276 2.0456 -0.0766654 -0.073752 0.0767795 0.0740472c-0.0408937,0.0424016 -0.108425,0.043626 -0.150827,0.00273228 -0.00284646,-0.00274409 -0.00550394,-0.00561417 -0.00797638,-0.00858268l-1.97295 -2.04576 -0.000208661 0.000200787c-0.00567323,-0.00588189 -0.0105315,-0.012252 -0.0145866,-0.0189646 -0.568776,-0.755831 -0.5895,-1.49626 -0.330512,-2.02591 0.109343,-0.223622 0.26889,-0.409748 0.458705,-0.544079 0.191441,-0.13548 0.41328,-0.218287 0.645425,-0.234012 0.444575,-0.0301142 0.924539,0.183193 1.29613,0.74078zm1.28196 -0.528283c-0.405449,-0.0274606 -0.85111,0.194484 -1.18585,0.777067 -0.00905118,0.0188425 -0.0237126,0.0352283 -0.0432402,0.046374 -0.0511614,0.0291969 -0.116315,0.0113898 -0.145512,-0.0397717l0.0926417 -0.0528701 -0.0925 0.0525c-0.335138,-0.58726 -0.782563,-0.810854 -1.18947,-0.783291 -0.193067,0.0130748 -0.377673,0.0820236 -0.537087,0.194839 -0.161035,0.113961 -0.296795,0.272701 -0.390374,0.464079 -0.227772,0.465803 -0.203764,1.1245 0.311051,1.80721l1.89839 1.96845 1.89836 -1.96845c0.514811,-0.682709 0.538823,-1.34141 0.311051,-1.80722 -0.0935827,-0.191378 -0.229343,-0.350118 -0.390378,-0.464079 -0.159413,-0.112815 -0.34402,-0.181764 -0.537091,-0.194839z",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 148
+          lineNumber: 151
         },
         __self: this
       })), react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("rect", {
@@ -259,13 +264,13 @@ function (_React$Component) {
         height: "6.82666",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 151
+          lineNumber: 154
         },
         __self: this
       })))), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_styles_CardStyles__WEBPACK_IMPORTED_MODULE_1__["PostTitleStyles"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 156
+          lineNumber: 159
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("a", {
@@ -273,48 +278,48 @@ function (_React$Component) {
         target: "blank",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 157
+          lineNumber: 160
         },
         __self: this
       }, title)), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_styles_CardStyles__WEBPACK_IMPORTED_MODULE_1__["CardFooterStyles"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 161
+          lineNumber: 164
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("span", {
         className: "short-url",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 162
+          lineNumber: 165
         },
         __self: this
       }, Object(_lib_utils__WEBPACK_IMPORTED_MODULE_2__["getHostname"])(url)), react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("span", {
         className: "card__bar",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 162
+          lineNumber: 165
         },
         __self: this
       }, "|"), react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("time", {
         className: "timestamp",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 167
+          lineNumber: 170
         },
         __self: this
       }, Object(_lib_utils__WEBPACK_IMPORTED_MODULE_2__["getTimeAgo"])(created_utc)), react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("span", {
         className: "card__bar",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 168
+          lineNumber: 171
         },
         __self: this
       }, "|"), react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("span", {
         className: "post-comments",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 169
+          lineNumber: 172
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("a", {
@@ -322,7 +327,7 @@ function (_React$Component) {
         target: "blank",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 170
+          lineNumber: 173
         },
         __self: this
       }, Object(_lib_utils__WEBPACK_IMPORTED_MODULE_2__["numCommentsText"])(num_comments)))));
@@ -483,13 +488,12 @@ var Header = function Header(props) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _styles_constants__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles/constants */ "./components/styles/constants.ts");
-/* harmony import */ var _Card__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Card */ "./components/Card.tsx");
-/* harmony import */ var _Header__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Header */ "./components/Header.tsx");
-/* harmony import */ var _Loader__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Loader */ "./components/Loader.tsx");
-/* harmony import */ var _Sidebar__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Sidebar */ "./components/Sidebar.tsx");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
-/* harmony import */ var _lib_utils__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../lib/utils */ "./lib/utils.ts");
+/* harmony import */ var _Card__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Card */ "./components/Card.tsx");
+/* harmony import */ var _Header__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Header */ "./components/Header.tsx");
+/* harmony import */ var _Loader__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Loader */ "./components/Loader.tsx");
+/* harmony import */ var _Sidebar__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Sidebar */ "./components/Sidebar.tsx");
+/* harmony import */ var _styles_CardContainerStyles__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./styles/CardContainerStyles */ "./components/styles/CardContainerStyles.tsx");
+/* harmony import */ var _lib_utils__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../lib/utils */ "./lib/utils.ts");
 var _jsxFileName = "E:\\Users\\James\\Web Dev\\Projects\\RedditDev\\src\\components\\Home.tsx";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -518,11 +522,6 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
-var CardsContainer = styled_components__WEBPACK_IMPORTED_MODULE_6__["default"].main.withConfig({
-  displayName: "Home__CardsContainer",
-  componentId: "sc-1lsv5zx-0"
-})(["-webkit-column-count:4;column-count:4;-webkit-column-gap:2.5em;column-gap:2.5em;border-top:solid 1px ", ";padding-top:1.25em;padding-bottom:1em;width:85%;margin:2rem auto;margin-left:calc(7.5% + 2rem);@media (max-width:", "px){column-gap:1.5rem;}@media (max-width:", "px){column-count:3;}@media (max-width:", "px){column-count:2;}@media (max-width:", "px){column-gap:1rem;width:90%;margin-left:calc(5% + 2rem);}@media (max-width:", "px){column-count:1;width:95%;margin-left:auto;}&::after{content:'';width:100%;position:fixed;height:40px;background:-webkit-gradient(linear,left top,left bottom,from(rgba(236,238,241,0.001)),to(white));background:linear-gradient(rgba(236,238,241,0.001),white);pointer-events:none;bottom:0;left:0;}"], _styles_constants__WEBPACK_IMPORTED_MODULE_1__["constants"].text_grey_mid_two, _styles_constants__WEBPACK_IMPORTED_MODULE_1__["sizes"].desktop_lg, _styles_constants__WEBPACK_IMPORTED_MODULE_1__["sizes"].desktop_md, _styles_constants__WEBPACK_IMPORTED_MODULE_1__["sizes"].desktop_sm, _styles_constants__WEBPACK_IMPORTED_MODULE_1__["sizes"].tablet, _styles_constants__WEBPACK_IMPORTED_MODULE_1__["sizes"].mobile);
-
 var Home =
 /*#__PURE__*/
 function (_React$Component) {
@@ -548,66 +547,59 @@ function (_React$Component) {
       return react__WEBPACK_IMPORTED_MODULE_0__["createElement"](react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 68
+          lineNumber: 20
         },
         __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_Header__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_Header__WEBPACK_IMPORTED_MODULE_2__["default"], {
         onSearchSubmit: onSearchSubmit,
         onAddNewFavourite: onAddNewFavourite,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 69
+          lineNumber: 21
         },
         __self: this
-      }), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_Sidebar__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      }), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_Sidebar__WEBPACK_IMPORTED_MODULE_4__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 73
+          lineNumber: 25
         },
         __self: this
-      }), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](CardsContainer, {
+      }), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_styles_CardContainerStyles__WEBPACK_IMPORTED_MODULE_5__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 74
+          lineNumber: 26
         },
         __self: this
-      }, loading ? react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_Loader__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      }, loading ? react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_Loader__WEBPACK_IMPORTED_MODULE_3__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 77
+          lineNumber: 27
         },
         __self: this
       }) : posts.map(function (post) {
-        return react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_Card__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        var favouriteMatch = favourites.filter(Object(_lib_utils__WEBPACK_IMPORTED_MODULE_6__["isAlreadyFavourite"])({
+          data: {
+            title: post.data.title,
+            id: post.data.id
+          }
+        }));
+        var docId = favouriteMatch[0] ? favouriteMatch[0].doc_id : undefined;
+        var isInFavourites = !!(favouriteMatch.length > 0);
+        return react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_Card__WEBPACK_IMPORTED_MODULE_1__["default"], {
           key: post.data.id,
           id: post.data.id,
-          doc_id: favourites.map(Object(_lib_utils__WEBPACK_IMPORTED_MODULE_7__["isAlreadyFavourite"])({
-            data: {
-              title: post.data.title,
-              created_utc: post.data.created_utc
-            }
-          })).length > 0 && favourites.map(Object(_lib_utils__WEBPACK_IMPORTED_MODULE_7__["isAlreadyFavourite"])({
-            data: {
-              title: post.data.title,
-              created_utc: post.data.created_utc
-            }
-          }))[0].doc_id,
+          doc_id: docId,
           subName: post.data.subreddit_name_prefixed,
           title: post.data.title,
           url: post.data.url,
           permalink: post.data.permalink,
           num_comments: post.data.num_comments,
           created_utc: post.data.created_utc,
-          isFavourite: favourites.filter(Object(_lib_utils__WEBPACK_IMPORTED_MODULE_7__["isAlreadyFavourite"])({
-            data: {
-              title: post.data.title,
-              created_utc: post.data.created_utc
-            }
-          })).length > 0,
+          isFavourite: isInFavourites,
           onAddToFavourites: _this.props.onAddToFavourites,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 80
+            lineNumber: 38
           },
           __self: this
         });
@@ -920,6 +912,27 @@ var Sidebar = function Sidebar() {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Sidebar);
+
+/***/ }),
+
+/***/ "./components/styles/CardContainerStyles.tsx":
+/*!***************************************************!*\
+  !*** ./components/styles/CardContainerStyles.tsx ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./constants */ "./components/styles/constants.ts");
+
+
+var CardContainerStyles = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].main.withConfig({
+  displayName: "CardContainerStyles",
+  componentId: "sc-1d4sp1d-0"
+})(["-webkit-column-count:4;column-count:4;-webkit-column-gap:2.5em;column-gap:2.5em;border-top:solid 1px ", ";padding-top:1.25em;padding-bottom:1em;width:85%;margin:2rem auto;margin-left:calc(7.5% + 2rem);@media (max-width:", "px){column-gap:1.5rem;}@media (max-width:", "px){column-count:3;}@media (max-width:", "px){column-count:2;}@media (max-width:", "px){column-gap:1rem;width:90%;margin-left:calc(5% + 2rem);}@media (max-width:", "px){column-count:1;width:95%;margin-left:auto;}&::after{content:'';width:100%;position:fixed;height:40px;background:-webkit-gradient(linear,left top,left bottom,from(rgba(236,238,241,0.001)),to(white));background:linear-gradient(rgba(236,238,241,0.001),white);pointer-events:none;bottom:0;left:0;}"], _constants__WEBPACK_IMPORTED_MODULE_1__["constants"].text_grey_mid_two, _constants__WEBPACK_IMPORTED_MODULE_1__["sizes"].desktop_lg, _constants__WEBPACK_IMPORTED_MODULE_1__["sizes"].desktop_md, _constants__WEBPACK_IMPORTED_MODULE_1__["sizes"].desktop_sm, _constants__WEBPACK_IMPORTED_MODULE_1__["sizes"].tablet, _constants__WEBPACK_IMPORTED_MODULE_1__["sizes"].mobile);
+/* harmony default export */ __webpack_exports__["default"] = (CardContainerStyles);
 
 /***/ }),
 
@@ -1260,7 +1273,7 @@ function filterPostsCallback(searchTerm) {
 }
 function isAlreadyFavourite(postToCheck) {
   return function (post) {
-    return postToCheck.data.title === post.data.title && postToCheck.data.created_utc === post.data.created_utc;
+    return postToCheck.data.title === post.data.title && postToCheck.data.id === post.data.id;
   };
 }
 function sortByNewest(a, b) {

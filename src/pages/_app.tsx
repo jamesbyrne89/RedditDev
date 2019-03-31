@@ -75,20 +75,25 @@ class MyApp extends App<Props> {
   };
 
   addToFavourites = postToAdd => {
+    console.log({ postToAdd });
     if (postToAdd.doc_id) {
       return this.removeFromFavourites(postToAdd);
     }
+    console.log('safe to add');
     db
       .collection('favourites')
       .add(postToAdd)
-      .then(function(docRef) {
+      .then(docRef => {
+        const newFavourite = { ...postToAdd, doc_id: docRef.id };
+        console.log(this);
+        this.setState({
+          favourites: [ ...this.state.favourites, newFavourite ],
+        });
         console.log('Document written with ID: ', docRef.id);
       })
       .catch(function(error) {
         console.error('Error adding document: ', error);
       });
-    const newFavouritesList = [ ...this.state.favourites, postToAdd ];
-    this.setState({ favourites: newFavouritesList }, () => {});
   };
 
   removeFromFavourites = (postToRemove: IPostToRemove) => {

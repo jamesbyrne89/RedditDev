@@ -1,3 +1,5 @@
+import { IRedditPost } from '../interfaces/index';
+
 export function mapSubsToColours(sub: string): string {
   switch (sub.replace('r/', '').toLowerCase()) {
     case 'css':
@@ -81,18 +83,18 @@ export function debounce(func: Function, wait = 100, immediate?: boolean) {
 }
 
 export function filterPostsCallback(searchTerm: string): any {
-  return function(post: {}) {
+  return function(post: IRedditPost) {
     return post.data.title.includes(searchTerm) ||
       post.data.url.includes(searchTerm);
   };
 }
 
-interface PostToCheckType { data: { title: string, created_utc: number } }
+interface PostToCheckType { data: { title: string, id: string } }
 
-export function isAlreadyFavourite(postToCheck: Object): any {
-  return function(post: {}) {
+export function isAlreadyFavourite(postToCheck: PostToCheckType): any {
+  return (post: IRedditPost) => {
     return postToCheck.data.title === post.data.title &&
-      postToCheck.data.created_utc === post.data.created_utc;
+      postToCheck.data.id === post.data.id;
   };
 }
 
