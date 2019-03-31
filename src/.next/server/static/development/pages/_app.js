@@ -294,9 +294,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_app__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_app__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "axios");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _lib_subreddits__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../lib/subreddits */ "./lib/subreddits.ts");
-/* harmony import */ var _lib_utils__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../lib/utils */ "./lib/utils.ts");
-/* harmony import */ var _db_firestore__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../db/firestore */ "./db/firestore.js");
+/* harmony import */ var next_page_transitions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! next-page-transitions */ "next-page-transitions");
+/* harmony import */ var next_page_transitions__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(next_page_transitions__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _lib_subreddits__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../lib/subreddits */ "./lib/subreddits.ts");
+/* harmony import */ var _lib_utils__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../lib/utils */ "./lib/utils.ts");
+/* harmony import */ var _db_firestore__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../db/firestore */ "./db/firestore.js");
 
 var _jsxFileName = "E:\\Users\\James\\Web Dev\\Projects\\RedditDev\\src\\pages\\_app.tsx";
 
@@ -336,6 +338,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -383,7 +386,7 @@ function (_App) {
         loading: true
       });
 
-      var filtered = _this.props.posts.filter(Object(_lib_utils__WEBPACK_IMPORTED_MODULE_5__["filterPostsCallback"])(searchTerm));
+      var filtered = _this.props.posts.filter(Object(_lib_utils__WEBPACK_IMPORTED_MODULE_6__["filterPostsCallback"])(searchTerm));
 
       _this.setState({
         filteredPosts: filtered,
@@ -397,7 +400,7 @@ function (_App) {
         return _this.removeFromFavourites(postToAdd);
       }
 
-      _db_firestore__WEBPACK_IMPORTED_MODULE_6__["default"].collection('favourites').add(postToAdd).then(function (docRef) {
+      _db_firestore__WEBPACK_IMPORTED_MODULE_7__["default"].collection('favourites').add(postToAdd).then(function (docRef) {
         console.log('added', _objectSpread({}, postToAdd, {
           doc_id: docRef.id
         }));
@@ -407,7 +410,7 @@ function (_App) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "removeFromFavourites", function (postToRemove) {
-      _db_firestore__WEBPACK_IMPORTED_MODULE_6__["default"].collection('favourites').doc(postToRemove.doc_id).delete();
+      _db_firestore__WEBPACK_IMPORTED_MODULE_7__["default"].collection('favourites').doc(postToRemove.doc_id).delete();
     });
 
     return _this;
@@ -433,7 +436,7 @@ function (_App) {
                   posts: posts,
                   favourites: favourites
                 });
-                _db_firestore__WEBPACK_IMPORTED_MODULE_6__["default"].collection('favourites').onSnapshot(function (querySnapshot) {
+                _db_firestore__WEBPACK_IMPORTED_MODULE_7__["default"].collection('favourites').onSnapshot(function (querySnapshot) {
                   var favourites = querySnapshot.docs.map(function (doc) {
                     return {
                       doc_id: doc.id,
@@ -475,7 +478,15 @@ function (_App) {
       return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(next_app__WEBPACK_IMPORTED_MODULE_2__["Container"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 90
+          lineNumber: 91
+        },
+        __self: this
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(next_page_transitions__WEBPACK_IMPORTED_MODULE_4__["PageTransition"], {
+        timeout: 300,
+        classNames: "page-transition",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 92
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Component, _extends({
@@ -487,10 +498,10 @@ function (_App) {
       }, pageProps, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 91
+          lineNumber: 93
         },
         __self: this
-      })));
+      }))));
     }
   }], [{
     key: "getInitialProps",
@@ -521,8 +532,8 @@ function (_App) {
 
               case 6:
                 _context2.next = 8;
-                return axios__WEBPACK_IMPORTED_MODULE_3___default.a.all(Object.keys(_lib_subreddits__WEBPACK_IMPORTED_MODULE_4__["endpoints"]).map(function (url) {
-                  return axios__WEBPACK_IMPORTED_MODULE_3___default.a.get(_lib_subreddits__WEBPACK_IMPORTED_MODULE_4__["endpoints"][url]);
+                return axios__WEBPACK_IMPORTED_MODULE_3___default.a.all(Object.keys(_lib_subreddits__WEBPACK_IMPORTED_MODULE_5__["endpoints"]).map(function (url) {
+                  return axios__WEBPACK_IMPORTED_MODULE_3___default.a.get(_lib_subreddits__WEBPACK_IMPORTED_MODULE_5__["endpoints"][url]);
                 }));
 
               case 8:
@@ -530,7 +541,7 @@ function (_App) {
                 cleaned = data.reduce(function (acc, curr) {
                   return [].concat(_toConsumableArray(curr.data.data.children), _toConsumableArray(acc));
                 }, []);
-                postsSortedByNewest = cleaned.sort(_lib_utils__WEBPACK_IMPORTED_MODULE_5__["sortByNewest"]);
+                postsSortedByNewest = cleaned.sort(_lib_utils__WEBPACK_IMPORTED_MODULE_6__["sortByNewest"]);
                 return _context2.abrupt("return", _objectSpread({
                   posts: postsSortedByNewest
                 }, pageProps));
@@ -611,6 +622,17 @@ module.exports = require("firebase/app");
 /***/ (function(module, exports) {
 
 module.exports = require("firebase/firestore");
+
+/***/ }),
+
+/***/ "next-page-transitions":
+/*!****************************************!*\
+  !*** external "next-page-transitions" ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("next-page-transitions");
 
 /***/ }),
 

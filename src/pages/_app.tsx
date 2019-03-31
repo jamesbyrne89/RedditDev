@@ -1,5 +1,6 @@
 import App, { Container } from 'next/app';
 import axios from 'axios';
+import { PageTransition } from 'next-page-transitions';
 import { endpoints } from '../lib/subreddits';
 import { filterPostsCallback, sortByNewest } from '../lib/utils';
 import db from '../db/firestore';
@@ -88,14 +89,16 @@ class MyApp extends App<Props> {
 
     return (
       <Container>
-        <Component
-          posts={isFiltered ? filteredPosts : posts}
-          loading={this.state.loading}
-          onSearchSubmit={this.filterPosts}
-          onAddToFavourites={this.addToFavourites}
-          favourites={this.state.favourites}
-          {...pageProps}
-        />
+        <PageTransition timeout={300} classNames="page-transition">
+          <Component
+            posts={isFiltered ? filteredPosts : posts}
+            loading={this.state.loading}
+            onSearchSubmit={this.filterPosts}
+            onAddToFavourites={this.addToFavourites}
+            favourites={this.state.favourites}
+            {...pageProps}
+          />
+        </PageTransition>
       </Container>
     );
   }
