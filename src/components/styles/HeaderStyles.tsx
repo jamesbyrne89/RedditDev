@@ -1,4 +1,4 @@
-import { constants } from './constants';
+import { constants, sizes } from './constants';
 import styled from 'styled-components';
 
 export const StyledHeader = styled.header`
@@ -14,14 +14,25 @@ export const StyledHeader = styled.header`
   -ms-flex-pack: center;
   justify-content: center;
   width: 100%;
-  height: 140px;
   background: #fff;
   -webkit-box-shadow: 0 0 0 1px ${constants.text_grey_mid_two};
   box-shadow: 0 0 0 1px ${constants.text_grey_mid_two};
   grid-area: header;
   .header__title-wrapper {
     display: flex;
-    align-items: baseline;
+    align-items: center;
+  }
+  ul {
+    display: flex;
+    justify-content: flex-end;
+    flex-grow: 1;
+    margin: 0.5rem 0;
+    @media (max-width: ${sizes.desktop_sm}px) {
+      justify-content: flex-start;
+    }
+    @media (max-width: ${sizes.tablet}px) {
+      justify-content: flex-end;
+    }
   }
 `;
 
@@ -32,13 +43,19 @@ export const StyledMasthead = styled.div`
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  -webkit-box-align: end;
-  -ms-flex-align: end;
-  align-items: flex-end;
+  align-items: center;
   padding: 0.25em 0;
   width: 85%;
   height: auto;
-  margin: 0 auto 0 10%;
+  margin: 0 auto 0 calc(7.5% + 2rem);
+  @media (max-width: ${sizes.desktop_sm}px) {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+  @media (max-width: ${sizes.tablet}px) {
+      width: 95%;
+      margin-left: auto;
+    }
 `;
 
 export const StyledHeaderTitle = styled.h1`
@@ -52,6 +69,10 @@ export const StyledHeaderTitle = styled.h1`
   color: $nearBlack;
   line-height: 1;
   text-align: left;
+  margin: 0.5rem 0;
+  @media (max-width: ${sizes.tablet}px) {
+    font-size: 2.5rem;
+  }
 `;
 
 export const StyledHeaderDescription = styled.h2`
@@ -65,6 +86,9 @@ export const StyledHeaderDescription = styled.h2`
   transition: all 0.3s;
   padding-right: 1em;
   margin-left: 1rem;
+  @media (max-width: ${sizes.tablet}px) {
+    display: none;
+  }
 `;
 
 export const StyledNavItem = styled.li`
@@ -93,19 +117,4 @@ export const StyledNavItem = styled.li`
     }
 
   }
-  /* &:before, &:after {
-      content: '';
-      width: 2px;
-      background: ${constants.text_grey_mid_two};
-      height: 100%;
-      left: 0;
-      position: absolute;
-      transform: skew(-20deg);
-      top: 0;
-      bottom: 0;
-    }
-    &:after {
-      left: auto;
-      right: 0;
-    } */
 `;

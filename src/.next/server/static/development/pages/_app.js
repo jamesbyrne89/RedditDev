@@ -102,8 +102,11 @@ module.exports =
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var firebase__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! firebase */ "firebase");
-/* harmony import */ var firebase__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(firebase__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! firebase/app */ "firebase/app");
+/* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(firebase_app__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var firebase_firestore__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! firebase/firestore */ "firebase/firestore");
+/* harmony import */ var firebase_firestore__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(firebase_firestore__WEBPACK_IMPORTED_MODULE_1__);
+
 
 var config = {
   apiKey: 'AIzaSyBkHyS6BMFlRBww9mZMsTQgMzjp6P9ml6M',
@@ -115,11 +118,11 @@ var config = {
 };
 
 var initDB = function initDB() {
-  if (!firebase__WEBPACK_IMPORTED_MODULE_0___default.a.apps.length) {
-    firebase__WEBPACK_IMPORTED_MODULE_0___default.a.initializeApp(config);
+  if (!firebase_app__WEBPACK_IMPORTED_MODULE_0___default.a.apps.length) {
+    firebase_app__WEBPACK_IMPORTED_MODULE_0___default.a.initializeApp(config);
   }
 
-  var db = firebase__WEBPACK_IMPORTED_MODULE_0___default.a.firestore();
+  var db = firebase_app__WEBPACK_IMPORTED_MODULE_0___default.a.firestore();
   return db;
 };
 
@@ -568,14 +571,25 @@ module.exports = require("axios");
 
 /***/ }),
 
-/***/ "firebase":
-/*!***************************!*\
-  !*** external "firebase" ***!
-  \***************************/
+/***/ "firebase/app":
+/*!*******************************!*\
+  !*** external "firebase/app" ***!
+  \*******************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = require("firebase");
+module.exports = require("firebase/app");
+
+/***/ }),
+
+/***/ "firebase/firestore":
+/*!*************************************!*\
+  !*** external "firebase/firestore" ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("firebase/firestore");
 
 /***/ }),
 

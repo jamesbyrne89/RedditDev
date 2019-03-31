@@ -1,9 +1,12 @@
 import styled from 'styled-components';
-import { constants } from '../styles/constants';
+import { constants, sizes } from '../styles/constants';
 
 const SearchStyles = styled.div`
   width: 300px;
   position: relative;
+  @media (max-width: ${sizes.tablet}px) {
+    width: auto;
+  }
 
 .search__input {
   display: block;

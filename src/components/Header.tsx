@@ -39,7 +39,7 @@ const Header: React.FunctionComponent<Props> = props => (
           The best of frontend web development on Reddit
         </StyledHeaderDescription>
       </div>
-      <ul style={{ display: 'flex' }}>
+      <ul>
         <StyledNavItem>
           <Link href="/favourites"><a>Favourites</a></Link>
         </StyledNavItem>
