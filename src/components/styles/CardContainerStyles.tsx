@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import { constants, sizes } from './constants';
 
-const CardContainerStyles = styled.main`
+export const CardContainerStyles = styled.main`
+    position: relative;
     -webkit-column-count: 4;
     column-count: 4;
     -webkit-column-gap: 2.5em;
@@ -45,4 +46,25 @@ const CardContainerStyles = styled.main`
 
 `;
 
-export default CardContainerStyles;
+export const StatusMessageStyles = styled.div`
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  text-align: center;
+  margin-top: 200px;
+  svg {
+    height: 56px;
+  }
+  span {
+    display: block;
+  }
+  @media (max-width: ${sizes.tablet}px) {
+    margin-top: 120px;
+  }
+  @media (max-width: ${sizes.mobile}px) {
+    margin-top: 80px;
+  }
+`;

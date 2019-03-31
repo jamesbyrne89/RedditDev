@@ -23,13 +23,13 @@ class MyApp extends App<Props> {
     const data = await axios.all(
       Object.keys(endpoints).map(url => axios.get(endpoints[url])),
     );
-    const cleaned: Array<{}> = data.reduce(
-      (acc: any, curr: any): Array<{}> => {
+    const cleaned: IRedditPost[] = data.reduce(
+      (acc: IRedditPost[], curr: any): IRedditPost[] => {
         return [ ...curr.data.data.children, ...acc ];
       },
       [],
     );
-    const postsSortedByNewest: Array<object> = cleaned.sort(sortByNewest);
+    const postsSortedByNewest: IRedditPost[] = cleaned.sort(sortByNewest);
 
     return { posts: postsSortedByNewest, ...pageProps };
   }
@@ -63,7 +63,7 @@ class MyApp extends App<Props> {
     });
   };
 
-  addToFavourites = (postToAdd: ILocalRedditPost) => {
+  addToFavourites = (postToAdd: ILocalRedditPost): void => {
     if (postToAdd.doc_id) {
       return this.removeFromFavourites(postToAdd);
     }
@@ -78,7 +78,7 @@ class MyApp extends App<Props> {
       });
   };
 
-  removeFromFavourites = (postToRemove: ILocalRedditPost) => {
+  removeFromFavourites = (postToRemove: ILocalRedditPost): void => {
     db.collection('favourites').doc(postToRemove.doc_id).delete();
   };
 

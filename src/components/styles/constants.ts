@@ -1,4 +1,34 @@
-export const constants = {
+interface IConstants {
+  sansSerif: string,
+  serif: string,
+  /* Colours */
+  nearBlack: string,
+  highlightColourOne: string,
+  background_grey: string,
+  text_grey_dark: string,
+  text_grey_mid_one: string,
+  text_grey_mid_two: string,
+  subreddit_colour_one: string,
+  subreddit_colour_two: string,
+  subreddit_colour_three: string,
+  subreddit_colour_four: string,
+  subreddit_colour_five: string,
+  subreddit_colour_six: string,
+  subreddit_colour_seven: string,
+  subreddit_colour_eight: string,
+  subreddit_colour_nine: string,
+  subreddit_colour_ten: string,
+}
+
+interface ISizes {
+  desktop_lg: number,
+  desktop_md: number,
+  desktop_sm: number,
+  tablet: number,
+  mobile: number,
+}
+
+export const constants: IConstants = {
   /* Typography */
   sansSerif: `'space mono',
 helvetica,
@@ -26,7 +56,7 @@ serif`,
   subreddit_colour_ten: '#535c68',
 };
 
-export const sizes = {
+export const sizes: ISizes = {
   desktop_lg: 1600,
   desktop_md: 1376,
   desktop_sm: 1024,

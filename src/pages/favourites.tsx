@@ -10,7 +10,7 @@ async function getFavourites(): ILocalRedditPost[] {
     doc => ({ doc_id: doc.id, data: doc.data().data }),
   );
 
-  return { favourites: [] };
+  return { favourites };
 }
 
 type P = { favourites: [] };
