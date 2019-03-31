@@ -72,13 +72,33 @@ class Home extends React.Component<IProps, IState> {
         />
         <Sidebar />
         <CardsContainer>
-          {loading ? <Loader /> : posts.map((post: object): any => {
-                console.log(post.doc_id);
-                return (
+          {
+            loading
+              ? <Loader />
+              : posts.map(
+                (post: object): any => (
                   <Card
                     key={post.data.id}
                     id={post.data.id}
-                    doc_id={post.doc_id}
+                    doc_id={
+                      favourites.map(
+                        isAlreadyFavourite({
+                          data: {
+                            title: post.data.title,
+                            created_utc: post.data.created_utc,
+                          },
+                        }),
+                      ).length >
+                        0 &&
+                        favourites.map(
+                          isAlreadyFavourite({
+                            data: {
+                              title: post.data.title,
+                              created_utc: post.data.created_utc,
+                            },
+                          }),
+                        )[0].doc_id
+                    }
                     subName={post.data.subreddit_name_prefixed}
                     title={post.data.title}
                     url={post.data.url}
@@ -98,8 +118,9 @@ class Home extends React.Component<IProps, IState> {
                     }
                     onAddToFavourites={this.props.onAddToFavourites}
                   />
-                );
-              })}
+                ),
+              )
+          }
         </CardsContainer>
       </React.Fragment>
     );

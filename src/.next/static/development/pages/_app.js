@@ -61228,14 +61228,10 @@ function (_App) {
       _db_firestore__WEBPACK_IMPORTED_MODULE_6__["default"].collection('favourites').get().then(function (querySnapshot) {
         var savedFavourites = [];
         querySnapshot.forEach(function (doc) {
-          console.log(_objectSpread({
-            doc_id: doc.id
-          }, doc.data()));
           savedFavourites.push(_objectSpread({
             doc_id: doc.id
           }, doc.data()));
         });
-        console.log(savedFavourites);
 
         _this.setState({
           favourites: savedFavourites
@@ -61271,7 +61267,6 @@ function (_App) {
         return _this.removeFromFavourites(postToAdd);
       }
 
-      console.log('post to add:', postToAdd);
       _db_firestore__WEBPACK_IMPORTED_MODULE_6__["default"].collection('favourites').add(postToAdd).then(function (docRef) {
         console.log('Document written with ID: ', docRef.id);
       }).catch(function (error) {
@@ -61286,7 +61281,6 @@ function (_App) {
 
     _defineProperty(_assertThisInitialized(_this), "removeFromFavourites", function (postToRemove) {
       _db_firestore__WEBPACK_IMPORTED_MODULE_6__["default"].collection('favourites').doc(postToRemove.doc_id).delete();
-      console.log('remove');
 
       var newFavouritesList = _this.state.favourites.filter(function (fav) {
         return postToRemove.data.title !== fav.data.title && postToRemove.data.created_utc !== fav.data.created_utc;
@@ -61294,8 +61288,6 @@ function (_App) {
 
       _this.setState({
         favourites: newFavouritesList
-      }, function () {
-        localStorage.setItem('favourite-reddit-posts', JSON.stringify(_this.state.favourites));
       });
     });
 
@@ -61305,12 +61297,9 @@ function (_App) {
   _createClass(MyApp, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      localStorage.setItem('reddit-posts', JSON.stringify(this.props.posts));
-      var cachedFavourites = JSON.parse(localStorage.getItem('favourite-reddit-posts')) || [];
       this.setState({
         loading: false,
-        posts: this.props.posts,
-        favourites: cachedFavourites
+        posts: this.props.posts
       });
       this.getFavourites();
     }
@@ -61327,7 +61316,7 @@ function (_App) {
       return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(next_app__WEBPACK_IMPORTED_MODULE_2__["Container"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 134
+          lineNumber: 108
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Component, _extends({
@@ -61339,7 +61328,7 @@ function (_App) {
       }, pageProps, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 135
+          lineNumber: 109
         },
         __self: this
       })));
@@ -61350,7 +61339,7 @@ function (_App) {
       var _getInitialProps = _asyncToGenerator(
       /*#__PURE__*/
       _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        var data, cleaned, filterFunc, postsSortedByNewest, postsToDisplay;
+        var data, cleaned, postsSortedByNewest;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
@@ -61366,13 +61355,11 @@ function (_App) {
                   return [].concat(_toConsumableArray(curr.data.data.children), _toConsumableArray(acc));
                 }, []);
                 postsSortedByNewest = cleaned.sort(_lib_utils__WEBPACK_IMPORTED_MODULE_5__["sortByNewest"]);
-                postsToDisplay = filterFunc ? postsSortedByNewest.filter(filterFunc) : postsSortedByNewest;
-                console.log(_db_firestore__WEBPACK_IMPORTED_MODULE_6__["default"]);
                 return _context.abrupt("return", {
-                  posts: postsToDisplay
+                  posts: postsSortedByNewest
                 });
 
-              case 8:
+              case 6:
               case "end":
                 return _context.stop();
             }

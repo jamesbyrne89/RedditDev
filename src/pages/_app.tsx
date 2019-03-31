@@ -1,12 +1,8 @@
 import App, { Container } from 'next/app';
 import axios from 'axios';
 import { endpoints } from '../lib/subreddits';
-import {
-  filterPostsCallback,
-  isAlreadyFavourite,
-  sortByNewest,
-} from '../lib/utils';
-import firestore from '../db/firestore';
+import { filterPostsCallback, sortByNewest } from '../lib/utils';
+import db from '../db/firestore';
 
 interface Props { loading: boolean, posts: Array }
 
@@ -19,6 +15,7 @@ interface IPostToRemove {
     subreddit_name_prefixed: string,
     title: string,
     url: string,
+    doc_id: string,
   },
 }
 
@@ -40,39 +37,23 @@ class MyApp extends App<Props> {
       },
       [],
     );
-    let filterFunc;
     const postsSortedByNewest: Array<object> = cleaned.sort(sortByNewest);
-    const postsToDisplay = filterFunc
-      ? postsSortedByNewest.filter(filterFunc)
-      : postsSortedByNewest;
-    console.log(firestore);
-    return { posts: postsToDisplay };
+
+    return { posts: postsSortedByNewest };
   }
 
   getFavourites = () => {
-    firestore.collection('favourites').get().then(querySnapshot => {
+    db.collection('favourites').get().then(querySnapshot => {
       const savedFavourites: object[] = [];
       querySnapshot.forEach(doc => {
-        console.log({ doc_id: doc.id, ...doc.data() });
         savedFavourites.push({ doc_id: doc.id, ...doc.data() });
       });
-      console.log(savedFavourites);
       this.setState({ favourites: savedFavourites });
     });
   };
 
   componentDidMount() {
-    localStorage.setItem('reddit-posts', JSON.stringify(this.props.posts));
-    const cachedFavourites: Array<{}> = JSON.parse(
-      localStorage.getItem('favourite-reddit-posts'),
-    ) ||
-      [];
-
-    this.setState({
-      loading: false,
-      posts: this.props.posts,
-      favourites: cachedFavourites,
-    });
+    this.setState({ loading: false, posts: this.props.posts });
 
     this.getFavourites();
   }
@@ -97,8 +78,7 @@ class MyApp extends App<Props> {
     if (postToAdd.doc_id) {
       return this.removeFromFavourites(postToAdd);
     }
-    console.log('post to add:', postToAdd);
-    firestore
+    db
       .collection('favourites')
       .add(postToAdd)
       .then(function(docRef) {
@@ -112,19 +92,13 @@ class MyApp extends App<Props> {
   };
 
   removeFromFavourites = (postToRemove: IPostToRemove) => {
-    firestore.collection('favourites').doc(postToRemove.doc_id).delete();
-    console.log('remove');
+    db.collection('favourites').doc(postToRemove.doc_id).delete();
     const newFavouritesList = this.state.favourites.filter(
       fav =>
         postToRemove.data.title !== fav.data.title &&
           postToRemove.data.created_utc !== fav.data.created_utc,
     );
-    this.setState({ favourites: newFavouritesList }, () => {
-      localStorage.setItem(
-        'favourite-reddit-posts',
-        JSON.stringify(this.state.favourites),
-      );
-    });
+    this.setState({ favourites: newFavouritesList });
   };
 
   render() {
