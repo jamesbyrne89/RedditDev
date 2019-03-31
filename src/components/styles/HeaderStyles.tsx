@@ -70,6 +70,7 @@ export const StyledHeaderTitle = styled.h1`
   line-height: 1;
   text-align: left;
   margin: 0.5rem 0;
+  cursor: pointer;
   @media (max-width: ${sizes.tablet}px) {
     font-size: 2.5rem;
   }
@@ -98,6 +99,9 @@ export const StyledNavItem = styled.li`
   padding-left: 1em;
   position: relative;
   font-weight: bold;
+  li {
+    cursor: pointer;
+  }
   a,
   button {
     display: flex;

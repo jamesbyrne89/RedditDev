@@ -26,7 +26,7 @@ Router.events.on('routeChangeStart', onRouteChangeStart);
 Router.events.on('routeChangeComplete', onRouteChangeComplete);
 Router.events.on('routeChangeError', onRouteChangeError);
 
-interface Props { onSearchSubmit?: Function }
+interface Props { onSearchSubmit: Function }
 
 const Header: React.FunctionComponent<Props> = props => (
   <StyledHeader>

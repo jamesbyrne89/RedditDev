@@ -3,21 +3,9 @@ import axios from 'axios';
 import { endpoints } from '../lib/subreddits';
 import { filterPostsCallback, sortByNewest } from '../lib/utils';
 import db from '../db/firestore';
+import { IRedditPost, ILocalRedditPost } from '../interfaces/index';
 
-interface Props { loading: boolean, posts: Array }
-
-interface IPostToRemove {
-  data: {
-    created_utc: number,
-    id: string,
-    num_comments: number,
-    permalink: string,
-    subreddit_name_prefixed: string,
-    title: string,
-    url: string,
-    doc_id: string,
-  },
-}
+interface Props { loading: boolean, posts: IRedditPost[], favourites: [] }
 
 class MyApp extends App<Props> {
   state = {
@@ -27,7 +15,11 @@ class MyApp extends App<Props> {
     isFiltered: false,
     favourites: [],
   };
-  static async getInitialProps() {
+  static async getInitialProps({ Component, ctx }: any) {
+    let pageProps = { favourites: [] };
+    if (Component.getInitialProps) {
+      pageProps = await Component.getInitialProps(ctx);
+    }
     const data = await axios.all(
       Object.keys(endpoints).map(url => axios.get(endpoints[url])),
     );
@@ -39,34 +31,31 @@ class MyApp extends App<Props> {
     );
     const postsSortedByNewest: Array<object> = cleaned.sort(sortByNewest);
 
-    return { posts: postsSortedByNewest };
+    return { posts: postsSortedByNewest, ...pageProps };
   }
 
-  getFavourites = () => {
-    db.collection('favourites').get().then(querySnapshot => {
-      const savedFavourites: object[] = [];
-      querySnapshot.forEach(doc => {
-        savedFavourites.push({ doc_id: doc.id, ...doc.data() });
-      });
-      this.setState({ favourites: savedFavourites });
+  async componentDidMount() {
+    const { posts = [], favourites = [] } = this.props;
+    this.setState({ loading: false, posts, favourites });
+    db.collection('favourites').onSnapshot(querySnapshot => {
+      const favourites = querySnapshot.docs.map(
+        doc => ({ doc_id: doc.id, data: doc.data().data }),
+      );
+      if (favourites.length !== this.state.favourites.length) {
+        this.setState({ favourites });
+      }
     });
-  };
-
-  componentDidMount() {
-    this.setState({ loading: false, posts: this.props.posts });
-
-    this.getFavourites();
   }
 
   filterPosts = (searchTerm = '') => {
     if (!searchTerm) {
       return this.setState({
-        filteredPosts: this.state.posts,
+        filteredPosts: this.props.posts,
         isFiltered: false,
       });
     }
     this.setState({ loading: true });
-    const filtered = this.state.posts.filter(filterPostsCallback(searchTerm));
+    const filtered = this.props.posts.filter(filterPostsCallback(searchTerm));
     this.setState({
       filteredPosts: filtered,
       loading: false,
@@ -74,41 +63,29 @@ class MyApp extends App<Props> {
     });
   };
 
-  addToFavourites = postToAdd => {
-    console.log({ postToAdd });
+  addToFavourites = (postToAdd: ILocalRedditPost) => {
     if (postToAdd.doc_id) {
       return this.removeFromFavourites(postToAdd);
     }
-    console.log('safe to add');
     db
       .collection('favourites')
       .add(postToAdd)
       .then(docRef => {
-        const newFavourite = { ...postToAdd, doc_id: docRef.id };
-        console.log(this);
-        this.setState({
-          favourites: [ ...this.state.favourites, newFavourite ],
-        });
-        console.log('Document written with ID: ', docRef.id);
+        console.log('added', { ...postToAdd, doc_id: docRef.id });
       })
       .catch(function(error) {
         console.error('Error adding document: ', error);
       });
   };
 
-  removeFromFavourites = (postToRemove: IPostToRemove) => {
+  removeFromFavourites = (postToRemove: ILocalRedditPost) => {
     db.collection('favourites').doc(postToRemove.doc_id).delete();
-    const newFavouritesList = this.state.favourites.filter(
-      fav =>
-        postToRemove.data.title !== fav.data.title &&
-          postToRemove.data.created_utc !== fav.data.created_utc,
-    );
-    this.setState({ favourites: newFavouritesList });
   };
 
   render() {
     const { posts, filteredPosts, isFiltered } = this.state;
     const { Component, pageProps } = this.props;
+
     return (
       <Container>
         <Component

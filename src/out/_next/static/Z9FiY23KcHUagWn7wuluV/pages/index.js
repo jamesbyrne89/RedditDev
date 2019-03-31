@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[5],{366:function(e,t,n){__NEXT_REGISTER_PAGE("/",function(){return e.exports=n(367),{page:e.exports.default}})},367:function(e,t,n){"use strict";n.r(t);var r=n(0),a=n(80),o=n(81);t.default=function(e){return r.createElement(o.a,{title:"RedditDev"},r.createElement(a.a,e))}}},[[366,1,0]]]);

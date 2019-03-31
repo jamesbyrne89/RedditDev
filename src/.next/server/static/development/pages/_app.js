@@ -303,12 +303,6 @@ var _jsxFileName = "E:\\Users\\James\\Web Dev\\Projects\\RedditDev\\src\\pages\\
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
-function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
-
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
@@ -316,6 +310,12 @@ function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread n
 function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
 
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
 
@@ -369,27 +369,12 @@ function (_App) {
       favourites: []
     });
 
-    _defineProperty(_assertThisInitialized(_this), "getFavourites", function () {
-      _db_firestore__WEBPACK_IMPORTED_MODULE_6__["default"].collection('favourites').get().then(function (querySnapshot) {
-        var savedFavourites = [];
-        querySnapshot.forEach(function (doc) {
-          savedFavourites.push(_objectSpread({
-            doc_id: doc.id
-          }, doc.data()));
-        });
-
-        _this.setState({
-          favourites: savedFavourites
-        });
-      });
-    });
-
     _defineProperty(_assertThisInitialized(_this), "filterPosts", function () {
       var searchTerm = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
 
       if (!searchTerm) {
         return _this.setState({
-          filteredPosts: _this.state.posts,
+          filteredPosts: _this.props.posts,
           isFiltered: false
         });
       }
@@ -398,7 +383,7 @@ function (_App) {
         loading: true
       });
 
-      var filtered = _this.state.posts.filter(Object(_lib_utils__WEBPACK_IMPORTED_MODULE_5__["filterPostsCallback"])(searchTerm));
+      var filtered = _this.props.posts.filter(Object(_lib_utils__WEBPACK_IMPORTED_MODULE_5__["filterPostsCallback"])(searchTerm));
 
       _this.setState({
         filteredPosts: filtered,
@@ -408,27 +393,14 @@ function (_App) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "addToFavourites", function (postToAdd) {
-      console.log({
-        postToAdd: postToAdd
-      });
-
       if (postToAdd.doc_id) {
         return _this.removeFromFavourites(postToAdd);
       }
 
-      console.log('safe to add');
       _db_firestore__WEBPACK_IMPORTED_MODULE_6__["default"].collection('favourites').add(postToAdd).then(function (docRef) {
-        var newFavourite = _objectSpread({}, postToAdd, {
+        console.log('added', _objectSpread({}, postToAdd, {
           doc_id: docRef.id
-        });
-
-        console.log(_assertThisInitialized(_this));
-
-        _this.setState({
-          favourites: [].concat(_toConsumableArray(_this.state.favourites), [newFavourite])
-        });
-
-        console.log('Document written with ID: ', docRef.id);
+        }));
       }).catch(function (error) {
         console.error('Error adding document: ', error);
       });
@@ -436,14 +408,6 @@ function (_App) {
 
     _defineProperty(_assertThisInitialized(_this), "removeFromFavourites", function (postToRemove) {
       _db_firestore__WEBPACK_IMPORTED_MODULE_6__["default"].collection('favourites').doc(postToRemove.doc_id).delete();
-
-      var newFavouritesList = _this.state.favourites.filter(function (fav) {
-        return postToRemove.data.title !== fav.data.title && postToRemove.data.created_utc !== fav.data.created_utc;
-      });
-
-      _this.setState({
-        favourites: newFavouritesList
-      });
     });
 
     return _this;
@@ -451,13 +415,53 @@ function (_App) {
 
   _createClass(MyApp, [{
     key: "componentDidMount",
-    value: function componentDidMount() {
-      this.setState({
-        loading: false,
-        posts: this.props.posts
-      });
-      this.getFavourites();
-    }
+    value: function () {
+      var _componentDidMount = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var _this2 = this;
+
+        var _this$props, _this$props$posts, posts, _this$props$favourite, favourites;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _this$props = this.props, _this$props$posts = _this$props.posts, posts = _this$props$posts === void 0 ? [] : _this$props$posts, _this$props$favourite = _this$props.favourites, favourites = _this$props$favourite === void 0 ? [] : _this$props$favourite;
+                this.setState({
+                  loading: false,
+                  posts: posts,
+                  favourites: favourites
+                });
+                _db_firestore__WEBPACK_IMPORTED_MODULE_6__["default"].collection('favourites').onSnapshot(function (querySnapshot) {
+                  var favourites = querySnapshot.docs.map(function (doc) {
+                    return {
+                      doc_id: doc.id,
+                      data: doc.data().data
+                    };
+                  });
+
+                  if (favourites.length !== _this2.state.favourites.length) {
+                    _this2.setState({
+                      favourites: favourites
+                    });
+                  }
+                });
+
+              case 3:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function componentDidMount() {
+        return _componentDidMount.apply(this, arguments);
+      }
+
+      return componentDidMount;
+    }()
   }, {
     key: "render",
     value: function render() {
@@ -465,13 +469,13 @@ function (_App) {
           posts = _this$state.posts,
           filteredPosts = _this$state.filteredPosts,
           isFiltered = _this$state.isFiltered;
-      var _this$props = this.props,
-          Component = _this$props.Component,
-          pageProps = _this$props.pageProps;
+      var _this$props2 = this.props,
+          Component = _this$props2.Component,
+          pageProps = _this$props2.pageProps;
       return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(next_app__WEBPACK_IMPORTED_MODULE_2__["Container"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 113
+          lineNumber: 90
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Component, _extends({
@@ -483,7 +487,7 @@ function (_App) {
       }, pageProps, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 114
+          lineNumber: 91
         },
         __self: this
       })));
@@ -493,36 +497,53 @@ function (_App) {
     value: function () {
       var _getInitialProps = _asyncToGenerator(
       /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        var data, cleaned, postsSortedByNewest;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(_ref) {
+        var Component, ctx, pageProps, data, cleaned, postsSortedByNewest;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
           while (1) {
-            switch (_context.prev = _context.next) {
+            switch (_context2.prev = _context2.next) {
               case 0:
-                _context.next = 2;
+                Component = _ref.Component, ctx = _ref.ctx;
+                pageProps = {
+                  favourites: []
+                };
+
+                if (!Component.getInitialProps) {
+                  _context2.next = 6;
+                  break;
+                }
+
+                _context2.next = 5;
+                return Component.getInitialProps(ctx);
+
+              case 5:
+                pageProps = _context2.sent;
+
+              case 6:
+                _context2.next = 8;
                 return axios__WEBPACK_IMPORTED_MODULE_3___default.a.all(Object.keys(_lib_subreddits__WEBPACK_IMPORTED_MODULE_4__["endpoints"]).map(function (url) {
                   return axios__WEBPACK_IMPORTED_MODULE_3___default.a.get(_lib_subreddits__WEBPACK_IMPORTED_MODULE_4__["endpoints"][url]);
                 }));
 
-              case 2:
-                data = _context.sent;
+              case 8:
+                data = _context2.sent;
                 cleaned = data.reduce(function (acc, curr) {
                   return [].concat(_toConsumableArray(curr.data.data.children), _toConsumableArray(acc));
                 }, []);
                 postsSortedByNewest = cleaned.sort(_lib_utils__WEBPACK_IMPORTED_MODULE_5__["sortByNewest"]);
-                return _context.abrupt("return", {
+                return _context2.abrupt("return", _objectSpread({
                   posts: postsSortedByNewest
-                });
+                }, pageProps));
 
-              case 6:
+              case 12:
               case "end":
-                return _context.stop();
+                return _context2.stop();
             }
           }
-        }, _callee);
+        }, _callee2);
       }));
 
-      function getInitialProps() {
+      function getInitialProps(_x) {
         return _getInitialProps.apply(this, arguments);
       }
 

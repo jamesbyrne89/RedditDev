@@ -1038,7 +1038,7 @@ var StyledMasthead = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].d
 var StyledHeaderTitle = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].h1.withConfig({
   displayName: "HeaderStyles__StyledHeaderTitle",
   componentId: "fr55j3-2"
-})(["font-family:'Tiempos Headline Black';font-size:3.75rem;font-weight:700;-webkit-box-flex:0;-ms-flex:0 0 200px;flex:0 0 200px;z-index:100;color:$nearBlack;line-height:1;text-align:left;margin:0.5rem 0;@media (max-width:", "px){font-size:2.5rem;}"], _constants__WEBPACK_IMPORTED_MODULE_0__["sizes"].tablet);
+})(["font-family:'Tiempos Headline Black';font-size:3.75rem;font-weight:700;-webkit-box-flex:0;-ms-flex:0 0 200px;flex:0 0 200px;z-index:100;color:$nearBlack;line-height:1;text-align:left;margin:0.5rem 0;cursor:pointer;@media (max-width:", "px){font-size:2.5rem;}"], _constants__WEBPACK_IMPORTED_MODULE_0__["sizes"].tablet);
 var StyledHeaderDescription = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].h2.withConfig({
   displayName: "HeaderStyles__StyledHeaderDescription",
   componentId: "fr55j3-3"
@@ -1046,7 +1046,7 @@ var StyledHeaderDescription = styled_components__WEBPACK_IMPORTED_MODULE_1__["de
 var StyledNavItem = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].li.withConfig({
   displayName: "HeaderStyles__StyledNavItem",
   componentId: "fr55j3-4"
-})(["display:flex;align-items:center;margin-left:-2px;padding-left:1em;position:relative;font-weight:bold;a,button{display:flex;align-items:center;position:relative;background:none;border:0;cursor:pointer;transition:all 0.2s ease-out;padding:0 1em;line-height:2.4;border:solid 2px ", ";&:hover{color:white;background:", ";}}"], _constants__WEBPACK_IMPORTED_MODULE_0__["constants"].nearBlack, _constants__WEBPACK_IMPORTED_MODULE_0__["constants"].nearBlack);
+})(["display:flex;align-items:center;margin-left:-2px;padding-left:1em;position:relative;font-weight:bold;li{cursor:pointer;}a,button{display:flex;align-items:center;position:relative;background:none;border:0;cursor:pointer;transition:all 0.2s ease-out;padding:0 1em;line-height:2.4;border:solid 2px ", ";&:hover{color:white;background:", ";}}"], _constants__WEBPACK_IMPORTED_MODULE_0__["constants"].nearBlack, _constants__WEBPACK_IMPORTED_MODULE_0__["constants"].nearBlack);
 
 /***/ }),
 
@@ -15467,7 +15467,7 @@ var IndexPage = function IndexPage(props) {
 
 /***/ }),
 
-/***/ 3:
+/***/ 4:
 /*!*******************************!*\
   !*** multi ./pages/index.tsx ***!
   \*******************************/
@@ -15492,5 +15492,5 @@ module.exports = dll_088020044fcad06258c8;
 
 /***/ })
 
-},[[3,"static/runtime/webpack.js"]]]));;
+},[[4,"static/runtime/webpack.js"]]]));;
 //# sourceMappingURL=index.js.map
