@@ -1,20 +1,34 @@
 import * as React from 'react';
 import Head from 'next/head';
 import GlobalStyles from './styles/GlobalStyles';
+import Header from './Header';
+import Sidebar from './Sidebar';
 
-interface IProps { title: string }
+type P = {
+  title: string,
+  onSearchSubmit: Function,
+  onAddNewFavourite: Function,
+};
 
-class Layout extends React.Component<IProps> {
-  render() {
-    const { children, title = 'redditDev' } = this.props;
-    return (
-      <div>
-        <GlobalStyles />
-        <Head><title>{title}</title></Head>
-        {children}
-      </div>
-    );
-  }
-}
+const Layout = (props: P) => {
+  const {
+    children,
+    title = 'redditDev',
+    onSearchSubmit,
+    onAddNewFavourite,
+  } = props;
+  return (
+    <div>
+      <GlobalStyles />
+      <Head><title>{title}</title></Head>
+      <Header
+        onSearchSubmit={onSearchSubmit}
+        onAddNewFavourite={onAddNewFavourite}
+      />
+      <Sidebar />
+      {children}
+    </div>
+  );
+};
 
 export default Layout;

@@ -10,15 +10,4 @@ export interface IRedditPost {
   },
 }
 
-export interface ILocalRedditPost {
-  doc_id?: string,
-  data: {
-    subreddit_name_prefixed: string,
-    title: string,
-    url: string,
-    permalink: string,
-    num_comments: number,
-    created_utc: number,
-    id: string,
-  },
-}
+export interface IFavouritePost extends IRedditPost { doc_id?: string }

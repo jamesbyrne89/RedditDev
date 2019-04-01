@@ -89,16 +89,14 @@ class MyApp extends App<Props> {
 
     return (
       <Container>
-        <PageTransition timeout={300} classNames="page-transition">
-          <Component
-            posts={isFiltered ? filteredPosts : posts}
-            loading={this.state.loading}
-            onSearchSubmit={this.filterPosts}
-            onAddToFavourites={this.addToFavourites}
-            favourites={this.state.favourites}
-            {...pageProps}
-          />
-        </PageTransition>
+        <Component
+          posts={isFiltered ? filteredPosts : posts}
+          loading={this.state.loading}
+          onSearchSubmit={this.filterPosts}
+          onAddToFavourites={this.addToFavourites}
+          favourites={this.state.favourites}
+          {...pageProps}
+        />
       </Container>
     );
   }
