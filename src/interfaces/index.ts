@@ -11,3 +11,9 @@ export interface IRedditPost {
 }
 
 export interface IFavouritePost extends IRedditPost { doc_id?: string }
+
+export interface ILayoutProps {
+  title: string,
+  onSearchSubmit: Function,
+  onAddNewFavourite: Function,
+}

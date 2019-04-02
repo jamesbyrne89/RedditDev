@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import Head from 'next/head';
 import GlobalStyles from './styles/GlobalStyles';
 import Header from './Header';
@@ -8,6 +8,7 @@ type P = {
   title: string,
   onSearchSubmit: Function,
   onAddNewFavourite: Function,
+  children: React.ReactNode,
 };
 
 const Layout = (props: P) => {

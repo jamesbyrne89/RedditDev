@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { isAlreadyFavourite } from '../lib/utils';
 import Card from './Card';
 import Loader from './Loader';
@@ -15,6 +15,7 @@ type Props = {
 
 const CardContainer = (props: Props) => {
   const { posts, favourites, loading, emptyState, onAddToFavourites } = props;
+
   return (
     <CardContainerStyles>
       {

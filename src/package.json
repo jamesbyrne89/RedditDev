@@ -12,6 +12,7 @@
     "@types/styled-components": "^4.1.12",
     "@zeit/next-typescript": "^1.1.1",
     "firebase": "^5.9.2",
+    "intersection-observer": "^0.5.1",
     "isomorphic-fetch": "^2.2.1",
     "next": "7.0.3",
     "nprogress": "^0.2.0",

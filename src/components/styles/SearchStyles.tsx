@@ -19,6 +19,7 @@ const SearchStyles = styled.div`
   width: 100%;
   padding-left: 3em;
   font-family: ${constants.sansSerif}
+  position: relative;
   &:focus {
     &::placeholder {
       opacity: 0;
@@ -88,6 +89,29 @@ const SearchStyles = styled.div`
   -webkit-transition: all 0.15s;
   transition: all 0.15s;
 }
+`;
+
+export const SearchDropdownStyles = styled.div`
+  padding: 0.5em;
+  position: absolute;
+  top: 3.5rem;
+  width: 300px;
+  background: #fff;
+  z-index: 2;
+  box-shadow: 5px 6px 20px 0 rgba(46,61,73,.15);
+  ul {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    padding-top: 1rem;
+  }
+  .search__dropdown-list {
+    border-top: solid 1px ${constants.text_grey_mid_two};
+  }
+  li {
+    margin: 0.25rem 0.5rem;
+    list-style: none;
+  }
 `;
 
 export default SearchStyles;

@@ -1,13 +1,30 @@
 import React, { useState } from 'react';
-import { debounce } from '../lib/utils';
-import SearchStyles from './styles/SearchStyles';
+import { debounce, mapSubsToColours } from '../lib/utils';
+import SearchStyles, { SearchDropdownStyles } from './styles/SearchStyles';
+import { SubRedditNameStyles } from './styles/CardStyles';
 
 interface IProps { onSearchSubmit: Function }
 
 interface State { input: string }
 
+const subreddits = [
+  'webdev',
+  'web_design',
+  'frontend',
+  'css',
+  'javascript',
+  'reactjs',
+  'graphql',
+  'node',
+  'typescript',
+  'vue',
+];
+
 const Search = () => {
   const [ input, setInput ] = useState('');
+  const [ isFocused, setFocus ] = useState(false);
+  const [ allSubreddits, setRemainingSubreddits ] = useState(subreddits);
+  const [ selected, setSelected ] = useState([]);
 
   const onUserEntry = (e: React.FormEvent<HTMLInputElement>): void => {
     setInput(e.target.value);
@@ -22,6 +39,19 @@ const Search = () => {
     500,
   );
 
+  const handleFocus = () => {
+    setFocus(true);
+  };
+
+  const handleBlur = () => {};
+
+  const selectSubreddit = subName => {
+    const newSelected = [ ...selected, subName ];
+    setSelected(newSelected);
+    console.log(allSubreddits.filter(sub => sub !== subName));
+    setRemainingSubreddits(allSubreddits.filter(sub => sub !== subName));
+  };
+
   return (
     <SearchStyles onSubmit={onSubmit}>
       <input
@@ -31,6 +61,8 @@ const Search = () => {
         value={input}
         onChange={onUserEntry}
         onKeyUp={handleKeyup}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
       />
       <svg
         xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -48,6 +80,39 @@ const Search = () => {
       </svg>
       <button type="button" id="search-close-btn" className="search__close-btn">
       </button>
+      {isFocused && (
+            <SearchDropdownStyles>
+              <ul>
+                {selected.map(
+                    (subName, idx) => (
+                      <li>
+                        <SubRedditNameStyles
+                          key={idx}
+                          colour={mapSubsToColours(subName)}
+                        >
+                          {subName}
+                        </SubRedditNameStyles>
+                      </li>
+                    ),
+                  )}
+              </ul>
+              <ul className="search__dropdown-list">
+                {allSubreddits.map(
+                    (subName, idx) => (
+                      <li>
+                        <SubRedditNameStyles
+                          key={idx}
+                          colour={mapSubsToColours(subName)}
+                          onClick={() => selectSubreddit(subName)}
+                        >
+                          {subName}
+                        </SubRedditNameStyles>
+                      </li>
+                    ),
+                  )}
+              </ul>
+            </SearchDropdownStyles>
+          )}
     </SearchStyles>
   );
 };
