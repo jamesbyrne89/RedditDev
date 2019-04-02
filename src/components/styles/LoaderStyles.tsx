@@ -17,7 +17,7 @@ const LoaderStyles = styled.div`
   opacity: 0.8;
   margin: auto;
   position: absolute;
-  top: calc(30vh - 180px);
+  top: 25vh;
   left: 0;
   right: 0;
   bottom: 0;
