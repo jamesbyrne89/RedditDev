@@ -48,15 +48,17 @@ class MyApp extends App<Props> {
     });
   }
 
-  filterPosts = (searchTerm = '') => {
-    if (!searchTerm) {
+  filterPosts = (searchTerm = '', subreddits = []) => {
+    if (!searchTerm && subreddits.length === 0) {
       return this.setState({
         filteredPosts: this.props.posts,
         isFiltered: false,
       });
     }
     this.setState({ loading: true });
-    const filtered = this.props.posts.filter(filterPostsCallback(searchTerm));
+    const filtered = this.props.posts.filter(
+      filterPostsCallback(searchTerm, subreddits),
+    );
     this.setState({
       filteredPosts: filtered,
       loading: false,

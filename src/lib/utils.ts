@@ -82,10 +82,14 @@ export function debounce(func: Function, wait = 100, immediate?: boolean) {
   };
 }
 
-export function filterPostsCallback(searchTerm: string): any {
-  return function(post: IRedditPost) {
-    return post.data.title.includes(searchTerm) ||
-      post.data.url.includes(searchTerm);
+export function filterPostsCallback(
+  searchTerm: string = '',
+  subreddits: string[] = [],
+): Function {
+  return (post: IRedditPost) => {
+    const { data } = post;
+    return data.title.includes(searchTerm) || data.url.includes(searchTerm) ||
+      subreddits.includes(data.subreddit);
   };
 }
 

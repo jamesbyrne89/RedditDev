@@ -20,18 +20,18 @@ const subreddits = [
   'vue',
 ];
 
-const Search = () => {
+const Search = props => {
   const [ input, setInput ] = useState('');
   const [ isFocused, setFocus ] = useState(false);
-  const [ allSubreddits, setRemainingSubreddits ] = useState(subreddits);
-  const [ selected, setSelected ] = useState([]);
+  const [ selectedSubs, setSelectedSubs ] = useState(subreddits);
+  const [ unSelectedSubs, setUnSelectedSubs ] = useState([]);
 
   const onUserEntry = (e: React.FormEvent<HTMLInputElement>): void => {
     setInput(e.target.value);
   };
 
-  const onSubmit = (e: React.FormEvent<HTMLInputElement>): void => {
-    onSearchSubmit(input);
+  const onSubmit = (): void => {
+    props.onSearchSubmit(input, selectedSubs);
   };
 
   const handleKeyup = debounce(
@@ -45,11 +45,19 @@ const Search = () => {
 
   const handleBlur = () => {};
 
-  const selectSubreddit = subName => {
-    const newSelected = [ ...selected, subName ];
-    setSelected(newSelected);
-    console.log(allSubreddits.filter(sub => sub !== subName));
-    setRemainingSubreddits(allSubreddits.filter(sub => sub !== subName));
+  const toggleSelectSubreddit = (subName: string) => {
+    let newSelectedList;
+    if (selectedSubs.includes(subName)) {
+      newSelectedList = selectedSubs.filter(sub => sub !== subName);
+    } else {
+      newSelectedList = [ ...selectedSubs, subName ];
+    }
+    const newUnSelectedList = subreddits.filter(
+      sub => !newSelectedList.includes(sub),
+    );
+    setSelectedSubs(newSelectedList);
+    setUnSelectedSubs(newUnSelectedList);
+    onSubmit();
   };
 
   return (
@@ -82,13 +90,15 @@ const Search = () => {
       </button>
       {isFocused && (
             <SearchDropdownStyles>
-              <ul>
-                {selected.map(
+              <div className="search__sub-list-title">Include subreddits:</div>
+              <ul className="search__dropdown-list">
+                {selectedSubs.map(
                     (subName, idx) => (
                       <li>
                         <SubRedditNameStyles
                           key={idx}
                           colour={mapSubsToColours(subName)}
+                          onClick={() => toggleSelectSubreddit(subName)}
                         >
                           {subName}
                         </SubRedditNameStyles>
@@ -96,14 +106,14 @@ const Search = () => {
                     ),
                   )}
               </ul>
-              <ul className="search__dropdown-list">
-                {allSubreddits.map(
+              <ul>
+                {unSelectedSubs.map(
                     (subName, idx) => (
                       <li>
                         <SubRedditNameStyles
                           key={idx}
                           colour={mapSubsToColours(subName)}
-                          onClick={() => selectSubreddit(subName)}
+                          onClick={() => toggleSelectSubreddit(subName)}
                         >
                           {subName}
                         </SubRedditNameStyles>

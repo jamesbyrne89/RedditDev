@@ -103,13 +103,16 @@ export const SearchDropdownStyles = styled.div`
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
-    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+  .search__sub-list-title {
+    font-size: 0.75rem;
   }
   .search__dropdown-list {
-    border-top: solid 1px ${constants.text_grey_mid_two};
+    border-bottom: solid 1px ${constants.text_grey_mid_two};
   }
   li {
-    margin: 0.25rem 0.5rem;
+    margin: 0.25rem 0.5rem 0.25rem 0;
     list-style: none;
   }
 `;
