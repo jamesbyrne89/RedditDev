@@ -266,7 +266,8 @@ function filterPostsCallback() {
   var subreddits = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [];
   return function (post) {
     var data = post.data;
-    return data.title.includes(searchTerm) || data.url.includes(searchTerm) || subreddits.includes(data.subreddit);
+    console.log(subreddits, data.subreddit);
+    return (data.title.includes(searchTerm) || data.url.includes(searchTerm)) && subreddits.includes(data.subreddit);
   };
 }
 function isAlreadyFavourite(postToCheck) {

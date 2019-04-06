@@ -2,6 +2,7 @@ export interface IRedditPost {
   data: {
     id: string,
     subreddit_name_prefixed: string,
+    subreddit?: string,
     title: string,
     url: string,
     permalink: string,

@@ -88,7 +88,8 @@ export function filterPostsCallback(
 ): Function {
   return (post: IRedditPost) => {
     const { data } = post;
-    return data.title.includes(searchTerm) || data.url.includes(searchTerm) ||
+    console.log(subreddits, data.subreddit);
+    return (data.title.includes(searchTerm) || data.url.includes(searchTerm)) &&
       subreddits.includes(data.subreddit);
   };
 }

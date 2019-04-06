@@ -1865,9 +1865,13 @@ function debounce(func) {
     if (callNow) func.apply(context, args);
   };
 }
-function filterPostsCallback(searchTerm) {
+function filterPostsCallback() {
+  var searchTerm = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+  var subreddits = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [];
   return function (post) {
-    return post.data.title.includes(searchTerm) || post.data.url.includes(searchTerm);
+    var data = post.data;
+    console.log(subreddits, data.subreddit);
+    return (data.title.includes(searchTerm) || data.url.includes(searchTerm)) && subreddits.includes(data.subreddit);
   };
 }
 function isAlreadyFavourite(postToCheck) {
@@ -39068,8 +39072,9 @@ function (_App) {
 
     _defineProperty(_assertThisInitialized(_this), "filterPosts", function () {
       var searchTerm = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+      var subreddits = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [];
 
-      if (!searchTerm) {
+      if (!searchTerm && subreddits.length === 0) {
         return _this.setState({
           filteredPosts: _this.props.posts,
           isFiltered: false
@@ -39080,7 +39085,7 @@ function (_App) {
         loading: true
       });
 
-      var filtered = _this.props.posts.filter(Object(_lib_utils__WEBPACK_IMPORTED_MODULE_5__["filterPostsCallback"])(searchTerm));
+      var filtered = _this.props.posts.filter(Object(_lib_utils__WEBPACK_IMPORTED_MODULE_5__["filterPostsCallback"])(searchTerm, subreddits));
 
       _this.setState({
         filteredPosts: filtered,
@@ -39172,7 +39177,7 @@ function (_App) {
       return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(next_app__WEBPACK_IMPORTED_MODULE_2__["Container"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 91
+          lineNumber: 93
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Component, _extends({
@@ -39184,7 +39189,7 @@ function (_App) {
       }, pageProps, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 92
+          lineNumber: 94
         },
         __self: this
       })));

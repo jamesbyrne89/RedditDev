@@ -30,7 +30,7 @@ const Search = props => {
     setInput(e.target.value);
   };
 
-  const onSubmit = (): void => {
+  const onSubmit = (input: string, selectedSubs: string[]): void => {
     props.onSearchSubmit(input, selectedSubs);
   };
 
@@ -57,7 +57,7 @@ const Search = props => {
     );
     setSelectedSubs(newSelectedList);
     setUnSelectedSubs(newUnSelectedList);
-    onSubmit();
+    onSubmit(input, newSelectedList);
   };
 
   return (
