@@ -14,7 +14,7 @@ export const StyledHeader = styled.header`
   -ms-flex-pack: center;
   justify-content: center;
   width: 100%;
-  background: #fff;
+  background: ${props => props.theme.header_background};
   -webkit-box-shadow: 0 0 0 1px ${constants.text_grey_mid_two};
   box-shadow: 0 0 0 1px ${constants.text_grey_mid_two};
   grid-area: header;

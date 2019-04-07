@@ -4,6 +4,8 @@ import { endpoints } from '../lib/subreddits';
 import { filterPostsCallback, sortByNewest } from '../lib/utils';
 import db from '../db/firestore';
 import { IRedditPost, IFavouritePost } from '../interfaces/index';
+import { ThemeProvider } from 'styled-components';
+import { lightTheme, darkTheme } from '../components/styles/constants';
 
 interface Props { loading: boolean, posts: IRedditPost[], favourites: [] }
 
@@ -14,6 +16,7 @@ class MyApp extends App<Props> {
     filteredPosts: [],
     isFiltered: false,
     favourites: [],
+    theme: lightTheme,
   };
   static async getInitialProps({ Component, ctx }: any) {
     let pageProps = { favourites: [] };
@@ -85,19 +88,21 @@ class MyApp extends App<Props> {
   };
 
   render() {
-    const { posts, filteredPosts, isFiltered } = this.state;
+    const { posts, filteredPosts, isFiltered, theme } = this.state;
     const { Component, pageProps } = this.props;
 
     return (
       <Container>
-        <Component
-          posts={isFiltered ? filteredPosts : posts}
-          loading={this.state.loading}
-          onSearchSubmit={this.filterPosts}
-          onAddToFavourites={this.addToFavourites}
-          favourites={this.state.favourites}
-          {...pageProps}
-        />
+        <ThemeProvider theme={theme}>
+          <Component
+            posts={isFiltered ? filteredPosts : posts}
+            loading={this.state.loading}
+            onSearchSubmit={this.filterPosts}
+            onAddToFavourites={this.addToFavourites}
+            favourites={this.state.favourites}
+            {...pageProps}
+          />
+        </ThemeProvider>
       </Container>
     );
   }

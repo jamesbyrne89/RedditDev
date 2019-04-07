@@ -28,6 +28,8 @@ interface ISizes {
   mobile: number,
 }
 
+interface ITheme {}
+
 export const constants: IConstants = {
   /* Typography */
   sansSerif: `'space mono',
@@ -63,3 +65,6 @@ export const sizes: ISizes = {
   tablet: 768,
   mobile: 576,
 };
+
+export const lightTheme: ITheme = { header_background: '#fff' };
+export const darkTheme: ITheme = { header_background: constants.nearBlack };

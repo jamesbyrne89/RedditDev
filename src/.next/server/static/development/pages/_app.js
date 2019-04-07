@@ -93,6 +93,58 @@ module.exports =
 /************************************************************************/
 /******/ ({
 
+/***/ "./components/styles/constants.ts":
+/*!****************************************!*\
+  !*** ./components/styles/constants.ts ***!
+  \****************************************/
+/*! exports provided: constants, sizes, lightTheme, darkTheme */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "constants", function() { return constants; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "sizes", function() { return sizes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "lightTheme", function() { return lightTheme; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "darkTheme", function() { return darkTheme; });
+var constants = {
+  /* Typography */
+  sansSerif: "'space mono',\nhelvetica,\narial,\nsans-serif;",
+  serif: "'Tiempos Headline',\ngeorgia,\nserif",
+
+  /* Colours */
+  nearBlack: '#24292e',
+  highlightColourOne: '#fdf522',
+  background_grey: '#eceef1',
+  text_grey_dark: '#302F2F',
+  text_grey_mid_one: '#c9c9c9',
+  text_grey_mid_two: '#ccc',
+  subreddit_colour_one: '#CAD3C8',
+  subreddit_colour_two: '#3B3B98',
+  subreddit_colour_three: '#EAB543',
+  subreddit_colour_four: '#FEA47F',
+  subreddit_colour_five: '#ff6b81',
+  subreddit_colour_six: '#55E6C1',
+  subreddit_colour_seven: '#D6A2E8',
+  subreddit_colour_eight: '#25CCF7',
+  subreddit_colour_nine: '#006266',
+  subreddit_colour_ten: '#535c68'
+};
+var sizes = {
+  desktop_lg: 1600,
+  desktop_md: 1376,
+  desktop_sm: 1024,
+  tablet: 768,
+  mobile: 576
+};
+var lightTheme = {
+  header_background: '#fff'
+};
+var darkTheme = {
+  header_background: constants.nearBlack
+};
+
+/***/ }),
+
 /***/ "./db/firestore.js":
 /*!*************************!*\
   !*** ./db/firestore.js ***!
@@ -300,6 +352,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _lib_subreddits__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../lib/subreddits */ "./lib/subreddits.ts");
 /* harmony import */ var _lib_utils__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../lib/utils */ "./lib/utils.ts");
 /* harmony import */ var _db_firestore__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../db/firestore */ "./db/firestore.js");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! styled-components */ "styled-components");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _components_styles_constants__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../components/styles/constants */ "./components/styles/constants.ts");
 
 var _jsxFileName = "E:\\Users\\James\\Web Dev\\Projects\\RedditDev\\src\\pages\\_app.tsx";
 
@@ -346,6 +401,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
+
 var MyApp =
 /*#__PURE__*/
 function (_App) {
@@ -369,7 +426,8 @@ function (_App) {
       posts: [],
       filteredPosts: [],
       isFiltered: false,
-      favourites: []
+      favourites: [],
+      theme: _components_styles_constants__WEBPACK_IMPORTED_MODULE_8__["lightTheme"]
     });
 
     _defineProperty(_assertThisInitialized(_this), "filterPosts", function () {
@@ -472,14 +530,22 @@ function (_App) {
       var _this$state = this.state,
           posts = _this$state.posts,
           filteredPosts = _this$state.filteredPosts,
-          isFiltered = _this$state.isFiltered;
+          isFiltered = _this$state.isFiltered,
+          theme = _this$state.theme;
       var _this$props2 = this.props,
           Component = _this$props2.Component,
           pageProps = _this$props2.pageProps;
       return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(next_app__WEBPACK_IMPORTED_MODULE_2__["Container"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 92
+          lineNumber: 95
+        },
+        __self: this
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(styled_components__WEBPACK_IMPORTED_MODULE_7__["ThemeProvider"], {
+        theme: theme,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 96
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Component, _extends({
@@ -491,10 +557,10 @@ function (_App) {
       }, pageProps, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 93
+          lineNumber: 97
         },
         __self: this
-      })));
+      }))));
     }
   }], [{
     key: "getInitialProps",
@@ -637,6 +703,17 @@ module.exports = require("next/app");
 /***/ (function(module, exports) {
 
 module.exports = require("react");
+
+/***/ }),
+
+/***/ "styled-components":
+/*!************************************!*\
+  !*** external "styled-components" ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("styled-components");
 
 /***/ })
 
