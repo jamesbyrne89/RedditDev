@@ -4,7 +4,7 @@ import { constants, sizes } from './constants';
 export const CardStyles = styled.article`
     margin: 0 0 1.25em 0;
     width: 100%;
-    background: white;
+    background: ${props => props.theme.card_background};
     break-inside: avoid;
     overflow-wrap: break-word;
     padding: 1em 0.75em;
@@ -54,7 +54,7 @@ export const PostTitleStyles = styled.h2`
     a {
         font-family: 'Tiempos Headline', georgia, serif;
         font-weight: 700;
-        color: ${constants.text_grey_dark};
+        color: ${props => props.theme.font_colour_primary};
         text-decoration: none;
         line-height: 1.3;
         max-width: 100%;
@@ -64,7 +64,7 @@ export const PostTitleStyles = styled.h2`
         transition: all 0.15s;
     }
     a:hover {
-        color: #000 !important;
+        color: #000;
         border-bottom: solid 1px #000;
     }
 `;

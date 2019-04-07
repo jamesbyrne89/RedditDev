@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Router from 'next/router';
 import NProgress from 'nprogress';
 import Search from '../components/Search';
+import ThemeToggleButton from '../components/ThemeToggleButton';
 import {
   StyledHeader,
   StyledMasthead,
@@ -39,14 +40,17 @@ const Header: React.FunctionComponent<Props> = props => (
           The best of frontend web development on Reddit
         </StyledHeaderDescription>
       </div>
-      <ul>
-        <StyledNavItem>
-          <Link href="/favourites"><a>Favourites</a></Link>
-        </StyledNavItem>
-        <StyledNavItem>
-          <Search onSearchSubmit={props.onSearchSubmit} />
-        </StyledNavItem>
-      </ul>
+      <div>
+        <div><ThemeToggleButton toggle={props.toggle} /></div>
+        <ul>
+          <StyledNavItem>
+            <Link href="/favourites"><a>Favourites</a></Link>
+          </StyledNavItem>
+          <StyledNavItem>
+            <Search onSearchSubmit={props.onSearchSubmit} />
+          </StyledNavItem>
+        </ul>
+      </div>
     </StyledMasthead>
   </StyledHeader>
 );

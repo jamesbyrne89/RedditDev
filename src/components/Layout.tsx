@@ -10,6 +10,7 @@ type P = {
   title: string,
   onSearchSubmit: Function,
   onAddNewFavourite: Function,
+  toggleTheme: Function,
   children: React.ReactNode,
 };
 
@@ -19,6 +20,7 @@ const Layout = (props: P) => {
     title = 'redditDev',
     onSearchSubmit,
     onAddNewFavourite,
+    toggleTheme,
   } = props;
 
   const [ showBackToTopBtn, setShowBackToTopBtn ] = useState(false);
@@ -48,6 +50,7 @@ const Layout = (props: P) => {
       <Header
         onSearchSubmit={onSearchSubmit}
         onAddNewFavourite={onAddNewFavourite}
+        toggle={toggleTheme}
       />
       <Sidebar />
       {children}

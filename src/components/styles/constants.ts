@@ -44,6 +44,7 @@ serif`,
   highlightColourOne: '#fdf522',
   background_grey: '#eceef1',
   text_grey_dark: '#302F2F',
+  text_grey_dark_two: '#2d303a',
   text_grey_mid_one: '#c9c9c9',
   text_grey_mid_two: '#ccc',
   subreddit_colour_one: '#CAD3C8',
@@ -66,5 +67,17 @@ export const sizes: ISizes = {
   mobile: 576,
 };
 
-export const lightTheme: ITheme = { header_background: '#fff' };
-export const darkTheme: ITheme = { header_background: constants.nearBlack };
+export const lightTheme: ITheme = {
+  header_background: '#fff',
+  main_background: constants.background_grey,
+  font_colour_primary: constants.nearBlack,
+  card_background: '#fff',
+  button_colour: constants.nearBlack,
+};
+export const darkTheme: ITheme = {
+  header_background: constants.nearBlack,
+  font_colour_primary: '#fff',
+  main_background: constants.text_grey_dark_two,
+  card_background: constants.text_grey_dark_two,
+  button_colour: '#fff',
+};

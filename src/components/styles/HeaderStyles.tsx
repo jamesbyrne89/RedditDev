@@ -66,7 +66,7 @@ export const StyledHeaderTitle = styled.h1`
   -ms-flex: 0 0 200px;
   flex: 0 0 200px;
   z-index: 100;
-  color: $nearBlack;
+  color: ${props => props.theme.font_colour_primary};
   line-height: 1;
   text-align: left;
   margin: 0.5rem 0;

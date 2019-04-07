@@ -14,7 +14,7 @@ const SearchStyles = styled.div`
   padding: 0.25em;
   border: none;
   height: 2.75em;
-  background: ${constants.background_grey};
+  background: ${props => props.theme.main_background};
   border-radius: 6px;
   width: 100%;
   padding-left: 3em;

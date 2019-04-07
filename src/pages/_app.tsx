@@ -87,6 +87,12 @@ class MyApp extends App<Props> {
     db.collection('favourites').doc(postToRemove.doc_id).delete();
   };
 
+  toggleTheme = () => {
+    this.setState({
+      theme: this.state.theme == darkTheme ? lightTheme : darkTheme,
+    });
+  };
+
   render() {
     const { posts, filteredPosts, isFiltered, theme } = this.state;
     const { Component, pageProps } = this.props;
@@ -100,6 +106,7 @@ class MyApp extends App<Props> {
             onSearchSubmit={this.filterPosts}
             onAddToFavourites={this.addToFavourites}
             favourites={this.state.favourites}
+            toggleTheme={this.toggleTheme}
             {...pageProps}
           />
         </ThemeProvider>

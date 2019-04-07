@@ -5,7 +5,7 @@ import StatusMessage from '../components/StatusMessage';
 import { ILayoutProps } from '../interfaces/index';
 
 const IndexPage: React.FunctionComponent = (
-  { onSearchSubmit, onAddNewFavourite, ...props }: ILayoutProps,
+  { onSearchSubmit, onAddNewFavourite, toggleTheme, ...props }: ILayoutProps,
 ) =>
   {
     return (
@@ -13,6 +13,7 @@ const IndexPage: React.FunctionComponent = (
         title="RedditDev"
         onSearchSubmit={onSearchSubmit}
         onAddNewFavourite={onAddNewFavourite}
+        toggleTheme={toggleTheme}
       >
         <CardContainer
           {...props}

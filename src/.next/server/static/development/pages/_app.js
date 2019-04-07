@@ -116,6 +116,7 @@ var constants = {
   highlightColourOne: '#fdf522',
   background_grey: '#eceef1',
   text_grey_dark: '#302F2F',
+  text_grey_dark_two: '#2d303a',
   text_grey_mid_one: '#c9c9c9',
   text_grey_mid_two: '#ccc',
   subreddit_colour_one: '#CAD3C8',
@@ -137,10 +138,18 @@ var sizes = {
   mobile: 576
 };
 var lightTheme = {
-  header_background: '#fff'
+  header_background: '#fff',
+  main_background: constants.background_grey,
+  font_colour_primary: constants.nearBlack,
+  card_background: '#fff',
+  button_colour: constants.nearBlack
 };
 var darkTheme = {
-  header_background: constants.nearBlack
+  header_background: constants.nearBlack,
+  font_colour_primary: '#fff',
+  main_background: constants.text_grey_dark_two,
+  card_background: constants.text_grey_dark_two,
+  button_colour: '#fff'
 };
 
 /***/ }),
@@ -472,6 +481,12 @@ function (_App) {
       _db_firestore__WEBPACK_IMPORTED_MODULE_6__["default"].collection('favourites').doc(postToRemove.doc_id).delete();
     });
 
+    _defineProperty(_assertThisInitialized(_this), "toggleTheme", function () {
+      _this.setState({
+        theme: _this.state.theme == _components_styles_constants__WEBPACK_IMPORTED_MODULE_8__["darkTheme"] ? _components_styles_constants__WEBPACK_IMPORTED_MODULE_8__["lightTheme"] : _components_styles_constants__WEBPACK_IMPORTED_MODULE_8__["darkTheme"]
+      });
+    });
+
     return _this;
   }
 
@@ -538,14 +553,14 @@ function (_App) {
       return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(next_app__WEBPACK_IMPORTED_MODULE_2__["Container"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 95
+          lineNumber: 101
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(styled_components__WEBPACK_IMPORTED_MODULE_7__["ThemeProvider"], {
         theme: theme,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 96
+          lineNumber: 102
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Component, _extends({
@@ -553,11 +568,12 @@ function (_App) {
         loading: this.state.loading,
         onSearchSubmit: this.filterPosts,
         onAddToFavourites: this.addToFavourites,
-        favourites: this.state.favourites
+        favourites: this.state.favourites,
+        toggleTheme: this.toggleTheme
       }, pageProps, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 97
+          lineNumber: 103
         },
         __self: this
       }))));
