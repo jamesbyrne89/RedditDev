@@ -33,7 +33,7 @@ const Header: React.FunctionComponent<Props> = props => (
     <StyledMasthead>
       <div className="header__title-wrapper">
         <StyledHeaderTitle>
-          <Link href="/"><a>{`{redditDev}`}</a></Link>
+          <Link href="/"><a>redditDev.</a></Link>
         </StyledHeaderTitle>
         <StyledHeaderDescription>
           The best of frontend web development on Reddit

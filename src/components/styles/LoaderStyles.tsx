@@ -12,7 +12,7 @@ const LoaderStyles = styled.div`
   height: 2rem;
   color: ${constants.nearBlack};
   font-family: ${constants.sansSerif};
-
+  user-select: none;
   font-size: 2rem;
   opacity: 0.8;
   margin: auto;

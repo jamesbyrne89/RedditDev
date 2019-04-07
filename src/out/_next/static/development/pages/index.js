@@ -1,5 +1,55 @@
 ((window["webpackJsonp"] = window["webpackJsonp"] || []).push([["static\\development\\pages\\index.js"],{
 
+/***/ "./components/BackToTopButton.tsx":
+/*!****************************************!*\
+  !*** ./components/BackToTopButton.tsx ***!
+  \****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _styles_BackToTopStyles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles/BackToTopStyles */ "./components/styles/BackToTopStyles.tsx");
+var _jsxFileName = "E:\\Users\\James\\Web Dev\\Projects\\RedditDev\\src\\components\\BackToTopButton.tsx";
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+
+
+
+var BackToTopButton = function BackToTopButton(props) {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_BackToTopStyles__WEBPACK_IMPORTED_MODULE_1__["default"], _extends({}, props, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 8
+    },
+    __self: this
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    viewBox: "0 0 24 24",
+    width: "24",
+    height: "24",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 9
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+    d: "M13 5.41V21a1 1 0 0 1-2 0V5.41l-5.3 5.3a1 1 0 1 1-1.4-1.42l7-7a1 1 0 0 1 1.4 0l7 7a1 1 0 1 1-1.4 1.42L13 5.4z",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 15
+    },
+    __self: this
+  })));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (BackToTopButton);
+
+/***/ }),
+
 /***/ "./components/Card.tsx":
 /*!*****************************!*\
   !*** ./components/Card.tsx ***!
@@ -497,7 +547,7 @@ var Header = function Header(props) {
       lineNumber: 36
     },
     __self: this
-  }, "{redditDev}"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_HeaderStyles__WEBPACK_IMPORTED_MODULE_5__["StyledHeaderDescription"], {
+  }, "redditDev."))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_HeaderStyles__WEBPACK_IMPORTED_MODULE_5__["StyledHeaderDescription"], {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 38
@@ -564,7 +614,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _styles_GlobalStyles__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./styles/GlobalStyles */ "./components/styles/GlobalStyles.tsx");
 /* harmony import */ var _Header__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Header */ "./components/Header.tsx");
 /* harmony import */ var _Sidebar__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Sidebar */ "./components/Sidebar.tsx");
+/* harmony import */ var _BackToTopButton__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./BackToTopButton */ "./components/BackToTopButton.tsx");
+/* harmony import */ var _lib_utils__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../lib/utils */ "./lib/utils.ts");
 var _jsxFileName = "E:\\Users\\James\\Web Dev\\Projects\\RedditDev\\src\\components\\Layout.tsx";
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
+
+function _iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
 
 
 
@@ -577,28 +640,48 @@ var Layout = function Layout(props) {
       title = _props$title === void 0 ? 'redditDev' : _props$title,
       onSearchSubmit = props.onSearchSubmit,
       onAddNewFavourite = props.onAddNewFavourite;
+
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
+      _useState2 = _slicedToArray(_useState, 2),
+      showBackToTopBtn = _useState2[0],
+      setShowBackToTopBtn = _useState2[1];
+
+  var onScroll = function onScroll() {
+    if (window.scrollY > 500 && !showBackToTopBtn) {
+      return setShowBackToTopBtn(true);
+    }
+
+    return setShowBackToTopBtn(false);
+  };
+
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    window.addEventListener('scroll', Object(_lib_utils__WEBPACK_IMPORTED_MODULE_6__["debounce"])(onScroll));
+    return function () {
+      window.removeEventListener('scroll', Object(_lib_utils__WEBPACK_IMPORTED_MODULE_6__["debounce"])(onScroll));
+    };
+  }, []);
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 22
+      lineNumber: 45
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_GlobalStyles__WEBPACK_IMPORTED_MODULE_2__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 23
+      lineNumber: 46
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_head__WEBPACK_IMPORTED_MODULE_1___default.a, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 24
+      lineNumber: 47
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("title", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 24
+      lineNumber: 47
     },
     __self: this
   }, title)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Header__WEBPACK_IMPORTED_MODULE_3__["default"], {
@@ -606,16 +689,23 @@ var Layout = function Layout(props) {
     onAddNewFavourite: onAddNewFavourite,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 25
+      lineNumber: 48
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Sidebar__WEBPACK_IMPORTED_MODULE_4__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 29
+      lineNumber: 52
     },
     __self: this
-  }), children);
+  }), children, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_BackToTopButton__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    show: showBackToTopBtn,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 54
+    },
+    __self: this
+  }));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Layout);
@@ -723,6 +813,8 @@ var Search = function Search(props) {
       unSelectedSubs = _useState8[0],
       setUnSelectedSubs = _useState8[1];
 
+  var searchRef = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])();
+
   var onUserEntry = function onUserEntry(e) {
     setInput(e.target.value);
   };
@@ -735,11 +827,15 @@ var Search = function Search(props) {
     return onSubmit(e);
   }, 500);
 
+  var handleOutsideClick = function handleOutsideClick(e) {
+    if (searchRef.current && !searchRef.current.contains(e.target)) {
+      setFocus(false);
+    }
+  };
+
   var handleFocus = function handleFocus() {
     setFocus(true);
   };
-
-  var handleBlur = function handleBlur() {};
 
   var toggleSelectSubreddit = function toggleSelectSubreddit(subName) {
     var newSelectedList;
@@ -760,11 +856,24 @@ var Search = function Search(props) {
     onSubmit(input, newSelectedList);
   };
 
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_SearchStyles__WEBPACK_IMPORTED_MODULE_2__["default"], {
-    onSubmit: onSubmit,
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    document.addEventListener('mousedown', handleOutsideClick);
+    return function () {
+      document.removeEventListener('mousedown', handleOutsideClick);
+    };
+  }, []);
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 64
+      lineNumber: 80
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_SearchStyles__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    onSubmit: onSubmit,
+    ref: searchRef,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 81
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -775,10 +884,9 @@ var Search = function Search(props) {
     onChange: onUserEntry,
     onKeyUp: handleKeyup,
     onFocus: handleFocus,
-    onBlur: handleBlur,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 65
+      lineNumber: 82
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", {
@@ -791,7 +899,7 @@ var Search = function Search(props) {
     className: "search__icon",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 75
+      lineNumber: 91
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
@@ -799,7 +907,7 @@ var Search = function Search(props) {
     d: "M78.129 78.325L65.121 61.063c8.65-8.773 9.834-22.812 2.203-32.938-4.822-6.396-12.186-10.064-20.203-10.064-5.52 0-10.775 1.762-15.195 5.092-11.131 8.393-13.361 24.271-4.975 35.396 4.822 6.396 12.186 10.066 20.205 10.066 4.74 0 9.25-1.373 13.242-3.848l12.938 17.17 4.793-3.612zM31.742 54.938c-6.395-8.484-4.693-20.594 3.793-26.992a19.114 19.114 0 0 1 11.586-3.885c6.117 0 11.734 2.799 15.41 7.676 6.398 8.49 4.697 20.6-3.793 26.996a19.092 19.092 0 0 1-11.582 3.883c-6.117 0-11.736-2.797-15.414-7.678z",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 84
+      lineNumber: 100
     },
     __self: this
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -808,74 +916,75 @@ var Search = function Search(props) {
     className: "search__close-btn",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 89
+      lineNumber: 105
     },
     __self: this
   }), isFocused && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_SearchStyles__WEBPACK_IMPORTED_MODULE_2__["SearchDropdownStyles"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 92
+      lineNumber: 112
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "search__sub-list-title",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 93
+      lineNumber: 113
     },
     __self: this
   }, "Include subreddits:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
     className: "search__dropdown-list",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 94
+      lineNumber: 116
     },
     __self: this
   }, selectedSubs.map(function (subName, idx) {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+      key: idx,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 97
+        lineNumber: 119
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_CardStyles__WEBPACK_IMPORTED_MODULE_3__["SubRedditNameStyles"], {
-      key: idx,
       colour: Object(_lib_utils__WEBPACK_IMPORTED_MODULE_1__["mapSubsToColours"])(subName),
       onClick: function onClick() {
         return toggleSelectSubreddit(subName);
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 98
+        lineNumber: 120
       },
       __self: this
     }, subName));
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+  })), unSelectedSubs.length > 0 && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 109
+      lineNumber: 131
     },
     __self: this
   }, unSelectedSubs.map(function (subName, idx) {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+      key: idx,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 112
+        lineNumber: 134
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_CardStyles__WEBPACK_IMPORTED_MODULE_3__["SubRedditNameStyles"], {
-      key: idx,
+      deselected: true,
       colour: Object(_lib_utils__WEBPACK_IMPORTED_MODULE_1__["mapSubsToColours"])(subName),
       onClick: function onClick() {
         return toggleSelectSubreddit(subName);
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 113
+        lineNumber: 135
       },
       __self: this
     }, subName));
-  }))));
+  })))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Search);
@@ -980,6 +1089,29 @@ var StatusMessage = function StatusMessage(props) {
 
 /***/ }),
 
+/***/ "./components/styles/BackToTopStyles.tsx":
+/*!***********************************************!*\
+  !*** ./components/styles/BackToTopStyles.tsx ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./constants */ "./components/styles/constants.ts");
+
+
+var BackToTopStyles = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].button.withConfig({
+  displayName: "BackToTopStyles",
+  componentId: "yyrt1m-0"
+})(["font-weight:bold;padding:0.75em;color:", ";cursor:pointer;position:fixed;border:solid 2px currentColor;margin:1px;bottom:2em;right:1.5vw;text-align:center;padding:1em 0.5em;-webkit-transition:all 0.15s;transition:all 0.15s;line-height:1;", ";svg{position:relative;top:0;left:0;height:1rem;}}&:hover{color:#fff;fill:#fff;background:", ";border:solid 2px ", ";}&:active{-webkit-transform:translateY(4px);transform:translateY(4px);}"], _constants__WEBPACK_IMPORTED_MODULE_1__["constants"].nearBlack, function (props) {
+  return props.show ? 'opacity: 1' : 'opacity: 0';
+}, _constants__WEBPACK_IMPORTED_MODULE_1__["constants"].nearBlack, _constants__WEBPACK_IMPORTED_MODULE_1__["constants"].nearBlack);
+/* harmony default export */ __webpack_exports__["default"] = (BackToTopStyles);
+
+/***/ }),
+
 /***/ "./components/styles/CardContainerStyles.tsx":
 /*!***************************************************!*\
   !*** ./components/styles/CardContainerStyles.tsx ***!
@@ -1027,7 +1159,7 @@ __webpack_require__.r(__webpack_exports__);
 var CardStyles = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].article.withConfig({
   displayName: "CardStyles",
   componentId: "sc-1on57zg-0"
-})(["margin:0 0 1.25em 0;width:100%;background:white;break-inside:avoid;overflow-wrap:break-word;padding:1em 0.75em;-webkit-transform:translateY(200px) scale(0.9);transform:translateY(200px) scale(0.9);opacity:0;-webkit-transition:opacity 1s ease-in-out 0s,-webkit-transform 0.7s cubic-bezier(0.165,0.84,0.44,1) 0s;transition:opacity 1s ease-in-out 0s,-webkit-transform 0.7s cubic-bezier(0.165,0.84,0.44,1) 0s;transition:transform 0.7s cubic-bezier(0.165,0.84,0.44,1) 0s,opacity 1s ease-in-out 0s;transition:transform 0.7s cubic-bezier(0.165,0.84,0.44,1) 0s,opacity 1s ease-in-out 0s,-webkit-transform 0.7s cubic-bezier(0.165,0.84,0.44,1) 0s;-webkit-column-break-inside:avoid;", " .card-header{width:100%;display:flex;justify-content:space-between;}"], function (_ref) {
+})(["margin:0 0 1.25em 0;width:100%;background:white;break-inside:avoid;overflow-wrap:break-word;padding:1em 0.75em;-webkit-transform:translateY(200px) scale(0.9);transform:translateY(200px) scale(0.9);opacity:0;-webkit-transition:opacity 0.75s ease-in-out 0s,-webkit-transform 0.7s cubic-bezier(0.165,0.84,0.44,1) 0s;transition:opacity 0.75s ease-in-out 0s,-webkit-transform 0.7s cubic-bezier(0.165,0.84,0.44,1) 0s;transition:transform 0.7s cubic-bezier(0.165,0.84,0.44,1) 0s,opacity 0.75s ease-in-out 0s;transition:transform 0.7s cubic-bezier(0.165,0.84,0.44,1) 0s,opacity 0.75s ease-in-out 0s,-webkit-transform 0.7s cubic-bezier(0.165,0.84,0.44,1) 0s;-webkit-column-break-inside:avoid;", " .card-header{width:100%;display:flex;justify-content:space-between;}"], function (_ref) {
   var isAnimated = _ref.isAnimated;
   return isAnimated && "transform: translateY(0) scale(1);\n      opacity: 1;";
 });
@@ -1035,7 +1167,7 @@ var SubRedditNameStyles = styled_components__WEBPACK_IMPORTED_MODULE_0__["defaul
   displayName: "CardStyles__SubRedditNameStyles",
   componentId: "sc-1on57zg-1"
 })(["font-family:", ";padding:0.5em 0.75em;margin:0;display:inline-block;font-weight:700;text-transform:uppercase;font-size:0.75rem;color:#fff;letter-spacing:1px;background:", ";"], _constants__WEBPACK_IMPORTED_MODULE_1__["constants"].sansSerif, function (props) {
-  return _constants__WEBPACK_IMPORTED_MODULE_1__["constants"]["subreddit_colour_".concat(props.colour)];
+  return props.deselected ? _constants__WEBPACK_IMPORTED_MODULE_1__["constants"].background_grey : _constants__WEBPACK_IMPORTED_MODULE_1__["constants"]["subreddit_colour_".concat(props.colour)];
 });
 var PostTitleStyles = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].h2.withConfig({
   displayName: "CardStyles__PostTitleStyles",
@@ -1139,7 +1271,7 @@ __webpack_require__.r(__webpack_exports__);
 var LoaderStyles = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div.withConfig({
   displayName: "LoaderStyles",
   componentId: "rqwkb1-0"
-})(["display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;width:3.5em;height:2rem;color:", ";font-family:", ";font-size:2rem;opacity:0.8;margin:auto;position:absolute;top:25vh;left:0;right:0;bottom:0;span{display:inline-block;-webkit-animation:pulse 0.4s alternate infinite ease-in-out;animation:pulse 0.4s alternate infinite ease-in-out;}span:nth-child(odd){-webkit-animation-delay:0.4s;animation-delay:0.4s;}@-webkit-keyframes pulse{to{-webkit-transform:scale(0.8);transform:scale(0.8);opacity:0.5;}}@keyframes pulse{to{-webkit-transform:scale(0.8);transform:scale(0.8);opacity:0.5;}}"], _styles_constants__WEBPACK_IMPORTED_MODULE_1__["constants"].nearBlack, _styles_constants__WEBPACK_IMPORTED_MODULE_1__["constants"].sansSerif);
+})(["display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;width:3.5em;height:2rem;color:", ";font-family:", ";user-select:none;font-size:2rem;opacity:0.8;margin:auto;position:absolute;top:25vh;left:0;right:0;bottom:0;span{display:inline-block;-webkit-animation:pulse 0.4s alternate infinite ease-in-out;animation:pulse 0.4s alternate infinite ease-in-out;}span:nth-child(odd){-webkit-animation-delay:0.4s;animation-delay:0.4s;}@-webkit-keyframes pulse{to{-webkit-transform:scale(0.8);transform:scale(0.8);opacity:0.5;}}@keyframes pulse{to{-webkit-transform:scale(0.8);transform:scale(0.8);opacity:0.5;}}"], _styles_constants__WEBPACK_IMPORTED_MODULE_1__["constants"].nearBlack, _styles_constants__WEBPACK_IMPORTED_MODULE_1__["constants"].sansSerif);
 /* harmony default export */ __webpack_exports__["default"] = (LoaderStyles);
 
 /***/ }),
@@ -1346,7 +1478,6 @@ function filterPostsCallback() {
   var subreddits = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [];
   return function (post) {
     var data = post.data;
-    console.log(subreddits, data.subreddit);
     return (data.title.includes(searchTerm) || data.url.includes(searchTerm)) && subreddits.includes(data.subreddit);
   };
 }

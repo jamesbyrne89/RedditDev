@@ -31,7 +31,7 @@ class MyApp extends App<Props> {
     );
     const postsSortedByNewest: IRedditPost[] = cleaned.sort(sortByNewest);
 
-    return { posts: postsSortedByNewest, test: 'hiya', ...pageProps };
+    return { posts: postsSortedByNewest, ...pageProps };
   }
 
   async componentDidMount() {
@@ -45,7 +45,6 @@ class MyApp extends App<Props> {
         this.setState({ favourites });
       }
     });
-    console.log(console.log(this.props.test));
   }
 
   filterPosts = (searchTerm = '', subreddits = []) => {

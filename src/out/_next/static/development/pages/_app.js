@@ -1870,7 +1870,6 @@ function filterPostsCallback() {
   var subreddits = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [];
   return function (post) {
     var data = post.data;
-    console.log(subreddits, data.subreddit);
     return (data.title.includes(searchTerm) || data.url.includes(searchTerm)) && subreddits.includes(data.subreddit);
   };
 }
@@ -39177,7 +39176,7 @@ function (_App) {
       return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(next_app__WEBPACK_IMPORTED_MODULE_2__["Container"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 93
+          lineNumber: 92
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Component, _extends({
@@ -39189,7 +39188,7 @@ function (_App) {
       }, pageProps, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 94
+          lineNumber: 93
         },
         __self: this
       })));
@@ -39229,7 +39228,6 @@ function (_App) {
 
               case 8:
                 data = _context2.sent;
-                console.log(data);
                 cleaned = data.reduce(function (acc, curr) {
                   return [].concat(_toConsumableArray(curr.data.data.children), _toConsumableArray(acc));
                 }, []);
@@ -39238,7 +39236,7 @@ function (_App) {
                   posts: postsSortedByNewest
                 }, pageProps));
 
-              case 13:
+              case 12:
               case "end":
                 return _context2.stop();
             }

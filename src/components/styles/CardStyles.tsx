@@ -11,10 +11,10 @@ export const CardStyles = styled.article`
     -webkit-transform: translateY(200px) scale(0.9);
     transform: translateY(200px) scale(0.9);
     opacity: 0;
-    -webkit-transition: opacity 1s ease-in-out 0s, -webkit-transform 0.7s cubic-bezier(0.165, 0.84, 0.44, 1) 0s;
-    transition: opacity 1s ease-in-out 0s, -webkit-transform 0.7s cubic-bezier(0.165, 0.84, 0.44, 1) 0s;
-    transition: transform 0.7s cubic-bezier(0.165, 0.84, 0.44, 1) 0s, opacity 1s ease-in-out 0s;
-    transition: transform 0.7s cubic-bezier(0.165, 0.84, 0.44, 1) 0s, opacity 1s ease-in-out 0s, -webkit-transform 0.7s cubic-bezier(0.165, 0.84, 0.44, 1) 0s;
+    -webkit-transition: opacity 0.75s ease-in-out 0s, -webkit-transform 0.7s cubic-bezier(0.165, 0.84, 0.44, 1) 0s;
+    transition: opacity 0.75s ease-in-out 0s, -webkit-transform 0.7s cubic-bezier(0.165, 0.84, 0.44, 1) 0s;
+    transition: transform 0.7s cubic-bezier(0.165, 0.84, 0.44, 1) 0s, opacity 0.75s ease-in-out 0s;
+    transition: transform 0.7s cubic-bezier(0.165, 0.84, 0.44, 1) 0s, opacity 0.75s ease-in-out 0s, -webkit-transform 0.7s cubic-bezier(0.165, 0.84, 0.44, 1) 0s;
     -webkit-column-break-inside: avoid;
     ${({ isAnimated }) => isAnimated && `transform: translateY(0) scale(1);
       opacity: 1;`}
@@ -35,8 +35,10 @@ export const SubRedditNameStyles = styled.h3`
     font-size: 0.75rem;
     color: #fff;
     letter-spacing: 1px;
-  background: ${props => constants[`subreddit_colour_${props.colour}`]};
-   
+    background: ${props =>
+  props.deselected
+    ? constants.background_grey
+    : constants[`subreddit_colour_${props.colour}`]};
 `;
 
 export const PostTitleStyles = styled.h2`
