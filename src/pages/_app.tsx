@@ -1,10 +1,9 @@
 import App, { Container } from 'next/app';
 import axios from 'axios';
-import { PageTransition } from 'next-page-transitions';
 import { endpoints } from '../lib/subreddits';
 import { filterPostsCallback, sortByNewest } from '../lib/utils';
 import db from '../db/firestore';
-import { IRedditPost, ILocalRedditPost } from '../interfaces/index';
+import { IRedditPost, IFavouritePost } from '../interfaces/index';
 
 interface Props { loading: boolean, posts: IRedditPost[], favourites: [] }
 
@@ -24,6 +23,7 @@ class MyApp extends App<Props> {
     const data = await axios.all(
       Object.keys(endpoints).map(url => axios.get(endpoints[url])),
     );
+    console.log(data);
     const cleaned: IRedditPost[] = data.reduce(
       (acc: IRedditPost[], curr: any): IRedditPost[] => {
         return [ ...curr.data.data.children, ...acc ];
@@ -66,7 +66,7 @@ class MyApp extends App<Props> {
     });
   };
 
-  addToFavourites = (postToAdd: ILocalRedditPost): void => {
+  addToFavourites = (postToAdd: IFavouritePost): void => {
     if (postToAdd.doc_id) {
       return this.removeFromFavourites(postToAdd);
     }
@@ -81,7 +81,7 @@ class MyApp extends App<Props> {
       });
   };
 
-  removeFromFavourites = (postToRemove: ILocalRedditPost): void => {
+  removeFromFavourites = (postToRemove: IFavouritePost): void => {
     db.collection('favourites').doc(postToRemove.doc_id).delete();
   };
 

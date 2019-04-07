@@ -1,285 +1,4 @@
-module.exports =
-/******/ (function(modules) { // webpackBootstrap
-/******/ 	// The module cache
-/******/ 	var installedModules = require('../../../ssr-module-cache.js');
-/******/
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/
-/******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId]) {
-/******/ 			return installedModules[moduleId].exports;
-/******/ 		}
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = installedModules[moduleId] = {
-/******/ 			i: moduleId,
-/******/ 			l: false,
-/******/ 			exports: {}
-/******/ 		};
-/******/
-/******/ 		// Execute the module function
-/******/ 		var threw = true;
-/******/ 		try {
-/******/ 			modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/ 			threw = false;
-/******/ 		} finally {
-/******/ 			if(threw) delete installedModules[moduleId];
-/******/ 		}
-/******/
-/******/ 		// Flag the module as loaded
-/******/ 		module.l = true;
-/******/
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/
-/******/
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = modules;
-/******/
-/******/ 	// expose the module cache
-/******/ 	__webpack_require__.c = installedModules;
-/******/
-/******/ 	// define getter function for harmony exports
-/******/ 	__webpack_require__.d = function(exports, name, getter) {
-/******/ 		if(!__webpack_require__.o(exports, name)) {
-/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
-/******/ 		}
-/******/ 	};
-/******/
-/******/ 	// define __esModule on exports
-/******/ 	__webpack_require__.r = function(exports) {
-/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
-/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
-/******/ 		}
-/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
-/******/ 	};
-/******/
-/******/ 	// create a fake namespace object
-/******/ 	// mode & 1: value is a module id, require it
-/******/ 	// mode & 2: merge all properties of value into the ns
-/******/ 	// mode & 4: return value when already ns object
-/******/ 	// mode & 8|1: behave like require
-/******/ 	__webpack_require__.t = function(value, mode) {
-/******/ 		if(mode & 1) value = __webpack_require__(value);
-/******/ 		if(mode & 8) return value;
-/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
-/******/ 		var ns = Object.create(null);
-/******/ 		__webpack_require__.r(ns);
-/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
-/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
-/******/ 		return ns;
-/******/ 	};
-/******/
-/******/ 	// getDefaultExport function for compatibility with non-harmony modules
-/******/ 	__webpack_require__.n = function(module) {
-/******/ 		var getter = module && module.__esModule ?
-/******/ 			function getDefault() { return module['default']; } :
-/******/ 			function getModuleExports() { return module; };
-/******/ 		__webpack_require__.d(getter, 'a', getter);
-/******/ 		return getter;
-/******/ 	};
-/******/
-/******/ 	// Object.prototype.hasOwnProperty.call
-/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
-/******/
-/******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
-/******/
-/******/
-/******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
-/******/ })
-/************************************************************************/
-/******/ ({
-
-/***/ "./db/firestore.js":
-/*!*************************!*\
-  !*** ./db/firestore.js ***!
-  \*************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! firebase/app */ "firebase/app");
-/* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(firebase_app__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var firebase_firestore__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! firebase/firestore */ "firebase/firestore");
-/* harmony import */ var firebase_firestore__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(firebase_firestore__WEBPACK_IMPORTED_MODULE_1__);
-
-
-var config = {
-  apiKey: 'AIzaSyBkHyS6BMFlRBww9mZMsTQgMzjp6P9ml6M',
-  authDomain: 'redditdev-e11fc.firebaseapp.com',
-  databaseURL: 'https://redditdev-e11fc.firebaseio.com',
-  projectId: 'redditdev-e11fc',
-  storageBucket: 'redditdev-e11fc.appspot.com',
-  messagingSenderId: '976173547224'
-};
-
-var initDB = function initDB() {
-  if (!firebase_app__WEBPACK_IMPORTED_MODULE_0___default.a.apps.length) {
-    firebase_app__WEBPACK_IMPORTED_MODULE_0___default.a.initializeApp(config);
-  }
-
-  var db = firebase_app__WEBPACK_IMPORTED_MODULE_0___default.a.firestore();
-  return db;
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (initDB());
-
-/***/ }),
-
-/***/ "./lib/subreddits.ts":
-/*!***************************!*\
-  !*** ./lib/subreddits.ts ***!
-  \***************************/
-/*! exports provided: endpoints */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "endpoints", function() { return endpoints; });
-var endpoints = {
-  webdev: 'https://www.reddit.com/r/webdev.json?',
-  web_design: 'https://www.reddit.com/r/web_design.json?',
-  frontend: 'https://www.reddit.com/r/frontend.json?',
-  css: 'https://www.reddit.com/r/css.json?',
-  javascript: 'https://www.reddit.com/r/javascript.json?',
-  react_js: 'https://www.reddit.com/r/reactjs.json?',
-  graphql: 'https://www.reddit.com/r/graphql.json?',
-  node: 'https://www.reddit.com/r/node.json?',
-  typescript: 'https://www.reddit.com/r/typescript.json?',
-  vue: 'https://www.reddit.com/r/vuejs.json?'
-};
-
-/***/ }),
-
-/***/ "./lib/utils.ts":
-/*!**********************!*\
-  !*** ./lib/utils.ts ***!
-  \**********************/
-/*! exports provided: mapSubsToColours, getHostname, numCommentsText, getTimeAgo, debounce, filterPostsCallback, isAlreadyFavourite, sortByNewest */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mapSubsToColours", function() { return mapSubsToColours; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getHostname", function() { return getHostname; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "numCommentsText", function() { return numCommentsText; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getTimeAgo", function() { return getTimeAgo; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "debounce", function() { return debounce; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "filterPostsCallback", function() { return filterPostsCallback; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isAlreadyFavourite", function() { return isAlreadyFavourite; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "sortByNewest", function() { return sortByNewest; });
-function mapSubsToColours(sub) {
-  switch (sub.replace('r/', '').toLowerCase()) {
-    case 'css':
-      return 'one';
-
-    case 'webdev':
-      return 'two';
-
-    case 'web_design':
-      return 'three';
-
-    case 'typescript':
-      return 'four';
-
-    case 'javascript':
-      return 'five';
-
-    case 'frontend':
-      return 'six';
-
-    case 'graphql':
-      return 'seven';
-
-    case 'reactjs':
-      return 'eight';
-
-    case 'node':
-      return 'nine';
-
-    case 'vuejs':
-      return 'ten';
-
-    default:
-      return 'one';
-  }
-}
-function getHostname(url) {
-  var match = url.match(/:\/\/(www[0-9]?\.)?(.[^/:]+)/i);
-  return match[2];
-}
-function numCommentsText(numComments) {
-  return numComments === 1 ? "".concat(numComments, " comment") : "".concat(numComments, " comments");
-}
-/**
- * Convert the UNIX timestamp provided by the API into human-readable format
- */
-
-function getTimeAgo(timestamp) {
-  var d = new Date(); // Convert the passed timestamp to milliseconds
-
-  var tNowS = Math.floor(d.getTime() / 1000);
-  var seconds = tNowS - timestamp;
-  var mins = Math.floor(seconds / 60);
-  var hours = Math.floor(mins / 60);
-  var days = Math.floor(seconds / 3600 / 24);
-
-  if (days >= 8) {
-    return 'A week ago';
-  } else if (seconds > 2 * 24 * 3600) {
-    return Math.floor(days) + 'd ago';
-  } else if (seconds > 24 * 3600) {
-    return 'Yesterday';
-  } else if (mins > 60) {
-    return hours + 'h ago';
-  } else if (2 < mins < 60) {
-    return mins + 'm ago';
-  } else {
-    return mins + 'Just now';
-  }
-}
-function debounce(func) {
-  var wait = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 100;
-  var immediate = arguments.length > 2 ? arguments[2] : undefined;
-  var timeout;
-  return function () {
-    var context = this,
-        args = arguments;
-
-    var later = function later() {
-      timeout = null;
-      if (!immediate) func.apply(context, args);
-    };
-
-    var callNow = immediate && !timeout;
-    clearTimeout(timeout);
-    timeout = setTimeout(later, wait);
-    if (callNow) func.apply(context, args);
-  };
-}
-function filterPostsCallback() {
-  var searchTerm = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
-  var subreddits = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [];
-  return function (post) {
-    var data = post.data;
-    console.log(subreddits, data.subreddit);
-    return (data.title.includes(searchTerm) || data.url.includes(searchTerm)) && subreddits.includes(data.subreddit);
-  };
-}
-function isAlreadyFavourite(postToCheck) {
-  return function (post) {
-    return postToCheck.data.title === post.data.title && postToCheck.data.id === post.data.id;
-  };
-}
-function sortByNewest(a, b) {
-  return b.data.created - a.data.created;
-}
-
-/***/ }),
+webpackHotUpdate("static\\development\\pages\\_app.js",{
 
 /***/ "./pages/_app.tsx":
 /*!************************!*\
@@ -290,13 +9,13 @@ function sortByNewest(a, b) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "@babel/runtime/regenerator");
+/* WEBPACK VAR INJECTION */(function(module) {/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var next_app__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/app */ "next/app");
+/* harmony import */ var next_app__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/app */ "./node_modules/next/app.js");
 /* harmony import */ var next_app__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_app__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "axios");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "../node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _lib_subreddits__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../lib/subreddits */ "./lib/subreddits.ts");
 /* harmony import */ var _lib_utils__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../lib/utils */ "./lib/utils.ts");
@@ -480,7 +199,7 @@ function (_App) {
       return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(next_app__WEBPACK_IMPORTED_MODULE_2__["Container"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 93
+          lineNumber: 92
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Component, _extends({
@@ -492,7 +211,7 @@ function (_App) {
       }, pageProps, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 94
+          lineNumber: 93
         },
         __self: this
       })));
@@ -532,7 +251,6 @@ function (_App) {
 
               case 8:
                 data = _context2.sent;
-                console.log(data);
                 cleaned = data.reduce(function (acc, curr) {
                   return [].concat(_toConsumableArray(curr.data.data.children), _toConsumableArray(acc));
                 }, []);
@@ -541,7 +259,7 @@ function (_App) {
                   posts: postsSortedByNewest
                 }, pageProps));
 
-              case 13:
+              case 12:
               case "end":
                 return _context2.stop();
             }
@@ -561,86 +279,27 @@ function (_App) {
 }(next_app__WEBPACK_IMPORTED_MODULE_2___default.a);
 
 /* harmony default export */ __webpack_exports__["default"] = (MyApp);
+    (function (Component, route) {
+      if(!Component) return
+      if (false) {}
+      module.hot.accept()
+      Component.__route = route
 
-/***/ }),
+      if (module.hot.status() === 'idle') return
 
-/***/ 0:
-/*!******************************!*\
-  !*** multi ./pages/_app.tsx ***!
-  \******************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+      var components = next.router.components
+      for (var r in components) {
+        if (!components.hasOwnProperty(r)) continue
 
-module.exports = __webpack_require__(/*! ./pages/_app.tsx */"./pages/_app.tsx");
-
-
-/***/ }),
-
-/***/ "@babel/runtime/regenerator":
-/*!*********************************************!*\
-  !*** external "@babel/runtime/regenerator" ***!
-  \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("@babel/runtime/regenerator");
-
-/***/ }),
-
-/***/ "axios":
-/*!************************!*\
-  !*** external "axios" ***!
-  \************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("axios");
-
-/***/ }),
-
-/***/ "firebase/app":
-/*!*******************************!*\
-  !*** external "firebase/app" ***!
-  \*******************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("firebase/app");
-
-/***/ }),
-
-/***/ "firebase/firestore":
-/*!*************************************!*\
-  !*** external "firebase/firestore" ***!
-  \*************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("firebase/firestore");
-
-/***/ }),
-
-/***/ "next/app":
-/*!***************************!*\
-  !*** external "next/app" ***!
-  \***************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("next/app");
-
-/***/ }),
-
-/***/ "react":
-/*!************************!*\
-  !*** external "react" ***!
-  \************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("react");
+        if (components[r].Component.__route === route) {
+          next.router.update(r, Component)
+        }
+      }
+    })(typeof __webpack_exports__ !== 'undefined' ? __webpack_exports__.default : (module.exports.default || module.exports), "/_app")
+  
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../node_modules/webpack/buildin/harmony-module.js */ "./node_modules/webpack/buildin/harmony-module.js")(module)))
 
 /***/ })
 
-/******/ });
-//# sourceMappingURL=_app.js.map
+})
+//# sourceMappingURL=_app.js.3c63401c5f3a99140e54.hot-update.js.map

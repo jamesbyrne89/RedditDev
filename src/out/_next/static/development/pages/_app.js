@@ -39229,6 +39229,7 @@ function (_App) {
 
               case 8:
                 data = _context2.sent;
+                console.log(data);
                 cleaned = data.reduce(function (acc, curr) {
                   return [].concat(_toConsumableArray(curr.data.data.children), _toConsumableArray(acc));
                 }, []);
@@ -39237,7 +39238,7 @@ function (_App) {
                   posts: postsSortedByNewest
                 }, pageProps));
 
-              case 12:
+              case 13:
               case "end":
                 return _context2.stop();
             }
