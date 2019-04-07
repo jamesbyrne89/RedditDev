@@ -15,16 +15,10 @@
       "publicPath": "static/chunks/commons.32cb1a8ec7bc6f98c5a8.js"
     }
   ],
-  "../../modules/_core": [
+  "../modules/_core": [
     {
       "id": 2,
       "name": "./node_modules/core-js/library/modules/_core.js",
-      "file": "static/chunks/commons.32cb1a8ec7bc6f98c5a8.js",
-      "publicPath": "static/chunks/commons.32cb1a8ec7bc6f98c5a8.js"
-    },
-    {
-      "id": 17,
-      "name": "./node_modules/core-js/modules/_core.js",
       "file": "static/chunks/commons.32cb1a8ec7bc6f98c5a8.js",
       "publicPath": "static/chunks/commons.32cb1a8ec7bc6f98c5a8.js"
     }
@@ -169,6 +163,14 @@
     {
       "id": 45,
       "name": "./node_modules/core-js/modules/_descriptors.js",
+      "file": "static/chunks/commons.32cb1a8ec7bc6f98c5a8.js",
+      "publicPath": "static/chunks/commons.32cb1a8ec7bc6f98c5a8.js"
+    }
+  ],
+  "../../modules/_core": [
+    {
+      "id": 17,
+      "name": "./node_modules/core-js/modules/_core.js",
       "file": "static/chunks/commons.32cb1a8ec7bc6f98c5a8.js",
       "publicPath": "static/chunks/commons.32cb1a8ec7bc6f98c5a8.js"
     }
