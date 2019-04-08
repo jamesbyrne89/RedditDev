@@ -9,11 +9,9 @@ import { lightTheme, darkTheme } from '../components/styles/constants';
 
 interface Props { loading: boolean, posts: IRedditPost[], favourites: [] }
 
-
-const withTheme = (Component) => {
-
-return <Component />
-}
+const withTheme = Component => {
+  return <Component />;
+};
 class MyApp extends App<Props> {
   state = {
     loading: true,
@@ -28,6 +26,11 @@ class MyApp extends App<Props> {
     if (Component.getInitialProps) {
       pageProps = await Component.getInitialProps(ctx);
     }
+
+    return { pageProps };
+  }
+
+  async componentDidMount() {
     const data = await axios.all(
       Object.keys(endpoints).map(url => axios.get(endpoints[url])),
     );
@@ -38,13 +41,7 @@ class MyApp extends App<Props> {
       [],
     );
     const postsSortedByNewest: IRedditPost[] = cleaned.sort(sortByNewest);
-
-    return { posts: postsSortedByNewest, ...pageProps };
-  }
-
-  async componentDidMount() {
-    const { posts = [], favourites = [] } = this.props;
-    this.setState({ loading: false, posts, favourites });
+    this.setState({ posts: postsSortedByNewest, loading: false });
     db.collection('favourites').onSnapshot(querySnapshot => {
       const favourites = querySnapshot.docs.map(
         doc => ({ doc_id: doc.id, data: doc.data().data }),

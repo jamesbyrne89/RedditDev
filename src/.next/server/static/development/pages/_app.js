@@ -372,6 +372,8 @@ var _jsxFileName = "E:\\Users\\James\\Web Dev\\Projects\\RedditDev\\src\\pages\\
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
@@ -379,8 +381,6 @@ function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread n
 function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
 
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
-
-function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
@@ -418,7 +418,7 @@ var withTheme = function withTheme(Component) {
   return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Component, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 15
+      lineNumber: 13
     },
     __self: this
   });
@@ -510,17 +510,25 @@ function (_App) {
       _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
         var _this2 = this;
 
-        var _this$props, _this$props$posts, posts, _this$props$favourite, favourites;
-
+        var data, cleaned, postsSortedByNewest;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _this$props = this.props, _this$props$posts = _this$props.posts, posts = _this$props$posts === void 0 ? [] : _this$props$posts, _this$props$favourite = _this$props.favourites, favourites = _this$props$favourite === void 0 ? [] : _this$props$favourite;
+                _context.next = 2;
+                return axios__WEBPACK_IMPORTED_MODULE_3___default.a.all(Object.keys(_lib_subreddits__WEBPACK_IMPORTED_MODULE_4__["endpoints"]).map(function (url) {
+                  return axios__WEBPACK_IMPORTED_MODULE_3___default.a.get(_lib_subreddits__WEBPACK_IMPORTED_MODULE_4__["endpoints"][url]);
+                }));
+
+              case 2:
+                data = _context.sent;
+                cleaned = data.reduce(function (acc, curr) {
+                  return [].concat(_toConsumableArray(curr.data.data.children), _toConsumableArray(acc));
+                }, []);
+                postsSortedByNewest = cleaned.sort(_lib_utils__WEBPACK_IMPORTED_MODULE_5__["sortByNewest"]);
                 this.setState({
-                  loading: false,
-                  posts: posts,
-                  favourites: favourites
+                  posts: postsSortedByNewest,
+                  loading: false
                 });
                 _db_firestore__WEBPACK_IMPORTED_MODULE_6__["default"].collection('favourites').onSnapshot(function (querySnapshot) {
                   var favourites = querySnapshot.docs.map(function (doc) {
@@ -537,7 +545,7 @@ function (_App) {
                   }
                 });
 
-              case 3:
+              case 7:
               case "end":
                 return _context.stop();
             }
@@ -559,20 +567,20 @@ function (_App) {
           filteredPosts = _this$state.filteredPosts,
           isFiltered = _this$state.isFiltered,
           theme = _this$state.theme;
-      var _this$props2 = this.props,
-          Component = _this$props2.Component,
-          pageProps = _this$props2.pageProps;
+      var _this$props = this.props,
+          Component = _this$props.Component,
+          pageProps = _this$props.pageProps;
       return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(next_app__WEBPACK_IMPORTED_MODULE_2__["Container"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 106
+          lineNumber: 103
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(styled_components__WEBPACK_IMPORTED_MODULE_7__["ThemeProvider"], {
         theme: theme,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 107
+          lineNumber: 104
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Component, _extends({
@@ -585,7 +593,7 @@ function (_App) {
       }, pageProps, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 108
+          lineNumber: 105
         },
         __self: this
       }))));
@@ -596,7 +604,7 @@ function (_App) {
       var _getInitialProps = _asyncToGenerator(
       /*#__PURE__*/
       _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(_ref) {
-        var Component, ctx, pageProps, data, cleaned, postsSortedByNewest;
+        var Component, ctx, pageProps;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
@@ -618,22 +626,11 @@ function (_App) {
                 pageProps = _context2.sent;
 
               case 6:
-                _context2.next = 8;
-                return axios__WEBPACK_IMPORTED_MODULE_3___default.a.all(Object.keys(_lib_subreddits__WEBPACK_IMPORTED_MODULE_4__["endpoints"]).map(function (url) {
-                  return axios__WEBPACK_IMPORTED_MODULE_3___default.a.get(_lib_subreddits__WEBPACK_IMPORTED_MODULE_4__["endpoints"][url]);
-                }));
+                return _context2.abrupt("return", {
+                  pageProps: pageProps
+                });
 
-              case 8:
-                data = _context2.sent;
-                cleaned = data.reduce(function (acc, curr) {
-                  return [].concat(_toConsumableArray(curr.data.data.children), _toConsumableArray(acc));
-                }, []);
-                postsSortedByNewest = cleaned.sort(_lib_utils__WEBPACK_IMPORTED_MODULE_5__["sortByNewest"]);
-                return _context2.abrupt("return", _objectSpread({
-                  posts: postsSortedByNewest
-                }, pageProps));
-
-              case 12:
+              case 7:
               case "end":
                 return _context2.stop();
             }
