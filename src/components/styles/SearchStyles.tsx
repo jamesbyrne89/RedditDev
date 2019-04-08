@@ -32,6 +32,7 @@ const SearchStyles = styled.div`
   top: 0.575em;
   left: 0.65em;
   height: 2em;
+  fill: ${props => props.theme.button_colour};
 }
 
 .search__close-btn {
@@ -96,7 +97,7 @@ export const SearchDropdownStyles = styled.div`
   position: absolute;
   top: 3.5rem;
   width: 300px;
-  background: #fff;
+  background: ${props => props.theme.header_background};
   z-index: 2;
   box-shadow: 5px 6px 20px 0 rgba(46,61,73,.15);
   ul {

@@ -3,8 +3,8 @@ import { constants } from './constants';
 
 const GlobalStyles = createGlobalStyle`
 html {
-    background: ${constants.background_grey};
-    color: ${constants.text_grey_dark};
+    background: ${props => props.theme.main_background};
+    color: ${props => props.theme.font_colour_primary};
     margin: 0;
     padding: 0;
 }
@@ -38,6 +38,10 @@ a:visited {
 button {
 	background: transparent;
 	border: 0;
+}
+
+svg {
+  fill: ${props => props.theme.button_colour};
 }
 
 .page-transition-enter {

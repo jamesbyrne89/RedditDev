@@ -10,7 +10,7 @@ const IndexPage: React.FunctionComponent = (
   {
     return (
       <Layout
-        title="RedditDev"
+        title="RedditDev - the best of frontend web development on Reddit."
         onSearchSubmit={onSearchSubmit}
         onAddNewFavourite={onAddNewFavourite}
         toggleTheme={toggleTheme}

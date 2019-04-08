@@ -27,7 +27,7 @@ class FavouritesPage extends React.Component<P> {
     const { onAddNewFavourite, onSearchSubmit, favourites } = this.props;
     return (
       <Layout
-        title="RedditDev"
+        title="Favourites | RedditDev - the best of frontend web development on Reddit."
         onSearchSubmit={onSearchSubmit}
         onAddNewFavourite={onAddNewFavourite}
       >

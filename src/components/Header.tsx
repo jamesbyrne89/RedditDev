@@ -7,7 +7,7 @@ import {
   StyledHeader,
   StyledMasthead,
   StyledHeaderTitle,
-  StyledHeaderDescription,
+  // StyledHeaderDescription,
   StyledNavItem,
 } from './styles/HeaderStyles';
 
@@ -36,9 +36,6 @@ const Header: React.FunctionComponent<Props> = props => (
         <StyledHeaderTitle>
           <Link href="/"><a>redditDev.</a></Link>
         </StyledHeaderTitle>
-        <StyledHeaderDescription>
-          The best of frontend web development on Reddit
-        </StyledHeaderDescription>
       </div>
       <div>
         <div><ThemeToggleButton toggle={props.toggle} /></div>

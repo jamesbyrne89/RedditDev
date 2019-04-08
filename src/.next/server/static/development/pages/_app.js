@@ -142,14 +142,16 @@ var lightTheme = {
   main_background: constants.background_grey,
   font_colour_primary: constants.nearBlack,
   card_background: '#fff',
-  button_colour: constants.nearBlack
+  button_colour: constants.nearBlack,
+  button_hover_colour: '#fff'
 };
 var darkTheme = {
   header_background: constants.nearBlack,
   font_colour_primary: '#fff',
   main_background: constants.text_grey_dark_two,
-  card_background: constants.text_grey_dark_two,
-  button_colour: '#fff'
+  card_background: constants.nearBlack,
+  button_colour: '#fff',
+  button_hover_colour: constants.nearBlack
 };
 
 /***/ }),
@@ -412,6 +414,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+var withTheme = function withTheme(Component) {
+  return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Component, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 15
+    },
+    __self: this
+  });
+};
+
 var MyApp =
 /*#__PURE__*/
 function (_App) {
@@ -553,14 +565,14 @@ function (_App) {
       return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(next_app__WEBPACK_IMPORTED_MODULE_2__["Container"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 101
+          lineNumber: 106
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(styled_components__WEBPACK_IMPORTED_MODULE_7__["ThemeProvider"], {
         theme: theme,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 102
+          lineNumber: 107
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Component, _extends({
@@ -573,7 +585,7 @@ function (_App) {
       }, pageProps, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 103
+          lineNumber: 108
         },
         __self: this
       }))));

@@ -37,8 +37,10 @@ export const CardContainerStyles = styled.main`
         width: 100%;
         position: fixed;
         height: 40px;
-        background: -webkit-gradient(linear, left top, left bottom, from(rgba(236, 238, 241, 0.001)), to(white));
-        background: linear-gradient(rgba(236, 238, 241, 0.001), white);
+        background: -webkit-gradient(linear, left top, left bottom, from(rgba(236, 238, 241, 0.001)), to(${props =>
+  props.theme.card_background}));
+        background: linear-gradient(rgba(236, 238, 241, 0.001), ${props =>
+  props.theme.card_background});
         pointer-events: none;
         bottom: 0;
         left: 0;

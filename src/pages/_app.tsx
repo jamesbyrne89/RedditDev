@@ -9,6 +9,11 @@ import { lightTheme, darkTheme } from '../components/styles/constants';
 
 interface Props { loading: boolean, posts: IRedditPost[], favourites: [] }
 
+
+const withTheme = (Component) => {
+
+return <Component />
+}
 class MyApp extends App<Props> {
   state = {
     loading: true,

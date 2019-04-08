@@ -35,6 +35,7 @@ export const SubRedditNameStyles = styled.h3`
     font-size: 0.75rem;
     color: #fff;
     letter-spacing: 1px;
+    cursor: pointer;
     background: ${props =>
   props.deselected
     ? constants.background_grey
@@ -48,23 +49,23 @@ export const PostTitleStyles = styled.h2`
     -webkit-transition: all 0.15s;
     transition: all 0.15s;
     text-align: left;
+    color: ${props => props.theme.font_colour_primary};
     @media (max-width: ${sizes.tablet}px) {
       padding: 0.75em 0;
     }
     a {
         font-family: 'Tiempos Headline', georgia, serif;
         font-weight: 700;
-        color: ${props => props.theme.font_colour_primary};
         text-decoration: none;
         line-height: 1.3;
         max-width: 100%;
         -webkit-box-decoration-break: clone;
         box-decoration-break: clone;
-        -webkit-transition: all 0.15s;
-        transition: all 0.15s;
+        -webkit-transition: border 0.15s;
+        transition: border 0.15s;
     }
     a:hover {
-        color: #000;
+        color: inherit;
         border-bottom: solid 1px #000;
     }
 `;
@@ -123,6 +124,9 @@ export const AddToFavouritesButtonStyles = styled.button`
   line-height: 1;
   display: flex;
   align-items: center;
+  svg {
+    fill: ${props => props.theme.button_colour};
+  }
   @media (max-width: ${sizes.tablet}px) {
       height: 24px;
     }

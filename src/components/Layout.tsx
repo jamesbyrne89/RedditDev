@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
+import { withTheme } from 'styled-components';
 import GlobalStyles from './styles/GlobalStyles';
 import Header from './Header';
 import Sidebar from './Sidebar';
@@ -45,7 +46,7 @@ const Layout = (props: P) => {
 
   return (
     <div>
-      <GlobalStyles />
+      <GlobalStyles {...props} />
       <Head><title>{title}</title></Head>
       <Header
         onSearchSubmit={onSearchSubmit}
@@ -59,4 +60,4 @@ const Layout = (props: P) => {
   );
 };
 
-export default Layout;
+export default withTheme(Layout)
