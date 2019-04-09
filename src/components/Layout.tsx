@@ -12,6 +12,7 @@ type P = {
   onSearchSubmit: Function,
   onAddNewFavourite: Function,
   toggleTheme: Function,
+  themeName: string,
   children: React.ReactNode,
 };
 
@@ -22,6 +23,7 @@ const Layout = (props: P) => {
     onSearchSubmit,
     onAddNewFavourite,
     toggleTheme,
+    themeName,
   } = props;
 
   const [ showBackToTopBtn, setShowBackToTopBtn ] = useState(false);
@@ -52,6 +54,7 @@ const Layout = (props: P) => {
         onSearchSubmit={onSearchSubmit}
         onAddNewFavourite={onAddNewFavourite}
         toggle={toggleTheme}
+        themeName={themeName}
       />
       <Sidebar />
       {children}

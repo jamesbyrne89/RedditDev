@@ -2,12 +2,11 @@ import Link from 'next/link';
 import Router from 'next/router';
 import NProgress from 'nprogress';
 import Search from '../components/Search';
-import ThemeToggleButton from '../components/ThemeToggleButton';
+import ThemeToggler from './ThemeToggler';
 import {
   StyledHeader,
   StyledMasthead,
   StyledHeaderTitle,
-  // StyledHeaderDescription,
   StyledNavItem,
 } from './styles/HeaderStyles';
 
@@ -38,7 +37,9 @@ const Header: React.FunctionComponent<Props> = props => (
         </StyledHeaderTitle>
       </div>
       <div>
-        <div><ThemeToggleButton toggle={props.toggle} /></div>
+        <div className="header__nav-wrapper">
+          <ThemeToggler themeName={props.themeName} toggle={props.toggle} />
+        </div>
         <ul>
           <StyledNavItem>
             <Link href="/favourites"><a>Favourites</a></Link>

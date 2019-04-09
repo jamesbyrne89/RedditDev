@@ -24,12 +24,20 @@ class FavouritesPage extends React.Component<P> {
     return getFavourites();
   }
   render() {
-    const { onAddNewFavourite, onSearchSubmit, favourites } = this.props;
+    const {
+      onAddNewFavourite,
+      onSearchSubmit,
+      favourites,
+      toggleTheme,
+      themeName,
+    } = this.props;
     return (
       <Layout
         title="Favourites | RedditDev - the best of frontend web development on Reddit."
         onSearchSubmit={onSearchSubmit}
         onAddNewFavourite={onAddNewFavourite}
+        toggleTheme={toggleTheme}
+        themeName={themeName}
       >
         <CardContainer
           {...this.props}

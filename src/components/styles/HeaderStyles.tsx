@@ -14,6 +14,11 @@ export const StyledHeader = styled.header`
     display: flex;
     align-items: center;
   }
+  .header__nav-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 0.25rem;
+  }
   ul {
     display: flex;
     justify-content: flex-end;

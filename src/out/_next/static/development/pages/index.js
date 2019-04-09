@@ -488,7 +488,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var nprogress__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! nprogress */ "./node_modules/nprogress/nprogress.js");
 /* harmony import */ var nprogress__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(nprogress__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _components_Search__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/Search */ "./components/Search.tsx");
-/* harmony import */ var _components_ThemeToggleButton__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/ThemeToggleButton */ "./components/ThemeToggleButton.tsx");
+/* harmony import */ var _ThemeToggler__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./ThemeToggler */ "./components/ThemeToggler.tsx");
 /* harmony import */ var _styles_HeaderStyles__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./styles/HeaderStyles */ "./components/styles/HeaderStyles.tsx");
 var _jsxFileName = "E:\\Users\\James\\Web Dev\\Projects\\RedditDev\\src\\components\\Header.tsx";
 
@@ -519,54 +519,56 @@ var Header = function Header(props) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_HeaderStyles__WEBPACK_IMPORTED_MODULE_6__["StyledHeader"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 33
+      lineNumber: 32
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_HeaderStyles__WEBPACK_IMPORTED_MODULE_6__["StyledMasthead"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 34
+      lineNumber: 33
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "header__title-wrapper",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 35
+      lineNumber: 34
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_HeaderStyles__WEBPACK_IMPORTED_MODULE_6__["StyledHeaderTitle"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 36
+      lineNumber: 35
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
     href: "/",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 37
+      lineNumber: 36
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 37
+      lineNumber: 36
     },
     __self: this
   }, "redditDev.")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 40
+      lineNumber: 39
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "header__nav-wrapper",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 41
+      lineNumber: 40
     },
     __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_ThemeToggleButton__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ThemeToggler__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    themeName: props.themeName,
     toggle: props.toggle,
     __source: {
       fileName: _jsxFileName,
@@ -576,39 +578,39 @@ var Header = function Header(props) {
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 42
+      lineNumber: 43
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_HeaderStyles__WEBPACK_IMPORTED_MODULE_6__["StyledNavItem"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 43
+      lineNumber: 44
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
     href: "/favourites",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 44
+      lineNumber: 45
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 44
+      lineNumber: 45
     },
     __self: this
   }, "Favourites"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_HeaderStyles__WEBPACK_IMPORTED_MODULE_6__["StyledNavItem"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 46
+      lineNumber: 47
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Search__WEBPACK_IMPORTED_MODULE_4__["default"], {
     onSearchSubmit: props.onSearchSubmit,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 47
+      lineNumber: 48
     },
     __self: this
   }))))));
@@ -664,7 +666,8 @@ var Layout = function Layout(props) {
       title = _props$title === void 0 ? 'redditDev' : _props$title,
       onSearchSubmit = props.onSearchSubmit,
       onAddNewFavourite = props.onAddNewFavourite,
-      toggleTheme = props.toggleTheme;
+      toggleTheme = props.toggleTheme,
+      themeName = props.themeName;
 
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
       _useState2 = _slicedToArray(_useState, 2),
@@ -688,47 +691,48 @@ var Layout = function Layout(props) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 48
+      lineNumber: 50
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_GlobalStyles__WEBPACK_IMPORTED_MODULE_3__["default"], _extends({}, props, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 49
+      lineNumber: 51
     },
     __self: this
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_head__WEBPACK_IMPORTED_MODULE_1___default.a, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 50
+      lineNumber: 52
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("title", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 50
+      lineNumber: 52
     },
     __self: this
   }, title)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Header__WEBPACK_IMPORTED_MODULE_4__["default"], {
     onSearchSubmit: onSearchSubmit,
     onAddNewFavourite: onAddNewFavourite,
     toggle: toggleTheme,
+    themeName: themeName,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 51
+      lineNumber: 53
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Sidebar__WEBPACK_IMPORTED_MODULE_5__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 56
+      lineNumber: 59
     },
     __self: this
   }), children, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_BackToTopButton__WEBPACK_IMPORTED_MODULE_6__["default"], {
     show: showBackToTopBtn,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 58
+      lineNumber: 61
     },
     __self: this
   }));
@@ -1114,10 +1118,10 @@ var StatusMessage = function StatusMessage(props) {
 
 /***/ }),
 
-/***/ "./components/ThemeToggleButton.tsx":
-/*!******************************************!*\
-  !*** ./components/ThemeToggleButton.tsx ***!
-  \******************************************/
+/***/ "./components/ThemeToggler.tsx":
+/*!*************************************!*\
+  !*** ./components/ThemeToggler.tsx ***!
+  \*************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1125,24 +1129,151 @@ var StatusMessage = function StatusMessage(props) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-var _jsxFileName = "E:\\Users\\James\\Web Dev\\Projects\\RedditDev\\src\\components\\ThemeToggleButton.tsx";
+/* harmony import */ var _styles_ThemeTogglerStyles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles/ThemeTogglerStyles */ "./components/styles/ThemeTogglerStyles.tsx");
+var _jsxFileName = "E:\\Users\\James\\Web Dev\\Projects\\RedditDev\\src\\components\\ThemeToggler.tsx";
+
 
 
 var ThemeToggleButton = function ThemeToggleButton(props) {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 5
-    },
-    __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    onClick: props.toggle,
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_ThemeTogglerStyles__WEBPACK_IMPORTED_MODULE_1__["default"], {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 6
     },
     __self: this
-  }, "Mode"));
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 7
+    },
+    __self: this
+  }, props.themeName === 'light' ? 'Dark mode' : 'Light mode'), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    class: "toggle-container",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 10
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    type: "checkbox",
+    id: "switch",
+    name: "theme",
+    onClick: props.toggle,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 11
+    },
+    __self: this
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+    htmlFor: "switch",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 16
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    class: "mode-icon--dark-mode",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 17
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    viewBox: "0 0 512 640",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 18
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+    d: "M413.9,407.2c28.6-28.6,47.6-63.3,57.1-99.8c-74.3,55.9-180.3,50-247.9-17.6c-67.9-67.9-73.6-174.5-16.9-248.9 C169.1,50.1,134,69.2,105,98.2c-85.3,85.3-85.3,223.6,0,309C190.3,492.5,328.6,492.5,413.9,407.2z",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 19
+    },
+    __self: this
+  }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    class: "mode-icon--light-mode",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 24
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    viewBox: "0 0 100 125",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 25
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("circle", {
+    cx: "50",
+    cy: "50",
+    r: "23.896",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 26
+    },
+    __self: this
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+    d: "M50,100c-1.827,0-3.308-1.481-3.308-3.308V79.619c0-1.827,1.48-3.308,3.308-3.308s3.308,1.48,3.308,3.308 v17.073C53.308,98.519,51.827,100,50,100z",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 27
+    },
+    __self: this
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+    d: "M50,23.688c-1.827,0-3.308-1.481-3.308-3.308V3.308C46.692,1.481,48.173,0,50,0s3.308,1.481,3.308,3.308 v17.073C53.308,22.208,51.827,23.688,50,23.688z",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 30
+    },
+    __self: this
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+    d: "M20.381,53.308H3.308C1.481,53.308,0,51.827,0,50c0-1.827,1.481-3.308,3.308-3.308h17.073 c1.827,0,3.308,1.48,3.308,3.308C23.688,51.827,22.208,53.308,20.381,53.308z",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 33
+    },
+    __self: this
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+    d: "M96.692,53.308H79.619c-1.827,0-3.308-1.481-3.308-3.308c0-1.827,1.48-3.308,3.308-3.308h17.073 c1.826,0,3.308,1.48,3.308,3.308C100,51.827,98.519,53.308,96.692,53.308z",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 36
+    },
+    __self: this
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+    d: "M13.254,90.054c-0.847,0-1.693-0.323-2.339-0.969c-1.292-1.292-1.292-3.386,0-4.678l13.437-13.437 c1.292-1.292,3.386-1.292,4.678,0s1.292,3.386,0,4.678L15.593,89.085C14.947,89.731,14.101,90.054,13.254,90.054z",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 39
+    },
+    __self: this
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+    d: "M73.311,29.998c-0.847,0-1.693-0.323-2.34-0.969c-1.291-1.292-1.291-3.386,0-4.678l13.437-13.437 c1.292-1.292,3.386-1.292,4.679,0c1.291,1.292,1.291,3.386,0,4.678L75.649,29.029C75.003,29.675,74.157,29.998,73.311,29.998z",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 42
+    },
+    __self: this
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+    d: "M26.69,29.999c-0.847,0-1.692-0.323-2.339-0.969L10.915,15.593c-1.292-1.292-1.292-3.386,0-4.678 c1.293-1.292,3.387-1.292,4.678,0l13.437,13.437c1.292,1.292,1.292,3.386,0,4.678C28.384,29.676,27.537,29.999,26.69,29.999z",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 45
+    },
+    __self: this
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+    d: "M86.746,90.054c-0.847,0-1.692-0.323-2.339-0.969L70.971,75.648c-1.292-1.292-1.292-3.386,0-4.678 c1.292-1.292,3.386-1.292,4.678,0l13.438,13.437c1.291,1.292,1.291,3.386,0,4.678C88.439,89.731,87.593,90.054,86.746,90.054z",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 48
+    },
+    __self: this
+  }))))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (ThemeToggleButton);
@@ -1318,7 +1449,7 @@ __webpack_require__.r(__webpack_exports__);
 var StyledHeader = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].header.withConfig({
   displayName: "HeaderStyles__StyledHeader",
   componentId: "fr55j3-0"
-})(["z-index:350;display:flex;align-items:center;width:100%;background:", ";-webkit-box-shadow:0 0 0 1px ", ";box-shadow:0 0 0 1px ", ";grid-area:header;.header__title-wrapper{display:flex;align-items:center;}ul{display:flex;justify-content:flex-end;flex-grow:1;margin:0.5rem 0;@media (max-width:", "px){justify-content:flex-start;}@media (max-width:", "px){justify-content:flex-end;}}"], function (props) {
+})(["z-index:350;display:flex;align-items:center;width:100%;background:", ";-webkit-box-shadow:0 0 0 1px ", ";box-shadow:0 0 0 1px ", ";grid-area:header;.header__title-wrapper{display:flex;align-items:center;}.header__nav-wrapper{display:flex;justify-content:flex-end;padding-top:0.25rem;}ul{display:flex;justify-content:flex-end;flex-grow:1;margin:0.5rem 0;@media (max-width:", "px){justify-content:flex-start;}@media (max-width:", "px){justify-content:flex-end;}}"], function (props) {
   return props.theme.header_background;
 }, _constants__WEBPACK_IMPORTED_MODULE_0__["constants"].text_grey_mid_two, _constants__WEBPACK_IMPORTED_MODULE_0__["constants"].text_grey_mid_two, _constants__WEBPACK_IMPORTED_MODULE_0__["sizes"].desktop_sm, _constants__WEBPACK_IMPORTED_MODULE_0__["sizes"].tablet);
 var StyledMasthead = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div.withConfig({
@@ -1433,6 +1564,35 @@ var SidebarStyles = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].as
   componentId: "sc-1qdeyni-0"
 })(["font-size:0.75rem;border-bottom:0;transform:rotate(-90deg);transform-origin:0 0;position:fixed;top:50vh;left:1.25rem;&::before{content:'';display:block;height:1px;width:3rem;right:4rem;bottom:-0.8rem;background:currentColor;position:relative;}@media (max-width:", "px){display:none;}.loc-icon{height:1rem;}"], _constants__WEBPACK_IMPORTED_MODULE_1__["sizes"].mobile);
 /* harmony default export */ __webpack_exports__["default"] = (SidebarStyles);
+
+/***/ }),
+
+/***/ "./components/styles/ThemeTogglerStyles.tsx":
+/*!**************************************************!*\
+  !*** ./components/styles/ThemeTogglerStyles.tsx ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+
+var ThemeTogglerStyles = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div.withConfig({
+  displayName: "ThemeTogglerStyles",
+  componentId: "sc-13n4n17-0"
+})(["display:flex;color:", ";font-size:0.875rem;.toggle-container{display:flex;cursor:pointer;border-top-right-radius:10px;border-bottom-right-radius:10px;margin-left:1em;}input[type=checkbox]{height:0;width:0;visibility:hidden;cursor:pointer;}label{cursor:pointer;text-indent:-9999px;width:52px;height:20px;background:", ";float:left;border-radius:5px;position:relative;display:flex;justify-content:space-between;div{display:flex;align-items:flex-end;height:100%;padding:0 5px;svg{height:17px;width:auto;fill:", ";}}}label:after{content:'';position:absolute;top:2px;right:2px;width:22px;height:16px;background:", ";border-radius:3px;transition:transform 0.3s;will-change:transform;}input:checked + label{background:", ";}input:checked + label:after{transform:translateX(calc((-100%) - 4px));}html.transition,html.transition *,html.transition *:before,html.transition *:after{transition:all 500ms !important;transition-delay:0 !important;}@media screen and (max-width:768px){.panel{width:90%;padding-left:0;.fa-stack{display:none;}.select{padding:25px;}}}"], function (props) {
+  return props.theme.button_colour;
+}, function (props) {
+  return props.theme.button_colour;
+}, function (props) {
+  return props.theme.button_hover_colour;
+}, function (props) {
+  return props.theme.button_hover_colour;
+}, function (props) {
+  return props.theme.button_colour;
+});
+/* harmony default export */ __webpack_exports__["default"] = (ThemeTogglerStyles);
 
 /***/ }),
 
@@ -15782,23 +15942,25 @@ var IndexPage = function IndexPage(_ref) {
   var onSearchSubmit = _ref.onSearchSubmit,
       onAddNewFavourite = _ref.onAddNewFavourite,
       toggleTheme = _ref.toggleTheme,
-      props = _objectWithoutProperties(_ref, ["onSearchSubmit", "onAddNewFavourite", "toggleTheme"]);
+      themeName = _ref.themeName,
+      props = _objectWithoutProperties(_ref, ["onSearchSubmit", "onAddNewFavourite", "toggleTheme", "themeName"]);
 
   return react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_components_Layout__WEBPACK_IMPORTED_MODULE_2__["default"], {
     title: "RedditDev - the best of frontend web development on Reddit.",
     onSearchSubmit: onSearchSubmit,
     onAddNewFavourite: onAddNewFavourite,
     toggleTheme: toggleTheme,
+    themeName: themeName,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 12
+      lineNumber: 18
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_components_CardContainer__WEBPACK_IMPORTED_MODULE_1__["default"], _extends({}, props, {
     emptyState: react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_components_StatusMessage__WEBPACK_IMPORTED_MODULE_3__["default"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 21
+        lineNumber: 28
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("svg", {
@@ -15806,33 +15968,33 @@ var IndexPage = function IndexPage(_ref) {
       viewBox: "0 0 100 125",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 22
+        lineNumber: 29
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("path", {
       d: "M43.241,40.677l3.315-7.292c-2.651-4.751-7.724-7.966-13.551-7.966c-8.567,0-15.513,6.945-15.513,15.513 c0,17.471,27.078,32.54,29,33.588l-3.25-13.814l6.676-9.537L43.241,40.677z",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 23
+        lineNumber: 30
       },
       __self: this
     }), react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("path", {
       d: "M66.996,25.418c-5.864,0-10.966,3.254-13.604,8.054c-0.016-0.03-0.035-0.058-0.052-0.088l-3.315,7.292l6.676,10.491 l-6.676,9.537l3.25,13.814c0.071,0.039,0.116,0.063,0.116,0.063s29.116-15.537,29.116-33.651 C82.509,32.364,75.563,25.418,66.996,25.418z",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 26
+        lineNumber: 33
       },
       __self: this
     })), react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("span", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 30
+        lineNumber: 37
       },
       __self: this
     }, "No posts.")),
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 18
+      lineNumber: 25
     },
     __self: this
   })));

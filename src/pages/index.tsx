@@ -5,7 +5,13 @@ import StatusMessage from '../components/StatusMessage';
 import { ILayoutProps } from '../interfaces/index';
 
 const IndexPage: React.FunctionComponent = (
-  { onSearchSubmit, onAddNewFavourite, toggleTheme, ...props }: ILayoutProps,
+  {
+    onSearchSubmit,
+    onAddNewFavourite,
+    toggleTheme,
+    themeName,
+    ...props,
+  }: ILayoutProps,
 ) =>
   {
     return (
@@ -14,6 +20,7 @@ const IndexPage: React.FunctionComponent = (
         onSearchSubmit={onSearchSubmit}
         onAddNewFavourite={onAddNewFavourite}
         toggleTheme={toggleTheme}
+        themeName={themeName}
       >
         <CardContainer
           {...props}

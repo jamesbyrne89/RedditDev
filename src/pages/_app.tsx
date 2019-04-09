@@ -20,6 +20,7 @@ class MyApp extends App<Props> {
     isFiltered: false,
     favourites: [],
     theme: lightTheme,
+    themeName: 'light',
   };
   static async getInitialProps({ Component, ctx }: any) {
     let pageProps = { favourites: [] };
@@ -55,12 +56,12 @@ class MyApp extends App<Props> {
   filterPosts = (searchTerm = '', subreddits = []) => {
     if (!searchTerm && subreddits.length === 0) {
       return this.setState({
-        filteredPosts: this.props.posts,
+        filteredPosts: this.state.posts,
         isFiltered: false,
       });
     }
     this.setState({ loading: true });
-    const filtered = this.props.posts.filter(
+    const filtered = this.state.posts.filter(
       filterPostsCallback(searchTerm, subreddits),
     );
     this.setState({
@@ -90,13 +91,17 @@ class MyApp extends App<Props> {
   };
 
   toggleTheme = () => {
-    this.setState({
-      theme: this.state.theme == darkTheme ? lightTheme : darkTheme,
-    });
+    this.setState(
+      currentState =>
+        ({
+          theme: currentState.theme == darkTheme ? lightTheme : darkTheme,
+          themeName: currentState.themeName == 'light' ? 'dark' : 'light',
+        }),
+    );
   };
 
   render() {
-    const { posts, filteredPosts, isFiltered, theme } = this.state;
+    const { posts, filteredPosts, isFiltered, theme, themeName } = this.state;
     const { Component, pageProps } = this.props;
 
     return (
@@ -109,6 +114,7 @@ class MyApp extends App<Props> {
             onAddToFavourites={this.addToFavourites}
             favourites={this.state.favourites}
             toggleTheme={this.toggleTheme}
+            themeName={themeName}
             {...pageProps}
           />
         </ThemeProvider>

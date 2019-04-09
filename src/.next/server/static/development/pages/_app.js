@@ -448,7 +448,8 @@ function (_App) {
       filteredPosts: [],
       isFiltered: false,
       favourites: [],
-      theme: _components_styles_constants__WEBPACK_IMPORTED_MODULE_8__["lightTheme"]
+      theme: _components_styles_constants__WEBPACK_IMPORTED_MODULE_8__["lightTheme"],
+      themeName: 'light'
     });
 
     _defineProperty(_assertThisInitialized(_this), "filterPosts", function () {
@@ -457,7 +458,7 @@ function (_App) {
 
       if (!searchTerm && subreddits.length === 0) {
         return _this.setState({
-          filteredPosts: _this.props.posts,
+          filteredPosts: _this.state.posts,
           isFiltered: false
         });
       }
@@ -466,7 +467,7 @@ function (_App) {
         loading: true
       });
 
-      var filtered = _this.props.posts.filter(Object(_lib_utils__WEBPACK_IMPORTED_MODULE_5__["filterPostsCallback"])(searchTerm, subreddits));
+      var filtered = _this.state.posts.filter(Object(_lib_utils__WEBPACK_IMPORTED_MODULE_5__["filterPostsCallback"])(searchTerm, subreddits));
 
       _this.setState({
         filteredPosts: filtered,
@@ -494,8 +495,11 @@ function (_App) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "toggleTheme", function () {
-      _this.setState({
-        theme: _this.state.theme == _components_styles_constants__WEBPACK_IMPORTED_MODULE_8__["darkTheme"] ? _components_styles_constants__WEBPACK_IMPORTED_MODULE_8__["lightTheme"] : _components_styles_constants__WEBPACK_IMPORTED_MODULE_8__["darkTheme"]
+      _this.setState(function (currentState) {
+        return {
+          theme: currentState.theme == _components_styles_constants__WEBPACK_IMPORTED_MODULE_8__["darkTheme"] ? _components_styles_constants__WEBPACK_IMPORTED_MODULE_8__["lightTheme"] : _components_styles_constants__WEBPACK_IMPORTED_MODULE_8__["darkTheme"],
+          themeName: currentState.themeName == 'light' ? 'dark' : 'light'
+        };
       });
     });
 
@@ -566,21 +570,22 @@ function (_App) {
           posts = _this$state.posts,
           filteredPosts = _this$state.filteredPosts,
           isFiltered = _this$state.isFiltered,
-          theme = _this$state.theme;
+          theme = _this$state.theme,
+          themeName = _this$state.themeName;
       var _this$props = this.props,
           Component = _this$props.Component,
           pageProps = _this$props.pageProps;
       return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(next_app__WEBPACK_IMPORTED_MODULE_2__["Container"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 103
+          lineNumber: 108
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(styled_components__WEBPACK_IMPORTED_MODULE_7__["ThemeProvider"], {
         theme: theme,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 104
+          lineNumber: 109
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Component, _extends({
@@ -589,11 +594,12 @@ function (_App) {
         onSearchSubmit: this.filterPosts,
         onAddToFavourites: this.addToFavourites,
         favourites: this.state.favourites,
-        toggleTheme: this.toggleTheme
+        toggleTheme: this.toggleTheme,
+        themeName: themeName
       }, pageProps, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 105
+          lineNumber: 110
         },
         __self: this
       }))));
