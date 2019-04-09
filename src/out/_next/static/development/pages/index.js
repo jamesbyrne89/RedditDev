@@ -20,10 +20,15 @@ function _extends() { _extends = Object.assign || function (target) { for (var i
 
 
 var BackToTopButton = function BackToTopButton(props) {
+  var handleClick = function handleClick() {
+    window.scrollTo(0, 0);
+  };
+
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_BackToTopStyles__WEBPACK_IMPORTED_MODULE_1__["default"], _extends({}, props, {
+    onClick: handleClick,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 8
+      lineNumber: 12
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", {
@@ -33,14 +38,14 @@ var BackToTopButton = function BackToTopButton(props) {
     height: "24",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 9
+      lineNumber: 13
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
     d: "M13 5.41V21a1 1 0 0 1-2 0V5.41l-5.3 5.3a1 1 0 1 1-1.4-1.42l7-7a1 1 0 0 1 1.4 0l7 7a1 1 0 1 1-1.4 1.42L13 5.4z",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 15
+      lineNumber: 19
     },
     __self: this
   })));
@@ -1154,15 +1159,23 @@ var ThemeToggleButton = function ThemeToggleButton(props) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
-/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./constants */ "./components/styles/constants.ts");
-
 
 var BackToTopStyles = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].button.withConfig({
   displayName: "BackToTopStyles",
   componentId: "yyrt1m-0"
-})(["font-weight:bold;padding:0.75em;color:", ";cursor:pointer;position:fixed;border:solid 2px currentColor;margin:1px;bottom:2em;right:1.5vw;text-align:center;padding:1em 0.5em;-webkit-transition:all 0.15s;transition:all 0.15s;line-height:1;", ";svg{position:relative;top:0;left:0;height:1rem;}}&:hover{color:#fff;fill:#fff;background:", ";border:solid 2px ", ";}&:active{-webkit-transform:translateY(4px);transform:translateY(4px);}"], _constants__WEBPACK_IMPORTED_MODULE_1__["constants"].nearBlack, function (props) {
+})(["font-weight:bold;padding:0.75em;color:", ";cursor:pointer;position:fixed;border:solid 2px currentColor;margin:1px;bottom:2em;right:1.5vw;text-align:center;padding:1em 0.5em;-webkit-transition:all 0.15s;transition:all 0.15s;line-height:1;", ";svg{position:relative;top:0;left:0;height:1rem;}}&:hover,&:active{color:", ";background:", ";border:solid 2px ", ";svg{fill:", ";}}&:active{-webkit-transform:translateY(4px);transform:translateY(4px);}"], function (props) {
+  return props.theme.button_colour;
+}, function (props) {
   return props.show ? 'opacity: 1' : 'opacity: 0';
-}, _constants__WEBPACK_IMPORTED_MODULE_1__["constants"].nearBlack, _constants__WEBPACK_IMPORTED_MODULE_1__["constants"].nearBlack);
+}, function (props) {
+  return props.theme.button_hover_colour;
+}, function (props) {
+  return props.theme.button_colour;
+}, function (props) {
+  return props.theme.button_colour;
+}, function (props) {
+  return props.theme.button_hover_colour;
+});
 /* harmony default export */ __webpack_exports__["default"] = (BackToTopStyles);
 
 /***/ }),
@@ -1365,7 +1378,7 @@ __webpack_require__.r(__webpack_exports__);
 var LoaderStyles = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div.withConfig({
   displayName: "LoaderStyles",
   componentId: "rqwkb1-0"
-})(["display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;width:3.5em;height:2rem;color:", ";font-family:", ";user-select:none;font-size:2rem;opacity:0.8;margin:auto;position:absolute;top:25vh;left:0;right:0;bottom:0;span{display:inline-block;-webkit-animation:pulse 0.4s alternate infinite ease-in-out;animation:pulse 0.4s alternate infinite ease-in-out;}span:nth-child(odd){-webkit-animation-delay:0.4s;animation-delay:0.4s;}@-webkit-keyframes pulse{to{-webkit-transform:scale(0.8);transform:scale(0.8);opacity:0.5;}}@keyframes pulse{to{-webkit-transform:scale(0.8);transform:scale(0.8);opacity:0.5;}}"], _styles_constants__WEBPACK_IMPORTED_MODULE_1__["constants"].nearBlack, _styles_constants__WEBPACK_IMPORTED_MODULE_1__["constants"].sansSerif);
+})(["display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;width:3.5em;color:", ";font-family:", ";user-select:none;font-size:7.5vh;opacity:0.8;margin:auto;position:absolute;top:30vh;left:0;right:0;bottom:0;span{display:inline-block;-webkit-animation:pulse 0.4s alternate infinite ease-in-out;animation:pulse 0.4s alternate infinite ease-in-out;}span:nth-child(odd){-webkit-animation-delay:0.4s;animation-delay:0.4s;}@-webkit-keyframes pulse{to{-webkit-transform:scale(0.8);transform:scale(0.8);opacity:0.5;}}@keyframes pulse{to{-webkit-transform:scale(0.8);transform:scale(0.8);opacity:0.5;}}"], _styles_constants__WEBPACK_IMPORTED_MODULE_1__["constants"].nearBlack, _styles_constants__WEBPACK_IMPORTED_MODULE_1__["constants"].sansSerif);
 /* harmony default export */ __webpack_exports__["default"] = (LoaderStyles);
 
 /***/ }),

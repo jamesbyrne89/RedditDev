@@ -5,7 +5,7 @@ import { constants } from './constants';
 const BackToTopStyles = styled.button`
     font-weight: bold;
     padding: 0.75em;
-    color: ${constants.nearBlack};
+    color: ${props => props.theme.button_colour};
     cursor: pointer;
     position: fixed;
     border: solid 2px currentColor;
@@ -25,11 +25,13 @@ const BackToTopStyles = styled.button`
         height: 1rem;
     }
 }
-&:hover {
-    color: #fff;
-    fill: #fff;
-    background: ${constants.nearBlack};
-    border: solid 2px ${constants.nearBlack};
+&:hover, &:active {
+    color: ${props => props.theme.button_hover_colour};
+    background: ${props => props.theme.button_colour};
+    border: solid 2px ${props => props.theme.button_colour};
+    svg {
+        fill: ${props => props.theme.button_hover_colour};
+    }
 }
 
 &:active {

@@ -9,15 +9,14 @@ const LoaderStyles = styled.div`
   -ms-flex-pack: center;
   justify-content: center;
   width: 3.5em;
-  height: 2rem;
   color: ${constants.nearBlack};
   font-family: ${constants.sansSerif};
   user-select: none;
-  font-size: 2rem;
+  font-size: 7.5vh;
   opacity: 0.8;
   margin: auto;
   position: absolute;
-  top: 25vh;
+  top: 30vh;
   left: 0;
   right: 0;
   bottom: 0;

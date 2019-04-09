@@ -4,8 +4,12 @@ import BackToTopStyles from './styles/BackToTopStyles';
 type propsType = { show: boolean };
 
 const BackToTopButton = (props: propsType): HTMLElement => {
+  const handleClick = (): void => {
+    window.scrollTo(0, 0);
+  };
+
   return (
-    <BackToTopStyles {...props}>
+    <BackToTopStyles {...props} onClick={handleClick}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
