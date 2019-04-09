@@ -118,6 +118,10 @@ class MyApp extends App<Props> {
     );
   };
 
+  componentDidUpdate() {
+    this.setDisplayPreference(this.state.themeName);
+  }
+
   render() {
     const { posts, filteredPosts, isFiltered, theme, themeName } = this.state;
     const { Component, pageProps } = this.props;
