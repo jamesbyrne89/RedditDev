@@ -7,21 +7,21 @@ const ThemeToggleButton = props => {
       <span>
         {props.themeName === 'light' ? 'Dark mode' : 'Light mode'}
       </span>
-      <div class="toggle-container">
+      <div className="toggle-container">
         <input
           type="checkbox"
           id="switch"
           name="theme"
           onClick={props.toggle}
         /><label htmlFor="switch">
-          <div class="mode-icon--dark-mode">
+          <div className="mode-icon--dark-mode">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 640">
               <path
                 d="M413.9,407.2c28.6-28.6,47.6-63.3,57.1-99.8c-74.3,55.9-180.3,50-247.9-17.6c-67.9-67.9-73.6-174.5-16.9-248.9 C169.1,50.1,134,69.2,105,98.2c-85.3,85.3-85.3,223.6,0,309C190.3,492.5,328.6,492.5,413.9,407.2z"
               />
             </svg>
           </div>
-          <div class="mode-icon--light-mode">
+          <div className="mode-icon--light-mode">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 125">
               <circle cx="50" cy="50" r="23.896" />
               <path

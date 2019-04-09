@@ -374,6 +374,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
@@ -385,8 +387,6 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -413,16 +413,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-
-var withTheme = function withTheme(Component) {
-  return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Component, {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 13
-    },
-    __self: this
-  });
-};
+var DISPLAY_PREFERENCE_KEY = 'redditdev-display-mode';
 
 var MyApp =
 /*#__PURE__*/
@@ -450,6 +441,72 @@ function (_App) {
       favourites: [],
       theme: _components_styles_constants__WEBPACK_IMPORTED_MODULE_8__["lightTheme"],
       themeName: 'light'
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "getFavourites", function () {
+      _db_firestore__WEBPACK_IMPORTED_MODULE_6__["default"].collection('favourites').onSnapshot(function (querySnapshot) {
+        var favourites = querySnapshot.docs.map(function (doc) {
+          return {
+            doc_id: doc.id,
+            data: doc.data().data
+          };
+        });
+
+        if (favourites.length !== _this.state.favourites.length) {
+          _this.setState({
+            favourites: favourites
+          });
+        }
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "getPosts",
+    /*#__PURE__*/
+    _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+      var data, cleaned, postsSortedByNewest;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return axios__WEBPACK_IMPORTED_MODULE_3___default.a.all(Object.keys(_lib_subreddits__WEBPACK_IMPORTED_MODULE_4__["endpoints"]).map(function (url) {
+                return axios__WEBPACK_IMPORTED_MODULE_3___default.a.get(_lib_subreddits__WEBPACK_IMPORTED_MODULE_4__["endpoints"][url]);
+              }));
+
+            case 2:
+              data = _context.sent;
+              cleaned = data.reduce(function (acc, curr) {
+                return [].concat(_toConsumableArray(curr.data.data.children), _toConsumableArray(acc));
+              }, []);
+              postsSortedByNewest = cleaned.sort(_lib_utils__WEBPACK_IMPORTED_MODULE_5__["sortByNewest"]);
+
+              _this.setState({
+                posts: postsSortedByNewest,
+                loading: false
+              });
+
+            case 6:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    })));
+
+    _defineProperty(_assertThisInitialized(_this), "getDisplayPreference", function () {
+      var mode = localStorage.getItem(DISPLAY_PREFERENCE_KEY);
+
+      if (mode) {
+        _this.setState({
+          themeName: mode
+        });
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "setDisplayPreference", function (mode) {
+      localStorage.setItem(DISPLAY_PREFERENCE_KEY, mode);
     });
 
     _defineProperty(_assertThisInitialized(_this), "filterPosts", function () {
@@ -511,50 +568,21 @@ function (_App) {
     value: function () {
       var _componentDidMount = _asyncToGenerator(
       /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        var _this2 = this;
-
-        var data, cleaned, postsSortedByNewest;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
           while (1) {
-            switch (_context.prev = _context.next) {
+            switch (_context2.prev = _context2.next) {
               case 0:
-                _context.next = 2;
-                return axios__WEBPACK_IMPORTED_MODULE_3___default.a.all(Object.keys(_lib_subreddits__WEBPACK_IMPORTED_MODULE_4__["endpoints"]).map(function (url) {
-                  return axios__WEBPACK_IMPORTED_MODULE_3___default.a.get(_lib_subreddits__WEBPACK_IMPORTED_MODULE_4__["endpoints"][url]);
-                }));
+                this.getPosts();
+                this.getFavourites();
+                this.getDisplayPreference();
 
-              case 2:
-                data = _context.sent;
-                cleaned = data.reduce(function (acc, curr) {
-                  return [].concat(_toConsumableArray(curr.data.data.children), _toConsumableArray(acc));
-                }, []);
-                postsSortedByNewest = cleaned.sort(_lib_utils__WEBPACK_IMPORTED_MODULE_5__["sortByNewest"]);
-                this.setState({
-                  posts: postsSortedByNewest,
-                  loading: false
-                });
-                _db_firestore__WEBPACK_IMPORTED_MODULE_6__["default"].collection('favourites').onSnapshot(function (querySnapshot) {
-                  var favourites = querySnapshot.docs.map(function (doc) {
-                    return {
-                      doc_id: doc.id,
-                      data: doc.data().data
-                    };
-                  });
-
-                  if (favourites.length !== _this2.state.favourites.length) {
-                    _this2.setState({
-                      favourites: favourites
-                    });
-                  }
-                });
-
-              case 7:
+              case 3:
               case "end":
-                return _context.stop();
+                return _context2.stop();
             }
           }
-        }, _callee, this);
+        }, _callee2, this);
       }));
 
       function componentDidMount() {
@@ -578,14 +606,14 @@ function (_App) {
       return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(next_app__WEBPACK_IMPORTED_MODULE_2__["Container"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 108
+          lineNumber: 126
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(styled_components__WEBPACK_IMPORTED_MODULE_7__["ThemeProvider"], {
         theme: theme,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 109
+          lineNumber: 127
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Component, _extends({
@@ -599,7 +627,7 @@ function (_App) {
       }, pageProps, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 110
+          lineNumber: 128
         },
         __self: this
       }))));
@@ -609,39 +637,39 @@ function (_App) {
     value: function () {
       var _getInitialProps = _asyncToGenerator(
       /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(_ref) {
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(_ref2) {
         var Component, ctx, pageProps;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
           while (1) {
-            switch (_context2.prev = _context2.next) {
+            switch (_context3.prev = _context3.next) {
               case 0:
-                Component = _ref.Component, ctx = _ref.ctx;
+                Component = _ref2.Component, ctx = _ref2.ctx;
                 pageProps = {
                   favourites: []
                 };
 
                 if (!Component.getInitialProps) {
-                  _context2.next = 6;
+                  _context3.next = 6;
                   break;
                 }
 
-                _context2.next = 5;
+                _context3.next = 5;
                 return Component.getInitialProps(ctx);
 
               case 5:
-                pageProps = _context2.sent;
+                pageProps = _context3.sent;
 
               case 6:
-                return _context2.abrupt("return", {
+                return _context3.abrupt("return", {
                   pageProps: pageProps
                 });
 
               case 7:
               case "end":
-                return _context2.stop();
+                return _context3.stop();
             }
           }
-        }, _callee2);
+        }, _callee3);
       }));
 
       function getInitialProps(_x) {

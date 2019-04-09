@@ -1148,7 +1148,7 @@ var ThemeToggleButton = function ThemeToggleButton(props) {
     },
     __self: this
   }, props.themeName === 'light' ? 'Dark mode' : 'Light mode'), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    class: "toggle-container",
+    className: "toggle-container",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 10
@@ -1172,7 +1172,7 @@ var ThemeToggleButton = function ThemeToggleButton(props) {
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    class: "mode-icon--dark-mode",
+    className: "mode-icon--dark-mode",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 17
@@ -1194,7 +1194,7 @@ var ThemeToggleButton = function ThemeToggleButton(props) {
     },
     __self: this
   }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    class: "mode-icon--light-mode",
+    className: "mode-icon--light-mode",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 24

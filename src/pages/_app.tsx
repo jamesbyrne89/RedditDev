@@ -9,9 +9,7 @@ import { lightTheme, darkTheme } from '../components/styles/constants';
 
 interface Props { loading: boolean, posts: IRedditPost[], favourites: [] }
 
-const withTheme = Component => {
-  return <Component />;
-};
+const DISPLAY_PREFERENCE_KEY = 'redditdev-display-mode';
 class MyApp extends App<Props> {
   state = {
     loading: true,
@@ -31,7 +29,18 @@ class MyApp extends App<Props> {
     return { pageProps };
   }
 
-  async componentDidMount() {
+  getFavourites = () => {
+    db.collection('favourites').onSnapshot(querySnapshot => {
+      const favourites = querySnapshot.docs.map(
+        doc => ({ doc_id: doc.id, data: doc.data().data }),
+      );
+      if (favourites.length !== this.state.favourites.length) {
+        this.setState({ favourites });
+      }
+    });
+  };
+
+  getPosts = async () => {
     const data = await axios.all(
       Object.keys(endpoints).map(url => axios.get(endpoints[url])),
     );
@@ -43,14 +52,23 @@ class MyApp extends App<Props> {
     );
     const postsSortedByNewest: IRedditPost[] = cleaned.sort(sortByNewest);
     this.setState({ posts: postsSortedByNewest, loading: false });
-    db.collection('favourites').onSnapshot(querySnapshot => {
-      const favourites = querySnapshot.docs.map(
-        doc => ({ doc_id: doc.id, data: doc.data().data }),
-      );
-      if (favourites.length !== this.state.favourites.length) {
-        this.setState({ favourites });
-      }
-    });
+  };
+
+  getDisplayPreference = () => {
+    const mode = localStorage.getItem(DISPLAY_PREFERENCE_KEY);
+    if (mode) {
+      this.setState({ themeName: mode });
+    }
+  };
+
+  setDisplayPreference = mode => {
+    localStorage.setItem(DISPLAY_PREFERENCE_KEY, mode);
+  };
+
+  async componentDidMount() {
+    this.getPosts();
+    this.getFavourites();
+    this.getDisplayPreference();
   }
 
   filterPosts = (searchTerm = '', subreddits = []) => {
