@@ -9,7 +9,7 @@ const LoaderStyles = styled.div`
   -ms-flex-pack: center;
   justify-content: center;
   width: 3.5em;
-  color: ${constants.nearBlack};
+  color: ${props => props.theme.button_colour};
   font-family: ${constants.sansSerif};
   user-select: none;
   font-size: 7.5vh;

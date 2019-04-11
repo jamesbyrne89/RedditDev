@@ -35742,12 +35742,12 @@ function getURL() {
 
 /***/ "./node_modules/object-assign/index.js":
 /*!***************************************************************************************************!*\
-  !*** delegated ./node_modules/object-assign/index.js from dll-reference dll_3127a9f5eb19029e17d3 ***!
+  !*** delegated ./node_modules/object-assign/index.js from dll-reference dll_088020044fcad06258c8 ***!
   \***************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(/*! dll-reference dll_3127a9f5eb19029e17d3 */ "dll-reference dll_3127a9f5eb19029e17d3"))("./node_modules/object-assign/index.js");
+module.exports = (__webpack_require__(/*! dll-reference dll_088020044fcad06258c8 */ "dll-reference dll_088020044fcad06258c8"))("./node_modules/object-assign/index.js");
 
 /***/ }),
 
@@ -36241,12 +36241,12 @@ if (!('Promise' in globalNS)) {
 
 /***/ "./node_modules/prop-types/checkPropTypes.js":
 /*!*********************************************************************************************************!*\
-  !*** delegated ./node_modules/prop-types/checkPropTypes.js from dll-reference dll_3127a9f5eb19029e17d3 ***!
+  !*** delegated ./node_modules/prop-types/checkPropTypes.js from dll-reference dll_088020044fcad06258c8 ***!
   \*********************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(/*! dll-reference dll_3127a9f5eb19029e17d3 */ "dll-reference dll_3127a9f5eb19029e17d3"))("./node_modules/prop-types/checkPropTypes.js");
+module.exports = (__webpack_require__(/*! dll-reference dll_088020044fcad06258c8 */ "dll-reference dll_088020044fcad06258c8"))("./node_modules/prop-types/checkPropTypes.js");
 
 /***/ }),
 
@@ -36854,12 +36854,12 @@ if (true) {
 
 /***/ "./node_modules/prop-types/lib/ReactPropTypesSecret.js":
 /*!*******************************************************************************************************************!*\
-  !*** delegated ./node_modules/prop-types/lib/ReactPropTypesSecret.js from dll-reference dll_3127a9f5eb19029e17d3 ***!
+  !*** delegated ./node_modules/prop-types/lib/ReactPropTypesSecret.js from dll-reference dll_088020044fcad06258c8 ***!
   \*******************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(/*! dll-reference dll_3127a9f5eb19029e17d3 */ "dll-reference dll_3127a9f5eb19029e17d3"))("./node_modules/prop-types/lib/ReactPropTypesSecret.js");
+module.exports = (__webpack_require__(/*! dll-reference dll_088020044fcad06258c8 */ "dll-reference dll_088020044fcad06258c8"))("./node_modules/prop-types/lib/ReactPropTypesSecret.js");
 
 /***/ }),
 
@@ -37074,12 +37074,12 @@ exports.encode = exports.stringify = __webpack_require__(/*! ./encode */ "./node
 
 /***/ "./node_modules/react-dom/index.js":
 /*!***********************************************************************************************!*\
-  !*** delegated ./node_modules/react-dom/index.js from dll-reference dll_3127a9f5eb19029e17d3 ***!
+  !*** delegated ./node_modules/react-dom/index.js from dll-reference dll_088020044fcad06258c8 ***!
   \***********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(/*! dll-reference dll_3127a9f5eb19029e17d3 */ "dll-reference dll_3127a9f5eb19029e17d3"))("./node_modules/react-dom/index.js");
+module.exports = (__webpack_require__(/*! dll-reference dll_088020044fcad06258c8 */ "dll-reference dll_088020044fcad06258c8"))("./node_modules/react-dom/index.js");
 
 /***/ }),
 
@@ -37341,12 +37341,12 @@ if (false) {} else {
 
 /***/ "./node_modules/react/index.js":
 /*!*******************************************************************************************!*\
-  !*** delegated ./node_modules/react/index.js from dll-reference dll_3127a9f5eb19029e17d3 ***!
+  !*** delegated ./node_modules/react/index.js from dll-reference dll_088020044fcad06258c8 ***!
   \*******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(/*! dll-reference dll_3127a9f5eb19029e17d3 */ "dll-reference dll_3127a9f5eb19029e17d3"))("./node_modules/react/index.js");
+module.exports = (__webpack_require__(/*! dll-reference dll_088020044fcad06258c8 */ "dll-reference dll_088020044fcad06258c8"))("./node_modules/react/index.js");
 
 /***/ }),
 
@@ -42008,12 +42008,12 @@ module.exports = {
 
 /***/ "./node_modules/webpack/buildin/global.js":
 /*!******************************************************************************************************!*\
-  !*** delegated ./node_modules/webpack/buildin/global.js from dll-reference dll_3127a9f5eb19029e17d3 ***!
+  !*** delegated ./node_modules/webpack/buildin/global.js from dll-reference dll_088020044fcad06258c8 ***!
   \******************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(/*! dll-reference dll_3127a9f5eb19029e17d3 */ "dll-reference dll_3127a9f5eb19029e17d3"))("./node_modules/webpack/buildin/global.js");
+module.exports = (__webpack_require__(/*! dll-reference dll_088020044fcad06258c8 */ "dll-reference dll_088020044fcad06258c8"))("./node_modules/webpack/buildin/global.js");
 
 /***/ }),
 
@@ -42108,7 +42108,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
 /* harmony import */ var _components_styles_constants__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../components/styles/constants */ "./components/styles/constants.ts");
 
-var _jsxFileName = "C:\\Users\\james.byrne\\Documents\\personal\\RedditDev\\src\\pages\\_app.tsx";
+var _jsxFileName = "E:\\Users\\James\\Web Dev\\Projects\\RedditDev\\src\\pages\\_app.tsx";
 
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -42193,11 +42193,9 @@ function (_App) {
           };
         });
 
-        if (favourites.length !== _this.state.favourites.length) {
-          _this.setState({
-            favourites: favourites
-          });
-        }
+        _this.setState({
+          favourites: favourites
+        });
       });
     });
 
@@ -42238,7 +42236,6 @@ function (_App) {
 
     _defineProperty(_assertThisInitialized(_this), "getDisplayPreference", function () {
       var mode = localStorage.getItem(DISPLAY_PREFERENCE_KEY);
-      console.log(localStorage.getItem(DISPLAY_PREFERENCE_KEY));
 
       if (mode) {
         _this.setState({
@@ -42255,17 +42252,17 @@ function (_App) {
     _defineProperty(_assertThisInitialized(_this), "filterPosts", function () {
       var searchTerm = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
       var subreddits = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [];
+      console.log({
+        searchTerm: searchTerm,
+        subreddits: subreddits
+      });
 
-      if (!searchTerm && subreddits.length === 0) {
+      if (!searchTerm || subreddits.length === 0) {
         return _this.setState({
           filteredPosts: _this.state.posts,
           isFiltered: false
         });
       }
-
-      _this.setState({
-        loading: true
-      });
 
       var filtered = _this.state.posts.filter(Object(_lib_utils__WEBPACK_IMPORTED_MODULE_5__["filterPostsCallback"])(searchTerm, subreddits));
 
@@ -42347,35 +42344,35 @@ function (_App) {
           filteredPosts = _this$state.filteredPosts,
           isFiltered = _this$state.isFiltered,
           theme = _this$state.theme,
-          themeName = _this$state.themeName;
+          themeName = _this$state.themeName,
+          favourites = _this$state.favourites;
       var _this$props = this.props,
           Component = _this$props.Component,
           pageProps = _this$props.pageProps;
       return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(next_app__WEBPACK_IMPORTED_MODULE_2__["Container"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 131
+          lineNumber: 138
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(styled_components__WEBPACK_IMPORTED_MODULE_7__["ThemeProvider"], {
         theme: theme,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 132
+          lineNumber: 139
         },
         __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Component, _extends({
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Component, _extends({}, pageProps, {
         posts: isFiltered ? filteredPosts : posts,
         loading: this.state.loading,
         onSearchSubmit: this.filterPosts,
         onAddToFavourites: this.addToFavourites,
-        favourites: this.state.favourites,
+        favourites: favourites,
         toggleTheme: this.toggleTheme,
-        themeName: themeName
-      }, pageProps, {
+        themeName: themeName,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 133
+          lineNumber: 140
         },
         __self: this
       }))));
@@ -42468,14 +42465,14 @@ return { page: module.exports.default }});
 
 /***/ }),
 
-/***/ "dll-reference dll_3127a9f5eb19029e17d3":
+/***/ "dll-reference dll_088020044fcad06258c8":
 /*!*******************************************!*\
-  !*** external "dll_3127a9f5eb19029e17d3" ***!
+  !*** external "dll_088020044fcad06258c8" ***!
   \*******************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = dll_3127a9f5eb19029e17d3;
+module.exports = dll_088020044fcad06258c8;
 
 /***/ })
 

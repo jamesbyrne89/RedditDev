@@ -10,6 +10,8 @@ export const StyledHeader = styled.header`
   -webkit-box-shadow: 0 0 0 1px ${constants.text_grey_mid_two};
   box-shadow: 0 0 0 1px ${constants.text_grey_mid_two};
   grid-area: header;
+  position: sticky;
+  top: 0;
   .header__title-wrapper {
     display: flex;
     align-items: center;

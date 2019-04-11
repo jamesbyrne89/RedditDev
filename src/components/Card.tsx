@@ -80,7 +80,7 @@ class Card extends React.Component<Props, State> {
       id,
       doc_id,
     } = this.props;
-
+    console.log({ doc_id });
     const postData = {
       ...(doc_id && { doc_id: doc_id }),
       data: {
@@ -93,7 +93,7 @@ class Card extends React.Component<Props, State> {
         id,
       },
     };
-
+    console.log({ postData });
     this.props.onAddToFavourites(postData);
   };
 

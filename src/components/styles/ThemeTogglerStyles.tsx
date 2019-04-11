@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { sizes } from './constants';
 
 const ThemeTogglerStyles = styled.div`
 
@@ -76,17 +77,10 @@ html.transition *:after {
 }
 
 //MOBILE
-@media screen and (max-width: 768px) {
-  .panel {
-    width: 90%;
-    padding-left: 0;
-    .fa-stack {
-      display: none;
-    }
-    .select {
-      padding: 25px;
-    }
-  }
+@media (max-width: ${sizes.tablet}px) {
+  span {
+    display: none;
+}
 }
 `;
 

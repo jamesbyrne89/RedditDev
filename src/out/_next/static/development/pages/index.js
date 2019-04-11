@@ -12,7 +12,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _styles_BackToTopStyles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles/BackToTopStyles */ "./components/styles/BackToTopStyles.tsx");
-var _jsxFileName = "C:\\Users\\james.byrne\\Documents\\personal\\RedditDev\\src\\components\\BackToTopButton.tsx";
+var _jsxFileName = "E:\\Users\\James\\Web Dev\\Projects\\RedditDev\\src\\components\\BackToTopButton.tsx";
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
@@ -68,7 +68,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _styles_CardStyles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles/CardStyles */ "./components/styles/CardStyles.tsx");
 /* harmony import */ var _lib_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../lib/utils */ "./lib/utils.ts");
-var _jsxFileName = "C:\\Users\\james.byrne\\Documents\\personal\\RedditDev\\src\\components\\Card.tsx";
+var _jsxFileName = "E:\\Users\\James\\Web Dev\\Projects\\RedditDev\\src\\components\\Card.tsx";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -143,6 +143,9 @@ function (_React$Component) {
           created_utc = _this$props.created_utc,
           id = _this$props.id,
           doc_id = _this$props.doc_id;
+      console.log({
+        doc_id: doc_id
+      });
 
       var postData = _objectSpread({}, doc_id && {
         doc_id: doc_id
@@ -156,6 +159,10 @@ function (_React$Component) {
           created_utc: created_utc,
           id: id
         }
+      });
+
+      console.log({
+        postData: postData
       });
 
       _this.props.onAddToFavourites(postData);
@@ -411,7 +418,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Card__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Card */ "./components/Card.tsx");
 /* harmony import */ var _Loader__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Loader */ "./components/Loader.tsx");
 /* harmony import */ var _styles_CardContainerStyles__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./styles/CardContainerStyles */ "./components/styles/CardContainerStyles.tsx");
-var _jsxFileName = "C:\\Users\\james.byrne\\Documents\\personal\\RedditDev\\src\\components\\CardContainer.tsx";
+var _jsxFileName = "E:\\Users\\James\\Web Dev\\Projects\\RedditDev\\src\\components\\CardContainer.tsx";
 
 
 
@@ -436,7 +443,7 @@ var CardContainer = function CardContainer(props) {
       lineNumber: 23
     },
     __self: this
-  }) : posts.length === 0 && emptyState ? emptyState() : posts.map(function (post) {
+  }) : posts.length === 0 && emptyState ? emptyState : posts.map(function (post) {
     var favouriteMatch = favourites.filter(Object(_lib_utils__WEBPACK_IMPORTED_MODULE_1__["isAlreadyFavourite"])({
       data: {
         title: post.data.title,
@@ -490,7 +497,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Search__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/Search */ "./components/Search.tsx");
 /* harmony import */ var _ThemeToggler__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./ThemeToggler */ "./components/ThemeToggler.tsx");
 /* harmony import */ var _styles_HeaderStyles__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./styles/HeaderStyles */ "./components/styles/HeaderStyles.tsx");
-var _jsxFileName = "C:\\Users\\james.byrne\\Documents\\personal\\RedditDev\\src\\components\\Header.tsx";
+var _jsxFileName = "E:\\Users\\James\\Web Dev\\Projects\\RedditDev\\src\\components\\Header.tsx";
 
 
 
@@ -639,7 +646,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Sidebar__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Sidebar */ "./components/Sidebar.tsx");
 /* harmony import */ var _BackToTopButton__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./BackToTopButton */ "./components/BackToTopButton.tsx");
 /* harmony import */ var _lib_utils__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../lib/utils */ "./lib/utils.ts");
-var _jsxFileName = "C:\\Users\\james.byrne\\Documents\\personal\\RedditDev\\src\\components\\Layout.tsx";
+var _jsxFileName = "E:\\Users\\James\\Web Dev\\Projects\\RedditDev\\src\\components\\Layout.tsx";
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
@@ -754,7 +761,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _styles_LoaderStyles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles/LoaderStyles */ "./components/styles/LoaderStyles.tsx");
-var _jsxFileName = "C:\\Users\\james.byrne\\Documents\\personal\\RedditDev\\src\\components\\Loader.tsx";
+var _jsxFileName = "E:\\Users\\James\\Web Dev\\Projects\\RedditDev\\src\\components\\Loader.tsx";
 
 
 
@@ -798,7 +805,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _lib_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../lib/utils */ "./lib/utils.ts");
 /* harmony import */ var _styles_SearchStyles__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./styles/SearchStyles */ "./components/styles/SearchStyles.tsx");
 /* harmony import */ var _styles_CardStyles__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./styles/CardStyles */ "./components/styles/CardStyles.tsx");
-var _jsxFileName = "C:\\Users\\james.byrne\\Documents\\personal\\RedditDev\\src\\components\\Search.tsx";
+var _jsxFileName = "E:\\Users\\James\\Web Dev\\Projects\\RedditDev\\src\\components\\Search.tsx";
 
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
 
@@ -847,15 +854,12 @@ var Search = function Search(props) {
 
   var onUserEntry = function onUserEntry(e) {
     setInput(e.target.value);
+    return Object(_lib_utils__WEBPACK_IMPORTED_MODULE_1__["debounce"])(onSubmit(e.target.value, selectedSubs), 200);
   };
 
   var onSubmit = function onSubmit(input, selectedSubs) {
     props.onSearchSubmit(input, selectedSubs);
   };
-
-  var handleKeyup = Object(_lib_utils__WEBPACK_IMPORTED_MODULE_1__["debounce"])(function (e) {
-    return onSubmit(e);
-  }, 500);
 
   var handleOutsideClick = function handleOutsideClick(e) {
     if (searchRef.current && !searchRef.current.contains(e.target)) {
@@ -895,7 +899,7 @@ var Search = function Search(props) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 80
+      lineNumber: 76
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_SearchStyles__WEBPACK_IMPORTED_MODULE_2__["default"], {
@@ -903,7 +907,7 @@ var Search = function Search(props) {
     ref: searchRef,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 81
+      lineNumber: 77
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -912,11 +916,10 @@ var Search = function Search(props) {
     placeholder: "Search posts",
     value: input,
     onChange: onUserEntry,
-    onKeyUp: handleKeyup,
     onFocus: handleFocus,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 82
+      lineNumber: 78
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", {
@@ -929,14 +932,14 @@ var Search = function Search(props) {
     className: "search__icon",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 91
+      lineNumber: 86
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
     d: "M78.129 78.325L65.121 61.063c8.65-8.773 9.834-22.812 2.203-32.938-4.822-6.396-12.186-10.064-20.203-10.064-5.52 0-10.775 1.762-15.195 5.092-11.131 8.393-13.361 24.271-4.975 35.396 4.822 6.396 12.186 10.066 20.205 10.066 4.74 0 9.25-1.373 13.242-3.848l12.938 17.17 4.793-3.612zM31.742 54.938c-6.395-8.484-4.693-20.594 3.793-26.992a19.114 19.114 0 0 1 11.586-3.885c6.117 0 11.734 2.799 15.41 7.676 6.398 8.49 4.697 20.6-3.793 26.996a19.092 19.092 0 0 1-11.582 3.883c-6.117 0-11.736-2.797-15.414-7.678z",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 100
+      lineNumber: 95
     },
     __self: this
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -945,27 +948,27 @@ var Search = function Search(props) {
     className: "search__close-btn",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 104
+      lineNumber: 99
     },
     __self: this
   }), isFocused && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_SearchStyles__WEBPACK_IMPORTED_MODULE_2__["SearchDropdownStyles"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 111
+      lineNumber: 106
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "search__sub-list-title",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 112
+      lineNumber: 107
     },
     __self: this
   }, "Include subreddits:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
     className: "search__dropdown-list",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 115
+      lineNumber: 110
     },
     __self: this
   }, selectedSubs.map(function (subName, idx) {
@@ -973,7 +976,7 @@ var Search = function Search(props) {
       key: idx,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 118
+        lineNumber: 113
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_CardStyles__WEBPACK_IMPORTED_MODULE_3__["SubRedditNameStyles"], {
@@ -983,14 +986,14 @@ var Search = function Search(props) {
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 119
+        lineNumber: 114
       },
       __self: this
     }, subName));
   })), unSelectedSubs.length > 0 && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 130
+      lineNumber: 125
     },
     __self: this
   }, unSelectedSubs.map(function (subName, idx) {
@@ -998,7 +1001,7 @@ var Search = function Search(props) {
       key: idx,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 133
+        lineNumber: 128
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_CardStyles__WEBPACK_IMPORTED_MODULE_3__["SubRedditNameStyles"], {
@@ -1009,7 +1012,7 @@ var Search = function Search(props) {
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 134
+        lineNumber: 129
       },
       __self: this
     }, subName));
@@ -1032,7 +1035,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _styles_SidebarStyles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles/SidebarStyles */ "./components/styles/SidebarStyles.tsx");
-var _jsxFileName = "C:\\Users\\james.byrne\\Documents\\personal\\RedditDev\\src\\components\\Sidebar.tsx";
+var _jsxFileName = "E:\\Users\\James\\Web Dev\\Projects\\RedditDev\\src\\components\\Sidebar.tsx";
 
 
 
@@ -1100,7 +1103,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _styles_CardContainerStyles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles/CardContainerStyles */ "./components/styles/CardContainerStyles.tsx");
-var _jsxFileName = "C:\\Users\\james.byrne\\Documents\\personal\\RedditDev\\src\\components\\StatusMessage.tsx";
+var _jsxFileName = "E:\\Users\\James\\Web Dev\\Projects\\RedditDev\\src\\components\\StatusMessage.tsx";
 
 
 
@@ -1130,7 +1133,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _styles_ThemeTogglerStyles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles/ThemeTogglerStyles */ "./components/styles/ThemeTogglerStyles.tsx");
-var _jsxFileName = "C:\\Users\\james.byrne\\Documents\\personal\\RedditDev\\src\\components\\ThemeToggler.tsx";
+var _jsxFileName = "E:\\Users\\James\\Web Dev\\Projects\\RedditDev\\src\\components\\ThemeToggler.tsx";
 
 
 
@@ -1450,7 +1453,7 @@ __webpack_require__.r(__webpack_exports__);
 var StyledHeader = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].header.withConfig({
   displayName: "HeaderStyles__StyledHeader",
   componentId: "fr55j3-0"
-})(["z-index:350;display:flex;align-items:center;width:100%;background:", ";-webkit-box-shadow:0 0 0 1px ", ";box-shadow:0 0 0 1px ", ";grid-area:header;.header__title-wrapper{display:flex;align-items:center;}.header__nav-wrapper{display:flex;justify-content:flex-end;padding-top:0.25rem;}ul{display:flex;justify-content:flex-end;flex-grow:1;margin:0.5rem 0;@media (max-width:", "px){justify-content:flex-start;}@media (max-width:", "px){justify-content:flex-end;}}"], function (props) {
+})(["z-index:350;display:flex;align-items:center;width:100%;background:", ";-webkit-box-shadow:0 0 0 1px ", ";box-shadow:0 0 0 1px ", ";grid-area:header;position:sticky;top:0;.header__title-wrapper{display:flex;align-items:center;}.header__nav-wrapper{display:flex;justify-content:flex-end;padding-top:0.25rem;}ul{display:flex;justify-content:flex-end;flex-grow:1;margin:0.5rem 0;@media (max-width:", "px){justify-content:flex-start;}@media (max-width:", "px){justify-content:flex-end;}}"], function (props) {
   return props.theme.header_background;
 }, _constants__WEBPACK_IMPORTED_MODULE_0__["constants"].text_grey_mid_two, _constants__WEBPACK_IMPORTED_MODULE_0__["constants"].text_grey_mid_two, _constants__WEBPACK_IMPORTED_MODULE_0__["sizes"].desktop_sm, _constants__WEBPACK_IMPORTED_MODULE_0__["sizes"].tablet);
 var StyledMasthead = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div.withConfig({
@@ -1510,7 +1513,9 @@ __webpack_require__.r(__webpack_exports__);
 var LoaderStyles = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div.withConfig({
   displayName: "LoaderStyles",
   componentId: "rqwkb1-0"
-})(["display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;width:3.5em;color:", ";font-family:", ";user-select:none;font-size:7.5vh;opacity:0.8;margin:auto;position:absolute;top:30vh;left:0;right:0;bottom:0;span{display:inline-block;-webkit-animation:pulse 0.4s alternate infinite ease-in-out;animation:pulse 0.4s alternate infinite ease-in-out;}span:nth-child(odd){-webkit-animation-delay:0.4s;animation-delay:0.4s;}@-webkit-keyframes pulse{to{-webkit-transform:scale(0.8);transform:scale(0.8);opacity:0.5;}}@keyframes pulse{to{-webkit-transform:scale(0.8);transform:scale(0.8);opacity:0.5;}}"], _styles_constants__WEBPACK_IMPORTED_MODULE_1__["constants"].nearBlack, _styles_constants__WEBPACK_IMPORTED_MODULE_1__["constants"].sansSerif);
+})(["display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;width:3.5em;color:", ";font-family:", ";user-select:none;font-size:7.5vh;opacity:0.8;margin:auto;position:absolute;top:30vh;left:0;right:0;bottom:0;span{display:inline-block;-webkit-animation:pulse 0.4s alternate infinite ease-in-out;animation:pulse 0.4s alternate infinite ease-in-out;}span:nth-child(odd){-webkit-animation-delay:0.4s;animation-delay:0.4s;}@-webkit-keyframes pulse{to{-webkit-transform:scale(0.8);transform:scale(0.8);opacity:0.5;}}@keyframes pulse{to{-webkit-transform:scale(0.8);transform:scale(0.8);opacity:0.5;}}"], function (props) {
+  return props.theme.button_colour;
+}, _styles_constants__WEBPACK_IMPORTED_MODULE_1__["constants"].sansSerif);
 /* harmony default export */ __webpack_exports__["default"] = (LoaderStyles);
 
 /***/ }),
@@ -1532,11 +1537,13 @@ __webpack_require__.r(__webpack_exports__);
 var SearchStyles = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div.withConfig({
   displayName: "SearchStyles",
   componentId: "km8rng-0"
-})(["width:300px;position:relative;@media (max-width:", "px){width:auto;}.search__input{display:block;font-size:1rem;padding:0.25em;border:none;height:2.75em;background:", ";border-radius:6px;width:100%;padding-left:3em;font-family:", " position:relative;&:focus{&::placeholder{opacity:0;}}}.search__icon{position:absolute;top:0.575em;left:0.65em;height:2em;fill:", ";}.search__close-btn{display:none;font-size:1rem;background:transparent;border:0;margin-left:1em;cursor:pointer;}::-webkit-input-placeholder{color:", ";font-size:1rem;font-weight:300;}:-ms-input-placeholder{color:", ";font-size:1rem;font-weight:300;}::placeholder{color:", ";font-size:1rem;font-weight:300;}.search-term{font-family:$serif;font-weight:bold;font-size:1.5rem;margin:auto;position:relative;}.search-term .wrapper{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start;}.clear-search{font-family:", ";font-size:1rem;color:", ";margin-top:2em;cursor:pointer;display:block;border-bottom:solid 2px transparent;-webkit-transition:all 0.15s;transition:all 0.15s;}"], _styles_constants__WEBPACK_IMPORTED_MODULE_1__["sizes"].tablet, function (props) {
+})(["width:300px;position:relative;@media (max-width:", "px){width:auto;}.search__input{display:block;font-size:1rem;padding:0.25em;border:none;height:2.75em;background:", ";border-radius:6px;width:100%;padding-left:3em;font-family:", " position:relative;color:inherit;&:focus{&::placeholder{opacity:0;}}}.search__icon{position:absolute;top:0.575em;left:0.65em;height:2em;fill:", ";}.search__close-btn{display:none;font-size:1rem;background:transparent;border:0;margin-left:1em;cursor:pointer;}::-webkit-input-placeholder{color:", ";font-size:1rem;font-weight:300;}:-ms-input-placeholder{color:", ";font-size:1rem;font-weight:300;}::placeholder{color:", ";font-size:1rem;font-weight:300;}.search-term{font-family:$serif;font-weight:bold;font-size:1.5rem;margin:auto;position:relative;}.search-term .wrapper{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start;}.clear-search{font-family:", ";font-size:1rem;color:", ";margin-top:2em;cursor:pointer;display:block;border-bottom:solid 2px transparent;-webkit-transition:all 0.15s;transition:all 0.15s;}"], _styles_constants__WEBPACK_IMPORTED_MODULE_1__["sizes"].tablet, function (props) {
   return props.theme.main_background;
 }, _styles_constants__WEBPACK_IMPORTED_MODULE_1__["constants"].sansSerif, function (props) {
   return props.theme.button_colour;
-}, _styles_constants__WEBPACK_IMPORTED_MODULE_1__["constants"].background_grey, _styles_constants__WEBPACK_IMPORTED_MODULE_1__["constants"].background_grey, _styles_constants__WEBPACK_IMPORTED_MODULE_1__["constants"].background_grey, _styles_constants__WEBPACK_IMPORTED_MODULE_1__["constants"].sansSerif, _styles_constants__WEBPACK_IMPORTED_MODULE_1__["constants"].text_grey_mid_two);
+}, _styles_constants__WEBPACK_IMPORTED_MODULE_1__["constants"].background_grey, _styles_constants__WEBPACK_IMPORTED_MODULE_1__["constants"].background_grey, _styles_constants__WEBPACK_IMPORTED_MODULE_1__["constants"].background_grey, _styles_constants__WEBPACK_IMPORTED_MODULE_1__["constants"].sansSerif, function (props) {
+  return props.theme.button_colour;
+});
 var SearchDropdownStyles = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div.withConfig({
   displayName: "SearchStyles__SearchDropdownStyles",
   componentId: "km8rng-1"
@@ -1578,11 +1585,13 @@ var SidebarStyles = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].as
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./constants */ "./components/styles/constants.ts");
+
 
 var ThemeTogglerStyles = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div.withConfig({
   displayName: "ThemeTogglerStyles",
   componentId: "sc-13n4n17-0"
-})(["display:flex;color:", ";font-size:0.875rem;.toggle-container{display:flex;cursor:pointer;border-top-right-radius:10px;border-bottom-right-radius:10px;margin-left:1em;}input[type=checkbox]{height:0;width:0;visibility:hidden;cursor:pointer;}label{cursor:pointer;text-indent:-9999px;width:52px;height:20px;background:", ";float:left;border-radius:5px;position:relative;display:flex;justify-content:space-between;div{display:flex;align-items:flex-end;height:100%;padding:0 5px;svg{height:17px;width:auto;fill:", ";}}}label:after{content:'';position:absolute;top:2px;right:2px;width:22px;height:16px;background:", ";border-radius:3px;transition:transform 0.3s;will-change:transform;}input:checked + label{background:", ";}input:checked + label:after{transform:translateX(calc((-100%) - 4px));}html.transition,html.transition *,html.transition *:before,html.transition *:after{transition:all 500ms !important;transition-delay:0 !important;}@media screen and (max-width:768px){.panel{width:90%;padding-left:0;.fa-stack{display:none;}.select{padding:25px;}}}"], function (props) {
+})(["display:flex;color:", ";font-size:0.875rem;.toggle-container{display:flex;cursor:pointer;border-top-right-radius:10px;border-bottom-right-radius:10px;margin-left:1em;}input[type=checkbox]{height:0;width:0;visibility:hidden;cursor:pointer;}label{cursor:pointer;text-indent:-9999px;width:52px;height:20px;background:", ";float:left;border-radius:5px;position:relative;display:flex;justify-content:space-between;div{display:flex;align-items:flex-end;height:100%;padding:0 5px;svg{height:17px;width:auto;fill:", ";}}}label:after{content:'';position:absolute;top:2px;right:2px;width:22px;height:16px;background:", ";border-radius:3px;transition:transform 0.3s;will-change:transform;}input:checked + label{background:", ";}input:checked + label:after{transform:translateX(calc((-100%) - 4px));}html.transition,html.transition *,html.transition *:before,html.transition *:after{transition:all 500ms !important;transition-delay:0 !important;}@media (max-width:", "px){span{display:none;}}"], function (props) {
   return props.theme.button_colour;
 }, function (props) {
   return props.theme.button_colour;
@@ -1592,7 +1601,7 @@ var ThemeTogglerStyles = styled_components__WEBPACK_IMPORTED_MODULE_0__["default
   return props.theme.button_hover_colour;
 }, function (props) {
   return props.theme.button_colour;
-});
+}, _constants__WEBPACK_IMPORTED_MODULE_1__["sizes"].tablet);
 /* harmony default export */ __webpack_exports__["default"] = (ThemeTogglerStyles);
 
 /***/ }),
@@ -9888,12 +9897,12 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/* NProgress, 
 
 /***/ "./node_modules/object-assign/index.js":
 /*!***************************************************************************************************!*\
-  !*** delegated ./node_modules/object-assign/index.js from dll-reference dll_3127a9f5eb19029e17d3 ***!
+  !*** delegated ./node_modules/object-assign/index.js from dll-reference dll_088020044fcad06258c8 ***!
   \***************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(/*! dll-reference dll_3127a9f5eb19029e17d3 */ "dll-reference dll_3127a9f5eb19029e17d3"))("./node_modules/object-assign/index.js");
+module.exports = (__webpack_require__(/*! dll-reference dll_088020044fcad06258c8 */ "dll-reference dll_088020044fcad06258c8"))("./node_modules/object-assign/index.js");
 
 /***/ }),
 
@@ -10559,12 +10568,12 @@ module.exports = exports['default'];
 
 /***/ "./node_modules/prop-types/checkPropTypes.js":
 /*!*********************************************************************************************************!*\
-  !*** delegated ./node_modules/prop-types/checkPropTypes.js from dll-reference dll_3127a9f5eb19029e17d3 ***!
+  !*** delegated ./node_modules/prop-types/checkPropTypes.js from dll-reference dll_088020044fcad06258c8 ***!
   \*********************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(/*! dll-reference dll_3127a9f5eb19029e17d3 */ "dll-reference dll_3127a9f5eb19029e17d3"))("./node_modules/prop-types/checkPropTypes.js");
+module.exports = (__webpack_require__(/*! dll-reference dll_088020044fcad06258c8 */ "dll-reference dll_088020044fcad06258c8"))("./node_modules/prop-types/checkPropTypes.js");
 
 /***/ }),
 
@@ -11172,12 +11181,12 @@ if (true) {
 
 /***/ "./node_modules/prop-types/lib/ReactPropTypesSecret.js":
 /*!*******************************************************************************************************************!*\
-  !*** delegated ./node_modules/prop-types/lib/ReactPropTypesSecret.js from dll-reference dll_3127a9f5eb19029e17d3 ***!
+  !*** delegated ./node_modules/prop-types/lib/ReactPropTypesSecret.js from dll-reference dll_088020044fcad06258c8 ***!
   \*******************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(/*! dll-reference dll_3127a9f5eb19029e17d3 */ "dll-reference dll_3127a9f5eb19029e17d3"))("./node_modules/prop-types/lib/ReactPropTypesSecret.js");
+module.exports = (__webpack_require__(/*! dll-reference dll_088020044fcad06258c8 */ "dll-reference dll_088020044fcad06258c8"))("./node_modules/prop-types/lib/ReactPropTypesSecret.js");
 
 /***/ }),
 
@@ -11392,12 +11401,12 @@ exports.encode = exports.stringify = __webpack_require__(/*! ./encode */ "./node
 
 /***/ "./node_modules/react-dom/index.js":
 /*!***********************************************************************************************!*\
-  !*** delegated ./node_modules/react-dom/index.js from dll-reference dll_3127a9f5eb19029e17d3 ***!
+  !*** delegated ./node_modules/react-dom/index.js from dll-reference dll_088020044fcad06258c8 ***!
   \***********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(/*! dll-reference dll_3127a9f5eb19029e17d3 */ "dll-reference dll_3127a9f5eb19029e17d3"))("./node_modules/react-dom/index.js");
+module.exports = (__webpack_require__(/*! dll-reference dll_088020044fcad06258c8 */ "dll-reference dll_088020044fcad06258c8"))("./node_modules/react-dom/index.js");
 
 /***/ }),
 
@@ -11659,12 +11668,12 @@ if (false) {} else {
 
 /***/ "./node_modules/react/index.js":
 /*!*******************************************************************************************!*\
-  !*** delegated ./node_modules/react/index.js from dll-reference dll_3127a9f5eb19029e17d3 ***!
+  !*** delegated ./node_modules/react/index.js from dll-reference dll_088020044fcad06258c8 ***!
   \*******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(/*! dll-reference dll_3127a9f5eb19029e17d3 */ "dll-reference dll_3127a9f5eb19029e17d3"))("./node_modules/react/index.js");
+module.exports = (__webpack_require__(/*! dll-reference dll_088020044fcad06258c8 */ "dll-reference dll_088020044fcad06258c8"))("./node_modules/react/index.js");
 
 /***/ }),
 
@@ -15835,12 +15844,12 @@ module.exports = {
 
 /***/ "./node_modules/webpack/buildin/global.js":
 /*!******************************************************************************************************!*\
-  !*** delegated ./node_modules/webpack/buildin/global.js from dll-reference dll_3127a9f5eb19029e17d3 ***!
+  !*** delegated ./node_modules/webpack/buildin/global.js from dll-reference dll_088020044fcad06258c8 ***!
   \******************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(/*! dll-reference dll_3127a9f5eb19029e17d3 */ "dll-reference dll_3127a9f5eb19029e17d3"))("./node_modules/webpack/buildin/global.js");
+module.exports = (__webpack_require__(/*! dll-reference dll_088020044fcad06258c8 */ "dll-reference dll_088020044fcad06258c8"))("./node_modules/webpack/buildin/global.js");
 
 /***/ }),
 
@@ -15926,7 +15935,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_CardContainer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/CardContainer */ "./components/CardContainer.tsx");
 /* harmony import */ var _components_Layout__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/Layout */ "./components/Layout.tsx");
 /* harmony import */ var _components_StatusMessage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/StatusMessage */ "./components/StatusMessage.tsx");
-var _jsxFileName = "C:\\Users\\james.byrne\\Documents\\personal\\RedditDev\\src\\pages\\index.tsx";
+var _jsxFileName = "E:\\Users\\James\\Web Dev\\Projects\\RedditDev\\src\\pages\\index.tsx";
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
@@ -16038,14 +16047,14 @@ return { page: module.exports.default }});
 
 /***/ }),
 
-/***/ "dll-reference dll_3127a9f5eb19029e17d3":
+/***/ "dll-reference dll_088020044fcad06258c8":
 /*!*******************************************!*\
-  !*** external "dll_3127a9f5eb19029e17d3" ***!
+  !*** external "dll_088020044fcad06258c8" ***!
   \*******************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = dll_3127a9f5eb19029e17d3;
+module.exports = dll_088020044fcad06258c8;
 
 /***/ })
 

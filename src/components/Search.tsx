@@ -20,25 +20,21 @@ const subreddits = [
   'vue',
 ];
 
-const Search = props => {
+const Search = (props: IProps) => {
   const [ input, setInput ] = useState('');
   const [ isFocused, setFocus ] = useState(false);
   const [ selectedSubs, setSelectedSubs ] = useState(subreddits);
   const [ unSelectedSubs, setUnSelectedSubs ] = useState([]);
   const searchRef = useRef();
 
-  const onUserEntry = (e: React.FormEvent<HTMLInputElement>): void => {
+  const onUserEntry = (e: any): void => {
     setInput(e.target.value);
+    return debounce(onSubmit(e.target.value, selectedSubs), 200);
   };
 
   const onSubmit = (input: string, selectedSubs: string[]): void => {
     props.onSearchSubmit(input, selectedSubs);
   };
-
-  const handleKeyup = debounce(
-    (e: React.FormEvent<HTMLInputElement>): void => onSubmit(e),
-    500,
-  );
 
   const handleOutsideClick = e => {
     if (searchRef.current && !searchRef.current.contains(e.target)) {
@@ -85,7 +81,6 @@ const Search = props => {
           placeholder="Search posts"
           value={input}
           onChange={onUserEntry}
-          onKeyUp={handleKeyup}
           onFocus={handleFocus}
         />
         <svg

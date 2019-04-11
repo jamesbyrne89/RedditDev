@@ -22,7 +22,7 @@ const CardContainer = (props: Props) => {
         loading
           ? <Loader />
           : posts.length === 0 && emptyState
-            ? emptyState()
+            ? emptyState
             : posts.map((post: IRedditPost): any => {
               const favouriteMatch: [] = favourites.filter(
                 isAlreadyFavourite({

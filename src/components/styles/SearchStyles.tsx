@@ -20,6 +20,7 @@ const SearchStyles = styled.div`
   padding-left: 3em;
   font-family: ${constants.sansSerif}
   position: relative;
+  color: inherit;
   &:focus {
     &::placeholder {
       opacity: 0;
@@ -82,7 +83,7 @@ const SearchStyles = styled.div`
 .clear-search {
   font-family: ${constants.sansSerif};
   font-size: 1rem;
-  color: ${constants.text_grey_mid_two};
+  color: ${props => props.theme.button_colour};
   margin-top: 2em;
   cursor: pointer;
   display: block;

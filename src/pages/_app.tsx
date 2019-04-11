@@ -34,9 +34,7 @@ class MyApp extends App<Props> {
       const favourites = querySnapshot.docs.map(
         doc => ({ doc_id: doc.id, data: doc.data().data }),
       );
-      if (favourites.length !== this.state.favourites.length) {
-        this.setState({ favourites });
-      }
+      this.setState({ favourites });
     });
   };
 
@@ -56,9 +54,11 @@ class MyApp extends App<Props> {
 
   getDisplayPreference = () => {
     const mode = localStorage.getItem(DISPLAY_PREFERENCE_KEY);
-    console.log(localStorage.getItem(DISPLAY_PREFERENCE_KEY))
     if (mode) {
-      this.setState({ themeName: mode, theme: mode === 'dark' ? darkTheme : lightTheme });
+      this.setState({
+        themeName: mode,
+        theme: mode === 'dark' ? darkTheme : lightTheme,
+      });
     }
   };
 
@@ -73,13 +73,13 @@ class MyApp extends App<Props> {
   }
 
   filterPosts = (searchTerm = '', subreddits = []) => {
-    if (!searchTerm && subreddits.length === 0) {
+    console.log({ searchTerm, subreddits });
+    if (!searchTerm || subreddits.length === 0) {
       return this.setState({
         filteredPosts: this.state.posts,
         isFiltered: false,
       });
     }
-    this.setState({ loading: true });
     const filtered = this.state.posts.filter(
       filterPostsCallback(searchTerm, subreddits),
     );
@@ -124,21 +124,28 @@ class MyApp extends App<Props> {
   }
 
   render() {
-    const { posts, filteredPosts, isFiltered, theme, themeName } = this.state;
+    const {
+      posts,
+      filteredPosts,
+      isFiltered,
+      theme,
+      themeName,
+      favourites,
+    } = this.state;
     const { Component, pageProps } = this.props;
 
     return (
       <Container>
         <ThemeProvider theme={theme}>
           <Component
+            {...pageProps}
             posts={isFiltered ? filteredPosts : posts}
             loading={this.state.loading}
             onSearchSubmit={this.filterPosts}
             onAddToFavourites={this.addToFavourites}
-            favourites={this.state.favourites}
+            favourites={favourites}
             toggleTheme={this.toggleTheme}
             themeName={themeName}
-            {...pageProps}
           />
         </ThemeProvider>
       </Container>

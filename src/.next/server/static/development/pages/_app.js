@@ -367,7 +367,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var _components_styles_constants__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../components/styles/constants */ "./components/styles/constants.ts");
 
-var _jsxFileName = "C:\\Users\\james.byrne\\Documents\\personal\\RedditDev\\src\\pages\\_app.tsx";
+var _jsxFileName = "E:\\Users\\James\\Web Dev\\Projects\\RedditDev\\src\\pages\\_app.tsx";
 
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -452,11 +452,9 @@ function (_App) {
           };
         });
 
-        if (favourites.length !== _this.state.favourites.length) {
-          _this.setState({
-            favourites: favourites
-          });
-        }
+        _this.setState({
+          favourites: favourites
+        });
       });
     });
 
@@ -497,7 +495,6 @@ function (_App) {
 
     _defineProperty(_assertThisInitialized(_this), "getDisplayPreference", function () {
       var mode = localStorage.getItem(DISPLAY_PREFERENCE_KEY);
-      console.log(localStorage.getItem(DISPLAY_PREFERENCE_KEY));
 
       if (mode) {
         _this.setState({
@@ -514,17 +511,17 @@ function (_App) {
     _defineProperty(_assertThisInitialized(_this), "filterPosts", function () {
       var searchTerm = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
       var subreddits = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [];
+      console.log({
+        searchTerm: searchTerm,
+        subreddits: subreddits
+      });
 
-      if (!searchTerm && subreddits.length === 0) {
+      if (!searchTerm || subreddits.length === 0) {
         return _this.setState({
           filteredPosts: _this.state.posts,
           isFiltered: false
         });
       }
-
-      _this.setState({
-        loading: true
-      });
 
       var filtered = _this.state.posts.filter(Object(_lib_utils__WEBPACK_IMPORTED_MODULE_5__["filterPostsCallback"])(searchTerm, subreddits));
 
@@ -606,35 +603,35 @@ function (_App) {
           filteredPosts = _this$state.filteredPosts,
           isFiltered = _this$state.isFiltered,
           theme = _this$state.theme,
-          themeName = _this$state.themeName;
+          themeName = _this$state.themeName,
+          favourites = _this$state.favourites;
       var _this$props = this.props,
           Component = _this$props.Component,
           pageProps = _this$props.pageProps;
       return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(next_app__WEBPACK_IMPORTED_MODULE_2__["Container"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 131
+          lineNumber: 138
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(styled_components__WEBPACK_IMPORTED_MODULE_7__["ThemeProvider"], {
         theme: theme,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 132
+          lineNumber: 139
         },
         __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Component, _extends({
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Component, _extends({}, pageProps, {
         posts: isFiltered ? filteredPosts : posts,
         loading: this.state.loading,
         onSearchSubmit: this.filterPosts,
         onAddToFavourites: this.addToFavourites,
-        favourites: this.state.favourites,
+        favourites: favourites,
         toggleTheme: this.toggleTheme,
-        themeName: themeName
-      }, pageProps, {
+        themeName: themeName,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 133
+          lineNumber: 140
         },
         __self: this
       }))));
