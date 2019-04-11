@@ -56,8 +56,9 @@ class MyApp extends App<Props> {
 
   getDisplayPreference = () => {
     const mode = localStorage.getItem(DISPLAY_PREFERENCE_KEY);
+    console.log(localStorage.getItem(DISPLAY_PREFERENCE_KEY))
     if (mode) {
-      this.setState({ themeName: mode });
+      this.setState({ themeName: mode, theme: mode === 'dark' ? darkTheme : lightTheme });
     }
   };
 

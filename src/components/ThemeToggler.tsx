@@ -13,6 +13,7 @@ const ThemeToggleButton = props => {
           id="switch"
           name="theme"
           onClick={props.toggle}
+          defaultChecked={!!(props.themeName === 'dark')}
         /><label htmlFor="switch">
           <div className="mode-icon--dark-mode">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 640">

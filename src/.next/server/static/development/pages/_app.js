@@ -367,7 +367,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var _components_styles_constants__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../components/styles/constants */ "./components/styles/constants.ts");
 
-var _jsxFileName = "E:\\Users\\James\\Web Dev\\Projects\\RedditDev\\src\\pages\\_app.tsx";
+var _jsxFileName = "C:\\Users\\james.byrne\\Documents\\personal\\RedditDev\\src\\pages\\_app.tsx";
 
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -497,10 +497,12 @@ function (_App) {
 
     _defineProperty(_assertThisInitialized(_this), "getDisplayPreference", function () {
       var mode = localStorage.getItem(DISPLAY_PREFERENCE_KEY);
+      console.log(localStorage.getItem(DISPLAY_PREFERENCE_KEY));
 
       if (mode) {
         _this.setState({
-          themeName: mode
+          themeName: mode,
+          theme: mode === 'dark' ? _components_styles_constants__WEBPACK_IMPORTED_MODULE_8__["darkTheme"] : _components_styles_constants__WEBPACK_IMPORTED_MODULE_8__["lightTheme"]
         });
       }
     });
@@ -592,6 +594,11 @@ function (_App) {
       return componentDidMount;
     }()
   }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate() {
+      this.setDisplayPreference(this.state.themeName);
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this$state = this.state,
@@ -606,14 +613,14 @@ function (_App) {
       return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(next_app__WEBPACK_IMPORTED_MODULE_2__["Container"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 126
+          lineNumber: 131
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(styled_components__WEBPACK_IMPORTED_MODULE_7__["ThemeProvider"], {
         theme: theme,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 127
+          lineNumber: 132
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Component, _extends({
@@ -627,7 +634,7 @@ function (_App) {
       }, pageProps, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 128
+          lineNumber: 133
         },
         __self: this
       }))));
