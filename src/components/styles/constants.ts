@@ -74,6 +74,7 @@ export const lightTheme: ITheme = {
   card_background: '#fff',
   button_colour: constants.nearBlack,
   button_hover_colour: '#fff',
+  mid_grey: '#ccc'
 };
 export const darkTheme: ITheme = {
   header_background: constants.nearBlack,
@@ -82,4 +83,5 @@ export const darkTheme: ITheme = {
   card_background: constants.nearBlack,
   button_colour: '#fff',
   button_hover_colour: constants.nearBlack,
+  mid_grey: '#ccc'
 };

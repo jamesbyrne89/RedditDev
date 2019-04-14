@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import CardContainer from '../components/CardContainer';
 import Layout from '../components/Layout';
 import StatusMessage from '../components/StatusMessage';

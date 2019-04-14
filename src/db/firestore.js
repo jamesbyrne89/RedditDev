@@ -1,11 +1,12 @@
 import firebase from 'firebase/app';
 import firestore from 'firebase/firestore';
+require('dotenv').config()
 
 const config = {
-  apiKey: 'AIzaSyBkHyS6BMFlRBww9mZMsTQgMzjp6P9ml6M',
-  authDomain: 'redditdev-e11fc.firebaseapp.com',
+  apiKey: process.env.API_KEY,
+  authDomain: process.env.AUTH_DOMAIN,
   databaseURL: 'https://redditdev-e11fc.firebaseio.com',
-  projectId: 'redditdev-e11fc',
+  projectId: process.env.PROJECT_ID,
   storageBucket: 'redditdev-e11fc.appspot.com',
   messagingSenderId: '976173547224',
 };
