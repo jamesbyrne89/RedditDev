@@ -172,15 +172,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var firebase_firestore__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! firebase/firestore */ "firebase/firestore");
 /* harmony import */ var firebase_firestore__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(firebase_firestore__WEBPACK_IMPORTED_MODULE_1__);
 
-
-
-__webpack_require__(/*! dotenv */ "dotenv").config();
+ // require('dotenv').config();
 
 var config = {
-  apiKey: process.env.API_KEY,
-  authDomain: process.env.AUTH_DOMAIN,
+  apiKey: "AIzaSyBkHyS6BMFlRBww9mZMsTQgMzjp6P9ml6M",
+  authDomain: "redditdev-e11fc.firebaseapp.com",
   databaseURL: 'https://redditdev-e11fc.firebaseio.com',
-  projectId: process.env.PROJECT_ID,
+  projectId: "redditdev-e11fc",
   storageBucket: 'redditdev-e11fc.appspot.com',
   messagingSenderId: '976173547224'
 };
@@ -727,17 +725,6 @@ module.exports = require("@babel/runtime/regenerator");
 /***/ (function(module, exports) {
 
 module.exports = require("axios");
-
-/***/ }),
-
-/***/ "dotenv":
-/*!*************************!*\
-  !*** external "dotenv" ***!
-  \*************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("dotenv");
 
 /***/ }),
 

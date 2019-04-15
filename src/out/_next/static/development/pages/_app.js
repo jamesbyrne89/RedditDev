@@ -1748,7 +1748,8 @@ var lightTheme = {
   font_colour_primary: constants.nearBlack,
   card_background: '#fff',
   button_colour: constants.nearBlack,
-  button_hover_colour: '#fff'
+  button_hover_colour: '#fff',
+  mid_grey: '#ccc'
 };
 var darkTheme = {
   header_background: constants.nearBlack,
@@ -1756,7 +1757,8 @@ var darkTheme = {
   main_background: constants.text_grey_dark_two,
   card_background: constants.nearBlack,
   button_colour: '#fff',
-  button_hover_colour: constants.nearBlack
+  button_hover_colour: constants.nearBlack,
+  mid_grey: '#ccc'
 };
 
 /***/ }),
@@ -1774,12 +1776,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(firebase_app__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var firebase_firestore__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! firebase/firestore */ "./node_modules/firebase/firestore/dist/index.esm.js");
 
+ // require('dotenv').config();
 
 var config = {
-  apiKey: 'AIzaSyBkHyS6BMFlRBww9mZMsTQgMzjp6P9ml6M',
-  authDomain: 'redditdev-e11fc.firebaseapp.com',
+  apiKey: "AIzaSyBkHyS6BMFlRBww9mZMsTQgMzjp6P9ml6M",
+  authDomain: "redditdev-e11fc.firebaseapp.com",
   databaseURL: 'https://redditdev-e11fc.firebaseio.com',
-  projectId: 'redditdev-e11fc',
+  projectId: "redditdev-e11fc",
   storageBucket: 'redditdev-e11fc.appspot.com',
   messagingSenderId: '976173547224'
 };
