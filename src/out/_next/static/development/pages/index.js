@@ -1333,10 +1333,8 @@ __webpack_require__.r(__webpack_exports__);
 var CardContainerStyles = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].main.withConfig({
   displayName: "CardContainerStyles",
   componentId: "sc-1d4sp1d-0"
-})(["position:relative;-webkit-column-count:4;column-count:4;-webkit-column-gap:2.5em;column-gap:2.5em;border-top:solid 1px ", ";padding-top:1.25em;padding-bottom:1em;width:85%;margin:2rem auto;margin-left:calc(7.5% + 2rem);@media (max-width:", "px){column-gap:1.5rem;}@media (max-width:", "px){column-count:3;}@media (max-width:", "px){column-count:2;}@media (max-width:", "px){column-gap:1rem;width:90%;margin-left:calc(5% + 2rem);}@media (max-width:", "px){column-count:1;width:95%;margin-left:auto;}&::after{content:'';width:100%;position:fixed;height:40px;background:-webkit-gradient(linear,left top,left bottom,from(rgba(236,238,241,0.001)),to(", "));background:linear-gradient(rgba(236,238,241,0.001),", ");pointer-events:none;bottom:0;left:0;}"], _constants__WEBPACK_IMPORTED_MODULE_1__["constants"].text_grey_mid_two, _constants__WEBPACK_IMPORTED_MODULE_1__["sizes"].desktop_lg, _constants__WEBPACK_IMPORTED_MODULE_1__["sizes"].desktop_md, _constants__WEBPACK_IMPORTED_MODULE_1__["sizes"].desktop_sm, _constants__WEBPACK_IMPORTED_MODULE_1__["sizes"].tablet, _constants__WEBPACK_IMPORTED_MODULE_1__["sizes"].mobile, function (props) {
-  return props.theme.card_background;
-}, function (props) {
-  return props.theme.card_background;
+})(["position:relative;-webkit-column-count:4;column-count:4;-webkit-column-gap:2.5em;column-gap:2.5em;border-top:solid 1px ", ";padding-top:1.25em;padding-bottom:1em;width:85%;margin:2rem auto;margin-left:calc(7.5% + 2rem);@media (max-width:", "px){column-gap:1.5rem;}@media (max-width:", "px){column-count:3;}@media (max-width:", "px){column-count:2;}@media (max-width:", "px){column-gap:1rem;width:90%;margin-left:calc(5% + 2rem);}@media (max-width:", "px){column-count:1;width:95%;margin-left:auto;}&::after{content:'';width:100%;position:fixed;height:40px;background:", ";pointer-events:none;bottom:0;left:0;}"], _constants__WEBPACK_IMPORTED_MODULE_1__["constants"].text_grey_mid_two, _constants__WEBPACK_IMPORTED_MODULE_1__["sizes"].desktop_lg, _constants__WEBPACK_IMPORTED_MODULE_1__["sizes"].desktop_md, _constants__WEBPACK_IMPORTED_MODULE_1__["sizes"].desktop_sm, _constants__WEBPACK_IMPORTED_MODULE_1__["sizes"].tablet, _constants__WEBPACK_IMPORTED_MODULE_1__["sizes"].mobile, function (props) {
+  return props.theme.fade;
 });
 var StatusMessageStyles = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div.withConfig({
   displayName: "CardContainerStyles__StatusMessageStyles",
@@ -1657,7 +1655,8 @@ var lightTheme = {
   card_background: '#fff',
   button_colour: constants.nearBlack,
   button_hover_colour: '#fff',
-  mid_grey: '#ccc'
+  mid_grey: '#ccc',
+  fade: "linear-gradient(rgba(255, 255, 255, 0.001), #fff)"
 };
 var darkTheme = {
   header_background: constants.nearBlack,
@@ -1666,7 +1665,8 @@ var darkTheme = {
   card_background: constants.nearBlack,
   button_colour: '#fff',
   button_hover_colour: constants.nearBlack,
-  mid_grey: '#ccc'
+  mid_grey: '#ccc',
+  fade: "linear-gradient(rgba(36,41,46, 0.001), ".concat(constants.nearBlack, ")")
 };
 
 /***/ }),

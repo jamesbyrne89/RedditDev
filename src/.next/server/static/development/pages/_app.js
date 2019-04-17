@@ -144,7 +144,8 @@ var lightTheme = {
   card_background: '#fff',
   button_colour: constants.nearBlack,
   button_hover_colour: '#fff',
-  mid_grey: '#ccc'
+  mid_grey: '#ccc',
+  fade: "linear-gradient(rgba(255, 255, 255, 0.001), #fff)"
 };
 var darkTheme = {
   header_background: constants.nearBlack,
@@ -153,7 +154,8 @@ var darkTheme = {
   card_background: constants.nearBlack,
   button_colour: '#fff',
   button_hover_colour: constants.nearBlack,
-  mid_grey: '#ccc'
+  mid_grey: '#ccc',
+  fade: "linear-gradient(rgba(36,41,46, 0.001), ".concat(constants.nearBlack, ")")
 };
 
 /***/ }),
@@ -172,7 +174,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var firebase_firestore__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! firebase/firestore */ "firebase/firestore");
 /* harmony import */ var firebase_firestore__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(firebase_firestore__WEBPACK_IMPORTED_MODULE_1__);
 
- // require('dotenv').config();
 
 var config = {
   apiKey: "AIzaSyBkHyS6BMFlRBww9mZMsTQgMzjp6P9ml6M",

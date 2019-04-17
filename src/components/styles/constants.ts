@@ -8,6 +8,7 @@ interface IConstants {
   text_grey_dark: string,
   text_grey_mid_one: string,
   text_grey_mid_two: string,
+  text_grey_dark_two: string,
   subreddit_colour_one: string,
   subreddit_colour_two: string,
   subreddit_colour_three: string,
@@ -74,7 +75,8 @@ export const lightTheme: ITheme = {
   card_background: '#fff',
   button_colour: constants.nearBlack,
   button_hover_colour: '#fff',
-  mid_grey: '#ccc'
+  mid_grey: '#ccc',
+  fade: `linear-gradient(rgba(255, 255, 255, 0.001), #fff)`,
 };
 export const darkTheme: ITheme = {
   header_background: constants.nearBlack,
@@ -83,5 +85,6 @@ export const darkTheme: ITheme = {
   card_background: constants.nearBlack,
   button_colour: '#fff',
   button_hover_colour: constants.nearBlack,
-  mid_grey: '#ccc'
+  mid_grey: '#ccc',
+  fade: `linear-gradient(rgba(36,41,46, 0.001), ${constants.nearBlack})`,
 };
