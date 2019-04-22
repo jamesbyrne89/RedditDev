@@ -515,12 +515,8 @@ function (_App) {
     _defineProperty(_assertThisInitialized(_this), "filterPosts", function () {
       var searchTerm = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
       var subreddits = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [];
-      console.log({
-        searchTerm: searchTerm,
-        subreddits: subreddits
-      });
 
-      if (!searchTerm || subreddits.length === 0) {
+      if (subreddits.length === 0) {
         return _this.setState({
           filteredPosts: _this.state.posts,
           isFiltered: false
@@ -615,14 +611,14 @@ function (_App) {
       return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(next_app__WEBPACK_IMPORTED_MODULE_2__["Container"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 138
+          lineNumber: 137
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(styled_components__WEBPACK_IMPORTED_MODULE_7__["ThemeProvider"], {
         theme: theme,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 139
+          lineNumber: 138
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Component, _extends({}, pageProps, {
@@ -635,7 +631,7 @@ function (_App) {
         themeName: themeName,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 140
+          lineNumber: 139
         },
         __self: this
       }))));

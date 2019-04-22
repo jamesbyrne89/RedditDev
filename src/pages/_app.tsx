@@ -73,8 +73,7 @@ class MyApp extends App<Props> {
   }
 
   filterPosts = (searchTerm = '', subreddits = []) => {
-    console.log({ searchTerm, subreddits });
-    if (!searchTerm || subreddits.length === 0) {
+    if (subreddits.length === 0) {
       return this.setState({
         filteredPosts: this.state.posts,
         isFiltered: false,
