@@ -1,4 +1,5 @@
 import firebase from 'firebase/app';
+import 'firebase/auth';
 import firestore from 'firebase/firestore';
 
 const config = {
@@ -10,14 +11,16 @@ const config = {
   messagingSenderId: '976173547224',
 };
 
-const initDB = () => {
+const init = () => {
   if (!firebase.apps.length) {
     firebase.initializeApp(config);
   }
 
-  var db = firebase.firestore();
+  const db = firebase.firestore();
 
   return db;
 };
 
-export default initDB()
+export default init()
+
+export const auth = firebase.auth();

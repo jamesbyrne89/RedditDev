@@ -164,15 +164,19 @@ var darkTheme = {
 /*!*************************!*\
   !*** ./db/firestore.js ***!
   \*************************/
-/*! exports provided: default */
+/*! exports provided: default, auth */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "auth", function() { return auth; });
 /* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! firebase/app */ "firebase/app");
 /* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(firebase_app__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var firebase_firestore__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! firebase/firestore */ "firebase/firestore");
-/* harmony import */ var firebase_firestore__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(firebase_firestore__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var firebase_auth__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! firebase/auth */ "firebase/auth");
+/* harmony import */ var firebase_auth__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(firebase_auth__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var firebase_firestore__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! firebase/firestore */ "firebase/firestore");
+/* harmony import */ var firebase_firestore__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(firebase_firestore__WEBPACK_IMPORTED_MODULE_2__);
+
 
 
 var config = {
@@ -184,7 +188,7 @@ var config = {
   messagingSenderId: '976173547224'
 };
 
-var initDB = function initDB() {
+var init = function init() {
   if (!firebase_app__WEBPACK_IMPORTED_MODULE_0___default.a.apps.length) {
     firebase_app__WEBPACK_IMPORTED_MODULE_0___default.a.initializeApp(config);
   }
@@ -193,7 +197,8 @@ var initDB = function initDB() {
   return db;
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (initDB());
+/* harmony default export */ __webpack_exports__["default"] = (init());
+var auth = firebase_app__WEBPACK_IMPORTED_MODULE_0___default.a.auth();
 
 /***/ }),
 
@@ -448,6 +453,7 @@ function (_App) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "getFavourites", function () {
+      console.log(_db_firestore__WEBPACK_IMPORTED_MODULE_6__["default"]);
       _db_firestore__WEBPACK_IMPORTED_MODULE_6__["default"].collection('favourites').onSnapshot(function (querySnapshot) {
         var favourites = querySnapshot.docs.map(function (doc) {
           return {
@@ -611,14 +617,14 @@ function (_App) {
       return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(next_app__WEBPACK_IMPORTED_MODULE_2__["Container"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 137
+          lineNumber: 156
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(styled_components__WEBPACK_IMPORTED_MODULE_7__["ThemeProvider"], {
         theme: theme,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 138
+          lineNumber: 157
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Component, _extends({}, pageProps, {
@@ -631,7 +637,7 @@ function (_App) {
         themeName: themeName,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 139
+          lineNumber: 158
         },
         __self: this
       }))));
@@ -642,7 +648,7 @@ function (_App) {
       var _getInitialProps = _asyncToGenerator(
       /*#__PURE__*/
       _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(_ref2) {
-        var Component, ctx, pageProps;
+        var Component, ctx, pageProps, authenticatedUser;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
@@ -664,11 +670,28 @@ function (_App) {
                 pageProps = _context3.sent;
 
               case 6:
+                authenticatedUser = null;
+                _db_firestore__WEBPACK_IMPORTED_MODULE_6__["auth"].onAuthStateChanged(function (user) {
+                  if (user) {
+                    // User is signed in.
+                    console.info('*** User is signed in ***');
+                    var displayName = user.displayName;
+                    var email = user.email;
+                    var emailVerified = user.emailVerified;
+                    var photoURL = user.photoURL;
+                    var isAnonymous = user.isAnonymous;
+                    var uid = user.uid;
+                    var providerData = user.providerData; // ...
+                  } else {
+                    console.warn('*** User is signed out ***');
+                  }
+                });
+                pageProps.authenticated = !!authenticatedUser;
                 return _context3.abrupt("return", {
                   pageProps: pageProps
                 });
 
-              case 7:
+              case 10:
               case "end":
                 return _context3.stop();
             }
@@ -733,6 +756,17 @@ module.exports = require("axios");
 /***/ (function(module, exports) {
 
 module.exports = require("firebase/app");
+
+/***/ }),
+
+/***/ "firebase/auth":
+/*!********************************!*\
+  !*** external "firebase/auth" ***!
+  \********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("firebase/auth");
 
 /***/ }),
 

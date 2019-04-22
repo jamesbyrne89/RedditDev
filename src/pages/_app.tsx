@@ -2,7 +2,7 @@ import App, { Container } from 'next/app';
 import axios from 'axios';
 import { endpoints } from '../lib/subreddits';
 import { filterPostsCallback, sortByNewest } from '../lib/utils';
-import db from '../db/firestore';
+import db, { auth } from '../db/firestore';
 import { IRedditPost, IFavouritePost } from '../interfaces/index';
 import { ThemeProvider } from 'styled-components';
 import { lightTheme, darkTheme } from '../components/styles/constants';
@@ -26,10 +26,29 @@ class MyApp extends App<Props> {
       pageProps = await Component.getInitialProps(ctx);
     }
 
+    let authenticatedUser = null;
+    auth.onAuthStateChanged(user => {
+      if (user) {
+        // User is signed in.
+        console.info('*** User is signed in ***');
+        var displayName = user.displayName;
+        var email = user.email;
+        var emailVerified = user.emailVerified;
+        var photoURL = user.photoURL;
+        var isAnonymous = user.isAnonymous;
+        var uid = user.uid;
+        var providerData = user.providerData;
+        // ...
+      } else {
+        console.warn('*** User is signed out ***');
+      }
+    });
+    pageProps.authenticated = !!authenticatedUser;
     return { pageProps };
   }
 
   getFavourites = () => {
+    console.log(db);
     db.collection('favourites').onSnapshot(querySnapshot => {
       const favourites = querySnapshot.docs.map(
         doc => ({ doc_id: doc.id, data: doc.data().data }),
