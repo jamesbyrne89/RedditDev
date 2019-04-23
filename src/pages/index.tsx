@@ -10,6 +10,7 @@ const IndexPage: React.FunctionComponent = (
     onAddNewFavourite,
     toggleTheme,
     themeName,
+    isAuthenticated,
     ...props,
   }: ILayoutProps,
 ) =>
@@ -21,6 +22,7 @@ const IndexPage: React.FunctionComponent = (
         onAddNewFavourite={onAddNewFavourite}
         toggleTheme={toggleTheme}
         themeName={themeName}
+        isAuthenticated={isAuthenticated}
       >
         <CardContainer
           {...props}

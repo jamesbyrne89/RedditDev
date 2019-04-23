@@ -39,6 +39,7 @@ const Header: React.FunctionComponent<Props> = props => (
       <div>
         <div className="header__nav-wrapper">
           <ThemeToggler themeName={props.themeName} toggle={props.toggle} />
+          <Link href="/login"><a>Login</a></Link>
         </div>
         <ul>
           <StyledNavItem>

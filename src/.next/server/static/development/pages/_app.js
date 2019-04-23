@@ -422,7 +422,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-var DISPLAY_PREFERENCE_KEY = 'redditdev-display-mode';
+var DISPLAY_PREFERENCE_KEY = 'redditdev-display-mode'; // const checkAuthAndRedirect = res => {
+//   if (res) {
+//     res.writeHead(302, {});
+//     res.end();
+//   } else {
+//     Router.push('localhost:3000/login');
+//   }
+//   return {};
+// };
 
 var MyApp =
 /*#__PURE__*/
@@ -617,14 +625,14 @@ function (_App) {
       return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(next_app__WEBPACK_IMPORTED_MODULE_2__["Container"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 156
+          lineNumber: 173
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(styled_components__WEBPACK_IMPORTED_MODULE_7__["ThemeProvider"], {
         theme: theme,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 157
+          lineNumber: 174
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Component, _extends({}, pageProps, {
@@ -637,7 +645,7 @@ function (_App) {
         themeName: themeName,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 158
+          lineNumber: 175
         },
         __self: this
       }))));
@@ -673,7 +681,6 @@ function (_App) {
                 authenticatedUser = null;
                 _db_firestore__WEBPACK_IMPORTED_MODULE_6__["auth"].onAuthStateChanged(function (user) {
                   if (user) {
-                    // User is signed in.
                     console.info('*** User is signed in ***');
                     var displayName = user.displayName;
                     var email = user.email;
@@ -683,10 +690,10 @@ function (_App) {
                     var uid = user.uid;
                     var providerData = user.providerData; // ...
                   } else {
-                    console.warn('*** User is signed out ***');
+                    console.warn('*** User is signed out ***'); // checkAuthAndRedirect(ctx.res);
                   }
                 });
-                pageProps.authenticated = !!authenticatedUser;
+                pageProps.isAuthenticated = !!authenticatedUser;
                 return _context3.abrupt("return", {
                   pageProps: pageProps
                 });

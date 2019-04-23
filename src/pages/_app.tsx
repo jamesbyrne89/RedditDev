@@ -7,9 +7,24 @@ import { IRedditPost, IFavouritePost } from '../interfaces/index';
 import { ThemeProvider } from 'styled-components';
 import { lightTheme, darkTheme } from '../components/styles/constants';
 
-interface Props { loading: boolean, posts: IRedditPost[], favourites: [] }
+interface Props {
+  loading: boolean,
+  posts: IRedditPost[],
+  favourites: [],
+  isAuthenticated: boolean,
+}
 
 const DISPLAY_PREFERENCE_KEY = 'redditdev-display-mode';
+
+// const checkAuthAndRedirect = res => {
+//   if (res) {
+//     res.writeHead(302, {});
+//     res.end();
+//   } else {
+//     Router.push('localhost:3000/login');
+//   }
+//   return {};
+// };
 class MyApp extends App<Props> {
   state = {
     loading: true,
@@ -20,6 +35,7 @@ class MyApp extends App<Props> {
     theme: lightTheme,
     themeName: 'light',
   };
+
   static async getInitialProps({ Component, ctx }: any) {
     let pageProps = { favourites: [] };
     if (Component.getInitialProps) {
@@ -29,7 +45,6 @@ class MyApp extends App<Props> {
     let authenticatedUser = null;
     auth.onAuthStateChanged(user => {
       if (user) {
-        // User is signed in.
         console.info('*** User is signed in ***');
         var displayName = user.displayName;
         var email = user.email;
@@ -41,9 +56,11 @@ class MyApp extends App<Props> {
         // ...
       } else {
         console.warn('*** User is signed out ***');
+        // checkAuthAndRedirect(ctx.res);
       }
     });
-    pageProps.authenticated = !!authenticatedUser;
+
+    pageProps.isAuthenticated = !!authenticatedUser;
     return { pageProps };
   }
 
