@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { auth } from '../db/firestore';
 
-const Login = () => {
+const Register = () => {
   const [userInput, setUserInput] = useState({ user: '', password: '' });
 
   const createNewUser = e => {
     e.preventDefault();
     auth
-      .signInWithEmailAndPassword(userInput.user, userInput.password)
+      .createUserWithEmailAndPassword(userInput.user, userInput.password)
       .catch(error => {
         // Handle Errors here.
         var errorCode = error.code;
@@ -23,7 +23,7 @@ const Login = () => {
 
   return (
     <div>
-      <p>Login page</p>
+      <p>Register page</p>
       <form onSubmit={createNewUser}>
         <input name="user" onChange={onInputChange} value={userInput.user} />
         <input
@@ -38,4 +38,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;
