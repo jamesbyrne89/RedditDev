@@ -8,10 +8,10 @@ import { ThemeProvider } from 'styled-components';
 import { lightTheme, darkTheme } from '../components/styles/constants';
 
 interface Props {
-  loading: boolean,
-  posts: IRedditPost[],
-  favourites: [],
-  isAuthenticated: boolean,
+  loading: boolean;
+  posts: IRedditPost[];
+  favourites: [];
+  isAuthenticated: boolean;
 }
 
 const DISPLAY_PREFERENCE_KEY = 'redditdev-display-mode';
@@ -33,7 +33,7 @@ class MyApp extends App<Props> {
     isFiltered: false,
     favourites: [],
     theme: lightTheme,
-    themeName: 'light',
+    themeName: 'light'
   };
 
   static async getInitialProps({ Component, ctx }: any) {
@@ -43,46 +43,46 @@ class MyApp extends App<Props> {
     }
 
     let authenticatedUser = null;
-    auth.onAuthStateChanged(user => {
-      if (user) {
-        console.info('*** User is signed in ***');
-        var displayName = user.displayName;
-        var email = user.email;
-        var emailVerified = user.emailVerified;
-        var photoURL = user.photoURL;
-        var isAnonymous = user.isAnonymous;
-        var uid = user.uid;
-        var providerData = user.providerData;
-        // ...
-      } else {
-        console.warn('*** User is signed out ***');
-        // checkAuthAndRedirect(ctx.res);
-      }
-    });
+    // auth.onAuthStateChanged(user => {
+    //   if (user) {
+    //     console.info('*** User is signed in ***');
+    //     var displayName = user.displayName;
+    //     var email = user.email;
+    //     var emailVerified = user.emailVerified;
+    //     var photoURL = user.photoURL;
+    //     var isAnonymous = user.isAnonymous;
+    //     var uid = user.uid;
+    //     var providerData = user.providerData;
+    //     // ...
+    //   } else {
+    //     console.warn('*** User is signed out ***');
+    //     // checkAuthAndRedirect(ctx.res);
+    //   }
+    // });
 
     pageProps.isAuthenticated = !!authenticatedUser;
     return { pageProps };
   }
 
   getFavourites = () => {
-    console.log(db);
     db.collection('favourites').onSnapshot(querySnapshot => {
-      const favourites = querySnapshot.docs.map(
-        doc => ({ doc_id: doc.id, data: doc.data().data }),
-      );
+      const favourites = querySnapshot.docs.map(doc => ({
+        doc_id: doc.id,
+        data: doc.data().data
+      }));
       this.setState({ favourites });
     });
   };
 
   getPosts = async () => {
     const data = await axios.all(
-      Object.keys(endpoints).map(url => axios.get(endpoints[url])),
+      Object.keys(endpoints).map(url => axios.get(endpoints[url]))
     );
     const cleaned: IRedditPost[] = data.reduce(
       (acc: IRedditPost[], curr: any): IRedditPost[] => {
-        return [ ...curr.data.data.children, ...acc ];
+        return [...curr.data.data.children, ...acc];
       },
-      [],
+      []
     );
     const postsSortedByNewest: IRedditPost[] = cleaned.sort(sortByNewest);
     this.setState({ posts: postsSortedByNewest, loading: false });
@@ -93,7 +93,7 @@ class MyApp extends App<Props> {
     if (mode) {
       this.setState({
         themeName: mode,
-        theme: mode === 'dark' ? darkTheme : lightTheme,
+        theme: mode === 'dark' ? darkTheme : lightTheme
       });
     }
   };
@@ -112,16 +112,16 @@ class MyApp extends App<Props> {
     if (subreddits.length === 0) {
       return this.setState({
         filteredPosts: this.state.posts,
-        isFiltered: false,
+        isFiltered: false
       });
     }
     const filtered = this.state.posts.filter(
-      filterPostsCallback(searchTerm, subreddits),
+      filterPostsCallback(searchTerm, subreddits)
     );
     this.setState({
       filteredPosts: filtered,
       loading: false,
-      isFiltered: true,
+      isFiltered: true
     });
   };
 
@@ -129,8 +129,7 @@ class MyApp extends App<Props> {
     if (postToAdd.doc_id) {
       return this.removeFromFavourites(postToAdd);
     }
-    db
-      .collection('favourites')
+    db.collection('favourites')
       .add(postToAdd)
       .then(docRef => {
         console.log('added', { ...postToAdd, doc_id: docRef.id });
@@ -141,17 +140,16 @@ class MyApp extends App<Props> {
   };
 
   removeFromFavourites = (postToRemove: IFavouritePost): void => {
-    db.collection('favourites').doc(postToRemove.doc_id).delete();
+    db.collection('favourites')
+      .doc(postToRemove.doc_id)
+      .delete();
   };
 
   toggleTheme = () => {
-    this.setState(
-      currentState =>
-        ({
-          theme: currentState.theme == darkTheme ? lightTheme : darkTheme,
-          themeName: currentState.themeName == 'light' ? 'dark' : 'light',
-        }),
-    );
+    this.setState(currentState => ({
+      theme: currentState.theme == darkTheme ? lightTheme : darkTheme,
+      themeName: currentState.themeName == 'light' ? 'dark' : 'light'
+    }));
   };
 
   componentDidUpdate() {
@@ -165,7 +163,7 @@ class MyApp extends App<Props> {
       isFiltered,
       theme,
       themeName,
-      favourites,
+      favourites
     } = this.state;
     const { Component, pageProps } = this.props;
 

@@ -461,7 +461,6 @@ function (_App) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "getFavourites", function () {
-      console.log(_db_firestore__WEBPACK_IMPORTED_MODULE_6__["default"]);
       _db_firestore__WEBPACK_IMPORTED_MODULE_6__["default"].collection('favourites').onSnapshot(function (querySnapshot) {
         var favourites = querySnapshot.docs.map(function (doc) {
           return {
@@ -625,14 +624,14 @@ function (_App) {
       return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(next_app__WEBPACK_IMPORTED_MODULE_2__["Container"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 173
+          lineNumber: 171
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(styled_components__WEBPACK_IMPORTED_MODULE_7__["ThemeProvider"], {
         theme: theme,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 174
+          lineNumber: 172
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Component, _extends({}, pageProps, {
@@ -645,7 +644,7 @@ function (_App) {
         themeName: themeName,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 175
+          lineNumber: 173
         },
         __self: this
       }))));
@@ -678,27 +677,29 @@ function (_App) {
                 pageProps = _context3.sent;
 
               case 6:
-                authenticatedUser = null;
-                _db_firestore__WEBPACK_IMPORTED_MODULE_6__["auth"].onAuthStateChanged(function (user) {
-                  if (user) {
-                    console.info('*** User is signed in ***');
-                    var displayName = user.displayName;
-                    var email = user.email;
-                    var emailVerified = user.emailVerified;
-                    var photoURL = user.photoURL;
-                    var isAnonymous = user.isAnonymous;
-                    var uid = user.uid;
-                    var providerData = user.providerData; // ...
-                  } else {
-                    console.warn('*** User is signed out ***'); // checkAuthAndRedirect(ctx.res);
-                  }
-                });
+                authenticatedUser = null; // auth.onAuthStateChanged(user => {
+                //   if (user) {
+                //     console.info('*** User is signed in ***');
+                //     var displayName = user.displayName;
+                //     var email = user.email;
+                //     var emailVerified = user.emailVerified;
+                //     var photoURL = user.photoURL;
+                //     var isAnonymous = user.isAnonymous;
+                //     var uid = user.uid;
+                //     var providerData = user.providerData;
+                //     // ...
+                //   } else {
+                //     console.warn('*** User is signed out ***');
+                //     // checkAuthAndRedirect(ctx.res);
+                //   }
+                // });
+
                 pageProps.isAuthenticated = !!authenticatedUser;
                 return _context3.abrupt("return", {
                   pageProps: pageProps
                 });
 
-              case 10:
+              case 9:
               case "end":
                 return _context3.stop();
             }
