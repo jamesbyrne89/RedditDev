@@ -1,10 +1,26 @@
 import { useState } from 'react';
 import { auth } from '../db/firestore';
+import {
+  FormStyles,
+  FormSubmitButtonStyles
+} from '../components/styles/FormStyles';
+import Input from '../components/Input';
 
 const Register = () => {
-  const [userInput, setUserInput] = useState({ user: '', password: '' });
+  const [userInput, setUserInput] = useState({
+    user: '',
+    password: '',
+    password2: ''
+  });
 
   const createNewUser = e => {
+    if (
+      !userInput.password.length > 5 &&
+      userInput.password === userInput.password2
+    ) {
+      throw new Error('Passwords do not match');
+      return;
+    }
     e.preventDefault();
     auth
       .createUserWithEmailAndPassword(userInput.user, userInput.password)
@@ -23,17 +39,33 @@ const Register = () => {
 
   return (
     <div>
-      <p>Register page</p>
-      <form onSubmit={createNewUser}>
-        <input name="user" onChange={onInputChange} value={userInput.user} />
-        <input
+      <FormStyles onSubmit={createNewUser}>
+        <h2>Register</h2>
+        <Input
+          name="user"
+          onChange={onInputChange}
+          value={userInput.user}
+          type="email"
+          placeholder="Email"
+        />
+        <Input
           name="password"
-          type="password"
           onChange={onInputChange}
           value={userInput.password}
+          type="password"
+          placeholder="Password"
         />
-        <button onClick={createNewUser}>Log in</button>
-      </form>
+        <Input
+          name="password2"
+          onChange={onInputChange}
+          value={userInput.password2}
+          type="password"
+          placeholder="Retype password"
+        />
+        <FormSubmitButtonStyles onClick={createNewUser}>
+          Register
+        </FormSubmitButtonStyles>
+      </FormStyles>
     </div>
   );
 };

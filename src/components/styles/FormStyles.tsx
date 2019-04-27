@@ -3,16 +3,19 @@ import { constants } from './constants';
 
 export const FormStyles = styled.form`
   border: solid 2px black;
-  padding: 1rem;
-  width: 400px;
+  padding: 2rem 2.5rem;
+  width: 380px;
+  margin: auto;
   margin-top: 20vh;
   background: ${props => props.theme.card_background};
   border: solid 1px ${props => props.theme.border_colour};
+  h2 {
+    font-family: ${constants.serif};
+  }
 `;
 
 export const InputStyles = styled.input`
   margin-top: 1.25rem;
-  width: 300px;
   line-height: 1.5;
   display: block;
   font-family: ${constants.sansSerif};
@@ -28,5 +31,25 @@ export const InputStyles = styled.input`
     &::placeholder {
       opacity: 0;
     }
+  }
+`;
+
+export const FormSubmitButtonStyles = styled.button`
+  display: flex;
+  align-items: center;
+  position: relative;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+  padding: 0 1em;
+  line-height: 2.4;
+  color: ${props => props.theme.button_colour};
+  border: solid 2px ${props => props.theme.button_colour};
+  margin-top: 1.5rem;
+  &:hover {
+    /* // text-decoration: underline; */
+    color: ${props => props.theme.button_hover_colour};
+    background: ${props => props.theme.button_colour};
   }
 `;

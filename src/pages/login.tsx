@@ -1,22 +1,24 @@
 import { useState } from 'react';
 import { auth } from '../db/firestore';
-import { FormStyles } from '../components/styles/FormStyles';
+import {
+  FormStyles,
+  FormSubmitButtonStyles
+} from '../components/styles/FormStyles';
 import Input from '../components/Input';
 
 const Login = () => {
   const [userInput, setUserInput] = useState({ user: '', password: '' });
 
-  const createNewUser = e => {
+  const signInUser = e => {
     e.preventDefault();
-    auth
-      .signInWithEmailAndPassword(userInput.user, userInput.password)
-      .catch(error => {
-        // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        console.log(error);
-        // ...
-      });
+    const { user, password } = userInput;
+    auth.signInWithEmailAndPassword(user, password).catch(error => {
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      console.log(error);
+      // ...
+    });
   };
 
   const onInputChange = e => {
@@ -25,7 +27,8 @@ const Login = () => {
 
   return (
     <div>
-      <FormStyles onSubmit={createNewUser}>
+      <FormStyles onSubmit={signInUser}>
+        <h2>Log in</h2>
         <Input
           name="user"
           onChange={onInputChange}
@@ -40,7 +43,9 @@ const Login = () => {
           type="password"
           placeholder="Password"
         />
-        <button onClick={createNewUser}>Log in</button>
+        <FormSubmitButtonStyles onClick={signInUser}>
+          Log in
+        </FormSubmitButtonStyles>
       </FormStyles>
     </div>
   );
