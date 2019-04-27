@@ -145,7 +145,8 @@ var lightTheme = {
   button_colour: constants.nearBlack,
   button_hover_colour: '#fff',
   mid_grey: '#ccc',
-  fade: "linear-gradient(rgba(255, 255, 255, 0.001), #fff)"
+  fade: "linear-gradient(rgba(255, 255, 255, 0.001), #fff)",
+  border_colour: constants.text_grey_mid_two
 };
 var darkTheme = {
   header_background: constants.nearBlack,
@@ -155,7 +156,8 @@ var darkTheme = {
   button_colour: '#fff',
   button_hover_colour: constants.nearBlack,
   mid_grey: '#ccc',
-  fade: "linear-gradient(rgba(36,41,46, 0.001), ".concat(constants.nearBlack, ")")
+  fade: "linear-gradient(rgba(36,41,46, 0.001), ".concat(constants.nearBlack, ")"),
+  border_colour: constants.text_grey_mid_two
 };
 
 /***/ }),

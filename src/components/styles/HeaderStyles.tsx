@@ -7,7 +7,6 @@ export const StyledHeader = styled.header`
   align-items: center;
   width: 100%;
   background: ${props => props.theme.header_background};
-  -webkit-box-shadow: 0 0 0 1px ${constants.text_grey_mid_two};
   box-shadow: 0 0 0 1px ${constants.text_grey_mid_two};
   grid-area: header;
   position: sticky;
@@ -52,9 +51,9 @@ export const StyledMasthead = styled.div`
     justify-content: flex-start;
   }
   @media (max-width: ${sizes.tablet}px) {
-      width: 95%;
-      margin-left: auto;
-    }
+    width: 95%;
+    margin-left: auto;
+  }
 `;
 
 export const StyledHeaderTitle = styled.h1`
@@ -115,10 +114,9 @@ export const StyledNavItem = styled.li`
     color: ${props => props.theme.button_colour};
     border: solid 2px ${props => props.theme.button_colour};
     &:hover {
- /* // text-decoration: underline; */
-    color: ${props => props.theme.button_hover_colour};
-    background: ${props => props.theme.button_colour};
+      /* // text-decoration: underline; */
+      color: ${props => props.theme.button_hover_colour};
+      background: ${props => props.theme.button_colour};
     }
-
   }
 `;

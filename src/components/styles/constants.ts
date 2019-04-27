@@ -1,32 +1,32 @@
 interface IConstants {
-  sansSerif: string,
-  serif: string,
+  sansSerif: string;
+  serif: string;
   /* Colours */
-  nearBlack: string,
-  highlightColourOne: string,
-  background_grey: string,
-  text_grey_dark: string,
-  text_grey_mid_one: string,
-  text_grey_mid_two: string,
-  text_grey_dark_two: string,
-  subreddit_colour_one: string,
-  subreddit_colour_two: string,
-  subreddit_colour_three: string,
-  subreddit_colour_four: string,
-  subreddit_colour_five: string,
-  subreddit_colour_six: string,
-  subreddit_colour_seven: string,
-  subreddit_colour_eight: string,
-  subreddit_colour_nine: string,
-  subreddit_colour_ten: string,
+  nearBlack: string;
+  highlightColourOne: string;
+  background_grey: string;
+  text_grey_dark: string;
+  text_grey_mid_one: string;
+  text_grey_mid_two: string;
+  text_grey_dark_two: string;
+  subreddit_colour_one: string;
+  subreddit_colour_two: string;
+  subreddit_colour_three: string;
+  subreddit_colour_four: string;
+  subreddit_colour_five: string;
+  subreddit_colour_six: string;
+  subreddit_colour_seven: string;
+  subreddit_colour_eight: string;
+  subreddit_colour_nine: string;
+  subreddit_colour_ten: string;
 }
 
 interface ISizes {
-  desktop_lg: number,
-  desktop_md: number,
-  desktop_sm: number,
-  tablet: number,
-  mobile: number,
+  desktop_lg: number;
+  desktop_md: number;
+  desktop_sm: number;
+  tablet: number;
+  mobile: number;
 }
 
 interface ITheme {}
@@ -57,7 +57,7 @@ serif`,
   subreddit_colour_seven: '#D6A2E8',
   subreddit_colour_eight: '#25CCF7',
   subreddit_colour_nine: '#006266',
-  subreddit_colour_ten: '#535c68',
+  subreddit_colour_ten: '#535c68'
 };
 
 export const sizes: ISizes = {
@@ -65,7 +65,7 @@ export const sizes: ISizes = {
   desktop_md: 1376,
   desktop_sm: 1024,
   tablet: 768,
-  mobile: 576,
+  mobile: 576
 };
 
 export const lightTheme: ITheme = {
@@ -77,6 +77,7 @@ export const lightTheme: ITheme = {
   button_hover_colour: '#fff',
   mid_grey: '#ccc',
   fade: `linear-gradient(rgba(255, 255, 255, 0.001), #fff)`,
+  border_colour: constants.text_grey_mid_two
 };
 export const darkTheme: ITheme = {
   header_background: constants.nearBlack,
@@ -87,4 +88,5 @@ export const darkTheme: ITheme = {
   button_hover_colour: constants.nearBlack,
   mid_grey: '#ccc',
   fade: `linear-gradient(rgba(36,41,46, 0.001), ${constants.nearBlack})`,
+  border_colour: constants.text_grey_mid_two
 };

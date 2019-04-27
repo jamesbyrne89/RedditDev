@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { auth } from '../db/firestore';
+import { FormStyles } from '../components/styles/FormStyles';
+import Input from '../components/Input';
 
 const Login = () => {
   const [userInput, setUserInput] = useState({ user: '', password: '' });
@@ -23,17 +25,23 @@ const Login = () => {
 
   return (
     <div>
-      <p>Login page</p>
-      <form onSubmit={createNewUser}>
-        <input name="user" onChange={onInputChange} value={userInput.user} />
-        <input
+      <FormStyles onSubmit={createNewUser}>
+        <Input
+          name="user"
+          onChange={onInputChange}
+          value={userInput.user}
+          type="email"
+          placeholder="Email"
+        />
+        <Input
           name="password"
-          type="password"
           onChange={onInputChange}
           value={userInput.password}
+          type="password"
+          placeholder="Password"
         />
         <button onClick={createNewUser}>Log in</button>
-      </form>
+      </FormStyles>
     </div>
   );
 };
