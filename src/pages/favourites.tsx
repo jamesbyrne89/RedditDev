@@ -34,7 +34,8 @@ class FavouritesPage extends React.Component<P> {
       toggleTheme,
       themeName,
       user,
-      isAuthenticated
+      isAuthenticated,
+      onLogoutClick
     } = this.props;
     return (
       <Layout
@@ -43,8 +44,10 @@ class FavouritesPage extends React.Component<P> {
         onAddNewFavourite={onAddNewFavourite}
         toggleTheme={toggleTheme}
         themeName={themeName}
+        onLogoutClick={onLogoutClick}
+        isAuthenticated={isAuthenticated}
       >
-        {user ? (
+        {isAuthenticated ? (
           <CardContainer
             {...this.props}
             posts={favourites}

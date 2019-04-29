@@ -574,6 +574,12 @@ function (_App) {
       });
     });
 
+    _defineProperty(_assertThisInitialized(_this), "handleLogout", function () {
+      _db_firestore__WEBPACK_IMPORTED_MODULE_6__["auth"].signOut().then(function () {
+        console.log('Logged out.');
+      });
+    });
+
     return _this;
   }
 
@@ -583,6 +589,9 @@ function (_App) {
       var _componentDidMount = _asyncToGenerator(
       /*#__PURE__*/
       _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        var _this2 = this;
+
+        var authenticatedUser;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
@@ -590,8 +599,28 @@ function (_App) {
                 this.getPosts();
                 this.getFavourites();
                 this.getDisplayPreference();
+                authenticatedUser = null;
+                _db_firestore__WEBPACK_IMPORTED_MODULE_6__["auth"].onAuthStateChanged(function (user) {
+                  if (user) {
+                    console.info('*** User is signed in ***');
 
-              case 3:
+                    _this2.setState({
+                      isAuthenticated: user
+                    }); // var displayName = user.displayName;
+                    // var email = user.email;
+                    // var emailVerified = user.emailVerified;
+                    // var photoURL = user.photoURL;
+                    // var isAnonymous = user.isAnonymous;
+                    // var uid = user.uid;
+                    // var providerData = user.providerData;
+                    // ...
+
+                  } else {
+                    console.warn('*** User is signed out ***'); // checkAuthAndRedirect(ctx.res);
+                  }
+                });
+
+              case 5:
               case "end":
                 return _context2.stop();
             }
@@ -619,21 +648,22 @@ function (_App) {
           isFiltered = _this$state.isFiltered,
           theme = _this$state.theme,
           themeName = _this$state.themeName,
-          favourites = _this$state.favourites;
+          favourites = _this$state.favourites,
+          isAuthenticated = _this$state.isAuthenticated;
       var _this$props = this.props,
           Component = _this$props.Component,
           pageProps = _this$props.pageProps;
       return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(next_app__WEBPACK_IMPORTED_MODULE_2__["Container"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 171
+          lineNumber: 176
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(styled_components__WEBPACK_IMPORTED_MODULE_7__["ThemeProvider"], {
         theme: theme,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 172
+          lineNumber: 177
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Component, _extends({}, pageProps, {
@@ -644,9 +674,11 @@ function (_App) {
         favourites: favourites,
         toggleTheme: this.toggleTheme,
         themeName: themeName,
+        isAuthenticated: isAuthenticated,
+        onLogoutClick: this.handleLogout,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 173
+          lineNumber: 178
         },
         __self: this
       }))));
@@ -657,7 +689,7 @@ function (_App) {
       var _getInitialProps = _asyncToGenerator(
       /*#__PURE__*/
       _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(_ref2) {
-        var Component, ctx, pageProps, authenticatedUser;
+        var Component, ctx, pageProps;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
@@ -679,29 +711,11 @@ function (_App) {
                 pageProps = _context3.sent;
 
               case 6:
-                authenticatedUser = null; // auth.onAuthStateChanged(user => {
-                //   if (user) {
-                //     console.info('*** User is signed in ***');
-                //     var displayName = user.displayName;
-                //     var email = user.email;
-                //     var emailVerified = user.emailVerified;
-                //     var photoURL = user.photoURL;
-                //     var isAnonymous = user.isAnonymous;
-                //     var uid = user.uid;
-                //     var providerData = user.providerData;
-                //     // ...
-                //   } else {
-                //     console.warn('*** User is signed out ***');
-                //     // checkAuthAndRedirect(ctx.res);
-                //   }
-                // });
-
-                pageProps.isAuthenticated = !!authenticatedUser;
                 return _context3.abrupt("return", {
                   pageProps: pageProps
                 });
 
-              case 9:
+              case 7:
               case "end":
                 return _context3.stop();
             }

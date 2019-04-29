@@ -41,26 +41,6 @@ class MyApp extends App<Props> {
     if (Component.getInitialProps) {
       pageProps = await Component.getInitialProps(ctx);
     }
-
-    let authenticatedUser = null;
-    // auth.onAuthStateChanged(user => {
-    //   if (user) {
-    //     console.info('*** User is signed in ***');
-    //     var displayName = user.displayName;
-    //     var email = user.email;
-    //     var emailVerified = user.emailVerified;
-    //     var photoURL = user.photoURL;
-    //     var isAnonymous = user.isAnonymous;
-    //     var uid = user.uid;
-    //     var providerData = user.providerData;
-    //     // ...
-    //   } else {
-    //     console.warn('*** User is signed out ***');
-    //     // checkAuthAndRedirect(ctx.res);
-    //   }
-    // });
-
-    pageProps.isAuthenticated = !!authenticatedUser;
     return { pageProps };
   }
 
@@ -106,6 +86,24 @@ class MyApp extends App<Props> {
     this.getPosts();
     this.getFavourites();
     this.getDisplayPreference();
+    let authenticatedUser = null;
+    auth.onAuthStateChanged(user => {
+      if (user) {
+        console.info('*** User is signed in ***');
+        this.setState({ isAuthenticated: user });
+        // var displayName = user.displayName;
+        // var email = user.email;
+        // var emailVerified = user.emailVerified;
+        // var photoURL = user.photoURL;
+        // var isAnonymous = user.isAnonymous;
+        // var uid = user.uid;
+        // var providerData = user.providerData;
+        // ...
+      } else {
+        console.warn('*** User is signed out ***');
+        // checkAuthAndRedirect(ctx.res);
+      }
+    });
   }
 
   filterPosts = (searchTerm = '', subreddits = []) => {
@@ -152,6 +150,12 @@ class MyApp extends App<Props> {
     }));
   };
 
+  handleLogout = () => {
+    auth.signOut().then(() => {
+      console.log('Logged out.');
+    });
+  };
+
   componentDidUpdate() {
     this.setDisplayPreference(this.state.themeName);
   }
@@ -163,7 +167,8 @@ class MyApp extends App<Props> {
       isFiltered,
       theme,
       themeName,
-      favourites
+      favourites,
+      isAuthenticated
     } = this.state;
     const { Component, pageProps } = this.props;
 
@@ -179,6 +184,8 @@ class MyApp extends App<Props> {
             favourites={favourites}
             toggleTheme={this.toggleTheme}
             themeName={themeName}
+            isAuthenticated={isAuthenticated}
+            onLogoutClick={this.handleLogout}
           />
         </ThemeProvider>
       </Container>

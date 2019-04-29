@@ -8,12 +8,12 @@ import BackToTopButton from './BackToTopButton';
 import { debounce } from '../lib/utils';
 
 type P = {
-  title: string,
-  onSearchSubmit: Function,
-  onAddNewFavourite: Function,
-  toggleTheme: Function,
-  themeName: string,
-  children: React.ReactNode,
+  title: string;
+  onSearchSubmit: Function;
+  onAddNewFavourite: Function;
+  toggleTheme: Function;
+  themeName: string;
+  children: React.ReactNode;
 };
 
 const Layout = (props: P) => {
@@ -24,9 +24,11 @@ const Layout = (props: P) => {
     onAddNewFavourite,
     toggleTheme,
     themeName,
+    isAuthenticated,
+    onLogoutClick
   } = props;
 
-  const [ showBackToTopBtn, setShowBackToTopBtn ] = useState(false);
+  const [showBackToTopBtn, setShowBackToTopBtn] = useState(false);
 
   const onScroll = () => {
     if (window.scrollY > 500 && !showBackToTopBtn) {
@@ -35,26 +37,27 @@ const Layout = (props: P) => {
     return setShowBackToTopBtn(false);
   };
 
-  useEffect(
-    () => {
-      window.addEventListener('scroll', debounce(onScroll));
+  useEffect(() => {
+    window.addEventListener('scroll', debounce(onScroll));
 
-      return () => {
-        window.removeEventListener('scroll', debounce(onScroll));
-      };
-    },
-    [],
-  );
+    return () => {
+      window.removeEventListener('scroll', debounce(onScroll));
+    };
+  }, []);
 
   return (
     <div>
       <GlobalStyles {...props} />
-      <Head><title>{title}</title></Head>
+      <Head>
+        <title>{title}</title>
+      </Head>
       <Header
         onSearchSubmit={onSearchSubmit}
         onAddNewFavourite={onAddNewFavourite}
         toggle={toggleTheme}
         themeName={themeName}
+        isAuthenticated={isAuthenticated}
+        onLogoutClick={onLogoutClick}
       />
       <Sidebar />
       {children}
@@ -63,4 +66,4 @@ const Layout = (props: P) => {
   );
 };
 
-export default withTheme(Layout)
+export default withTheme(Layout);

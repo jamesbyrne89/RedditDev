@@ -7,7 +7,7 @@ import {
   StyledHeader,
   StyledMasthead,
   StyledHeaderTitle,
-  StyledNavItem,
+  StyledNavItem
 } from './styles/HeaderStyles';
 
 const onRouteChangeStart = () => {
@@ -26,24 +26,38 @@ Router.events.on('routeChangeStart', onRouteChangeStart);
 Router.events.on('routeChangeComplete', onRouteChangeComplete);
 Router.events.on('routeChangeError', onRouteChangeError);
 
-interface Props { onSearchSubmit: Function }
+interface Props {
+  onSearchSubmit: Function;
+}
 
 const Header: React.FunctionComponent<Props> = props => (
   <StyledHeader>
     <StyledMasthead>
       <div className="header__title-wrapper">
         <StyledHeaderTitle>
-          <Link href="/"><a>redditDev.</a></Link>
+          <Link href="/">
+            <a>redditDev.</a>
+          </Link>
         </StyledHeaderTitle>
       </div>
       <div>
         <div className="header__nav-wrapper">
           <ThemeToggler themeName={props.themeName} toggle={props.toggle} />
-          <Link href="/login"><a>Login</a></Link>
+          {props.isAuthenticated ? (
+            <Link href="/login">
+              <a onClick={props.onLogoutClick}>Logout</a>
+            </Link>
+          ) : (
+            <Link href="/login">
+              <a>Login</a>
+            </Link>
+          )}
         </div>
         <ul>
           <StyledNavItem>
-            <Link href="/favourites"><a>Favourites</a></Link>
+            <Link href="/favourites">
+              <a>Favourites</a>
+            </Link>
           </StyledNavItem>
           <StyledNavItem>
             <Search onSearchSubmit={props.onSearchSubmit} />
