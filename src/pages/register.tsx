@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { auth } from '../db/firestore';
+import db, { auth } from '../db/firestore';
 import {
   FormStyles,
   FormSubmitButtonStyles
@@ -24,6 +24,7 @@ const Register = () => {
     e.preventDefault();
     auth
       .createUserWithEmailAndPassword(userInput.user, userInput.password)
+      .then(cred => db.collection('users').doc(cred.user.uid))
       .catch(error => {
         // Handle Errors here.
         var errorCode = error.code;

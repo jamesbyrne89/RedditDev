@@ -39,6 +39,7 @@ class MyApp extends App<Props> {
   static async getInitialProps({ Component, ctx }: any) {
     let pageProps = { favourites: [] };
     if (Component.getInitialProps) {
+      console.log({ Component, ctx });
       pageProps = await Component.getInitialProps(ctx);
     }
     return { pageProps };
@@ -98,7 +99,14 @@ class MyApp extends App<Props> {
         // var isAnonymous = user.isAnonymous;
         // var uid = user.uid;
         // var providerData = user.providerData;
-        // ...
+        //
+        const dbUser = db
+          .collection('users')
+          .doc(user.uid)
+          .set({
+            email: user.email,
+            someotherproperty: 'some user preference'
+          });
       } else {
         console.warn('*** User is signed out ***');
         // checkAuthAndRedirect(ctx.res);

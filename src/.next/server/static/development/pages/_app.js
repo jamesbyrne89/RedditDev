@@ -613,8 +613,13 @@ function (_App) {
                     // var isAnonymous = user.isAnonymous;
                     // var uid = user.uid;
                     // var providerData = user.providerData;
-                    // ...
+                    //
 
+
+                    var dbUser = _db_firestore__WEBPACK_IMPORTED_MODULE_6__["default"].collection('users').doc(user.uid).set({
+                      email: user.email,
+                      someotherproperty: 'some user preference'
+                    });
                   } else {
                     console.warn('*** User is signed out ***'); // checkAuthAndRedirect(ctx.res);
                   }
@@ -656,14 +661,14 @@ function (_App) {
       return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(next_app__WEBPACK_IMPORTED_MODULE_2__["Container"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 176
+          lineNumber: 184
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(styled_components__WEBPACK_IMPORTED_MODULE_7__["ThemeProvider"], {
         theme: theme,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 177
+          lineNumber: 185
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Component, _extends({}, pageProps, {
@@ -678,7 +683,7 @@ function (_App) {
         onLogoutClick: this.handleLogout,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 178
+          lineNumber: 186
         },
         __self: this
       }))));
@@ -700,22 +705,26 @@ function (_App) {
                 };
 
                 if (!Component.getInitialProps) {
-                  _context3.next = 6;
+                  _context3.next = 7;
                   break;
                 }
 
-                _context3.next = 5;
+                console.log({
+                  Component: Component,
+                  ctx: ctx
+                });
+                _context3.next = 6;
                 return Component.getInitialProps(ctx);
 
-              case 5:
+              case 6:
                 pageProps = _context3.sent;
 
-              case 6:
+              case 7:
                 return _context3.abrupt("return", {
                   pageProps: pageProps
                 });
 
-              case 7:
+              case 8:
               case "end":
                 return _context3.stop();
             }
