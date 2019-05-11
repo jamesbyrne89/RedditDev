@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Fragment } from 'react';
 import Head from 'next/head';
 import { withTheme } from 'styled-components';
 import GlobalStyles from './styles/GlobalStyles';
+// import PageWrapper from './styles/PageWrapperStyles';
 import Header from './Header';
 import Sidebar from './Sidebar';
 import BackToTopButton from './BackToTopButton';
@@ -46,8 +47,11 @@ const Layout = (props: P) => {
   }, []);
 
   return (
-    <div>
+    <Fragment>
       <GlobalStyles {...props} />
+      <Head>
+        <title>{title}</title>
+      </Head>
       <Header
         onSearchSubmit={onSearchSubmit}
         onAddNewFavourite={onAddNewFavourite}
@@ -59,7 +63,7 @@ const Layout = (props: P) => {
       <Sidebar />
       {children}
       <BackToTopButton show={showBackToTopBtn} />
-    </div>
+    </Fragment>
   );
 };
 

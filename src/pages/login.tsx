@@ -1,26 +1,23 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import Router from 'next/router';
 import { auth } from '../db/firestore';
 import {
   FormStyles,
   FormSubmitButtonStyles
 } from '../components/styles/FormStyles';
 import Input from '../components/Input';
+import Loader from '../components/Loader';
 
-const Login = () => {
+const Login = ({ isAuthenticated, loading }) => {
   const [userInput, setUserInput] = useState({ user: '', password: '' });
   const [errorMessage, setErrorMessage] = useState(null);
 
-  // Login.getInitialProps = async ({ res }) => {
-  //   if (!res) {
-  //     Router.push('/');
-  //     // res.writeHead(302, {
-  //     //   Location: '/login'
-  //     // });
-  //     // res.end();
-  //   } else {
-  //   }
-  //   return { pageProps };
-  // };
+  useEffect(() => {
+    console.log(isAuthenticated);
+    if (isAuthenticated) {
+      Router.push('/');
+    }
+  }, [isAuthenticated]);
 
   const signInUser = e => {
     e.preventDefault();
@@ -37,27 +34,31 @@ const Login = () => {
 
   return (
     <div>
-      <FormStyles onSubmit={signInUser}>
-        <h2>Log in</h2>
-        <Input
-          name="user"
-          onChange={onInputChange}
-          value={userInput.user}
-          type="email"
-          placeholder="Email"
-        />
-        <Input
-          name="password"
-          onChange={onInputChange}
-          value={userInput.password}
-          type="password"
-          placeholder="Password"
-        />
-        <div>{errorMessage}</div>
-        <FormSubmitButtonStyles onClick={signInUser}>
-          Log in
-        </FormSubmitButtonStyles>
-      </FormStyles>
+      {loading ? (
+        <Loader />
+      ) : (
+        <FormStyles onSubmit={signInUser}>
+          <h2>Log in</h2>
+          <Input
+            name="user"
+            onChange={onInputChange}
+            value={userInput.user}
+            type="email"
+            placeholder="Email"
+          />
+          <Input
+            name="password"
+            onChange={onInputChange}
+            value={userInput.password}
+            type="password"
+            placeholder="Password"
+          />
+          <div>{errorMessage}</div>
+          <FormSubmitButtonStyles onClick={signInUser}>
+            Log in
+          </FormSubmitButtonStyles>
+        </FormStyles>
+      )}
     </div>
   );
 };

@@ -30,42 +30,45 @@ interface Props {
   onSearchSubmit: Function;
 }
 
-const Header: React.FunctionComponent<Props> = props => (
-  <StyledHeader>
-    <StyledMasthead>
-      <div className="header__title-wrapper">
-        <StyledHeaderTitle>
-          <Link href="/">
-            <a>redditDev.</a>
-          </Link>
-        </StyledHeaderTitle>
-      </div>
-      <div>
-        <div className="header__nav-wrapper">
-          <ThemeToggler themeName={props.themeName} toggle={props.toggle} />
-          {props.isAuthenticated ? (
-            <Link href="/login">
-              <a onClick={props.onLogoutClick}>Logout</a>
+const Header: React.FunctionComponent<Props> = props =>
+  console.log(props.isAuthenticated) || (
+    <StyledHeader>
+      <StyledMasthead>
+        <div className="header__title-wrapper">
+          <StyledHeaderTitle>
+            <Link href="/">
+              <a>redditDev.</a>
             </Link>
-          ) : (
-            <Link href="/login">
-              <a>Login</a>
-            </Link>
-          )}
+          </StyledHeaderTitle>
         </div>
-        <ul>
-          <StyledNavItem>
-            <Link href="/favourites">
-              <a>Favourites</a>
-            </Link>
-          </StyledNavItem>
-          <StyledNavItem>
-            <Search onSearchSubmit={props.onSearchSubmit} />
-          </StyledNavItem>
-        </ul>
-      </div>
-    </StyledMasthead>
-  </StyledHeader>
-);
+        <div>
+          <div className="header__nav-wrapper">
+            <ThemeToggler themeName={props.themeName} toggle={props.toggle} />
+            {props.isAuthenticated ? (
+              <Link href=".">
+                <a onClick={props.onLogoutClick}>Logout</a>
+              </Link>
+            ) : (
+              <Link href="/login">
+                <a>Login</a>
+              </Link>
+            )}
+          </div>
+          <ul>
+            {props.isAuthenticated && (
+              <StyledNavItem>
+                <Link href="/favourites">
+                  <a>Favourites</a>
+                </Link>
+              </StyledNavItem>
+            )}
+            <StyledNavItem>
+              <Search onSearchSubmit={props.onSearchSubmit} />
+            </StyledNavItem>
+          </ul>
+        </div>
+      </StyledMasthead>
+    </StyledHeader>
+  );
 
 export default Header;

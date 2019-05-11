@@ -89,19 +89,12 @@ class MyApp extends App<Props> {
   async componentDidMount() {
     this.getPosts();
     this.getDisplayPreference();
-    let authenticatedUser = null;
+
     auth.onAuthStateChanged(user => {
+      console.log('Auth state changed.');
       if (user) {
         console.info('*** User is signed in ***', user);
         this.setState({ isAuthenticated: user, uid: user.uid });
-        // var displayName = user.displayName;
-        // var email = user.email;
-        // var emailVerified = user.emailVerified;
-        // var photoURL = user.photoURL;
-        // var isAnonymous = user.isAnonymous;
-        // var uid = user.uid;
-        // var providerData = user.providerData;
-        //
         db.collection('users')
           .doc(user.uid)
           .set({
@@ -110,6 +103,7 @@ class MyApp extends App<Props> {
         this.getFavourites();
       } else {
         console.warn('*** User is signed out ***');
+        this.setState({ isAuthenticated: null, uid: null });
         // checkAuthAndRedirect(ctx.res);
       }
     });
@@ -132,7 +126,16 @@ class MyApp extends App<Props> {
     });
   };
 
+  addToLocalFavourites = (postToAdd: IFavouritePost): void => {
+    const favouritesString = JSON.stringify([postToAdd]);
+    sessionStorage.setItem('favourites', favouritesString);
+  };
+
   addToFavourites = (postToAdd: IFavouritePost): void => {
+    if (!isAuthenticated) {
+      this.addToLocalFavourites(postToAdd);
+      return;
+    }
     if (postToAdd.doc_id) {
       return this.removeFromFavourites(postToAdd);
     }

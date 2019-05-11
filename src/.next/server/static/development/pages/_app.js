@@ -548,7 +548,18 @@ function (_App) {
       });
     });
 
+    _defineProperty(_assertThisInitialized(_this), "addToLocalFavourites", function (postToAdd) {
+      var favouritesString = JSON.stringify([postToAdd]);
+      sessionStorage.setItem('favourites', favouritesString);
+    });
+
     _defineProperty(_assertThisInitialized(_this), "addToFavourites", function (postToAdd) {
+      if (!isAuthenticated) {
+        _this.addToLocalFavourites(postToAdd);
+
+        return;
+      }
+
       if (postToAdd.doc_id) {
         return _this.removeFromFavourites(postToAdd);
       }
@@ -592,30 +603,22 @@ function (_App) {
       _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
         var _this2 = this;
 
-        var authenticatedUser;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
                 this.getPosts();
                 this.getDisplayPreference();
-                authenticatedUser = null;
                 _db_firestore__WEBPACK_IMPORTED_MODULE_6__["auth"].onAuthStateChanged(function (user) {
+                  console.log('Auth state changed.');
+
                   if (user) {
                     console.info('*** User is signed in ***', user);
 
                     _this2.setState({
                       isAuthenticated: user,
                       uid: user.uid
-                    }); // var displayName = user.displayName;
-                    // var email = user.email;
-                    // var emailVerified = user.emailVerified;
-                    // var photoURL = user.photoURL;
-                    // var isAnonymous = user.isAnonymous;
-                    // var uid = user.uid;
-                    // var providerData = user.providerData;
-                    //
-
+                    });
 
                     _db_firestore__WEBPACK_IMPORTED_MODULE_6__["default"].collection('users').doc(user.uid).set({
                       email: user.email
@@ -623,11 +626,17 @@ function (_App) {
 
                     _this2.getFavourites();
                   } else {
-                    console.warn('*** User is signed out ***'); // checkAuthAndRedirect(ctx.res);
+                    console.warn('*** User is signed out ***');
+
+                    _this2.setState({
+                      isAuthenticated: null,
+                      uid: null
+                    }); // checkAuthAndRedirect(ctx.res);
+
                   }
                 });
 
-              case 4:
+              case 3:
               case "end":
                 return _context2.stop();
             }
@@ -664,14 +673,14 @@ function (_App) {
       return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(next_app__WEBPACK_IMPORTED_MODULE_2__["Container"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 190
+          lineNumber: 193
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(styled_components__WEBPACK_IMPORTED_MODULE_7__["ThemeProvider"], {
         theme: theme,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 191
+          lineNumber: 194
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Component, _extends({}, pageProps, {
@@ -686,7 +695,7 @@ function (_App) {
         onLogoutClick: this.handleLogout,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 192
+          lineNumber: 195
         },
         __self: this
       }))));

@@ -18,6 +18,12 @@ body {
     padding: 0;
 }
 
+#__next {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 
 * {
   box-sizing: border-box;
