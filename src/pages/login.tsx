@@ -8,16 +8,26 @@ import Input from '../components/Input';
 
 const Login = () => {
   const [userInput, setUserInput] = useState({ user: '', password: '' });
+  const [errorMessage, setErrorMessage] = useState(null);
+
+  // Login.getInitialProps = async ({ res }) => {
+  //   if (!res) {
+  //     Router.push('/');
+  //     // res.writeHead(302, {
+  //     //   Location: '/login'
+  //     // });
+  //     // res.end();
+  //   } else {
+  //   }
+  //   return { pageProps };
+  // };
 
   const signInUser = e => {
     e.preventDefault();
     const { user, password } = userInput;
     auth.signInWithEmailAndPassword(user, password).catch(error => {
-      // Handle Errors here.
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      console.log(error);
-      // ...
+      console.error(error.code);
+      setErrorMessage(error.message);
     });
   };
 
@@ -43,6 +53,7 @@ const Login = () => {
           type="password"
           placeholder="Password"
         />
+        <div>{errorMessage}</div>
         <FormSubmitButtonStyles onClick={signInUser}>
           Log in
         </FormSubmitButtonStyles>

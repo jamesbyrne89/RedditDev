@@ -8,8 +8,9 @@ export default class MyDocument extends Document {
     const sheet = new ServerStyleSheet();
 
     // Step 2: Retrieve styles from components in the page
-    const page = renderPage(App =>
-      (props: any) => sheet.collectStyles(<App {...props} />));
+    const page = renderPage(App => (props: any) =>
+      sheet.collectStyles(<App {...props} />)
+    );
 
     // Step 3: Extract the styles as <style> tags
     const styleTags = sheet.getStyleElement();
@@ -30,28 +31,24 @@ export default class MyDocument extends Document {
           <link
             href="https://fonts.googleapis.com/css?family=Space+Mono:300,400"
             rel="stylesheet"
-          >
-          </link>
+          />
           <link
             rel="apple-touch-icon"
             sizes="180x180"
             href="/static/apple-touch-icon.png"
-          >
-          </link>
+          />
           <link
             rel="icon"
             type="image/png"
             sizes="32x32"
             href="/static/images/favicon-32x32.png"
-          >
-          </link>
+          />
           <link
             rel="icon"
             type="image/png"
             sizes="16x16"
             href="/static/images/favicon-16x16.png"
-          >
-          </link>
+          />
           <link rel="stylesheet" type="text/css" href="/static/nprogress.css" />
           {this.props.styleTags}
         </Head>

@@ -33,26 +33,29 @@ class MyApp extends App<Props> {
     isFiltered: false,
     favourites: [],
     theme: lightTheme,
-    themeName: 'light'
+    themeName: 'light',
+    uid: null
   };
 
   static async getInitialProps({ Component, ctx }: any) {
     let pageProps = { favourites: [] };
     if (Component.getInitialProps) {
-      console.log({ Component, ctx });
       pageProps = await Component.getInitialProps(ctx);
     }
     return { pageProps };
   }
 
   getFavourites = () => {
-    db.collection('favourites').onSnapshot(querySnapshot => {
-      const favourites = querySnapshot.docs.map(doc => ({
-        doc_id: doc.id,
-        data: doc.data().data
-      }));
-      this.setState({ favourites });
-    });
+    db.collection('users')
+      .doc(this.state.uid)
+      .collection('favourites')
+      .onSnapshot(querySnapshot => {
+        const favourites = querySnapshot.docs.map(doc => ({
+          doc_id: doc.id,
+          data: doc.data().data
+        }));
+        this.setState({ favourites });
+      });
   };
 
   getPosts = async () => {
@@ -85,13 +88,12 @@ class MyApp extends App<Props> {
 
   async componentDidMount() {
     this.getPosts();
-    this.getFavourites();
     this.getDisplayPreference();
     let authenticatedUser = null;
     auth.onAuthStateChanged(user => {
       if (user) {
-        console.info('*** User is signed in ***');
-        this.setState({ isAuthenticated: user });
+        console.info('*** User is signed in ***', user);
+        this.setState({ isAuthenticated: user, uid: user.uid });
         // var displayName = user.displayName;
         // var email = user.email;
         // var emailVerified = user.emailVerified;
@@ -100,13 +102,12 @@ class MyApp extends App<Props> {
         // var uid = user.uid;
         // var providerData = user.providerData;
         //
-        const dbUser = db
-          .collection('users')
+        db.collection('users')
           .doc(user.uid)
           .set({
-            email: user.email,
-            someotherproperty: 'some user preference'
+            email: user.email
           });
+        this.getFavourites();
       } else {
         console.warn('*** User is signed out ***');
         // checkAuthAndRedirect(ctx.res);
@@ -135,7 +136,9 @@ class MyApp extends App<Props> {
     if (postToAdd.doc_id) {
       return this.removeFromFavourites(postToAdd);
     }
-    db.collection('favourites')
+    db.collection('users')
+      .doc(this.state.uid)
+      .collection('favourites')
       .add(postToAdd)
       .then(docRef => {
         console.log('added', { ...postToAdd, doc_id: docRef.id });
@@ -146,7 +149,9 @@ class MyApp extends App<Props> {
   };
 
   removeFromFavourites = (postToRemove: IFavouritePost): void => {
-    db.collection('favourites')
+    db.collection('users')
+      .doc(this.state.uid)
+      .collection('favourites')
       .doc(postToRemove.doc_id)
       .delete();
   };
@@ -176,6 +181,7 @@ class MyApp extends App<Props> {
       theme,
       themeName,
       favourites,
+      loading,
       isAuthenticated
     } = this.state;
     const { Component, pageProps } = this.props;
@@ -186,7 +192,7 @@ class MyApp extends App<Props> {
           <Component
             {...pageProps}
             posts={isFiltered ? filteredPosts : posts}
-            loading={this.state.loading}
+            loading={loading}
             onSearchSubmit={this.filterPosts}
             onAddToFavourites={this.addToFavourites}
             favourites={favourites}

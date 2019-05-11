@@ -48,9 +48,6 @@ const Layout = (props: P) => {
   return (
     <div>
       <GlobalStyles {...props} />
-      <Head>
-        <title>{title}</title>
-      </Head>
       <Header
         onSearchSubmit={onSearchSubmit}
         onAddNewFavourite={onAddNewFavourite}

@@ -459,11 +459,12 @@ function (_App) {
       isFiltered: false,
       favourites: [],
       theme: _components_styles_constants__WEBPACK_IMPORTED_MODULE_8__["lightTheme"],
-      themeName: 'light'
+      themeName: 'light',
+      uid: null
     });
 
     _defineProperty(_assertThisInitialized(_this), "getFavourites", function () {
-      _db_firestore__WEBPACK_IMPORTED_MODULE_6__["default"].collection('favourites').onSnapshot(function (querySnapshot) {
+      _db_firestore__WEBPACK_IMPORTED_MODULE_6__["default"].collection('users').doc(_this.state.uid).collection('favourites').onSnapshot(function (querySnapshot) {
         var favourites = querySnapshot.docs.map(function (doc) {
           return {
             doc_id: doc.id,
@@ -552,7 +553,7 @@ function (_App) {
         return _this.removeFromFavourites(postToAdd);
       }
 
-      _db_firestore__WEBPACK_IMPORTED_MODULE_6__["default"].collection('favourites').add(postToAdd).then(function (docRef) {
+      _db_firestore__WEBPACK_IMPORTED_MODULE_6__["default"].collection('users').doc(_this.state.uid).collection('favourites').add(postToAdd).then(function (docRef) {
         console.log('added', _objectSpread({}, postToAdd, {
           doc_id: docRef.id
         }));
@@ -562,7 +563,7 @@ function (_App) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "removeFromFavourites", function (postToRemove) {
-      _db_firestore__WEBPACK_IMPORTED_MODULE_6__["default"].collection('favourites').doc(postToRemove.doc_id).delete();
+      _db_firestore__WEBPACK_IMPORTED_MODULE_6__["default"].collection('users').doc(_this.state.uid).collection('favourites').doc(postToRemove.doc_id).delete();
     });
 
     _defineProperty(_assertThisInitialized(_this), "toggleTheme", function () {
@@ -597,15 +598,15 @@ function (_App) {
             switch (_context2.prev = _context2.next) {
               case 0:
                 this.getPosts();
-                this.getFavourites();
                 this.getDisplayPreference();
                 authenticatedUser = null;
                 _db_firestore__WEBPACK_IMPORTED_MODULE_6__["auth"].onAuthStateChanged(function (user) {
                   if (user) {
-                    console.info('*** User is signed in ***');
+                    console.info('*** User is signed in ***', user);
 
                     _this2.setState({
-                      isAuthenticated: user
+                      isAuthenticated: user,
+                      uid: user.uid
                     }); // var displayName = user.displayName;
                     // var email = user.email;
                     // var emailVerified = user.emailVerified;
@@ -616,16 +617,17 @@ function (_App) {
                     //
 
 
-                    var dbUser = _db_firestore__WEBPACK_IMPORTED_MODULE_6__["default"].collection('users').doc(user.uid).set({
-                      email: user.email,
-                      someotherproperty: 'some user preference'
+                    _db_firestore__WEBPACK_IMPORTED_MODULE_6__["default"].collection('users').doc(user.uid).set({
+                      email: user.email
                     });
+
+                    _this2.getFavourites();
                   } else {
                     console.warn('*** User is signed out ***'); // checkAuthAndRedirect(ctx.res);
                   }
                 });
 
-              case 5:
+              case 4:
               case "end":
                 return _context2.stop();
             }
@@ -654,6 +656,7 @@ function (_App) {
           theme = _this$state.theme,
           themeName = _this$state.themeName,
           favourites = _this$state.favourites,
+          loading = _this$state.loading,
           isAuthenticated = _this$state.isAuthenticated;
       var _this$props = this.props,
           Component = _this$props.Component,
@@ -661,19 +664,19 @@ function (_App) {
       return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(next_app__WEBPACK_IMPORTED_MODULE_2__["Container"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 184
+          lineNumber: 190
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(styled_components__WEBPACK_IMPORTED_MODULE_7__["ThemeProvider"], {
         theme: theme,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 185
+          lineNumber: 191
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Component, _extends({}, pageProps, {
         posts: isFiltered ? filteredPosts : posts,
-        loading: this.state.loading,
+        loading: loading,
         onSearchSubmit: this.filterPosts,
         onAddToFavourites: this.addToFavourites,
         favourites: favourites,
@@ -683,7 +686,7 @@ function (_App) {
         onLogoutClick: this.handleLogout,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 186
+          lineNumber: 192
         },
         __self: this
       }))));
@@ -705,26 +708,22 @@ function (_App) {
                 };
 
                 if (!Component.getInitialProps) {
-                  _context3.next = 7;
+                  _context3.next = 6;
                   break;
                 }
 
-                console.log({
-                  Component: Component,
-                  ctx: ctx
-                });
-                _context3.next = 6;
+                _context3.next = 5;
                 return Component.getInitialProps(ctx);
 
-              case 6:
+              case 5:
                 pageProps = _context3.sent;
 
-              case 7:
+              case 6:
                 return _context3.abrupt("return", {
                   pageProps: pageProps
                 });
 
-              case 8:
+              case 7:
               case "end":
                 return _context3.stop();
             }
