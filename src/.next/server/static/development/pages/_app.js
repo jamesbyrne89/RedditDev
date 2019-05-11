@@ -548,18 +548,7 @@ function (_App) {
       });
     });
 
-    _defineProperty(_assertThisInitialized(_this), "addToLocalFavourites", function (postToAdd) {
-      var favouritesString = JSON.stringify([postToAdd]);
-      sessionStorage.setItem('favourites', favouritesString);
-    });
-
     _defineProperty(_assertThisInitialized(_this), "addToFavourites", function (postToAdd) {
-      if (!isAuthenticated) {
-        _this.addToLocalFavourites(postToAdd);
-
-        return;
-      }
-
       if (postToAdd.doc_id) {
         return _this.removeFromFavourites(postToAdd);
       }
@@ -673,14 +662,14 @@ function (_App) {
       return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(next_app__WEBPACK_IMPORTED_MODULE_2__["Container"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 193
+          lineNumber: 184
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(styled_components__WEBPACK_IMPORTED_MODULE_7__["ThemeProvider"], {
         theme: theme,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 194
+          lineNumber: 185
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Component, _extends({}, pageProps, {
@@ -695,7 +684,7 @@ function (_App) {
         onLogoutClick: this.handleLogout,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 195
+          lineNumber: 186
         },
         __self: this
       }))));

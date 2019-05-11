@@ -2,7 +2,6 @@ import React, { useEffect, useState, Fragment } from 'react';
 import Head from 'next/head';
 import { withTheme } from 'styled-components';
 import GlobalStyles from './styles/GlobalStyles';
-// import PageWrapper from './styles/PageWrapperStyles';
 import Header from './Header';
 import Sidebar from './Sidebar';
 import BackToTopButton from './BackToTopButton';
@@ -15,6 +14,8 @@ type P = {
   toggleTheme: Function;
   themeName: string;
   children: React.ReactNode;
+  isAuthenticated: any;
+  onLogoutClick: Function;
 };
 
 const Layout = (props: P) => {

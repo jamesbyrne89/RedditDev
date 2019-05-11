@@ -11,6 +11,7 @@ type Props = {
   loading: boolean;
   EmptyState: React.FunctionComponent;
   onAddToFavourites: Function;
+  isAuthenticated: any;
 };
 
 const CardContainer = (props: Props) => {
