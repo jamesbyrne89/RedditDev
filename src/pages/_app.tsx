@@ -126,16 +126,7 @@ class MyApp extends App<Props> {
     });
   };
 
-  addToLocalFavourites = (postToAdd: IFavouritePost): void => {
-    const favouritesString = JSON.stringify([postToAdd]);
-    sessionStorage.setItem('favourites', favouritesString);
-  };
-
   addToFavourites = (postToAdd: IFavouritePost): void => {
-    if (!isAuthenticated) {
-      this.addToLocalFavourites(postToAdd);
-      return;
-    }
     if (postToAdd.doc_id) {
       return this.removeFromFavourites(postToAdd);
     }
