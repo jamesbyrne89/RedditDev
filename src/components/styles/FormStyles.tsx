@@ -11,6 +11,7 @@ export const FormStyles = styled.form`
   border: solid 1px ${props => props.theme.border_colour};
   h2 {
     font-family: ${constants.serif};
+    margin-top: 0;
   }
 `;
 

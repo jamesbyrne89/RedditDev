@@ -1,3 +1,4 @@
+import { Fragment } from 'react';
 import Link from 'next/link';
 import Router from 'next/router';
 import NProgress from 'nprogress';
@@ -48,9 +49,14 @@ const Header: React.FunctionComponent<Props> = props => (
               <a onClick={props.onLogoutClick}>Logout</a>
             </Link>
           ) : (
-            <Link href="/login">
-              <a>Login</a>
-            </Link>
+            <Fragment>
+              <Link href="/login">
+                <a>Login</a>
+              </Link>
+              <Link href="/register">
+                <a>Sign Up</a>
+              </Link>
+            </Fragment>
           )}
         </div>
         <ul>

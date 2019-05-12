@@ -6,6 +6,7 @@ const ThemeTogglerStyles = styled.div`
     display: flex;
     color: ${props => props.theme.button_colour};
     font-size: 0.875rem;
+    margin: 0 1rem;
 
   .toggle-container {
     display: flex;

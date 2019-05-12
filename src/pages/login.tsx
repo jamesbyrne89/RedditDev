@@ -13,7 +13,6 @@ const Login = ({ isAuthenticated, loading }) => {
   const [errorMessage, setErrorMessage] = useState(null);
 
   useEffect(() => {
-    console.log(isAuthenticated);
     if (isAuthenticated) {
       Router.push('/');
     }

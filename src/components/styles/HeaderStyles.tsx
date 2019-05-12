@@ -19,6 +19,16 @@ export const StyledHeader = styled.header`
     display: flex;
     justify-content: flex-end;
     padding-top: 0.25rem;
+    > a {
+      margin: 0 0.5rem;
+      border-bottom: solid 1px transparent;
+      &:last-of-type {
+        margin-right: 0;
+      }
+      &:hover {
+        border-bottom: solid 1px currentColor;
+      }
+    }
   }
   ul {
     display: flex;
