@@ -429,21 +429,28 @@ var CardContainer = function CardContainer(props) {
   var posts = props.posts,
       favourites = props.favourites,
       loading = props.loading,
-      emptyState = props.emptyState,
-      onAddToFavourites = props.onAddToFavourites;
+      EmptyState = props.EmptyState,
+      onAddToFavourites = props.onAddToFavourites,
+      isAuthenticated = props.isAuthenticated;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_CardContainerStyles__WEBPACK_IMPORTED_MODULE_4__["CardContainerStyles"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 20
+      lineNumber: 28
     },
     __self: this
   }, loading ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Loader__WEBPACK_IMPORTED_MODULE_3__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 23
+      lineNumber: 30
     },
     __self: this
-  }) : posts.length === 0 && emptyState ? emptyState : posts.map(function (post) {
+  }) : posts.length === 0 && EmptyState ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(EmptyState, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 32
+    },
+    __self: this
+  }) : isAuthenticated && posts.map(function (post) {
     var favouriteMatch = favourites.filter(Object(_lib_utils__WEBPACK_IMPORTED_MODULE_1__["isAlreadyFavourite"])({
       data: {
         title: post.data.title,
@@ -466,7 +473,7 @@ var CardContainer = function CardContainer(props) {
       onAddToFavourites: onAddToFavourites,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 37
+        lineNumber: 47
       },
       __self: this
     });
@@ -506,6 +513,7 @@ var _jsxFileName = "E:\\Users\\James\\Web Dev\\Projects\\RedditDev\\src\\compone
 
 
 
+
 var onRouteChangeStart = function onRouteChangeStart() {
   nprogress__WEBPACK_IMPORTED_MODULE_3___default.a.start();
 };
@@ -526,52 +534,52 @@ var Header = function Header(props) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_HeaderStyles__WEBPACK_IMPORTED_MODULE_6__["StyledHeader"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 32
+      lineNumber: 35
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_HeaderStyles__WEBPACK_IMPORTED_MODULE_6__["StyledMasthead"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 33
+      lineNumber: 36
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "header__title-wrapper",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 34
+      lineNumber: 37
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_HeaderStyles__WEBPACK_IMPORTED_MODULE_6__["StyledHeaderTitle"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 35
+      lineNumber: 38
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
     href: "/",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 36
+      lineNumber: 39
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 36
+      lineNumber: 40
     },
     __self: this
   }, "redditDev.")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 39
+      lineNumber: 44
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "header__nav-wrapper",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 40
+      lineNumber: 45
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ThemeToggler__WEBPACK_IMPORTED_MODULE_5__["default"], {
@@ -579,45 +587,91 @@ var Header = function Header(props) {
     toggle: props.toggle,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 41
+      lineNumber: 46
     },
     __self: this
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+  }), props.isAuthenticated ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+    href: ".",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 43
+      lineNumber: 48
     },
     __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_HeaderStyles__WEBPACK_IMPORTED_MODULE_6__["StyledNavItem"], {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    onClick: props.onLogoutClick,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 44
+      lineNumber: 49
+    },
+    __self: this
+  }, "Logout")) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 52
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+    href: "/login",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 53
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 54
+    },
+    __self: this
+  }, "Login")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+    href: "/register",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 56
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 57
+    },
+    __self: this
+  }, "Sign Up")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 62
+    },
+    __self: this
+  }, props.isAuthenticated && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_HeaderStyles__WEBPACK_IMPORTED_MODULE_6__["StyledNavItem"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 64
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
     href: "/favourites",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 45
+      lineNumber: 65
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 45
+      lineNumber: 66
     },
     __self: this
   }, "Favourites"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_HeaderStyles__WEBPACK_IMPORTED_MODULE_6__["StyledNavItem"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 47
+      lineNumber: 70
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Search__WEBPACK_IMPORTED_MODULE_4__["default"], {
     onSearchSubmit: props.onSearchSubmit,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 48
+      lineNumber: 71
     },
     __self: this
   }))))));
@@ -674,7 +728,9 @@ var Layout = function Layout(props) {
       onSearchSubmit = props.onSearchSubmit,
       onAddNewFavourite = props.onAddNewFavourite,
       toggleTheme = props.toggleTheme,
-      themeName = props.themeName;
+      themeName = props.themeName,
+      isAuthenticated = props.isAuthenticated,
+      onLogoutClick = props.onLogoutClick;
 
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
       _useState2 = _slicedToArray(_useState, 2),
@@ -695,28 +751,28 @@ var Layout = function Layout(props) {
       window.removeEventListener('scroll', Object(_lib_utils__WEBPACK_IMPORTED_MODULE_7__["debounce"])(onScroll));
     };
   }, []);
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 50
-    },
-    __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_GlobalStyles__WEBPACK_IMPORTED_MODULE_3__["default"], _extends({}, props, {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 51
     },
     __self: this
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_head__WEBPACK_IMPORTED_MODULE_1___default.a, {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_GlobalStyles__WEBPACK_IMPORTED_MODULE_3__["default"], _extends({}, props, {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 52
     },
     __self: this
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_head__WEBPACK_IMPORTED_MODULE_1___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 53
+    },
+    __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("title", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 52
+      lineNumber: 54
     },
     __self: this
   }, title)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Header__WEBPACK_IMPORTED_MODULE_4__["default"], {
@@ -724,22 +780,24 @@ var Layout = function Layout(props) {
     onAddNewFavourite: onAddNewFavourite,
     toggle: toggleTheme,
     themeName: themeName,
+    isAuthenticated: isAuthenticated,
+    onLogoutClick: onLogoutClick,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 53
+      lineNumber: 56
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Sidebar__WEBPACK_IMPORTED_MODULE_5__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 59
+      lineNumber: 64
     },
     __self: this
   }), children, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_BackToTopButton__WEBPACK_IMPORTED_MODULE_6__["default"], {
     show: showBackToTopBtn,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 61
+      lineNumber: 66
     },
     __self: this
   }));
@@ -827,6 +885,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+//interface State { input: string }
 var subreddits = ['webdev', 'web_design', 'frontend', 'css', 'javascript', 'reactjs', 'graphql', 'node', 'typescript', 'vue'];
 
 var Search = function Search(props) {
@@ -899,7 +958,7 @@ var Search = function Search(props) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 76
+      lineNumber: 75
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_SearchStyles__WEBPACK_IMPORTED_MODULE_2__["default"], {
@@ -907,7 +966,7 @@ var Search = function Search(props) {
     ref: searchRef,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 77
+      lineNumber: 76
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -919,7 +978,7 @@ var Search = function Search(props) {
     onFocus: handleFocus,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 78
+      lineNumber: 77
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", {
@@ -932,14 +991,14 @@ var Search = function Search(props) {
     className: "search__icon",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 86
+      lineNumber: 85
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
     d: "M78.129 78.325L65.121 61.063c8.65-8.773 9.834-22.812 2.203-32.938-4.822-6.396-12.186-10.064-20.203-10.064-5.52 0-10.775 1.762-15.195 5.092-11.131 8.393-13.361 24.271-4.975 35.396 4.822 6.396 12.186 10.066 20.205 10.066 4.74 0 9.25-1.373 13.242-3.848l12.938 17.17 4.793-3.612zM31.742 54.938c-6.395-8.484-4.693-20.594 3.793-26.992a19.114 19.114 0 0 1 11.586-3.885c6.117 0 11.734 2.799 15.41 7.676 6.398 8.49 4.697 20.6-3.793 26.996a19.092 19.092 0 0 1-11.582 3.883c-6.117 0-11.736-2.797-15.414-7.678z",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 95
+      lineNumber: 94
     },
     __self: this
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -948,27 +1007,27 @@ var Search = function Search(props) {
     className: "search__close-btn",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 99
+      lineNumber: 96
     },
     __self: this
   }), isFocused && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_SearchStyles__WEBPACK_IMPORTED_MODULE_2__["SearchDropdownStyles"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 106
+      lineNumber: 102
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "search__sub-list-title",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 107
+      lineNumber: 103
     },
     __self: this
   }, "Include subreddits:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
     className: "search__dropdown-list",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 110
+      lineNumber: 104
     },
     __self: this
   }, selectedSubs.map(function (subName, idx) {
@@ -976,7 +1035,7 @@ var Search = function Search(props) {
       key: idx,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 113
+        lineNumber: 106
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_CardStyles__WEBPACK_IMPORTED_MODULE_3__["SubRedditNameStyles"], {
@@ -986,14 +1045,14 @@ var Search = function Search(props) {
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 114
+        lineNumber: 107
       },
       __self: this
     }, subName));
   })), unSelectedSubs.length > 0 && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 125
+      lineNumber: 117
     },
     __self: this
   }, unSelectedSubs.map(function (subName, idx) {
@@ -1001,7 +1060,7 @@ var Search = function Search(props) {
       key: idx,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 128
+        lineNumber: 119
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_CardStyles__WEBPACK_IMPORTED_MODULE_3__["SubRedditNameStyles"], {
@@ -1012,7 +1071,7 @@ var Search = function Search(props) {
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 129
+        lineNumber: 120
       },
       __self: this
     }, subName));
@@ -1333,7 +1392,7 @@ __webpack_require__.r(__webpack_exports__);
 var CardContainerStyles = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].main.withConfig({
   displayName: "CardContainerStyles",
   componentId: "sc-1d4sp1d-0"
-})(["position:relative;-webkit-column-count:4;column-count:4;-webkit-column-gap:2.5em;column-gap:2.5em;border-top:solid 1px ", ";padding-top:1.25em;padding-bottom:1em;width:85%;margin:2rem auto;margin-left:calc(7.5% + 2rem);@media (max-width:", "px){column-gap:1.5rem;}@media (max-width:", "px){column-count:3;}@media (max-width:", "px){column-count:2;}@media (max-width:", "px){column-gap:1rem;width:90%;margin-left:calc(5% + 2rem);}@media (max-width:", "px){column-count:1;width:95%;margin-left:auto;}&::after{content:'';width:100%;position:fixed;height:40px;background:", ";pointer-events:none;bottom:0;left:0;}"], _constants__WEBPACK_IMPORTED_MODULE_1__["constants"].text_grey_mid_two, _constants__WEBPACK_IMPORTED_MODULE_1__["sizes"].desktop_lg, _constants__WEBPACK_IMPORTED_MODULE_1__["sizes"].desktop_md, _constants__WEBPACK_IMPORTED_MODULE_1__["sizes"].desktop_sm, _constants__WEBPACK_IMPORTED_MODULE_1__["sizes"].tablet, _constants__WEBPACK_IMPORTED_MODULE_1__["sizes"].mobile, function (props) {
+})(["position:relative;-webkit-column-count:4;column-count:4;-webkit-column-gap:2.5em;column-gap:2.5em;border-top:solid 1px ", ";padding-top:1.25em;padding-bottom:1em;width:85%;margin:2rem auto;margin-left:calc(7.5% + 2rem);flex-grow:1;@media (max-width:", "px){column-gap:1.5rem;}@media (max-width:", "px){column-count:3;}@media (max-width:", "px){column-count:2;}@media (max-width:", "px){column-gap:1rem;width:90%;margin-left:calc(5% + 2rem);}@media (max-width:", "px){column-count:1;width:95%;margin-left:auto;}&::after{content:'';width:100%;position:fixed;height:40px;background:", ";pointer-events:none;bottom:0;left:0;}"], _constants__WEBPACK_IMPORTED_MODULE_1__["constants"].text_grey_mid_two, _constants__WEBPACK_IMPORTED_MODULE_1__["sizes"].desktop_lg, _constants__WEBPACK_IMPORTED_MODULE_1__["sizes"].desktop_md, _constants__WEBPACK_IMPORTED_MODULE_1__["sizes"].desktop_sm, _constants__WEBPACK_IMPORTED_MODULE_1__["sizes"].tablet, _constants__WEBPACK_IMPORTED_MODULE_1__["sizes"].mobile, function (props) {
   return props.theme.fade;
 });
 var StatusMessageStyles = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div.withConfig({
@@ -1407,7 +1466,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
 /* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./constants */ "./components/styles/constants.ts");
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\nhtml {\n    background: ", ";\n    color: ", ";\n    margin: 0;\n    padding: 0;\n}\n\nbody {\n    font-family: ", ";\n    /* opacity: 0; */\n    -webkit-transition: opacity 0.5s ease-in;\n    transition: opacity 0.5s ease-in;\n    margin: 0;\n    padding: 0;\n}\n\n\n* {\n  box-sizing: border-box;\n  margin: 0;\n  padding: 0;\n}\n\n\na:link {\n\ttext-decoration: none;\n\tcolor: inherit;\n}\n\na:visited {\n\tcolor: inherit;\n}\n\nbutton {\n\tbackground: transparent;\n\tborder: 0;\n}\n\nsvg {\n  fill: ", ";\n}\n\n.page-transition-enter {\n            opacity: 0;\n          }\n          .page-transition-enter-active {\n            opacity: 1;\n            transition: opacity 200ms;\n          }\n          .page-transition-exit {\n            opacity: 1;\n          }\n          .page-transition-exit-active {\n            opacity: 0;\n            transition: opacity 200ms;\n          }\n"]);
+  var data = _taggedTemplateLiteral(["\nhtml {\n    background: ", ";\n    color: ", ";\n    margin: 0;\n    padding: 0;\n}\n\nbody {\n    font-family: ", ";\n    /* opacity: 0; */\n    -webkit-transition: opacity 0.5s ease-in;\n    transition: opacity 0.5s ease-in;\n    margin: 0;\n    padding: 0;\n}\n\n#__next {\n  min-height: 100vh;\n  display: flex;\n  flex-direction: column;\n}\n\n\n* {\n  box-sizing: border-box;\n  margin: 0;\n  padding: 0;\n}\n\n\na:link {\n\ttext-decoration: none;\n\tcolor: inherit;\n}\n\na:visited {\n\tcolor: inherit;\n}\n\nbutton {\n\tbackground: transparent;\n\tborder: 0;\n}\n\nsvg {\n  fill: ", ";\n}\n\n.page-transition-enter {\n            opacity: 0;\n          }\n          .page-transition-enter-active {\n            opacity: 1;\n            transition: opacity 200ms;\n          }\n          .page-transition-exit {\n            opacity: 1;\n          }\n          .page-transition-exit-active {\n            opacity: 0;\n            transition: opacity 200ms;\n          }\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -1451,9 +1510,9 @@ __webpack_require__.r(__webpack_exports__);
 var StyledHeader = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].header.withConfig({
   displayName: "HeaderStyles__StyledHeader",
   componentId: "fr55j3-0"
-})(["z-index:350;display:flex;align-items:center;width:100%;background:", ";-webkit-box-shadow:0 0 0 1px ", ";box-shadow:0 0 0 1px ", ";grid-area:header;position:sticky;top:0;.header__title-wrapper{display:flex;align-items:center;}.header__nav-wrapper{display:flex;justify-content:flex-end;padding-top:0.25rem;}ul{display:flex;justify-content:flex-end;flex-grow:1;margin:0.5rem 0;@media (max-width:", "px){justify-content:flex-start;}@media (max-width:", "px){justify-content:flex-end;}}"], function (props) {
+})(["z-index:350;display:flex;align-items:center;width:100%;background:", ";box-shadow:0 0 0 1px ", ";grid-area:header;position:sticky;top:0;.header__title-wrapper{display:flex;align-items:center;}.header__nav-wrapper{display:flex;justify-content:flex-end;padding-top:0.25rem;> a{margin:0 0.5rem;border-bottom:solid 1px transparent;&:last-of-type{margin-right:0;}&:hover{border-bottom:solid 1px currentColor;}}}ul{display:flex;justify-content:flex-end;flex-grow:1;margin:0.5rem 0;@media (max-width:", "px){justify-content:flex-start;}@media (max-width:", "px){justify-content:flex-end;}}"], function (props) {
   return props.theme.header_background;
-}, _constants__WEBPACK_IMPORTED_MODULE_0__["constants"].text_grey_mid_two, _constants__WEBPACK_IMPORTED_MODULE_0__["constants"].text_grey_mid_two, _constants__WEBPACK_IMPORTED_MODULE_0__["sizes"].desktop_sm, _constants__WEBPACK_IMPORTED_MODULE_0__["sizes"].tablet);
+}, _constants__WEBPACK_IMPORTED_MODULE_0__["constants"].text_grey_mid_two, _constants__WEBPACK_IMPORTED_MODULE_0__["sizes"].desktop_sm, _constants__WEBPACK_IMPORTED_MODULE_0__["sizes"].tablet);
 var StyledMasthead = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div.withConfig({
   displayName: "HeaderStyles__StyledMasthead",
   componentId: "fr55j3-1"
@@ -1511,7 +1570,7 @@ __webpack_require__.r(__webpack_exports__);
 var LoaderStyles = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div.withConfig({
   displayName: "LoaderStyles",
   componentId: "rqwkb1-0"
-})(["display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;width:3.5em;color:", ";font-family:", ";user-select:none;font-size:7.5vh;opacity:0.8;margin:auto;position:absolute;top:30vh;left:0;right:0;bottom:0;span{display:inline-block;-webkit-animation:pulse 0.4s alternate infinite ease-in-out;animation:pulse 0.4s alternate infinite ease-in-out;}span:nth-child(odd){-webkit-animation-delay:0.4s;animation-delay:0.4s;}@-webkit-keyframes pulse{to{-webkit-transform:scale(0.8);transform:scale(0.8);opacity:0.5;}}@keyframes pulse{to{-webkit-transform:scale(0.8);transform:scale(0.8);opacity:0.5;}}"], function (props) {
+})(["display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;height:3.5rem;width:3.5em;color:", ";font-family:", ";user-select:none;font-size:7.5vh;opacity:0.8;margin:auto;position:absolute;top:0;left:0;right:0;bottom:0;span{display:inline-block;-webkit-animation:pulse 0.4s alternate infinite ease-in-out;animation:pulse 0.4s alternate infinite ease-in-out;}span:nth-child(odd){-webkit-animation-delay:0.4s;animation-delay:0.4s;}@-webkit-keyframes pulse{to{-webkit-transform:scale(0.8);transform:scale(0.8);opacity:0.5;}}@keyframes pulse{to{-webkit-transform:scale(0.8);transform:scale(0.8);opacity:0.5;}}"], function (props) {
   return props.theme.button_colour;
 }, _styles_constants__WEBPACK_IMPORTED_MODULE_1__["constants"].sansSerif);
 /* harmony default export */ __webpack_exports__["default"] = (LoaderStyles);
@@ -1589,7 +1648,7 @@ __webpack_require__.r(__webpack_exports__);
 var ThemeTogglerStyles = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div.withConfig({
   displayName: "ThemeTogglerStyles",
   componentId: "sc-13n4n17-0"
-})(["display:flex;color:", ";font-size:0.875rem;.toggle-container{display:flex;cursor:pointer;border-top-right-radius:10px;border-bottom-right-radius:10px;margin-left:1em;}input[type=checkbox]{height:0;width:0;visibility:hidden;cursor:pointer;}label{cursor:pointer;text-indent:-9999px;width:52px;height:20px;background:", ";float:left;border-radius:5px;position:relative;display:flex;justify-content:space-between;div{display:flex;align-items:flex-end;height:100%;padding:0 5px;svg{height:17px;width:auto;fill:", ";}}}label:after{content:'';position:absolute;top:2px;right:2px;width:22px;height:16px;background:", ";border-radius:3px;transition:transform 0.3s;will-change:transform;}input:checked + label{background:", ";}input:checked + label:after{transform:translateX(calc((-100%) - 4px));}html.transition,html.transition *,html.transition *:before,html.transition *:after{transition:all 500ms !important;transition-delay:0 !important;}@media (max-width:", "px){span{display:none;}}"], function (props) {
+})(["display:flex;color:", ";font-size:0.875rem;margin:0 1rem;.toggle-container{display:flex;cursor:pointer;border-top-right-radius:10px;border-bottom-right-radius:10px;margin-left:1em;}input[type=checkbox]{height:0;width:0;visibility:hidden;cursor:pointer;}label{cursor:pointer;text-indent:-9999px;width:52px;height:20px;background:", ";float:left;border-radius:5px;position:relative;display:flex;justify-content:space-between;div{display:flex;align-items:flex-end;height:100%;padding:0 5px;svg{height:17px;width:auto;fill:", ";}}}label:after{content:'';position:absolute;top:2px;right:2px;width:22px;height:16px;background:", ";border-radius:3px;transition:transform 0.3s;will-change:transform;}input:checked + label{background:", ";}input:checked + label:after{transform:translateX(calc((-100%) - 4px));}html.transition,html.transition *,html.transition *:before,html.transition *:after{transition:all 500ms !important;transition-delay:0 !important;}@media (max-width:", "px){span{display:none;}}"], function (props) {
   return props.theme.button_colour;
 }, function (props) {
   return props.theme.button_colour;
@@ -1656,7 +1715,8 @@ var lightTheme = {
   button_colour: constants.nearBlack,
   button_hover_colour: '#fff',
   mid_grey: '#ccc',
-  fade: "linear-gradient(rgba(255, 255, 255, 0.001), #fff)"
+  fade: "linear-gradient(rgba(255, 255, 255, 0.001), #fff)",
+  border_colour: constants.text_grey_mid_two
 };
 var darkTheme = {
   header_background: constants.nearBlack,
@@ -1666,7 +1726,8 @@ var darkTheme = {
   button_colour: '#fff',
   button_hover_colour: constants.nearBlack,
   mid_grey: '#ccc',
-  fade: "linear-gradient(rgba(36,41,46, 0.001), ".concat(constants.nearBlack, ")")
+  fade: "linear-gradient(rgba(36,41,46, 0.001), ".concat(constants.nearBlack, ")"),
+  border_colour: constants.text_grey_mid_two
 };
 
 /***/ }),
@@ -15955,7 +16016,9 @@ var IndexPage = function IndexPage(_ref) {
       onAddNewFavourite = _ref.onAddNewFavourite,
       toggleTheme = _ref.toggleTheme,
       themeName = _ref.themeName,
-      props = _objectWithoutProperties(_ref, ["onSearchSubmit", "onAddNewFavourite", "toggleTheme", "themeName"]);
+      isAuthenticated = _ref.isAuthenticated,
+      onLogoutClick = _ref.onLogoutClick,
+      props = _objectWithoutProperties(_ref, ["onSearchSubmit", "onAddNewFavourite", "toggleTheme", "themeName", "isAuthenticated", "onLogoutClick"]);
 
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Layout__WEBPACK_IMPORTED_MODULE_2__["default"], {
     title: "RedditDev - the best of frontend web development on Reddit.",
@@ -15963,16 +16026,19 @@ var IndexPage = function IndexPage(_ref) {
     onAddNewFavourite: onAddNewFavourite,
     toggleTheme: toggleTheme,
     themeName: themeName,
+    isAuthenticated: isAuthenticated,
+    onLogoutClick: onLogoutClick,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 18
+      lineNumber: 17
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_CardContainer__WEBPACK_IMPORTED_MODULE_1__["default"], _extends({}, props, {
+    isAuthenticated: true,
     emptyState: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_StatusMessage__WEBPACK_IMPORTED_MODULE_3__["default"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 28
+        lineNumber: 30
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", {
@@ -15980,14 +16046,14 @@ var IndexPage = function IndexPage(_ref) {
       viewBox: "0 0 100 125",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 29
+        lineNumber: 31
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
       d: "M43.241,40.677l3.315-7.292c-2.651-4.751-7.724-7.966-13.551-7.966c-8.567,0-15.513,6.945-15.513,15.513 c0,17.471,27.078,32.54,29,33.588l-3.25-13.814l6.676-9.537L43.241,40.677z",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 30
+        lineNumber: 32
       },
       __self: this
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
@@ -16000,13 +16066,13 @@ var IndexPage = function IndexPage(_ref) {
     })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 37
+        lineNumber: 35
       },
       __self: this
     }, "No posts.")),
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 25
+      lineNumber: 26
     },
     __self: this
   })));

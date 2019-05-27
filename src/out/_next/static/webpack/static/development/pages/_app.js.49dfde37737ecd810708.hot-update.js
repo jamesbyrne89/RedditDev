@@ -69,7 +69,29 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-var DISPLAY_PREFERENCE_KEY = 'redditdev-display-mode';
+var DISPLAY_PREFERENCE_KEY = 'redditdev-display-mode'; // const checkAuthAndRedirect = res => {
+//   if (res) {
+//     res.writeHead(302, {});
+//     res.end();
+//   } else {
+//     Router.push('localhost:3000/login');
+//   }
+//   return {};
+// };
+
+function setupServiceWorker() {
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function () {
+      navigator.serviceWorker.register('/service-worker.js', {
+        scope: '/'
+      }).then(function (registration) {
+        console.log('SW registered: ', registration);
+      }).catch(function (registrationError) {
+        console.log('SW registration failed: ', registrationError);
+      });
+    });
+  }
+}
 
 var MyApp =
 /*#__PURE__*/
@@ -96,11 +118,12 @@ function (_App) {
       isFiltered: false,
       favourites: [],
       theme: _components_styles_constants__WEBPACK_IMPORTED_MODULE_8__["lightTheme"],
-      themeName: 'light'
+      themeName: 'light',
+      uid: null
     });
 
     _defineProperty(_assertThisInitialized(_this), "getFavourites", function () {
-      _db_firestore__WEBPACK_IMPORTED_MODULE_6__["default"].collection('favourites').onSnapshot(function (querySnapshot) {
+      _db_firestore__WEBPACK_IMPORTED_MODULE_6__["default"].collection('users').doc(_this.state.uid).collection('favourites').onSnapshot(function (querySnapshot) {
         var favourites = querySnapshot.docs.map(function (doc) {
           return {
             doc_id: doc.id,
@@ -189,7 +212,7 @@ function (_App) {
         return _this.removeFromFavourites(postToAdd);
       }
 
-      _db_firestore__WEBPACK_IMPORTED_MODULE_6__["default"].collection('favourites').add(postToAdd).then(function (docRef) {
+      _db_firestore__WEBPACK_IMPORTED_MODULE_6__["default"].collection('users').doc(_this.state.uid).collection('favourites').add(postToAdd).then(function (docRef) {
         console.log('added', _objectSpread({}, postToAdd, {
           doc_id: docRef.id
         }));
@@ -199,7 +222,7 @@ function (_App) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "removeFromFavourites", function (postToRemove) {
-      _db_firestore__WEBPACK_IMPORTED_MODULE_6__["default"].collection('favourites').doc(postToRemove.doc_id).delete();
+      _db_firestore__WEBPACK_IMPORTED_MODULE_6__["default"].collection('users').doc(_this.state.uid).collection('favourites').doc(postToRemove.doc_id).delete();
     });
 
     _defineProperty(_assertThisInitialized(_this), "toggleTheme", function () {
@@ -208,6 +231,12 @@ function (_App) {
           theme: currentState.theme == _components_styles_constants__WEBPACK_IMPORTED_MODULE_8__["darkTheme"] ? _components_styles_constants__WEBPACK_IMPORTED_MODULE_8__["lightTheme"] : _components_styles_constants__WEBPACK_IMPORTED_MODULE_8__["darkTheme"],
           themeName: currentState.themeName == 'light' ? 'dark' : 'light'
         };
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "handleLogout", function () {
+      _db_firestore__WEBPACK_IMPORTED_MODULE_6__["auth"].signOut().then(function () {
+        console.log('Logged out.');
       });
     });
 
@@ -220,15 +249,43 @@ function (_App) {
       var _componentDidMount = _asyncToGenerator(
       /*#__PURE__*/
       _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        var _this2 = this;
+
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
                 this.getPosts();
-                this.getFavourites();
                 this.getDisplayPreference();
+                setupServiceWorker();
+                _db_firestore__WEBPACK_IMPORTED_MODULE_6__["auth"].onAuthStateChanged(function (user) {
+                  console.log('Auth state changed.');
 
-              case 3:
+                  if (user) {
+                    console.info('*** User is signed in ***', user);
+
+                    _this2.setState({
+                      isAuthenticated: user,
+                      uid: user.uid
+                    });
+
+                    _db_firestore__WEBPACK_IMPORTED_MODULE_6__["default"].collection('users').doc(user.uid).set({
+                      email: user.email
+                    });
+
+                    _this2.getFavourites();
+                  } else {
+                    console.warn('*** User is signed out ***');
+
+                    _this2.setState({
+                      isAuthenticated: null,
+                      uid: null
+                    }); // checkAuthAndRedirect(ctx.res);
+
+                  }
+                });
+
+              case 4:
               case "end":
                 return _context2.stop();
             }
@@ -256,34 +313,38 @@ function (_App) {
           isFiltered = _this$state.isFiltered,
           theme = _this$state.theme,
           themeName = _this$state.themeName,
-          favourites = _this$state.favourites;
+          favourites = _this$state.favourites,
+          loading = _this$state.loading,
+          isAuthenticated = _this$state.isAuthenticated;
       var _this$props = this.props,
           Component = _this$props.Component,
           pageProps = _this$props.pageProps;
       return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(next_app__WEBPACK_IMPORTED_MODULE_2__["Container"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 137
+          lineNumber: 202
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(styled_components__WEBPACK_IMPORTED_MODULE_7__["ThemeProvider"], {
         theme: theme,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 138
+          lineNumber: 203
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Component, _extends({}, pageProps, {
         posts: isFiltered ? filteredPosts : posts,
-        loading: this.state.loading,
+        loading: loading,
         onSearchSubmit: this.filterPosts,
         onAddToFavourites: this.addToFavourites,
         favourites: favourites,
         toggleTheme: this.toggleTheme,
         themeName: themeName,
+        isAuthenticated: isAuthenticated,
+        onLogoutClick: this.handleLogout,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 139
+          lineNumber: 204
         },
         __self: this
       }))));
@@ -363,4 +424,4 @@ function (_App) {
 /***/ })
 
 })
-//# sourceMappingURL=_app.js.38ee46e87c635228d8d7.hot-update.js.map
+//# sourceMappingURL=_app.js.49dfde37737ecd810708.hot-update.js.map
