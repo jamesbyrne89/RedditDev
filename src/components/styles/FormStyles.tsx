@@ -54,3 +54,13 @@ export const FormSubmitButtonStyles = styled.button`
     background: ${props => props.theme.button_colour};
   }
 `;
+
+export const ErrorMessageStyles = styled.span`
+  display: block;
+  font-family: ${constants.sansSerif};
+  color: red;
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  min-height: 2.5em;
+  line-height: 1.2;
+`;

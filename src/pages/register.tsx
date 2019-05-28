@@ -1,10 +1,16 @@
 import { useState } from 'react';
+import Router from 'next/router';
 import db, { auth } from '../db/firestore';
 import {
   FormStyles,
-  FormSubmitButtonStyles
+  FormSubmitButtonStyles,
+  ErrorMessageStyles
 } from '../components/styles/FormStyles';
 import Input from '../components/Input';
+
+const redirectToHome = () => {
+  Router.push('/');
+};
 
 const Register = () => {
   const [userInput, setUserInput] = useState({
@@ -13,23 +19,27 @@ const Register = () => {
     password2: ''
   });
 
+  const [errorMessage, setErrorMessage] = useState('');
+
   const createNewUser = e => {
     if (
       !userInput.password.length > 5 &&
       userInput.password === userInput.password2
     ) {
       throw new Error('Passwords do not match');
-      return;
     }
     e.preventDefault();
     auth
       .createUserWithEmailAndPassword(userInput.user, userInput.password)
-      .then(cred => db.collection('users').doc(cred.user.uid))
+      .then(cred => {
+        db.collection('users').doc(cred.user.uid);
+        redirectToHome();
+      })
       .catch(error => {
         // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        console.log(error);
+        const { code, message } = error;
+        console.log(message);
+        setErrorMessage(message);
         // ...
       });
   };
@@ -63,6 +73,7 @@ const Register = () => {
           type="password"
           placeholder="Retype password"
         />
+        <ErrorMessageStyles>{errorMessage}</ErrorMessageStyles>
         <FormSubmitButtonStyles onClick={createNewUser}>
           Register
         </FormSubmitButtonStyles>
