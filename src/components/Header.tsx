@@ -5,10 +5,10 @@ import NProgress from 'nprogress';
 import Search from '../components/Search';
 import ThemeToggler from './ThemeToggler';
 import {
-  StyledHeader,
-  StyledMasthead,
-  StyledHeaderTitle,
-  StyledNavItem
+  HeaderStyles,
+  MastheadStyles,
+  LogoStyles,
+  NavItemStyles
 } from './styles/HeaderStyles';
 
 const onRouteChangeStart = () => {
@@ -32,14 +32,14 @@ interface Props {
 }
 
 const Header: React.FunctionComponent<Props> = props => (
-  <StyledHeader>
-    <StyledMasthead>
+  <HeaderStyles>
+    <MastheadStyles>
       <div className="header__title-wrapper">
-        <StyledHeaderTitle>
+        <LogoStyles>
           <Link href="/">
             <a>redditDev.</a>
           </Link>
-        </StyledHeaderTitle>
+        </LogoStyles>
       </div>
       <div>
         <div className="header__nav-wrapper">
@@ -61,19 +61,19 @@ const Header: React.FunctionComponent<Props> = props => (
         </div>
         <ul>
           {props.isAuthenticated && (
-            <StyledNavItem>
+            <NavItemStyles>
               <Link href="/favourites">
                 <a>Favourites</a>
               </Link>
-            </StyledNavItem>
+            </NavItemStyles>
           )}
-          <StyledNavItem>
+          <NavItemStyles>
             <Search onSearchSubmit={props.onSearchSubmit} />
-          </StyledNavItem>
+          </NavItemStyles>
         </ul>
       </div>
-    </StyledMasthead>
-  </StyledHeader>
+    </MastheadStyles>
+  </HeaderStyles>
 );
 
 export default Header;

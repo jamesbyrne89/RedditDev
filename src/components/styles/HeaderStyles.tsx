@@ -1,7 +1,7 @@
 import { constants, sizes } from './constants';
 import styled from 'styled-components';
 
-export const StyledHeader = styled.header`
+export const HeaderStyles = styled.header`
   z-index: 350;
   display: flex;
   align-items: center;
@@ -44,7 +44,7 @@ export const StyledHeader = styled.header`
   }
 `;
 
-export const StyledMasthead = styled.div`
+export const MastheadStyles = styled.div`
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -66,9 +66,9 @@ export const StyledMasthead = styled.div`
   }
 `;
 
-export const StyledHeaderTitle = styled.h1`
+export const LogoStyles = styled.h1`
   font-family: 'Tiempos Headline Black';
-  font-size: 3.75rem;
+  font-size: ${props => props.fontSize || '3.75rem'};
   font-weight: 700;
   -webkit-box-flex: 0;
   -ms-flex: 0 0 200px;
@@ -78,29 +78,14 @@ export const StyledHeaderTitle = styled.h1`
   line-height: 1;
   text-align: left;
   margin: 0;
+  padding: ${props => props.padding || '0'};
   cursor: pointer;
   @media (max-width: ${sizes.tablet}px) {
     font-size: 2.5rem;
   }
 `;
 
-// export const StyledHeaderDescription = styled.h2`
-//   font-family: ${constants.sansSerif};
-//   font-size: 1rem;
-//   padding-bottom: 0.25em;
-//   color: #495456;
-//   font-weight: 400;
-//   line-height: 1.2;
-//   -webkit-transition: all 0.3s;
-//   transition: all 0.3s;
-//   padding-right: 1em;
-//   margin-left: 1rem;
-//   max-width: 20em;
-//   @media (max-width: ${sizes.tablet}px) {
-//     display: none;
-//   }
-// `;
-export const StyledNavItem = styled.li`
+export const NavItemStyles = styled.li`
   display: flex;
   align-items: center;
   margin-left: -2px;

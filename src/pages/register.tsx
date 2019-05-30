@@ -1,6 +1,8 @@
-import { useState } from 'react';
+import { Fragment, useState } from 'react';
 import Router from 'next/router';
 import db, { auth } from '../db/firestore';
+import GlobalStyles from '../components/styles/GlobalStyles';
+import { HeaderStyles, LogoStyles } from '../components/styles/HeaderStyles';
 import {
   FormStyles,
   FormSubmitButtonStyles,
@@ -49,36 +51,44 @@ const Register = () => {
   };
 
   return (
-    <div>
-      <FormStyles onSubmit={createNewUser}>
-        <h2>Register</h2>
-        <Input
-          name="user"
-          onChange={onInputChange}
-          value={userInput.user}
-          type="email"
-          placeholder="Email"
-        />
-        <Input
-          name="password"
-          onChange={onInputChange}
-          value={userInput.password}
-          type="password"
-          placeholder="Password"
-        />
-        <Input
-          name="password2"
-          onChange={onInputChange}
-          value={userInput.password2}
-          type="password"
-          placeholder="Retype password"
-        />
-        <ErrorMessageStyles>{errorMessage}</ErrorMessageStyles>
-        <FormSubmitButtonStyles onClick={createNewUser}>
-          Register
-        </FormSubmitButtonStyles>
-      </FormStyles>
-    </div>
+    <Fragment>
+      <GlobalStyles />
+      <HeaderStyles>
+        <LogoStyles padding="0.5em" fontSize="2rem">
+          redditDev.
+        </LogoStyles>
+      </HeaderStyles>
+      <div>
+        <FormStyles onSubmit={createNewUser}>
+          <h2>Register</h2>
+          <Input
+            name="user"
+            onChange={onInputChange}
+            value={userInput.user}
+            type="email"
+            placeholder="Email"
+          />
+          <Input
+            name="password"
+            onChange={onInputChange}
+            value={userInput.password}
+            type="password"
+            placeholder="Password"
+          />
+          <Input
+            name="password2"
+            onChange={onInputChange}
+            value={userInput.password2}
+            type="password"
+            placeholder="Retype password"
+          />
+          <ErrorMessageStyles>{errorMessage}</ErrorMessageStyles>
+          <FormSubmitButtonStyles onClick={createNewUser}>
+            Register
+          </FormSubmitButtonStyles>
+        </FormStyles>
+      </div>
+    </Fragment>
   );
 };
 
