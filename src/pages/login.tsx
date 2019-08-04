@@ -1,6 +1,7 @@
 import { useState, useEffect, Fragment } from 'react';
 import Router from 'next/router';
 import { auth } from '../db/firestore';
+import GlobalStyles from '../components/styles/GlobalStyles';
 import { LogoStyles } from '../components/styles/HeaderStyles';
 import {
   FormStyles,
@@ -34,7 +35,7 @@ const Login = ({ isAuthenticated, loading }) => {
 
   return (
     <Fragment>
-      <GlobalStyles {...props} />
+      <GlobalStyles />
       <LogoStyles padding="1em" fontSize="1.5rem">
         redditDev.
       </LogoStyles>
