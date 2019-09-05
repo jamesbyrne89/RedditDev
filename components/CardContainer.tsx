@@ -28,7 +28,7 @@ const CardContainer = (props: Props) => {
   return (
     <CardContainerStyles>
       {loading ? (
-        Array(50).map(() => <CardLoadingState />)
+        Array(50).fill(<CardLoadingState isLoadingState={true} />)
       ) : posts.length === 0 && EmptyState ? (
         <EmptyState />
       ) : (

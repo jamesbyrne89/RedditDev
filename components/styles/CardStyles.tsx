@@ -22,8 +22,8 @@ export const CardStyles = styled.article`
     -webkit-transform 0.7s cubic-bezier(0.165, 0.84, 0.44, 1) 0s;
   -webkit-column-break-inside: avoid;
   ${({ isLoading }) => isLoading && `min-height: 240px`};
-  ${({ isAnimated }) =>
-    isAnimated &&
+  ${({ isAnimated, isLoading }) =>
+    (isAnimated || isLoading) &&
     `transform: translateY(0) scale(1);
       opacity: 1;`}
   .card-header {
