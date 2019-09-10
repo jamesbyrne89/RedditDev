@@ -1,19 +1,24 @@
 import React from 'react';
 import ThemeTogglerStyles from './styles/ThemeTogglerStyles';
 
-const ThemeToggleButton = props => {
+interface Props {
+  themeName: string;
+  toggle: () => void;
+}
+
+const ThemeToggleButton = ({themeName, toggle}: Props) => {
   return (
     <ThemeTogglerStyles>
       <span>
-        {props.themeName === 'light' ? 'Dark mode' : 'Light mode'}
+        {themeName === 'light' ? 'Dark mode' : 'Light mode'}
       </span>
       <div className="toggle-container">
         <input
           type="checkbox"
           id="switch"
           name="theme"
-          onClick={props.toggle}
-          defaultChecked={!!(props.themeName === 'dark')}
+          onClick={toggle}
+          defaultChecked={!!(themeName === 'dark')}
         /><label htmlFor="switch">
           <div className="mode-icon--dark-mode">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 640">
