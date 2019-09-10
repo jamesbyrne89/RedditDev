@@ -34,14 +34,12 @@ const CardContainer = (props: Props) => {
       ) : (
         isAuthenticated &&
         posts.map((post: IRedditPost): any => {
-          const favouriteMatch: [] = favourites.filter(
+          const favouriteMatch: any = favourites.find(
             isAlreadyFavourite({
               data: { title: post.data.title, id: post.data.id }
             })
           );
-          const docId = favouriteMatch[0]
-            ? favouriteMatch[0].doc_id
-            : undefined;
+          const docId = favouriteMatch ? favouriteMatch.doc_id : undefined;
           const isInFavourites = !!(favouriteMatch.length > 0);
           return (
             <Card

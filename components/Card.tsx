@@ -22,7 +22,7 @@ type Props = {
   permalink: string;
   num_comments: number;
   created_utc: number;
-  onAddToFavourites: Function;
+  onAddToFavourites: () => void;
   isFavourite: boolean;
   doc_id?: string;
 };
