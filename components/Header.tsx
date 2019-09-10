@@ -2,7 +2,7 @@ import { Fragment } from 'react';
 import Link from 'next/link';
 import Router from 'next/router';
 import NProgress from 'nprogress';
-import Search from '../components/Search';
+import Search from './Search';
 import ThemeToggler from './ThemeToggler';
 import {
   HeaderStyles,
@@ -29,9 +29,19 @@ Router.events.on('routeChangeError', onRouteChangeError);
 
 interface Props {
   onSearchSubmit: Function;
+  themeName: 'light' | 'dark';
+  toggle: () => void;
+  onLogoutClick: () => void;
+  isAuthenticated: boolean;
 }
 
-const Header: React.FunctionComponent<Props> = props => (
+const Header: React.FunctionComponent<Props> = ({
+  themeName,
+  toggle,
+  onLogoutClick,
+  isAuthenticated,
+  onSearchSubmit
+}: Props) => (
   <HeaderStyles>
     <MastheadStyles>
       <div className="header__title-wrapper">
@@ -43,10 +53,10 @@ const Header: React.FunctionComponent<Props> = props => (
       </div>
       <div>
         <div className="header__nav-wrapper">
-          <ThemeToggler themeName={props.themeName} toggle={props.toggle} />
-          {props.isAuthenticated ? (
+          <ThemeToggler themeName={themeName} toggle={toggle} />
+          {isAuthenticated ? (
             <Link href=".">
-              <a onClick={props.onLogoutClick}>Logout</a>
+              <a onClick={onLogoutClick}>Logout</a>
             </Link>
           ) : (
             <Fragment>
@@ -60,7 +70,7 @@ const Header: React.FunctionComponent<Props> = props => (
           )}
         </div>
         <ul>
-          {props.isAuthenticated && (
+          {isAuthenticated && (
             <NavItemStyles>
               <Link href="/favourites">
                 <a>Favourites</a>
@@ -68,7 +78,7 @@ const Header: React.FunctionComponent<Props> = props => (
             </NavItemStyles>
           )}
           <NavItemStyles>
-            <Search onSearchSubmit={props.onSearchSubmit} />
+            <Search onSearchSubmit={onSearchSubmit} />
           </NavItemStyles>
         </ul>
       </div>

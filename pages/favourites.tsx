@@ -4,7 +4,7 @@ import CardContainer from '../components/CardContainer';
 import StatusMessage from '../components/StatusMessage';
 import db from '../db/firestore';
 import { IFavouritePost } from '../interfaces/index';
-import Login from '../pages/login';
+import Login from './login';
 import { Centred } from '../components/styles/Helpers';
 
 async function getFavourites(): Promise<any> {
@@ -17,7 +17,7 @@ async function getFavourites(): Promise<any> {
   return { favourites };
 }
 
-type P = {
+interface Props {
   favourites: IFavouritePost[];
   onSearchSubmit: Function;
   onAddNewFavourite: Function;
@@ -26,8 +26,8 @@ type P = {
   loading: boolean;
   isAuthenticated: any;
   onLogoutClick: Function;
-};
-class FavouritesPage extends React.Component<P> {
+}
+class FavouritesPage extends React.Component<Props> {
   static async getInitialProps() {
     return getFavourites();
   }
@@ -69,7 +69,7 @@ class FavouritesPage extends React.Component<P> {
         )}
         {!isAuthenticated && !loading && (
           <Centred>
-            <Login />
+            <Login isAuthenticated={isAuthenticated} loading={loading} />
           </Centred>
         )}
       </Layout>

@@ -11,7 +11,7 @@ type Props = {
   favourites: [];
   loading: boolean;
   EmptyState: React.FunctionComponent;
-  onAddToFavourites: Function;
+  onAddToFavourites?: () => void;
   isAuthenticated: any;
 };
 
