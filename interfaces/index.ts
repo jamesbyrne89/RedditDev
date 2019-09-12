@@ -1,4 +1,4 @@
-export interface IRedditPost {
+export interface RedditPost {
   data: {
     id: string;
     subreddit_name_prefixed: string;
@@ -11,7 +11,7 @@ export interface IRedditPost {
   };
 }
 
-export interface IFavouritePost extends IRedditPost {
+export interface IFavouritePost extends RedditPost {
   doc_id?: string;
 }
 
@@ -21,7 +21,7 @@ export interface ILayoutProps {
   onAddNewFavourite: Function;
 }
 
-export interface IInputProps {
+export interface InputProps {
   name: string;
   type: string;
   placeholder: string;

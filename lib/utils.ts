@@ -1,4 +1,4 @@
-import { IRedditPost } from '../interfaces/index';
+import { RedditPost } from '../interfaces/index';
 
 export function mapSubsToColours(sub: string): string {
   switch (sub.replace('r/', '').toLowerCase()) {
@@ -28,7 +28,7 @@ export function mapSubsToColours(sub: string): string {
 }
 
 export function getHostname(url: string): string {
-  var match = url.match(/:\/\/(www[0-9]?\.)?(.[^/:]+)/i);
+  var match = url.match(/:\/\/(www[0-9]?\.)?(.[^/:]+)/i)!;
   return match[2];
 }
 
@@ -58,47 +58,52 @@ export function getTimeAgo(timestamp: number): string {
     return 'Yesterday';
   } else if (mins > 60) {
     return hours + 'h ago';
-  } else if (2 < mins < 60) {
+  } else if (2 < mins && mins < 60) {
     return mins + 'm ago';
   } else {
     return mins + 'Just now';
   }
 }
 
-export function debounce(func: Function, wait = 100, immediate?: boolean) {
+export function debounce(func: any, wait = 100, immediate?: boolean) {
   let timeout: any;
   return function() {
-    let context = this, args = arguments;
+    let context = this,
+      args = arguments;
     let later = function() {
       timeout = null;
-      if (!immediate)
-        func.apply(context, args);
+      if (!immediate) func.apply(context, args);
     };
     let callNow = immediate && !timeout;
     clearTimeout(timeout);
     timeout = setTimeout(later, wait);
-    if (callNow)
-      func.apply(context, args);
+    if (callNow) func.apply(context, args);
   };
 }
 
 export function filterPostsCallback(
   searchTerm: string = '',
-  subreddits: string[] = [],
+  subreddits: string[] = []
 ): Function {
-  return (post: IRedditPost) => {
+  return (post: RedditPost) => {
     const { data } = post;
-    return (data.title.includes(searchTerm) || data.url.includes(searchTerm)) &&
-      subreddits.includes(data.subreddit);
+    return (
+      (data.title.includes(searchTerm) || data.url.includes(searchTerm)) &&
+      subreddits.includes(data.subreddit)
+    );
   };
 }
 
-interface PostToCheckType { data: { title: string, id: string } }
+interface PostToCheckType {
+  data: { title: string; id: string };
+}
 
 export function isAlreadyFavourite(postToCheck: PostToCheckType): any {
-  return (post: IRedditPost) => {
-    return postToCheck.data.title === post.data.title &&
-      postToCheck.data.id === post.data.id;
+  return (post: RedditPost) => {
+    return (
+      postToCheck.data.title === post.data.title &&
+      postToCheck.data.id === post.data.id
+    );
   };
 }
 

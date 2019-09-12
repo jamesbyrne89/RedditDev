@@ -3,8 +3,8 @@ import { debounce, mapSubsToColours } from '../lib/utils';
 import SearchStyles, { SearchDropdownStyles } from './styles/SearchStyles';
 import { SubRedditNameStyles } from './styles/CardStyles';
 
-interface IProps {
-  onSearchSubmit: Function;
+interface Props {
+  onSearchSubmit: (input: string, selectedSubs: string[]) => void;
 }
 
 //interface State { input: string }
@@ -22,7 +22,7 @@ const subreddits = [
   'vue'
 ];
 
-const Search = (props: IProps) => {
+const Search = ({ onSearchSubmit }: Props) => {
   const [input, setInput] = useState('');
   const [isFocused, setFocus] = useState(false);
   const [selectedSubs, setSelectedSubs] = useState(subreddits);
@@ -35,7 +35,7 @@ const Search = (props: IProps) => {
   };
 
   const onSubmit = (input: string, selectedSubs: string[]): void => {
-    props.onSearchSubmit(input, selectedSubs);
+    onSearchSubmit(input, selectedSubs);
   };
 
   const handleOutsideClick = e => {

@@ -4,10 +4,10 @@ import Card from './Card';
 import CardLoadingState from './CardLoadingState';
 import Loader from './Loader';
 import { CardContainerStyles } from './styles/CardContainerStyles';
-import { IRedditPost } from '../interfaces/index';
+import { RedditPost } from '../interfaces/index';
 
 type Props = {
-  posts: IRedditPost[];
+  posts: RedditPost[];
   favourites: [];
   loading: boolean;
   EmptyState: React.FunctionComponent;
@@ -33,7 +33,7 @@ const CardContainer = (props: Props) => {
         <EmptyState />
       ) : (
         isAuthenticated &&
-        posts.map((post: IRedditPost): any => {
+        posts.map((post: RedditPost): any => {
           const favouriteMatch: any = favourites.find(
             isAlreadyFavourite({
               data: { title: post.data.title, id: post.data.id }

@@ -3,13 +3,13 @@ import axios from 'axios';
 import { endpoints } from '../lib/subreddits';
 import { filterPostsCallback, sortByNewest } from '../lib/utils';
 import db, { auth } from '../db/firestore';
-import { IRedditPost, IFavouritePost } from '../interfaces/index';
+import { RedditPost, IFavouritePost } from '../interfaces/index';
 import { ThemeProvider } from 'styled-components';
 import { lightTheme, darkTheme } from '../components/styles/constants';
 
 interface Props {
   loading: boolean;
-  posts: IRedditPost[];
+  posts: RedditPost[];
   favourites: [];
   isAuthenticated: boolean;
 }
@@ -62,13 +62,13 @@ class MyApp extends App<Props> {
     const data = await axios.all(
       Object.keys(endpoints).map(url => axios.get(endpoints[url]))
     );
-    const cleaned: IRedditPost[] = data.reduce(
-      (acc: IRedditPost[], curr: any): IRedditPost[] => {
+    const cleaned: RedditPost[] = data.reduce(
+      (acc: RedditPost[], curr: any): RedditPost[] => {
         return [...curr.data.data.children, ...acc];
       },
       []
     );
-    const postsSortedByNewest: IRedditPost[] = cleaned.sort(sortByNewest);
+    const postsSortedByNewest: RedditPost[] = cleaned.sort(sortByNewest);
     this.setState({ posts: postsSortedByNewest, loading: false });
   };
 
